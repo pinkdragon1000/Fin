@@ -1,0 +1,190 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+:root {
+    --fin-black: rgb(26, 26, 26);
+    --fin-black-transparent: rgba(26, 26, 26, 0.5);
+    --fin-white: rgb(255, 255, 255);
+    --fin-blue-1: rgb(3, 100, 255);
+    --fin-blue-2: rgb(48, 98, 178);
+    --fin-blue-2-transparent: rgb(48, 98, 178, 0.2);
+    --fin-purple-1: rgb(67, 9, 112);
+    --fin-purple-2: rgb(118, 26, 190);
+    --fin-purple-3: rgb(184, 117, 236);
+    --fin-purple-2-transparent: rgba(118, 26, 190, 0.2);
+    --fin-red: rgb(191, 0, 0);
+    --fin-red-transparent: rgba(191, 0, 0, 0.2);
+    --fin-gradient-1: linear-gradient(25deg, #E94057, #F27121);
+    --fin-neutral-1: rgb(117, 117, 117);
+    --fin-neutral-2: rgb(148, 148, 148);
+    --fin-neutral-3: rgb(172, 172, 172);
+    --fin-neutral-3-transparent: rgba(172, 172, 172, 0.2);
+    --fin-neutral-3-transparent-2: rgba(172, 172, 172, 0.6);
+    --fin-neutral-4: rgb(205, 205, 205);
+    --fin-neutral-5: rgb(233, 233, 233);
+    --fin-neutral-6: rgb(245, 245, 245);
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+    color: var(--fin-neutral-3);
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--fin-white);
+    font-family: Inter, sans-serif;
+    color: var(--fin-black);
+}
+
+h1,
+h2,
+h3,
+h5,
+p {
+    margin: 0.5rem 0;
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.375rem;
+    margin: 0.25rem 0 1.75rem 0;
+    font-weight: 100;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1.125rem;
+    color: var(--fin-neutral-2);
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: var(--fin-black);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.3rem;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--fin-blue-1);
+}
+
+button {
+    margin: 0.375rem;
+    color: var(--fin-white);
+    word-wrap: break-word;
+    white-space: normal;
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border-radius: 0.625rem;
+    letter-spacing: 1.5px;
+    min-width: 8rem;
+}
+
+button:hover {
+    color: var(--fin-white);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--fin-blue-1);
+}
+
+.primary {
+    background: var(--fin-gradient-1);
+    float: right;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+}
+
+.primary:hover {
+    box-shadow: 2px 3px 5px 1px var(--fin-blue-1-transparent);
+}
+
+.secondary {
+    background-color: var(--fin-blue-2);
+    float: right;
+    text-transform: uppercase;
+    padding: 0.75rem 0;
+}
+
+.secondary:hover {
+    filter: brightness(0.95);
+}
+
+.tertiary {
+    background-color: var(--fin-white);
+    border: 1px var(--fin-neutral-4) solid;
+    color: var(--fin-neutral-2);
+    padding: 0.75rem 1rem;
+    min-width: 12rem;
+}
+
+.tertiary:hover {
+    box-shadow: 1px 2px 8px 1px var(--fin-neutral-3-transparent);
+}
+
+.quaternary {
+    color: var(--fin-black);
+    float: right;
+    padding: 0.75rem 0;
+    text-transform: uppercase;
+}
+
+.quaternary:hover {
+    background-color: var(--fin-neutral-3-transparent);
+}
+
+.round {
+    border-radius: 2rem;
+}
+
+hr {
+    color: var(--fin-neutral-5);
+    border: 0.5px solid;
+    margin: 1.375rem 0;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.column:not(:last-child) {
+    padding-right: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
