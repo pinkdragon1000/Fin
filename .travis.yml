@@ -7,5 +7,4 @@ cache:
 script:
   - cd angularfrontend
   - npm install
-  - ng test
-  - ng serve
+  - ng build
