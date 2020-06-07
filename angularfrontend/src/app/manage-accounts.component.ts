@@ -36,7 +36,7 @@ import { Component, OnInit } from '@angular/core';
       <div class="acc">
         <p>Click on an account to view and add information</p>
         <button
-          class="primary round"
+          class="tertiary round"
           onclick="location.href='/manageAccounts';"
         >
           Add Account
