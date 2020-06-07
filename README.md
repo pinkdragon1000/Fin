@@ -1,5 +1,8 @@
 # Fin
 
+Travis Build
+
+![Build Status](https://travis-ci.com/pinkdragon1000/Fin.svg?token=q5n1Rmswxjw88tYJB7A8&branch=master)
 * Angular application with Java backend to keep track of financial account transactions and deposits
 
 
