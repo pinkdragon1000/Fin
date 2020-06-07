@@ -1,27 +1,46 @@
 # Fin
 ![Build Status](https://travis-ci.com/pinkdragon1000/Fin.svg?token=q5n1Rmswxjw88tYJB7A8&branch=master)
 * Angular application with Java backend to keep track of financial account transactions and deposits
-
+* This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
 * End Goal: Create a Java API that will be consumed by the Angular application. 
 
-Running the Angular Application:
+### Angular Application
+<b>Running the Angular Application:</b>
 ```
 cd angularfrontend
 ng serve
 ```
 
-Viewing the Angular Application
+<b> Code scaffolding </b>
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+<b> Build</b>
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+<b> Running unit tests </b>
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+<b> Running end-to-end tests </b>
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+<b>Viewing the Angular Application:</b>
 ```
 TODO
 ```
 
-Running the Java API:
+### Java API
+
+<b>Running the Java API:</b>
 ```
 TODO
 ```
 
-Viewing the Java API:
+<b>Viewing the Java API:</b>
 ```
 TODO
 ```
