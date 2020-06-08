@@ -6,6 +6,21 @@
 * End Goal: Create a Java API that will be consumed by the Angular application. 
 
 ### Angular Application
+
+<b>Viewing the Angular Application:</b>
+
+https://finaccounts.web.app/
+
+<b>Deploying the Angular Application:</b>
+
+The frontend is deployed using [Firebase](https://firebase.google.com/).  
+
+```
+cd angularfrontend
+ng build --prod
+firebase deploy
+```
+
 <b>Running the Angular Application:</b>
 ```
 cd angularfrontend
@@ -28,10 +43,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-<b>Viewing the Angular Application:</b>
-```
-TODO
-```
+
+
 
 ### Java API
 
