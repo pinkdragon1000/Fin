@@ -1,48 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-login',
-  template: ` <div>
-    <div class="row hero">
-      <div class="column center">
-        <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
-        <h1 class="fin">Fin</h1>
-        <p class="tag-line">Financial Account Management</p>
+  template: `
+    <div>
+      <div class="row hero">
+        <div class="column center">
+          <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
+          <h1 class="fin">Fin</h1>
+          <p class="tag-line">Financial Account Management</p>
+        </div>
+      </div>
+
+      <div class="column login-container">
+        <h2>Sign In</h2>
+
+        <div class="inputs">
+          <input-component
+            [label]="'Email'"
+            [placeholder]="'Type in your email'"
+            [type]="'email'"
+            [name]="'email'"
+            [required]="'true'"
+          ></input-component>
+
+          <input-component
+            [label]="'Password'"
+            [placeholder]="'Type in your password'"
+            [type]="'password'"
+            [name]="'password'"
+            [required]="'true'"
+          ></input-component>
+        </div>
+
+        <div class="login-button">
+          <button
+            class="primary round"
+            onclick="location.href='/manageAccounts';"
+          >
+            Sign In
+          </button>
+        </div>
       </div>
     </div>
-
-    <div class="column login-container center">
-      <h2>Sign In</h2>
-
-      <div class="inputs">
-        <input-component
-          [label]="'Email'"
-          [placeholder]="'Type in your email'"
-          [type]="'email'"
-          [name]="'email'"
-          [required]="'true'"
-        ></input-component>
-
-        <input-component
-          [label]="'Password'"
-          [placeholder]="'Type in your password'"
-          [type]="'password'"
-          [name]="'password'"
-          [required]="'true'"
-        ></input-component>
-      </div>
-
-      <div class="login-button">
-        <button
-          class="primary round"
-          onclick="location.href='/manageAccounts';"
-        >
-          Sign In
-        </button>
-      </div>
-    </div>
-  </div>`,
+  `,
   styles: [
     `
+      h2 {
+        color: var(--fin-neutral-1);
+      }
       .hero {
         align-items: center;
         background: var(--fin-gradient-1);
@@ -59,6 +64,7 @@ import { Component, OnInit } from '@angular/core';
         color: var(--fin-white);
         font-family: 'Courgette', cursive;
         font-size: 6rem;
+        text-shadow: 0.07rem 0.07rem var(--fin-neutral-1);
       }
 
       .tag-line {

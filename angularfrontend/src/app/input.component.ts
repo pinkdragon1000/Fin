@@ -15,6 +15,9 @@ import { Component, OnInit, Input } from '@angular/core';
 
   styles: [
     `
+      label {
+        color: var(--fin-neutral-1);
+      }
       .inputs > div {
         margin-bottom: 2rem;
       }
@@ -26,8 +29,9 @@ import { Component, OnInit, Input } from '@angular/core';
         min-width: 15rem;
         width: 100%;
         padding: 0.75rem 1rem;
-        border: 1px solid var(--fin-neutral-1);
+        border: 1px solid var(--fin-white);
         margin: 0.5rem 0;
+        background: var(--fin-neutral-6);
       }
 
       .input-group {

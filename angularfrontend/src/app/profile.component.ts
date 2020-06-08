@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <app-pagetemplate>
       <div class="profile">
-        <p>Profile</p>
         <div class="inputs">
           <input-component
-            [label]="'Name'"
-            [placeholder]="'Type in your name'"
+            [label]="'Full Name'"
+            [placeholder]="'Type in your full name'"
             [type]="'name'"
             [name]="'name'"
             [required]="'true'"
@@ -20,9 +19,9 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: [
     `
-      .profile {
-        align-items: center;
-        width: 30rem;
+      .inputs {
+        justify-content: center;
+        display: flex;
       }
     `,
   ],
