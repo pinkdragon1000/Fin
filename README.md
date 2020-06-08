@@ -48,6 +48,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ### Java API
 
+The Java portion of this application uses Java 14 and Spring Boot.
+
 <b>Running the Java API:</b>
 ```
 TODO
