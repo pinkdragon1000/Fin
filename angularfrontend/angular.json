@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "angularsample": {
+        "fin": {
             "projectType": "application",
             "schematics": {},
             "root": "",
@@ -13,7 +13,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/angularsample",
+                        "outputPath": "dist/fin",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -54,18 +54,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "angularsample:build"
+                        "browserTarget": "fin:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "angularsample:build:production"
+                            "browserTarget": "fin:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "angularsample:build"
+                        "browserTarget": "fin:build"
                     }
                 },
                 "test": {
@@ -95,16 +95,16 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "angularsample:serve"
+                        "devServerTarget": "fin:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "angularsample:serve:production"
+                            "devServerTarget": "fin:serve:production"
                         }
                     }
                 }
             }
         }
     },
-    "defaultProject": "angularsample"
+    "defaultProject": "fin"
 }

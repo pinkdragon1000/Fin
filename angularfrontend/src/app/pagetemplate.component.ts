@@ -11,8 +11,7 @@ import { Component, OnInit, ContentChild } from '@angular/core';
   styles: [
     `
       .content {
-        margin-left: 2rem;
-        margin-top: 2rem;
+        margin: 2rem, 2rem, 0rem, 2rem;
       }
     `,
   ],
