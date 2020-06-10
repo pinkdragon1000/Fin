@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InputComponent } from './input.component';
-import { ManageAccountsComponent } from './manage-accounts.component';
-import { LoginComponent } from './login.component';
-import { NavbarComponent } from './navbar.component';
-import { PageTemplateComponent } from './pagetemplate.component';
-import { ProfileComponent } from './profile.component';
+import { InputComponent } from './components/input.component';
+import { ManageAccountsComponent } from './components/page-content/manage-accounts.component';
+import { LoginComponent } from './components/page-content/login.component';
+import { NavbarComponent } from './components/page-content/navbar.component';
+import { PageTemplateComponent } from './components/pagetemplate.component';
+import { ProfileComponent } from './components/profile.component';
 
 @NgModule({
   declarations: [
