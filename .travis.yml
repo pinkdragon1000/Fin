@@ -1,3 +1,5 @@
+dist: xenial
+os: linux
 jobs:
   include:
     - language: node_js
