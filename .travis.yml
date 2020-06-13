@@ -12,7 +12,6 @@ matrix:
         - ng build
     - language: java
       jdk: oraclejdk14
-      sudo: false
       script:
         - cd javabackend
         - mvn clean verify
