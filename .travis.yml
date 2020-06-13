@@ -11,7 +11,7 @@ matrix:
         - npm install
         - ng build
     - language: java
-      jdk: oraclejdk11
+      jdk: oraclejdk14
       sudo: false
       script:
         - cd javabackend
