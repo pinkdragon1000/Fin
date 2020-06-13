@@ -1,10 +1,18 @@
-language: node_js
-node_js:
-  - "stable"
-cache:
-  directories:
-    - node_modules
-script:
-  - cd angularfrontend
-  - npm install
-  - ng build
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "stable"
+      cache:
+        directories:
+          - node_modules
+      script:
+        - cd angularfrontend
+        - npm install
+        - ng build
+    - language: java
+      jdk: oraclejdk11
+      sudo: false
+      script:
+        - cd javabackend
+        - mvn clean verify
