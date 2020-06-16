@@ -1,3 +1,4 @@
+import { EmptyContentComponent } from './components/small-components.ts/empty-content.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -15,13 +16,19 @@ import { ProfileComponent } from './components/page-content/profile.component';
     AppComponent,
     InputComponent,
     PageTemplateComponent,
+    EmptyContentComponent,
     NavbarComponent,
     LoginComponent,
     ManageAccountsComponent,
     ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [InputComponent, PageTemplateComponent, NavbarComponent],
+  providers: [
+    InputComponent,
+    PageTemplateComponent,
+    EmptyContentComponent,
+    NavbarComponent,
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

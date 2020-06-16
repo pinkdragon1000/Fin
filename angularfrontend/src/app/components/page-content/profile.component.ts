@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
     <app-pagetemplate>
       <div class="profile">
         <div class="inputs">
+          <input-component [type]="'file'" [name]="'file'"></input-component>
+
           <input-component
             [label]="'Full Name'"
             [placeholder]="'Type in your full name'"

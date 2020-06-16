@@ -13,6 +13,10 @@ import { Component, OnInit } from '@angular/core';
           Add Account
         </button>
       </div>
+      <app-emptycontent
+        emptyHeader="No Accounts Yet"
+        emptyPar="Click the button 'Add Accounts' to add an account. "
+      ></app-emptycontent>
     </app-pagetemplate>
   `,
   styles: [
