@@ -1,9 +1,9 @@
-import { Component, OnInit, ContentChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pagetemplate',
+  selector: 'page-template',
   template: `
-    <app-navbar></app-navbar>
+    <navbar-component></navbar-component>
     <div class="content">
       <ng-content></ng-content>
     </div>

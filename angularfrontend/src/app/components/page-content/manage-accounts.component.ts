@@ -1,33 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-manage-accounts',
+  selector: 'manage-accounts-content-component',
   template: `
-    <app-pagetemplate>
-      <div class="acc">
-        <p>Click on an account to view and add information</p>
-        <button
-          class="tertiary round"
-          onclick="location.href='/manageAccounts';"
-        >
-          Add Account
-        </button>
-      </div>
+    <page-template>
+      <p>Click on an account to view and add information</p>
+
       <app-emptycontent
         emptyHeader="No Accounts Yet"
-        emptyPar="Click the button 'Add Accounts' to add an account. "
+        emptyPar="Click 'Add Accounts' in the navbar to add an account. "
       ></app-emptycontent>
-    </app-pagetemplate>
+    </page-template>
   `,
-  styles: [
-    `
-      .acc {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-    `,
-  ],
+  styles: [``],
 })
 export class ManageAccountsComponent implements OnInit {
   constructor() {}

@@ -9,14 +9,7 @@
     --fin-white: rgb(255, 255, 255);
     --fin-blue-1: rgb(3, 100, 255);
     --fin-blue-2: rgb(48, 98, 178);
-    --fin-blue-2-transparent: rgb(48, 98, 178, 0.2);
-    --fin-purple-1: rgb(67, 9, 112);
-    --fin-purple-2: rgb(118, 26, 190);
-    --fin-purple-3: rgb(184, 117, 236);
-    --fin-purple-2-transparent: rgba(118, 26, 190, 0.2);
-    --fin-red: rgb(191, 0, 0);
-    --fin-red-transparent: rgba(191, 0, 0, 0.2);
-    --fin-gradient-1: linear-gradient(25deg, #E94057, #F27121);
+    --fin-gradient: linear-gradient(25deg, #E94057, #F27121);
     --fin-neutral-1: rgb(117, 117, 117);
     --fin-neutral-2: rgb(148, 148, 148);
     --fin-neutral-3: rgb(172, 172, 172);
@@ -30,6 +23,10 @@
 ::-webkit-input-placeholder {
     font-style: italic;
     color: var(--fin-neutral-3);
+}
+
+html {
+    min-width: 635px;
 }
 
 body {
@@ -46,7 +43,6 @@ h3,
 h5,
 p {
     margin: 0.5rem 0;
-    font-weight: 100;
 }
 
 h1 {
@@ -59,6 +55,7 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
+    font-weight: 400;
 }
 
 h4 {
@@ -74,12 +71,13 @@ h5 {
 p {
     font-size: 1.125rem;
     color: var(--fin-neutral-2);
+    font-weight: 400;
 }
 
 a,
 a:hover {
     text-decoration: none;
-    color: var(--fin-black);
+    color: var(--fin-blue-2);
 }
 
 input[type="checkbox"],
@@ -119,7 +117,7 @@ button:focus {
 }
 
 .primary {
-    background: var(--fin-gradient-1);
+    background: var(--fin-gradient);
     float: right;
     padding: 1rem 2.5rem;
     text-transform: uppercase;
@@ -187,4 +185,8 @@ hr {
 .row {
     display: flex;
     flex-direction: row;
+}
+
+.center {
+    align-items: center;
 }

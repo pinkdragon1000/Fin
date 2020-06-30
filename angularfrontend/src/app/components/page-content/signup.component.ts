@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'login-content-component',
+  selector: 'signup-content-component',
   template: `
     <header-page-template>
       <div class="column login-container">
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
 
         <div class="inputs">
+          <input-component
+            [label]="'Full Name'"
+            [placeholder]="'Type in your full name'"
+            [type]="'fname'"
+            [name]="'fname'"
+            [required]="'true'"
+          ></input-component>
+
           <input-component
             [label]="'Email'"
             [placeholder]="'Type in your email'"
@@ -29,10 +37,10 @@ import { Component, OnInit } from '@angular/core';
             class="primary round"
             onclick="location.href='/manageAccounts';"
           >
-            Sign In
+            Sign Up
           </button>
         </div>
-        <a href="/signup">Don't have an account? Signup -> </a>
+        <a href="/">Already have an account? Login -> </a>
       </div>
     </header-page-template>
   `,
@@ -97,7 +105,7 @@ import { Component, OnInit } from '@angular/core';
     `,
   ],
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

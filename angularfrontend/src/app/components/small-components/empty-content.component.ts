@@ -21,10 +21,9 @@ import { Component, OnInit, Input } from '@angular/core';
 
       .wrapper {
         display: flex;
-        align-items: center;
         flex-direction: column;
-        padding-top: 2rem;
-        width: 100%;
+        padding: 4rem;
+        align-items: center;
       }
     `,
   ],

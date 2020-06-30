@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'navbar-component',
   template: `
     <div class="row navbar">
       <div class="column center">
@@ -9,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
       <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active">
+          <a href="/addAccounts">
+            <i class="fa fa-user"></i>
+            <p class="white-text">Add Accounts</p>
+          </a>
+        </li>
         <li routerLinkActive="active">
           <a routerLink="/manageAccounts">
             <i class="fa fa-plus-circle"> </i>
@@ -40,8 +46,9 @@ import { Component, OnInit } from '@angular/core';
       }
       .navbar {
         align-items: center;
-        background: var(--fin-gradient-1);
+        background: var(--fin-gradient);
         border-radius: 0rem 0rem 2rem 2rem;
+        min-width: 635px;
       }
 
       .nav {

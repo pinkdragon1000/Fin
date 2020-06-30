@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'profile-content-component',
   template: `
-    <app-pagetemplate>
+    <page-template>
       <div class="profile">
         <div class="inputs">
-          <input-component [type]="'file'" [name]="'file'"></input-component>
+          <div class="column">
+            <input-component [type]="'file'" [name]="'file'"></input-component>
 
-          <input-component
-            [label]="'Full Name'"
-            [placeholder]="'Type in your full name'"
-            [type]="'name'"
-            [name]="'name'"
-            [required]="'true'"
-          ></input-component>
+            <input-component
+              [label]="'Full Name'"
+              [placeholder]="'Type in your full name'"
+              [type]="'name'"
+              [name]="'name'"
+              [required]="'true'"
+            ></input-component>
+          </div>
         </div>
       </div>
-    </app-pagetemplate>
+    </page-template>
   `,
   styles: [
     `
