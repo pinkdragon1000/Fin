@@ -11,21 +11,23 @@ import { Component, OnInit } from '@angular/core';
       <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active">
           <a href="/addAccounts">
-            <i class="fa fa-user"></i>
             <p class="white-text">Add Accounts</p>
           </a>
         </li>
         <li routerLinkActive="active">
           <a routerLink="/manageAccounts">
-            <i class="fa fa-plus-circle"> </i>
             <p class="white-text">Manage Accounts</p>
           </a>
         </li>
 
         <li routerLinkActive="active">
           <a href="/profile">
-            <i class="fa fa-user"></i>
-            <p class="white-text">Profile</p>
+            <img
+              src="../../assets/profile.svg"
+              rel="icon"
+              alt=""
+              class="profilelogo"
+            />
           </a>
         </li>
         <div style="width:2rem; border-right:0.05rem solid white;"></div>
@@ -44,11 +46,16 @@ import { Component, OnInit } from '@angular/core';
         width: 8rem;
         height: 8rem;
       }
+
+      .profilelogo {
+        width: 3rem;
+        height: 3rem;
+      }
       .navbar {
         align-items: center;
         background: var(--fin-gradient);
         border-radius: 0rem 0rem 2rem 2rem;
-        min-width: 635px;
+        min-width: 39.6875rem;
       }
 
       .nav {

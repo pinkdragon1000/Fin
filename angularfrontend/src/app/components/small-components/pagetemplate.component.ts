@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
     <div class="content">
       <ng-content></ng-content>
     </div>
+
+    <button class="btn-help">?</button>
   `,
   styles: [
     `

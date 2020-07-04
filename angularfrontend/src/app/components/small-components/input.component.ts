@@ -16,7 +16,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styles: [
     `
       label {
-        color: var(--fin-neutral-1);
+        color: var(--fin-black);
       }
       .inputs > div {
         margin-bottom: 2rem;
