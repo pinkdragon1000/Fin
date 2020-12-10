@@ -1,4 +1,4 @@
-package com.fin;
+package com.javabackend.fin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
