@@ -15,5 +15,5 @@ jobs:
     - language: java
       jdk: oraclejdk14
       script:
-        - cd javabackend
+        - cd fin
         - mvn clean verify
