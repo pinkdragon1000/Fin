@@ -6,29 +6,19 @@ import { Component, OnInit } from '@angular/core';
       <div class="column login-container">
         <h2>Sign In</h2>
 
-        <div class="inputs">
-          <input-component
-            [label]="'Email'"
-            [placeholder]="'Type in your email'"
-            [type]="'email'"
-            [name]="'email'"
-            [required]="'true'"
-          ></input-component>
-
-          <input-component
-            [label]="'Password'"
-            [placeholder]="'Type in your password'"
-            [type]="'password'"
-            [name]="'password'"
-            [required]="'true'"
-          ></input-component>
+        <div class="inputs" *ngFor="let input of inputFieldData">
+        <input-component
+          [label]="input.label"
+          [placeholder]="input.placeholder"
+          [type]="input.type"
+          [name]="input.name"
+        ></input-component>
         </div>
 
         <div class="login-button">
           <button
             class="primary round"
-            onclick="location.href='/manageAccounts';"
-          >
+            onclick="location.href='/manageAccounts';">
             Sign In
           </button>
         </div>
@@ -53,52 +43,27 @@ import { Component, OnInit } from '@angular/core';
         width: 70%;
       }
 
-      .error {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--fin-red-transparent);
-        width: 60%;
-        border-radius: 1rem;
-        margin-top: 1rem;
-        padding: 1rem;
-      }
-
-      .error-text {
-        font-size: 0.875rem;
-        color: var(--fin-red);
-      }
-
-      .error-icon {
-        cursor: pointer;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .login-content {
-        width: 40vw;
-      }
-
-      .required .input-label:after {
-        content: '*';
-        color: var(--fin-red);
-        margin-left: 0.125rem;
-      }
-
-      .focused {
-        box-shadow: 0 0 5px var(--fin-blue-1);
-      }
-
-      .short {
-        width: 70%;
+      .inputs {
+        width: 30%;
       }
     `,
   ],
 })
 export class LoginComponent implements OnInit {
   constructor() {}
-
+  inputFieldData = [
+    {
+      label: 'Email',
+      placeholder: 'Type in your email',
+      type: 'email',
+      name: 'email',
+    },
+    {
+      label: 'Password',
+      placeholder: 'Type in your password',
+      type: 'password',
+      name: 'password',
+    },
+  ];
   ngOnInit(): void {}
 }

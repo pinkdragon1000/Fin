@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'manage-accounts-content-component',
   template: `
-    <page-template>
-      <p>Click on an account to view and add information</p>
+    <page-template [pagedirections]="'Click on an account to view and add information'">
 
       <app-emptycontent
         emptyHeader="No Accounts Yet"
@@ -18,4 +17,6 @@ export class ManageAccountsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+
 }

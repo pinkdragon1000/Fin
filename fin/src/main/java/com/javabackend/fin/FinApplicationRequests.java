@@ -1,6 +1,8 @@
 package com.javabackend.fin;
 
 import calculator.CommonCalculator;
+import calculator.FinHashMap;
+import calculator.FinObject;
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import javax.xml.bind.annotation.*;
@@ -15,12 +17,12 @@ public class FinApplicationRequests extends CommonCalculator {
     CommonCalculator commonCalculator;
 
     @GetMapping("/accounts")
-    public Map<String, BigDecimal> accountInformationEndpoint() {
+    public FinHashMap<String, BigDecimal> accountInformationEndpoint() {
         return accountInformationEndpointResponse();
     }
 
     @GetMapping("/deposits")
-    public Map<String, BigDecimal> depositEndpoint() {
+    public FinHashMap<String, BigDecimal> depositEndpoint() {
         return depositEndpointResponse();
     }
 }

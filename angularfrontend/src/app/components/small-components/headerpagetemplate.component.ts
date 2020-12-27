@@ -21,8 +21,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderPageTemplateComponent implements OnInit {
   constructor() {}
-  @Input() maintitle: string;
-  @Input() tagline: string;
 
   ngOnInit(): void {}
 }

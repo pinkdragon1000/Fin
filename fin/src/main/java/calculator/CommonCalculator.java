@@ -13,17 +13,18 @@ public class CommonCalculator {
     protected static BigDecimal startingAmount=BigDecimal.TEN;
     protected BigDecimal accountID=new BigDecimal("12345");
 
-    protected HashMap<String, BigDecimal> accountInformation = new HashMap<>();
-    protected HashMap<String, BigDecimal> deposits = new HashMap<>();
+    protected FinHashMap<String, BigDecimal> accountInformation = new FinHashMap<>();
+    protected FinHashMap<String, BigDecimal> deposits = new FinHashMap<>();
 
 
-    public Map<String, BigDecimal> accountInformationEndpointResponse(){
+    public FinHashMap<String, BigDecimal> accountInformationEndpointResponse(){
         accountInformation.put("accountID", accountID);
         accountInformation.put("numberOfCategories", depositCalculator.updatedAccountValueWithDeposits());
         return accountInformation;
     }
 
-    public Map<String, BigDecimal> depositEndpointResponse(){
+    public FinHashMap<String, BigDecimal> depositEndpointResponse(){
+
         deposits.put("accountStartingAmount", startingAmount);
         deposits.put("updatedAccountAmountWithDeposits", depositCalculator.updatedAccountValueWithDeposits());
         deposits.put("totalDeposits", depositCalculator.totalOverallDeposits());

@@ -9,18 +9,18 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li routerLinkActive="active">
-          <a href="/addAccounts">
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/addAccounts">
             <p class="white-text">Add Accounts</p>
           </a>
         </li>
-        <li routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active">
           <a routerLink="/manageAccounts">
             <p class="white-text">Manage Accounts</p>
           </a>
         </li>
 
-        <li routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active">
           <a href="/profile">
             <img
               src="../../assets/profile.svg"
@@ -31,7 +31,7 @@ import { Component, OnInit } from '@angular/core';
           </a>
         </li>
         <div style="width:2rem; border-right:0.05rem solid white;"></div>
-        <li>
+        <li class="nav-item" routerLinkActive="active">
           <a href="/">
             <i class="fa fa-power-off"></i>
             <p class="white-text">Logout</p>
@@ -102,4 +102,6 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  
 }

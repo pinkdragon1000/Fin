@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'page-template',
   template: `
     <navbar-component></navbar-component>
     <div class="content">
+    <p>{{ pagedirections }}</p>
       <ng-content></ng-content>
     </div>
 
@@ -20,6 +21,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageTemplateComponent implements OnInit {
   constructor() {}
-
+  @Input() pagedirections: string;
   ngOnInit(): void {}
 }
