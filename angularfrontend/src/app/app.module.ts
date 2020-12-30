@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/small-components/navbar.component'
 import { HeaderComponent } from './components/small-components/header.component';
 import { PageTemplateComponent } from './components/small-components/pagetemplate.component';
 import { HeaderPageTemplateComponent } from './components/small-components/headerpagetemplate.component';
-import { ProfileComponent } from './components/page-content/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { ProfileComponent } from './components/page-content/profile.component';
     SignupComponent,
     ManageAccountsComponent,
     AddAccountsComponent,
-    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [

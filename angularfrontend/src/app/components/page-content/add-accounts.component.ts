@@ -32,8 +32,8 @@ export class AddAccountsComponent implements OnInit {
 
   accountFieldData = [
     {
-      label: 'Account Name',
-      placeholder: 'Type in your account name',
+      label: 'Account Type (checking/savings)',
+      placeholder: 'Type in your account type',
       type: 'text',
       name: 'name',
     },

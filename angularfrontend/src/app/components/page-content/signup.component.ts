@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'signup-content-component',
   template: `
-    <header-page-template>
-      <div class="column login-container">
-        <h2>Sign Up</h2>
+    <header-page-template [pagetitle]="'Sign Up'">
 
         <div class="inputs" *ngFor="let input of signupFieldData">
         <input-component
@@ -24,18 +22,12 @@ import { Component, OnInit } from '@angular/core';
           </button>
         </div>
         <a href="/">Already have an account? Login -> </a>
-      </div>
     </header-page-template>
   `,
   styles: [
     `
       h2 {
         color: var(--fin-neutral-1);
-      }
-
-      .login-container {
-        align-items: center;
-        margin-top: 5rem;
       }
 
       .login-button {

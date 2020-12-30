@@ -20,16 +20,6 @@ import { Component, OnInit } from '@angular/core';
           </a>
         </li>
 
-        <li class="nav-item" routerLinkActive="active">
-          <a href="/profile">
-            <img
-              src="../../assets/profile.svg"
-              rel="icon"
-              alt=""
-              class="profilelogo"
-            />
-          </a>
-        </li>
         <div style="width:2rem; border-right:0.05rem solid white;"></div>
         <li class="nav-item" routerLinkActive="active">
           <a href="/">
