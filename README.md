@@ -3,7 +3,8 @@
 * Angular application with Java backend to keep track of financial account transactions and deposits
 * This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.  The Java portion of this application uses Java 14 and Spring Boot. 
 
-* End Goal: Create a Java API that will be consumed by the Angular application.  
+* End User Goal: An application to keep track of account transactions for checking and savings accounts.
+* End Technical Goal: Create a Java API that will be consumed by the Angular frontend application.  Use technologies including Angular, Java Spring Boot, AWS ECS, MySQL, Firebase Hosting and Docker.    
 
 ### Angular Application
 
@@ -13,7 +14,7 @@ https://finaccounts.web.app/
 
 <b>Deploying the Angular Application:</b>
 
-The frontend is deployed using [Firebase](https://firebase.google.com/).  
+The frontend is deployed using [Firebase Hosting](https://firebase.google.com/).  
 
 ```
 cd angularfrontend
@@ -42,9 +43,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ### Java API
 
-<b>Running the Java API:</b>
+<b>Running the Java API Locally:</b>
 ```
-TODO
+In IntelliJ or similar IDE
+Open the folder src->main->java->com.javabackend.fin
+Find FinApplication.java-> Right Click-> Run 'FinApplication.main()'
+Wait to see that the Tomcat server has started
+Open localhost:8080 in a browser
 ```
 
 <b>Viewing the Java API:</b>
@@ -56,3 +61,4 @@ Resources
 * https://angular.io/docs
 * https://medium.com/bb-tutorials-and-thoughts/how-to-develop-and-build-angular-app-with-java-backend-87fb603c6e17
 * https://spring.io/guides/gs/spring-boot/
+* https://firebase.google.com/docs/hosting
