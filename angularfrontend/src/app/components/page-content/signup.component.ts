@@ -26,10 +26,6 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: [
     `
-      h2 {
-        color: var(--fin-neutral-1);
-      }
-
       .login-button {
         display: flex;
         justify-content: center;
