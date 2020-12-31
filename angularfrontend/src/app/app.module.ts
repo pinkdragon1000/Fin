@@ -1,6 +1,8 @@
+import { HelpModalButtonComponent } from './components/small-components/help-modal-button.component';
 import { EmptyContentComponent } from './components/small-components/empty-content.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +15,7 @@ import { NavbarComponent } from './components/small-components/navbar.component'
 import { HeaderComponent } from './components/small-components/header.component';
 import { PageTemplateComponent } from './components/small-components/pagetemplate.component';
 import { HeaderPageTemplateComponent } from './components/small-components/headerpagetemplate.component';
-
+import { ModalComponent } from "./components/small-components/help-modal.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +28,10 @@ import { HeaderPageTemplateComponent } from './components/small-components/heade
     LoginComponent,
     SignupComponent,
     ManageAccountsComponent,
-    AddAccountsComponent,
+    AddAccountsComponent, ModalComponent, 
+    HelpModalButtonComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, CommonModule],
   providers: [
     InputComponent,
     PageTemplateComponent,

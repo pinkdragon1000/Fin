@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
     <page-template [pagedirections]="'Fill out the form to add an account. To view and manage accounts click
     Manage Accounts in the navbar.'" >
 
-      <div class="account-fields" *ngFor="let input of accountFieldData">
+      <div class="inputs" *ngFor="let input of accountFieldData">
       <input-component
         [label]="input.label"
         [placeholder]="input.placeholder"
         [type]="input.type"
         [name]="input.name"
+        [min]="input.min"
       ></input-component>
       </div>
       <button class="primary round" onclick="">
@@ -21,7 +22,7 @@ import { Component, OnInit } from '@angular/core';
 
   `,
   styles: [`
-  .account-fields {
+  .inputs {
     width: 30%;
   }
   `],
@@ -38,10 +39,11 @@ export class AddAccountsComponent implements OnInit {
       name: 'name',
     },
     {
-      label: 'Account Starting Amount',
+      label: 'Account Starting Amount ($)',
       placeholder: 'Type in your account starting amount',
       type: 'number',
       name: 'amount',
+      min: 0
     },
   ];
 

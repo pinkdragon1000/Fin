@@ -10,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
       type="{{ type }}"
       name="{{ name }}"
       required="{{ required }}"
+      min="{{min}}"
     />
   `,
 
@@ -41,6 +42,7 @@ export class InputComponent implements OnInit {
   @Input() type: string;
   @Input() name: string;
   @Input() required: string;
+  @Input() min: number;
 
   ngOnInit(): void {}
 }

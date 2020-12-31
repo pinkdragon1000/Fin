@@ -8,8 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
     <p>{{ pagedirections }}</p>
       <ng-content></ng-content>
     </div>
-
-    <button class="btn-help">?</button>
+    <help-modal-button-component [modaltext]="'Help text'"></help-modal-button-component>
   `,
   styles: [
     `
@@ -21,6 +20,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PageTemplateComponent implements OnInit {
   constructor() {}
+
   @Input() pagedirections: string;
   ngOnInit(): void {}
+
 }

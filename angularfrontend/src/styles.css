@@ -130,16 +130,6 @@ button:focus {
 }
 
 .secondary {
-    background-color: var(--fin-blue-2);
-    text-transform: uppercase;
-    padding: 0.75rem 0;
-}
-
-.secondary:hover {
-    filter: brightness(0.95);
-}
-
-.tertiary {
     background-color: var(--fin-white);
     border: 1px var(--fin-neutral-4) solid;
     color: var(--fin-neutral-2);
@@ -147,17 +137,17 @@ button:focus {
     min-width: 12rem;
 }
 
-.tertiary:hover {
+.secondary:hover {
     box-shadow: 1px 2px 8px 1px var(--fin-neutral-3-transparent);
 }
 
-.quaternary {
+.tertiary {
     color: var(--fin-black);
     padding: 0.75rem 0;
     text-transform: uppercase;
 }
 
-.quaternary:hover {
+.tertiary:hover {
     background-color: var(--fin-neutral-3-transparent);
 }
 
