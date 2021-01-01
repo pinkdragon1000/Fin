@@ -12,6 +12,10 @@ jobs:
         - cd angularfrontend
         - npm install
         - ng build
+      deploy:
+        provider: firebase
+        token: $FIREBASE_TOKEN
+        edge: true # opt in to dpl v2
     - language: java
       jdk: oraclejdk14
       script:
