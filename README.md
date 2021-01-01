@@ -10,9 +10,16 @@
 
 ### Angular Application
 
-<b>Viewing the Angular Application:</b>
+<b>Viewing the production deployed Angular Application:</b>
 
 https://finaccounts.web.app/
+
+<b>Running the Angular Application Locally:</b>
+
+```
+cd angularfrontend
+ng serve
+```
 
 <b>Deploying the Angular Application:</b>
 
@@ -22,13 +29,6 @@ The frontend is deployed using [Firebase Hosting](https://firebase.google.com/).
 cd angularfrontend
 ng build --prod
 firebase deploy
-```
-
-<b>Running the Angular Application:</b>
-
-```
-cd angularfrontend
-ng serve
 ```
 
 <b> Code scaffolding </b>
@@ -45,7 +45,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ### Java API
 
-<b>Running the Java API Locally:</b>
+<b>Running the Java API Locally (Without Docker):</b>
 
 ```
 In IntelliJ or similar IDE
@@ -55,25 +55,33 @@ Wait to see that the Tomcat server has started
 Open localhost:8080 in a browser
 ```
 
-Docker Setup
+<b>Docker Setup</b>
 
+1. Creating the jar
+`./mvnw package && java -jar target/fin-0.0.1-SNAPSHOT.jar`
+
+2. Building a Docker Container
+First ensure you have the Docker Desktop app open and are signed in.  Then run the following to create the container:
+`docker build -t springio/fin .`
+
+3. To view Docker Images: `docker images`
+
+4. Login with DockerHub credentials in terminal:
+`docker login --username=sitarobinson`
+
+5. Pushing to DockerHub repository
 ```
-Creating the jar
-./mvnw package && java -jar target/fin-0.0.1-SNAPSHOT.jar
-Building a Docker Container
-First ensure you have the Docker Desktop app open and are signed in.
-Then run the following to create the container:
-docker build -t springio/fin .
-To view Docker Images:
-docker images
-Login with DockerHub credentials:
-docker login --username=sitarobinson
-Pushing to DockerHub repository
 docker tag springio/fin:latest sitarobinson/fin:firsttry
 docker push sitarobinson/fin:firsttry
 ```
 
-<b>Viewing the Java API:</b>
+<b>Running the Java API Locally (With Docker):</b>
+`
+docker run -p 8181:8080 springio/fin
+Open up localhost:8181 to view
+`
+
+<b>Viewing the production Java API:</b>
 
 ```
 TODO
