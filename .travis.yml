@@ -14,7 +14,8 @@ jobs:
         - ng build
       deploy:
         provider: firebase
-        github_token: $FIREBASE_TOKEN
+        token:
+          secure: ${{secrets.FIREBASE_TOKEN}}
         skip_cleanup: true
     - language: java
       jdk: oraclejdk14
