@@ -16,7 +16,7 @@ jobs:
         - 'npm i -g firebase-tools'
       deploy:
         provider: script
-        script: firebase deploy --token "1//0dwzJgxAXIaTWCgYIARAAGA0SNwF-L9IrT0A6dsOMR1TULb0NlZfIv7TAI-X3cdXl-Z2SGNHSrAS2HsxOfZMCbZtznn2bJlOR0Z8"
+        script: firebase deploy --token=${FIREBASE_TOKEN}
         skip_cleanup: true
         on:
           branch: master
