@@ -14,7 +14,7 @@ jobs:
         - ng build
       deploy:
         provider: script
-        script: firebase deploy --token ${{secrets.FIREBASE_TOKEN}}
+        script: firebase deploy --token ${secrets.FIREBASE_TOKEN}
     - language: java
       jdk: oraclejdk14
       script:
