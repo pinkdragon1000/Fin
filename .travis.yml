@@ -16,6 +16,8 @@ jobs:
         provider: script
         script: firebase deploy --token $secrets.FIREBASE_TOKEN
         skip_cleanup: true
+        on:
+          branch: master
     - language: java
       jdk: oraclejdk14
       script:
