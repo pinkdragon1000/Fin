@@ -13,10 +13,8 @@ jobs:
         - npm install
         - ng build
       deploy:
-        provider: firebase
-        token:
-          secure: ${{secrets.FIREBASE_TOKEN}}
-        skip_cleanup: true
+        provider: script
+        script: firebase deploy --token ${{secrets.FIREBASE_TOKEN}}
     - language: java
       jdk: oraclejdk14
       script:
