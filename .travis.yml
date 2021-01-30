@@ -11,7 +11,7 @@ jobs:
       script:
         - cd angularfrontend
         - npm install
-        - ng build
+        - ng build --prod
       before_install:
         - 'npm i -g firebase-tools'
       deploy:
