@@ -22,6 +22,10 @@ jobs:
           branch: master
     - language: java
       jdk: oraclejdk14
+      services:
+        - mysql
+      before_install:
+        - mysql -e 'CREATE DATABASE IF NOT EXISTS Fin;'
       script:
         - cd fin
         - mvn clean verify
