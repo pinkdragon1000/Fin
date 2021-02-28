@@ -29,6 +29,9 @@ jobs:
         name: dist
         path: dist
   deploy:
+    defaults:
+      run:
+        working-directory: ./angularfrontend
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
