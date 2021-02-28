@@ -1,0 +1,20 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./fin
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '14' # The JDK version to make available on the path.
+        java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
+        architecture: x64 # (x64 or x86) - defaults to x64
+    - run: mvn clean verify
