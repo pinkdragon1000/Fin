@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: dist
-        path: dist/fin
+        path: angularfrontend/dist/fin
   deploy:
     defaults:
       run:
@@ -42,7 +42,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
-          path: dist/fin
+          path: angularfrontend/dist/fin
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
