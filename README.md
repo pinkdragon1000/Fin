@@ -1,6 +1,7 @@
 # Fin
 
-![example workflow](https://github.com/pinkdragon1000/Fin/actions/workflows/node.js.yml/badge.svg)
+![](https://github.com/pinkdragon1000/Fin/actions/workflows/node.js.yml/badge.svg)
+![](https://github.com/pinkdragon1000/Fin/actions/workflows/java.yml/badge.svg)
 
 - Angular application with Java backend to keep track of financial account transactions and deposits
 - This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4. The Java portion of this application uses Java 14 and Spring Boot.
@@ -58,28 +59,26 @@ Open localhost:8080 in a browser
 <b>Docker Setup</b>
 
 1. Creating the jar
-`./mvnw package && java -jar target/fin-0.0.1-SNAPSHOT.jar`
+   `./mvnw package && java -jar target/fin-0.0.1-SNAPSHOT.jar`
 
 2. Building a Docker Container
-First ensure you have the Docker Desktop app open and are signed in.  Then run the following to create the container:
-`docker build -t springio/fin .`
+   First ensure you have the Docker Desktop app open and are signed in. Then run the following to create the container:
+   `docker build -t springio/fin .`
 
 3. To view Docker Images: `docker images`
 
 4. Login with DockerHub credentials in terminal:
-`docker login --username=sitarobinson`
+   `docker login --username=sitarobinson`
 
 5. Pushing to DockerHub repository
+
 ```
 docker tag springio/fin:latest sitarobinson/fin:firsttry
 docker push sitarobinson/fin:firsttry
 ```
 
 <b>Running the Java API Locally (With Docker):</b>
-`
-docker run -p 8181:8080 springio/fin
-Open up localhost:8181 to view
-`
+`docker run -p 8181:8080 springio/fin Open up localhost:8181 to view`
 
 <b>Viewing the production Java API:</b>
 
