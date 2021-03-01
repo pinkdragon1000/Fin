@@ -2,32 +2,29 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'login-content-component',
   template: `
-    <header-page-template [pagetitle]="'Sign In'">
-        <div class="inputs" *ngFor="let input of inputFieldData">
+    <header-page-template class="signin" [pagetitle]="'Sign In'">
+      <div class="inputs" *ngFor="let input of inputFieldData">
         <input-component
           [label]="input.label"
           [placeholder]="input.placeholder"
           [type]="input.type"
           [name]="input.name"
         ></input-component>
-        </div>
+      </div>
 
-        <div class="login-button">
-          <button
-            class="primary round"
-            onclick="location.href='/manageAccounts';">
-            Sign In
-          </button>
-        </div>
-        <a href="/signup">Don't have an account? Signup -> </a>
+      <div class="login-button">
+        <button
+          class="primary round"
+          onclick="location.href='/manageAccounts';"
+        >
+          Sign In
+        </button>
+      </div>
+      <a href="/signup">Don't have an account? Signup -> </a>
     </header-page-template>
   `,
   styles: [
     `
-      h2 {
-        color: var(--fin-neutral-1);
-      }
-
       .login-button {
         display: flex;
         justify-content: center;

@@ -70,7 +70,7 @@ h5 {
 
 p {
     font-size: 1.125rem;
-    color: var(--fin-neutral-2);
+    color: var(--fin-neutral-1);
     font-weight: 400;
 }
 
@@ -192,4 +192,10 @@ hr {
 
 .center {
     align-items: center;
+}
+
+.pagetitle {
+    background: var(--fin-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }

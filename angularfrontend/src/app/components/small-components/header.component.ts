@@ -5,8 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   template: `
     <div class="row hero">
       <div class="column center">
-        <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
-        <h1 class="fin">{{ maintitle }}</h1>
+        <div class="row">
+          <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
+          <h1 class="fin">{{ maintitle }}</h1>
+        </div>
         <p class="tag-line">{{ tagline }}</p>
       </div>
     </div>
@@ -18,6 +20,7 @@ import { Component, OnInit, Input } from '@angular/core';
         background: var(--fin-gradient);
         border-radius: 0rem 0rem 2rem 2rem;
         justify-content: center;
+        padding: 6rem;
       }
 
       .fin {
