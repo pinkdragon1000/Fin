@@ -5,7 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
     @Repository
     public interface UserRepository extends CrudRepository<User, Long> {
-
     }
 
 

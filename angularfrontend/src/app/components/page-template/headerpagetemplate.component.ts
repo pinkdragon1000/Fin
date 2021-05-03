@@ -10,7 +10,6 @@ import { Component, OnInit, Input } from '@angular/core';
     <div class="content">
       <div class="column login-signup-container">
         <h2 class="pagetitle">{{ pagetitle }}</h2>
-
         <ng-content></ng-content>
       </div>
     </div>

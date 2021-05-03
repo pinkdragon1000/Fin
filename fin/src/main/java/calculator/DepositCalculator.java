@@ -1,7 +1,9 @@
 package calculator;
 
+import javax.inject.Named;
 import java.math.BigDecimal;
 import java.util.List;
+
 
 public class DepositCalculator extends CommonCalculator {
     List<BigDecimal> depositList;

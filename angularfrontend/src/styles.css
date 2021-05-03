@@ -80,6 +80,17 @@ a:hover {
     color: var(--fin-blue-2);
 }
 
+select {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.3rem;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--fin-blue-1);
+}
+
 input[type="checkbox"],
 input[type="radio"] {
     width: 1.2rem;

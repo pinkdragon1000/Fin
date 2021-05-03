@@ -1,8 +1,6 @@
 package calculator;
-
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.HashMap;
 
-public interface FinObject<String, BigDecimal> extends Map<String, BigDecimal>{
-
+public class FinObject<String, BigDecimal> extends HashMap<String, BigDecimal> {
 }

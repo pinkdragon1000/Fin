@@ -26,8 +26,9 @@ import { Component, OnInit, Input } from '@angular/core';
       .fin {
         color: var(--fin-white);
         font-family: 'Courgette', cursive;
-        font-size: 6rem;
-        text-shadow: 0.07rem 0.07rem var(--fin-neutral-1);
+        font-size: 4rem;
+        text-shadow: 0px 2px rgb(0 0 0 / 16%);
+        font-weight: 300;
       }
 
       .tag-line {
@@ -35,7 +36,9 @@ import { Component, OnInit, Input } from '@angular/core';
       }
 
       img {
-        padding-right: 2rem;
+        padding-right: 1rem;
+        width: 157px;
+        height: 83px;
       }
     `,
   ],

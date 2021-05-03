@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from './../api.service';
 
 @Component({
   selector: 'navbar-component',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
       <div class="column center">
         <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
       </div>
+
+      <h3 *ngIf="!userData" class="name">Welcome!</h3>
+      <h3 *ngIf="userData" class="name">Welcome {{ this.userData }}!</h3>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item" routerLinkActive="active">
@@ -35,6 +39,11 @@ import { Component, OnInit } from '@angular/core';
       .logo {
         width: 8rem;
         height: 8rem;
+      }
+      .name {
+        width: 100%;
+        color: var(--fin-white);
+        font-weight: normal;
       }
 
       .profilelogo {
@@ -89,7 +98,9 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(private apiService: APIService) {}
+  userData: string;
+  ngOnInit() {
+    this.userData = this.apiService.getUserData()[0].fullName;
+  }
 }

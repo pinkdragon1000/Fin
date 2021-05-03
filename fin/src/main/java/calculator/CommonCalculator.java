@@ -1,8 +1,10 @@
 package calculator;
-
 import com.fasterxml.jackson.annotation.JacksonInject;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.math.BigDecimal;
-import java.util.*;
+
 
 public class CommonCalculator {
     @JacksonInject
@@ -13,17 +15,17 @@ public class CommonCalculator {
     protected static BigDecimal startingAmount=BigDecimal.TEN;
     protected BigDecimal accountID=new BigDecimal("12345");
 
-    protected FinHashMap<String, BigDecimal> accountInformation = new FinHashMap<>();
-    protected FinHashMap<String, BigDecimal> deposits = new FinHashMap<>();
+    protected FinObject<String, BigDecimal> accountInformation = new FinObject<>();
+    protected FinObject<String, BigDecimal> deposits = new FinObject<>();
 
 
-    public FinHashMap<String, BigDecimal> accountInformationEndpointResponse(){
+    public FinObject<String, BigDecimal> accountInformationEndpointResponse(){
         accountInformation.put("accountID", accountID);
         accountInformation.put("numberOfCategories", depositCalculator.updatedAccountValueWithDeposits());
         return accountInformation;
     }
 
-    public FinHashMap<String, BigDecimal> depositEndpointResponse(){
+    public FinObject<String, BigDecimal> depositEndpointResponse(){
 
         deposits.put("accountStartingAmount", startingAmount);
         deposits.put("updatedAccountAmountWithDeposits", depositCalculator.updatedAccountValueWithDeposits());

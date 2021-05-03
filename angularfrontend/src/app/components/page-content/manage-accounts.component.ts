@@ -1,5 +1,5 @@
+import { APIService } from './../api.service';
 import { Component, OnInit, Input } from '@angular/core';
-
 @Component({
   selector: 'manage-accounts-content-component',
   template: `
@@ -7,15 +7,43 @@ import { Component, OnInit, Input } from '@angular/core';
       [pagetitle]="'Manage Accounts'"
       [pagedirections]="'Click on an account to view and add information'"
     >
-      <app-emptycontent
-        emptyHeader="No Accounts Yet"
-        emptyPar="Click 'Add Accounts' in the navbar to add an account. "
-      ></app-emptycontent>
+      <div *ngIf="!accountData">
+        <app-emptycontent
+          emptyHeader="No Accounts Yet"
+          emptyPar="Click 'Add Accounts' in the navbar to add an account. "
+        ></app-emptycontent>
+      </div>
+
+      <div *ngIf="accountData">
+        <p class="align-right">Account Current Amount</p>
+        <div *ngFor="let account of accountData" class="clickable-view">
+          <clickable-list-view
+            [name]="account.account_Description"
+            [link]="'/account'"
+            [amount]="account.account_Starting_Amount"
+          >
+          </clickable-list-view>
+        </div>
+      </div>
     </page-template>
   `,
-  styles: [``],
+  styles: [
+    `
+      .align-right {
+        text-align: right;
+        margin-right: 150px;
+      }
+      .clickable-view {
+        margin: 10px;
+      }
+    `,
+  ],
 })
 export class ManageAccountsComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
+  constructor(private apiService: APIService) {}
+  accountData: Object;
+
+  ngOnInit(): void {
+    this.accountData = this.apiService.getAccountData();
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from './../api.service';
 @Component({
   selector: 'login-content-component',
   template: `
@@ -38,7 +39,7 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(private apiService: APIService) {}
   inputFieldData = [
     {
       label: 'Email',
