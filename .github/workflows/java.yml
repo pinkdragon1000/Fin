@@ -17,4 +17,8 @@ jobs:
         java-version: '14' # The JDK version to make available on the path.
         java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
         architecture: x64 # (x64 or x86) - defaults to x64
+    - name: Create test database
+      run: |
+        **sudo systemctl start mysql**
+        mysql -e 'CREATE DATABASE Fin;' -u${{ secrets.DB_USER }} -p${{ secrets.DB_PASSWORD }}
     - run: mvn clean verify
