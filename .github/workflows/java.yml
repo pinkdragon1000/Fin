@@ -19,6 +19,6 @@ jobs:
         architecture: x64 # (x64 or x86) - defaults to x64
     - name: Create test database
       run: |
-        **sudo systemctl start mysql**
+        sudo systemctl start mysql
         mysql -e 'CREATE DATABASE Fin;' -u${{ secrets.DB_USER }} -p${{ secrets.DB_PASSWORD }}
     - run: mvn clean verify
