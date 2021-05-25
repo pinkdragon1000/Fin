@@ -22,5 +22,5 @@ jobs:
         sudo systemctl start mysql
         mysql CREATE USER ${{ secrets.DB_USER }}@'localhost' IDENTIFIED BY ${{ secrets.DB_PASSWORD }};
         mysql GRANT ALL PRIVILEGES ON * . * TO ${{ secrets.DB_USER }}@'localhost';
-        mysql -e 'CREATE DATABASE Fin;' -u${{ secrets.DB_USER }} -p${{ secrets.DB_PASSWORD }}
+        mysql 'CREATE DATABASE Fin;' -u${{ secrets.DB_USER }} -p${{ secrets.DB_PASSWORD }}
     - run: mvn clean verify
