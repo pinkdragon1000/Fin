@@ -1,17 +1,37 @@
 package com.javabackend.fin.service;
+
 import com.javabackend.fin.models.Account;
-import com.javabackend.fin.repository.AccountRepository;
+import com.javabackend.fin.models.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class AccountService {
+public class AccountService{
+   @Autowired
+    private AccountRepository accountRepository;
 
-    @Autowired
-    private AccountRepository repository;
+   @Autowired
+    private TransactionRepository transactionRepository;
+
+    public BigDecimal calculateAllDeposits(){
+        List<Transaction> transactions=  (List<Transaction>) transactionRepository.findAll();
+        Account account=new Account();
+        BigDecimal aggTransactions= BigDecimal.ZERO;
+        for (Transaction transaction : transactions) {
+            if(transaction.getTransaction_type().equals("Deposit")){
+                aggTransactions=aggTransactions.add(transaction.getTransaction_amount());
+            }
+        }
+            account.setDeposit_amount(aggTransactions);
+
+        return account.getDeposit_amount();
+    }
 
     public List<Account> findAllAccounts() {
-        return (List<Account>) repository.findAll();
+       return (List<Account>) accountRepository.findAll();
     }
+
 }

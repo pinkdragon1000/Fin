@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { APIService } from './../api.service';
 
 @Component({
@@ -98,9 +98,7 @@ import { APIService } from './../api.service';
   ],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private apiService: APIService) {}
-  userData: string;
-  ngOnInit() {
-    this.userData = this.apiService.getUserData()[0].fullName;
-  }
+  @Input('childToMaster') userData: string;
+
+  ngOnInit() {}
 }

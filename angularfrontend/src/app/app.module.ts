@@ -1,3 +1,4 @@
+import { AddTransactionModal } from './components/small-components/add-transaction-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,9 @@ import { InputComponent } from './components/small-components/input.component';
 import { APIService } from './components/api.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AddTransactionButtonComponent } from './components/small-components/add-transaction-modal-button.component';
+import { TabsComponent } from './components/small-components/tabs.component';
+import { TabComponent } from './components/small-components/tab.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,10 @@ import { HttpClientModule } from '@angular/common/http';
     ManageAccountsComponent,
     AddAccountsComponent,
     AccountComponent,
+    AddTransactionModal,
+    AddTransactionButtonComponent,
+    TabsComponent,
+    TabComponent,
     ModalComponent,
     HelpModalButtonComponent,
     ClickableListView,
@@ -49,10 +57,10 @@ import { HttpClientModule } from '@angular/common/http';
     PageTemplateComponent,
     EmptyContentComponent,
     HeaderPageTemplateComponent,
+    APIService,
     NavbarComponent,
     HeaderComponent,
     ClickableListView,
-    APIService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

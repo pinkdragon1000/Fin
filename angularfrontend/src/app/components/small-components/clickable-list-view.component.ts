@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 @Component({
   selector: 'clickable-list-view',
   template: `
@@ -7,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
       <div class="clickable-list">
         <div class="space-between">
           <p>{{ name }}</p>
-          <p>{{ amount }}</p>
+          <p>$ {{ amount }}</p>
         </div>
       </div>
     </a>

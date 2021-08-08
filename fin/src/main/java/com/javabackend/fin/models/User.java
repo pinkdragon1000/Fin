@@ -22,12 +22,6 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String full_name, String email) {
-        this.id = id;
-        this.full_name = full_name;
-        this.email=email;
-    }
-
     public Long getId() {
         return id;
     }

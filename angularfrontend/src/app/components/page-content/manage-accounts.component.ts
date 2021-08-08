@@ -7,23 +7,23 @@ import { Component, OnInit, Input } from '@angular/core';
       [pagetitle]="'Manage Accounts'"
       [pagedirections]="'Click on an account to view and add information'"
     >
-      <div *ngIf="!accountData">
-        <app-emptycontent
-          emptyHeader="No Accounts Yet"
-          emptyPar="Click 'Add Accounts' in the navbar to add an account. "
-        ></app-emptycontent>
-      </div>
-
       <div *ngIf="accountData">
         <p class="align-right">Account Current Amount</p>
         <div *ngFor="let account of accountData" class="clickable-view">
           <clickable-list-view
             [name]="account.account_Description"
-            [link]="'/account'"
-            [amount]="account.account_Starting_Amount"
+            [link]="'/account?id='.concat(account.account_ID)"
+            [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
           >
           </clickable-list-view>
         </div>
+      </div>
+
+      <div *ngIf="!accountData">
+        <app-emptycontent
+          emptyHeader="No Accounts Yet"
+          emptyPar="Click 'Add Accounts' in the navbar to add an account. "
+        ></app-emptycontent>
       </div>
     </page-template>
   `,
@@ -44,6 +44,6 @@ export class ManageAccountsComponent implements OnInit {
   accountData: Object;
 
   ngOnInit(): void {
-    this.accountData = this.apiService.getAccountData();
+    this.apiService.getAccountDataAsync((d: Object)=>{this.accountData=d})
   }
 }

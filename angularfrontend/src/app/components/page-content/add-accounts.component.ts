@@ -68,6 +68,7 @@ export class AddAccountsComponent implements OnInit {
       placeholder: 'Type in your account description',
       type: 'text',
       name: 'description',
+      min: 0,
     },
     {
       label: 'Account Starting Amount ($)',

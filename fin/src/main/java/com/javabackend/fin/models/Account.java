@@ -28,15 +28,12 @@ public class Account {
     @Column(name="account_description", nullable=false)
     private String account_description;
 
+    @Column(name="deposit_amount", nullable=false)
+    private BigDecimal deposit_amount;
+
     public Account() {
     }
 
-    public Account(Long account_id, ArrayList<User> user_id, String account_type, String account_description, BigDecimal account_starting_amount) {
-        this.account_id = account_id;
-        this.account_type=account_type;
-        this.account_description=account_description;
-        this.account_starting_amount=account_starting_amount;
-    }
 
     /*
     public List<User> getUser_ID() {
@@ -78,5 +75,13 @@ public class Account {
 
     public void setAccount_Starting_Amount(BigDecimal account_starting_amount) {
         this.account_starting_amount = account_starting_amount;
+    }
+
+    public BigDecimal getDeposit_amount() {
+        return deposit_amount;
+    }
+
+    public void setDeposit_amount(BigDecimal deposit_amount) {
+        this.deposit_amount = deposit_amount;
     }
 }

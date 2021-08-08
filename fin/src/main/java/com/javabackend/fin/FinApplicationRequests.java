@@ -1,8 +1,9 @@
 package com.javabackend.fin;
-import calculator.CommonCalculator;
-import calculator.FinObject;
+
 import com.javabackend.fin.models.Account;
+import com.javabackend.fin.models.Transaction;
 import com.javabackend.fin.service.AccountService;
+import com.javabackend.fin.service.TransactionService;
 import com.javabackend.fin.service.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
@@ -10,26 +11,22 @@ import org.springframework.web.bind.annotation.*;
 import com.javabackend.fin.models.User;
 
 import javax.inject.Inject;
-import java.math.BigDecimal;
+
 import java.util.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Produces;
-import javax.ws.rs.Path;
-
 @RestController
-public class FinApplicationRequests extends CommonCalculator {
+public class FinApplicationRequests {
 
     @Inject
     private UserService userService;
     @Inject
     private AccountService accountService;
     @Inject
-    CommonCalculator commonCalculator;
+    private TransactionService transactionService;
 
 
     //Shows users from user table in database
-    @GetMapping(path = "/users", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/users", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin(origins = "http://localhost:8080/users")
     public List<User> findUsers(Model model) {
 
@@ -51,20 +48,33 @@ public class FinApplicationRequests extends CommonCalculator {
     }
 
 
-    //TODO
-    @GetMapping(path = "/accounts", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/transactions", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @CrossOrigin(origins = "http://localhost:8080/transactions")
+    public List<Transaction> findTransactions (Model model) {
+
+        var transactions = (List<Transaction>) transactionService.findAllTransactions();
+
+
+        model.addAttribute("transactions", transactions);
+
+        return transactions;
+    }
+
+    //Gets user account information such as account description, account type, account starting amount, transaction amount from database and calculated fields
+    @GetMapping(path = "/accounts", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin(origins = "http://localhost:8080/accounts")
     public List<Account> findAccounts(Model model) {
-
         var accounts = (List<Account>) accountService.findAllAccounts();
-
         model.addAttribute("accounts", accounts);
+        accounts.get(0).setDeposit_amount(accountService.calculateAllDeposits());
 
         return accounts;
     }
 
-    @GetMapping("/deposits")
-    public FinObject<String, BigDecimal> depositEndpoint() {
-        return depositEndpointResponse();
-    }
+
+
+
+
 }
+
+

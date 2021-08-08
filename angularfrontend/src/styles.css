@@ -98,6 +98,10 @@ input[type="radio"] {
     margin-top: 0.3rem;
 }
 
+input[type="date"] {
+    font-family: Inter, sans-serif;
+}
+
 input:focus {
     outline: none;
     box-shadow: 0 0 5px var(--fin-blue-1);

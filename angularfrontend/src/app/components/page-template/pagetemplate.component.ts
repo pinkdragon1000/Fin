@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { APIService } from '../api.service';
 
 @Component({
   selector: 'page-template',
   template: `
-    <navbar-component></navbar-component>
+    <navbar-component [childToMaster]="this.userData"></navbar-component>
     <div class="content">
       <h2 class="pagetitle">{{ pagetitle }}</h2>
       <p>{{ pagedirections }}</p>
@@ -25,9 +26,14 @@ import { Component, OnInit, Input } from '@angular/core';
   ],
 })
 export class PageTemplateComponent implements OnInit {
-  constructor() {}
+  constructor(private apiService: APIService) {}
 
   @Input() pagedirections: string;
   @Input() pagetitle: string;
-  ngOnInit(): void {}
+  
+
+  userData: string;
+  ngOnInit() {
+    this.apiService.getUserData((d: Object)=>{this.userData=d[0].fullName})
+  }
 }

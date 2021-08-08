@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalService } from '../small-components/help-modal.service';
+import { ModalService } from './help-modal.service';
 
 @Component({
   selector: 'help-modal-button-component',
@@ -13,6 +13,7 @@ import { ModalService } from '../small-components/help-modal.service';
         </button>
       </div>
       <p class="modaltext">{{ modaltext }}</p>
+      <ng-content></ng-content>
     </modal>
   `,
   styles: [
