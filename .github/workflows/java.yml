@@ -19,8 +19,7 @@ jobs:
         architecture: x64 # (x64 or x86) - defaults to x64
     - name: Create test database
       run: |
-        sudo systemctl enable mysql.service
-        sudo systemctl start mysql.service
+        sudo service mysql start
         mysql CREATE USER ${{ secrets.DB_USER }}@'localhost' IDENTIFIED BY ${{ secrets.DB_PASSWORD }};
         mysql GRANT ALL PRIVILEGES ON * . * TO ${{ secrets.DB_USER }}@'localhost';
         mysql 'CREATE DATABASE Fin;' -u${{ secrets.DB_USER }} -p${{ secrets.DB_PASSWORD }}
