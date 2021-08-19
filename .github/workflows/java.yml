@@ -5,6 +5,18 @@ on:
     branches: [ master ]
 
 jobs:
+  test: 
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+          image: mysql:5.7
+          env:
+              MYSQL_ALLOW_EMPTY_PASSWORD: yes
+              MYSQL_DATABASE: Fin
+          ports:
+              - 3306
+          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        
   build:
     runs-on: ubuntu-latest
     defaults:
@@ -17,10 +29,7 @@ jobs:
         java-version: '14' # The JDK version to make available on the path.
         java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
         architecture: x64 # (x64 or x86) - defaults to x64
-    - name: Create test database
-      run: |
-        sudo service mysql start
-        mysql CREATE USER ${{ secrets.DB_USER }}@'localhost' IDENTIFIED BY ${{ secrets.DB_PASSWORD }};
-        mysql GRANT ALL PRIVILEGES ON * . * TO ${{ secrets.DB_USER }}@'localhost';
-        mysql 'CREATE DATABASE Fin;' -u${{ secrets.DB_USER }} -p${{ secrets.DB_PASSWORD }}
     - run: mvn clean verify
+        
+ 
+        
