@@ -20,6 +20,8 @@ jobs:
         
     - name: Create test database
       run: |
+        mysql CREATE USER ${{ secrets.DB_USER }}@'localhost' IDENTIFIED BY ${{ secrets.DB_PASSWORD }};
+        mysql GRANT ALL PRIVILEGES ON * . * TO ${{ secrets.DB_USER }}@'localhost';
         sudo service mysql start --database=Fin --user=${{secrets.DB_USER}} --password=${{secrets.DB_PASSWORD}}
     - run: mvn clean verify
         
