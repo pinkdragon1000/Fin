@@ -1,3 +1,4 @@
+
 import { AddTransactionModal } from './components/small-components/add-transaction-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -28,6 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTransactionButtonComponent } from './components/small-components/add-transaction-modal-button.component';
 import { TabsComponent } from './components/small-components/tabs.component';
 import { TabComponent } from './components/small-components/tab.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BarComponent } from './components/page-content/bar.component';
+//import { BarComponent1 } from './components/page-content/bar.component1';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,7 @@ import { TabComponent } from './components/small-components/tab.component';
     HelpModalButtonComponent,
     ClickableListView,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule,NgxChartsModule, BrowserAnimationsModule ],
   providers: [
     InputComponent,
     PageTemplateComponent,
@@ -60,7 +65,7 @@ import { TabComponent } from './components/small-components/tab.component';
     APIService,
     NavbarComponent,
     HeaderComponent,
-    ClickableListView,
+    ClickableListView
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

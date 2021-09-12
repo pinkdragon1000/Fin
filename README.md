@@ -92,3 +92,4 @@ Resources
 - https://firebase.google.com/docs/hosting
 - https://spring.io/guides/gs/spring-boot/
 - https://spring.io/guides/gs/spring-boot-docker/
+- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.5.3

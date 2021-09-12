@@ -7,6 +7,7 @@ export class APIService {
   constructor(private http: HttpClient) {}
   userResult: Object;
   accountsResult: Object;
+  transactionsResult: Object;
   getUserData(callback: any) {
     this.http
       .get('http://localhost:8080/users')
@@ -24,6 +25,20 @@ export class APIService {
     .subscribe((res) => {
       this.accountsResult = res;
       callback(this.accountsResult)
+      console.log(this.accountsResult);
     });
+
+  }
+
+  getTransactionDataAsync(callback: any) {
+    this.http
+    .get('http://localhost:8080/transactions')
+    .pipe(map((res) => res))
+    .subscribe((res) => {
+      this.transactionsResult = res;
+      callback(this.transactionsResult)
+      console.log(this.transactionsResult);
+    });
+    
   }
 }

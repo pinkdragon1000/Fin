@@ -10,12 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
       <div *ngIf="accountData">
         <p class="align-right">Account Current Amount</p>
         <div *ngFor="let account of accountData" class="clickable-view">
-          <clickable-list-view
-            [name]="account.account_Description"
-            [link]="'/account?id='.concat(account.account_ID)"
-            [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
-          >
-          </clickable-list-view>
+          <div *ngIf="account.user_id.user_id === currentUser">
+            <clickable-list-view
+              [name]="account.account_Description"
+              [link]="'/account?id='.concat(account.account_id)"
+              [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
+            >
+            </clickable-list-view>
+          </div>
         </div>
       </div>
 
@@ -31,10 +33,10 @@ import { Component, OnInit, Input } from '@angular/core';
     `
       .align-right {
         text-align: right;
-        margin-right: 150px;
+        margin-right: 8rem;
       }
       .clickable-view {
-        margin: 10px;
+        margin: 0.625rem;
       }
     `,
   ],
@@ -43,7 +45,11 @@ export class ManageAccountsComponent implements OnInit {
   constructor(private apiService: APIService) {}
   accountData: Object;
 
+  currentUser: number = 1;
+
   ngOnInit(): void {
-    this.apiService.getAccountDataAsync((d: Object)=>{this.accountData=d})
+    this.apiService.getAccountDataAsync((d: Object) => {
+      this.accountData = d;
+    });
   }
 }

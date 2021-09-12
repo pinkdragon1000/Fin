@@ -15,28 +15,29 @@ public class Transaction {
     @Column(name = "transaction_id", nullable=false)
     private Long transaction_id;
 
-   /* @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private List<User> user_id;
-*/
+    @ManyToOne
+    @JoinColumn(name="account_id", nullable=false)
+    private Account account_id;
+
     @Column(name="transaction_type", nullable=false)
     private String transaction_type;
     @Column(name="transaction_date", nullable=false)
-    private Date transaction_date;
+    private Date transactiondate;
     @Column(name="transaction_amount", nullable=false)
     private BigDecimal transaction_amount;
 
-    public Transaction() {
+    @Column(name="transaction_subTotal", nullable=false)
+    private BigDecimal transaction_subTotal;
+
+    public Account getAccount_id() {
+        return account_id;
     }
 
-    /*
-    public List<User> getUser_ID() {
-        return user_id;
+    public void setAccount_id(Account account_id) {
+        this.account_id = account_id;
     }
 
-    public void setUser_ID(ArrayList<User> user_id) {
-        this.user_id = user_id;
-    }*/
+
 
     public Long getTransaction_id() {
         return transaction_id;
@@ -56,11 +57,11 @@ public class Transaction {
     }
 
     public Date getTransaction_date() {
-        return transaction_date;
+        return transactiondate;
     }
 
     public void setTransaction_date(Date transaction_date) {
-        this.transaction_date = transaction_date;
+        this.transactiondate = transaction_date;
     }
 
     public BigDecimal getTransaction_amount() {
@@ -69,5 +70,13 @@ public class Transaction {
 
     public void setTransaction_amount(BigDecimal transaction_amount) {
         this.transaction_amount = transaction_amount;
+    }
+
+    public BigDecimal getTransaction_subTotal() {
+        return transaction_subTotal;
+    }
+
+    public void setTransaction_subTotal(BigDecimal transaction_subTotal) {
+        this.transaction_subTotal = transaction_subTotal;
     }
 }

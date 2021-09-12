@@ -8,10 +8,11 @@ import javax.persistence.*;
 public class User {
 
     @Id
+    @Column(name = "user_id", nullable=false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "id", nullable=false)
-    private Long id;
+    private int user_id;
+
     @Column(name="full_name", nullable=false)
     private String full_name;
     @Column(name="email", nullable=false)
@@ -19,15 +20,13 @@ public class User {
     @Column(name="password", nullable=false)
     private String password;
 
-    public User() {
+
+    public int getUser_id() {
+        return user_id;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getFullName() {

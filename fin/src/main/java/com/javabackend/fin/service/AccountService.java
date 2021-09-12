@@ -30,8 +30,27 @@ public class AccountService{
         return account.getDeposit_amount();
     }
 
+
+    public BigDecimal calculateAllWithdrawals(){
+        List<Transaction> transactions=  (List<Transaction>) transactionRepository.findAll();
+        Account account=new Account();
+        BigDecimal aggTransactions= BigDecimal.ZERO;
+        for (Transaction transaction : transactions) {
+            if(transaction.getTransaction_type().equals("Withdraw")) {
+                aggTransactions = aggTransactions.add(transaction.getTransaction_amount());
+            }
+        }
+        account.setWithdraw_amount(aggTransactions);
+
+        return account.getWithdraw_amount();
+    }
+
     public List<Account> findAllAccounts() {
        return (List<Account>) accountRepository.findAll();
+    }
+
+    public Account addNewAccount(Account newAccount) {
+        return accountRepository.save(newAccount);
     }
 
 }

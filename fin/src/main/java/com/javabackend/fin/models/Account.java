@@ -3,23 +3,20 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "Accounts")
 public class Account {
-
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "account_id", nullable=false)
-    private Long account_id;
+   private int account_id;
 
-   /* @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private List<User> user_id;
-*/
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user_id;
+
     @Column(name="account_type", nullable=false)
     private String account_type;
     @Column(name="account_starting_amount", nullable=false)
@@ -31,27 +28,25 @@ public class Account {
     @Column(name="deposit_amount", nullable=false)
     private BigDecimal deposit_amount;
 
-    public Account() {
-    }
+    @Column(name="withdraw_amount", nullable=false)
+    private BigDecimal withdraw_amount;
 
 
-    /*
-    public List<User> getUser_ID() {
-        return user_id;
-    }
-
-    public void setUser_ID(ArrayList<User> user_id) {
-        this.user_id = user_id;
-    }*/
-
-    public Long getAccount_ID() {
+    public int getAccount_id() {
         return account_id;
     }
 
-    public void setAccount_ID(Long account_id) {
+    public void setAccount_id(int account_id) {
         this.account_id = account_id;
     }
 
+    public User getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(User user_id) {
+        this.user_id = user_id;
+    }
 
     public String getAccount_Description() {
        return account_description;
@@ -65,7 +60,7 @@ public class Account {
         return account_type;
     }
 
-    public void setAccount_Type(String account_id) {
+    public void setAccount_Type(String account_type) {
         this.account_type = account_type;
     }
 
@@ -83,5 +78,13 @@ public class Account {
 
     public void setDeposit_amount(BigDecimal deposit_amount) {
         this.deposit_amount = deposit_amount;
+    }
+
+    public BigDecimal getWithdraw_amount() {
+        return withdraw_amount;
+    }
+
+    public void setWithdraw_amount(BigDecimal withdraw_amount) {
+        this.withdraw_amount = withdraw_amount;
     }
 }
