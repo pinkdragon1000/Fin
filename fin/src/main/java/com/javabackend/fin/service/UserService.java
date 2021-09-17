@@ -1,7 +1,7 @@
 package com.javabackend.fin.service;
 import com.javabackend.fin.models.User;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +18,9 @@ public class UserService  {
     public User findCurrentUser() {
         return userRepository.findById((long) 1).orElse(null);
     }
+
+    public User addNewUser(User newUser) {
+        return userRepository.save(newUser);
+    }
+
 }

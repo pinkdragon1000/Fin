@@ -2,9 +2,9 @@ package com.javabackend.fin.service;
 
 import com.javabackend.fin.models.Account;
 import com.javabackend.fin.models.Transaction;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -29,7 +29,6 @@ public class AccountService{
 
         return account.getDeposit_amount();
     }
-
 
     public BigDecimal calculateAllWithdrawals(){
         List<Transaction> transactions=  (List<Transaction>) transactionRepository.findAll();

@@ -2,10 +2,10 @@ package com.javabackend.fin.service;
 
 import com.javabackend.fin.models.Account;
 import com.javabackend.fin.models.Transaction;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -53,4 +53,9 @@ public class TransactionService {
     public Transaction findCurrentTransaction() {
         return transactionRepository.findById((long) 1).orElse(null);
     }
+
+    public Transaction addNewTransaction(Transaction newTransaction) {
+        return transactionRepository.save(newTransaction);
+    }
+
 }

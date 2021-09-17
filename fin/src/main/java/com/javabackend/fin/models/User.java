@@ -20,7 +20,6 @@ public class User {
     @Column(name="password", nullable=false)
     private String password;
 
-
     public int getUser_id() {
         return user_id;
     }
@@ -37,7 +36,6 @@ public class User {
         this.full_name = full_name;
     }
 
-
     public String getEmail() {
         return email;
     }
@@ -45,6 +43,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 }

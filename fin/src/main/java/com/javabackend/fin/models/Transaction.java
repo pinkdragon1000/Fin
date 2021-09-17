@@ -37,8 +37,6 @@ public class Transaction {
         this.account_id = account_id;
     }
 
-
-
     public Long getTransaction_id() {
         return transaction_id;
     }
@@ -46,7 +44,6 @@ public class Transaction {
     public void setTransaction_id(Long transaction_id) {
         this.transaction_id = transaction_id;
     }
-
 
     public String getTransaction_type() {
        return transaction_type;
