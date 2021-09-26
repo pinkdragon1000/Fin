@@ -17,13 +17,7 @@ jobs:
         java-version: '14' # The JDK version to make available on the path.
         java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
         architecture: x64 # (x64 or x86) - defaults to x64
-        
-    - name: Create test database
-      run: |
-        mysql --execute="CREATE USER ${{ secrets.DB_USER }}@'localhost' IDENTIFIED BY ${{ secrets.DB_PASSWORD }};"
-        mysql --execute="GRANT ALL PRIVILEGES ON * . * TO ${{ secrets.DB_USER }}@'localhost';"
-        sudo service mysql start --database=Fin --user=${{secrets.DB_USER}} --password=${{secrets.DB_PASSWORD}}
-    - run: mvn clean verify
+    - run: mvn compile
         
  
         
