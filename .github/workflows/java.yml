@@ -22,6 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Running tests
     needs: compile
+    defaults:
+      run:
+        working-directory: ./fin
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
