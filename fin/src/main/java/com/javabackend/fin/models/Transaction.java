@@ -29,8 +29,8 @@ public class Transaction {
     @Column(name="transaction_subTotal", nullable=false)
     private BigDecimal transaction_subTotal;
 
-    public Account getAccount_id() {
-        return account_id;
+    public int getAccount_id() {
+        return account_id.getAccount_id();
     }
 
     public void setAccount_id(Account account_id) {

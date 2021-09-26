@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
       <div *ngIf="accountData">
         <p class="align-right">Account Current Amount</p>
         <div *ngFor="let account of accountData" class="clickable-view">
-          <div *ngIf="account.user_id.user_id === currentUser">
+          <div *ngIf="account.user_id === currentUser">
             <clickable-list-view
               [name]="account.account_Description"
               [link]="'/account?id='.concat(account.account_id)"
@@ -33,7 +33,7 @@ import { Component, OnInit, Input } from '@angular/core';
     `
       .align-right {
         text-align: right;
-        margin-right: 8rem;
+        margin-right: 10rem;
       }
       .clickable-view {
         margin: 0.625rem;

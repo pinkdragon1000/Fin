@@ -49,9 +49,9 @@ import { Component, OnInit } from '@angular/core';
         height: 1.5rem;
         min-width: 15rem;
         width: 100%;
-        height: 52px;
+        height: 3.25rem;
         padding: 0rem 1rem;
-        border: 1px solid var(--fin-white);
+        border: 0.063rem solid var(--fin-white);
         margin: 0.5rem 0;
         background: var(--fin-neutral-6);
         color: var(--fin-neutral-1);
@@ -75,7 +75,7 @@ export class AddAccountsComponent implements OnInit {
       placeholder: 'Type in your account starting amount',
       type: 'number',
       name: 'amount',
-      min: 0,
+      min: 1,
     },
   ];
 

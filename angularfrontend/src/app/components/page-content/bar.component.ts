@@ -6,37 +6,35 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 @Component({
   selector: 'BarComponent',
   template: `
-  <ngx-charts-bar-horizontal
-  class="border"
-  [view]="view"
-  [scheme]="colorScheme"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [results]="single"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)">
-</ngx-charts-bar-horizontal>
-  
-  
+    <ngx-charts-bar-horizontal
+      class="border"
+      [view]="view"
+      [scheme]="colorScheme"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [results]="single"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+    >
+    </ngx-charts-bar-horizontal>
   `,
-  styles: [`
-  .border{
-    border: 1px solid #dddddd
-  }
-  `]
+  styles: [
+    `
+      .border {
+        border: 0.063rem solid #dddddd;
+      }
+    `,
+  ],
 })
 export class BarComponent implements OnInit {
   //single: any[];
   view: any[] = [700, 400];
-
-
-
 
   // options
   showXAxis: boolean = true;
@@ -49,21 +47,21 @@ export class BarComponent implements OnInit {
   xAxisLabel: string = 'Dollars';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28']
+    domain: ['#5AA454', '#A10A28'],
   };
 
   constructor() {
     var single = [
       {
-        "name": "Deposits",
-        "value": 1500
+        name: 'Deposits',
+        value: 1500,
       },
       {
-        "name": "Withdraws",
-        "value": 10
-      }
+        name: 'Withdraws',
+        value: 10,
+      },
     ];
-    Object.assign(this, {single });
+    Object.assign(this, { single });
   }
 
   onSelect(data): void {
@@ -79,5 +77,4 @@ export class BarComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
 }

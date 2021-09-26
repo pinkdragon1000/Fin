@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
       <div class="clickable-list">
         <div class="space-between">
           <p>{{ name }}</p>
-          <p>$\{{ amount }}</p>
+          <p>\${{ amount }}</p>
         </div>
       </div>
     </a>
@@ -17,7 +17,7 @@ import { Component, OnInit, Input } from '@angular/core';
         background: #efefef;
         width: 90%;
         padding: 1rem;
-        border-radius: 10px;
+        border-radius: 0.625rem;
       }
 
       .space-between {

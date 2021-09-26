@@ -20,6 +20,9 @@ public class AccountController {
     @CrossOrigin(origins = "http://localhost:8080/accounts")
     public List<Account> findAccounts(Model model) {
         var accounts = (List<Account>) accountService.findAllAccounts();
+        if(accounts==null){
+            System.out.println("ERROR");
+        }
         model.addAttribute("accounts", accounts);
         accounts.get(0).setDeposit_amount(accountService.calculateAllDeposits());
         accounts.get(0).setWithdraw_amount(accountService.calculateAllWithdrawals());

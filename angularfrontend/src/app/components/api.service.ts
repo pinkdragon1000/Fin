@@ -14,31 +14,29 @@ export class APIService {
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.userResult = res;
-        callback(this.userResult)
+        callback(this.userResult);
       });
   }
 
   getAccountDataAsync(callback: any) {
     this.http
-    .get('http://localhost:8080/accounts')
-    .pipe(map((res) => res))
-    .subscribe((res) => {
-      this.accountsResult = res;
-      callback(this.accountsResult)
-      console.log(this.accountsResult);
-    });
-
+      .get('http://localhost:8080/accounts')
+      .pipe(map((res) => res))
+      .subscribe((res) => {
+        this.accountsResult = res;
+        callback(this.accountsResult);
+        console.log(this.accountsResult);
+      });
   }
 
   getTransactionDataAsync(callback: any) {
     this.http
-    .get('http://localhost:8080/transactions')
-    .pipe(map((res) => res))
-    .subscribe((res) => {
-      this.transactionsResult = res;
-      callback(this.transactionsResult)
-      console.log(this.transactionsResult);
-    });
-    
+      .get('http://localhost:8080/transactions')
+      .pipe(map((res) => res))
+      .subscribe((res) => {
+        this.transactionsResult = res;
+        callback(this.transactionsResult);
+        console.log(this.transactionsResult);
+      });
   }
 }

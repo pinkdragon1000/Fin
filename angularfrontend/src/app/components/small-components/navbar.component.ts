@@ -70,9 +70,7 @@ import { APIService } from './../api.service';
         padding: 0.625rem 0.9375rem;
       }
 
-      .nav > li > a:hover,
-      .nav > li > a:focus,
-      .nav > li > a:active {
+      .active {
         text-decoration: none;
         background-color: rgba(255, 255, 255, 0.2);
       }

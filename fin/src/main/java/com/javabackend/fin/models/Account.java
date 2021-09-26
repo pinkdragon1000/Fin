@@ -40,8 +40,8 @@ public class Account {
         this.account_id = account_id;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public int getUser_id() {
+        return user_id.getUser_id();
     }
 
     public void setUser_id(User user_id) {

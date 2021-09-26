@@ -28,10 +28,26 @@ import { Component, OnInit, Input } from '@angular/core';
         min-width: 15rem;
         width: 100%;
         padding: 0.75rem 1rem;
-        border: 1px solid var(--fin-white);
+        border: 0.063rem solid var(--fin-white);
         margin: 0.5rem 0;
         background: var(--fin-neutral-6);
         color: var(--fin-neutral-1);
+      }
+
+      input[type='checkbox'],
+      input[type='radio'] {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-top: 0.3rem;
+      }
+
+      input[type='date'] {
+        font-family: Inter, sans-serif;
+      }
+
+      input:focus {
+        outline: none;
+        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
       }
     `,
   ],

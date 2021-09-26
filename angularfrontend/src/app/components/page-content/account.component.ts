@@ -48,8 +48,8 @@ import { formatDate } from '@angular/common';
           >
             <ng-container
               *ngIf="
-                transaction.account_id.user_id.user_id === currentUser &&
-                transaction.account_id.account_id === accountIDnum
+                accountUser === currentUser &&
+                transaction.account_id === accountIDnum
               "
             >
               <td>{{ transaction.transaction_date }}</td>
@@ -104,7 +104,7 @@ import { formatDate } from '@angular/common';
         overflow-y: scroll;
       }
       .clickable-view {
-        margin: 10px;
+        margin: 0.625rem;
       }
 
       .inputs {
@@ -145,9 +145,9 @@ import { formatDate } from '@angular/common';
         height: 1.5rem;
         min-width: 15rem;
         width: 100%;
-        height: 52px;
+        height: 3.25rem;
         padding: 0rem 1rem;
-        border: 1px solid var(--fin-white);
+        border: 0.063rem solid var(--fin-white);
         margin: 0.5rem 0;
         background: var(--fin-neutral-6);
         color: var(--fin-neutral-1);
@@ -165,9 +165,9 @@ import { formatDate } from '@angular/common';
 
       td,
       th {
-        border: 1px solid #dddddd;
+        border: 0.063rem solid #dddddd;
         text-align: left;
-        padding: 8px;
+        padding: 0.5rem;
       }
     `,
   ],
@@ -181,6 +181,7 @@ export class AccountComponent implements OnInit {
   accountIDnum: number;
   accountDescription: string;
   transactionId: string;
+  accountUser: number;
 
   currentUser: number = 1;
 
@@ -213,6 +214,10 @@ export class AccountComponent implements OnInit {
     this.accountID = (
       parseInt(window.location.search.substring(4)) - 1
     ).toString();
+
+    this.apiService.getAccountDataAsync((d: number) => {
+      this.accountUser = d[this.accountID].user_id;
+    });
     this.apiService.getAccountDataAsync((d: Object) => {
       this.accountDescription = d[this.accountID].account_Description;
     });

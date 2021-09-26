@@ -4,20 +4,20 @@
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 :root {
-    --fin-black: rgb(26, 26, 26);
+    --fin-black: rgba(26, 26, 26, 1);
     --fin-black-transparent: rgba(26, 26, 26, 0.5);
-    --fin-white: rgb(255, 255, 255);
-    --fin-blue-1: rgb(3, 100, 255);
-    --fin-blue-2: rgb(48, 98, 178);
-    --fin-gradient: linear-gradient(25deg, #E94057, #F27121);
-    --fin-neutral-1: rgb(117, 117, 117);
-    --fin-neutral-2: rgb(148, 148, 148);
-    --fin-neutral-3: rgb(172, 172, 172);
+    --fin-white: rgba(255, 255, 255, 1);
+    --fin-blue-1: rgba(3, 100, 255, 1);
+    --fin-blue-2: rgba(48, 98, 178, 1);
+    --fin-gradient: linear-gradient(25deg, rgba(233, 64, 87, 1), rgba(242, 113, 33, 1));
+    --fin-neutral-1: rgba(117, 117, 117, 1);
+    --fin-neutral-2: rgba(148, 148, 148, 1);
+    --fin-neutral-3: rgba(172, 172, 172, 1);
     --fin-neutral-3-transparent: rgba(172, 172, 172, 0.2);
     --fin-neutral-3-transparent-2: rgba(172, 172, 172, 0.6);
-    --fin-neutral-4: rgb(205, 205, 205);
-    --fin-neutral-5: rgb(233, 233, 233);
-    --fin-neutral-6: rgb(245, 245, 245);
+    --fin-neutral-4: rgba(205, 205, 205, 1);
+    --fin-neutral-5: rgba(233, 233, 233, 1);
+    --fin-neutral-6: rgba(245, 245, 245, 1);
 }
 
 ::-webkit-input-placeholder {
@@ -88,23 +88,7 @@ select {
 
 select:focus {
     outline: none;
-    box-shadow: 0 0 5px var(--fin-blue-1);
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin-top: 0.3rem;
-}
-
-input[type="date"] {
-    font-family: Inter, sans-serif;
-}
-
-input:focus {
-    outline: none;
-    box-shadow: 0 0 5px var(--fin-blue-1);
+    box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
 }
 
 .float-right {
@@ -121,7 +105,7 @@ button {
     padding: 0.5rem 0;
     font-size: 1rem;
     border-radius: 0.625rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.094rem;
     min-width: 8rem;
 }
 
@@ -131,7 +115,7 @@ button:hover {
 
 button:focus {
     outline: none;
-    box-shadow: 0 0 5px var(--fin-blue-1);
+    box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
 }
 
 .primary {
@@ -141,24 +125,24 @@ button:focus {
 }
 
 .primary:hover {
-    box-shadow: 2px 3px 5px 1px var(--fin-blue-1-transparent);
+    box-shadow: 0.125rem 0.188rem 0.313rem 0.063rem var(--fin-blue-1-transparent);
 }
 
 .secondary {
     background-color: var(--fin-white);
-    border: 1px var(--fin-neutral-4) solid;
+    border: 0.063rem var(--fin-neutral-4) solid;
     color: var(--fin-neutral-2);
     padding: 0.75rem 1rem;
     min-width: 12rem;
 }
 
 .secondary:hover {
-    box-shadow: 1px 2px 8px 1px var(--fin-neutral-3-transparent);
+    box-shadow: 0.063rem 0.125rem 0.5rem 0.063rem var(--fin-neutral-3-transparent);
 }
 
 .tertiary {
     color: var(--fin-black);
-    padding: 0.75rem 0;
+    padding: 0.75rem 0rem;
     text-transform: uppercase;
 }
 
@@ -186,7 +170,7 @@ button:focus {
 
 hr {
     color: var(--fin-neutral-5);
-    border: 0.5px solid;
+    border: 0.031rem solid;
     margin: 1.375rem 0;
 }
 

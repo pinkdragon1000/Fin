@@ -27,7 +27,7 @@ import { Component, OnInit, Input } from '@angular/core';
         color: var(--fin-white);
         font-family: 'Courgette', cursive;
         font-size: 4rem;
-        text-shadow: 0px 2px rgb(0 0 0 / 16%);
+        text-shadow: 0rem 0.125rem rgb(0 0 0 / 16%);
         font-weight: 300;
       }
 
@@ -37,8 +37,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
       img {
         padding-right: 1rem;
-        width: 157px;
-        height: 83px;
+        width: 9.813rem;
+        height: 5.188rem;
       }
     `,
   ],
