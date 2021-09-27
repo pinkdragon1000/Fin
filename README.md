@@ -24,7 +24,7 @@ ng serve
 
 <b>Deploying the Angular Application:</b>
 
-The frontend is deployed using [Firebase Hosting](https://firebase.google.com/).
+The frontend is deployed using [Firebase Hosting](https://firebase.google.com/).  By default new code is pushed to Firebase through a Github Actions workflow.  If I want to manually deploy I do the following:
 
 ```
 cd angularfrontend
@@ -49,6 +49,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 <b>Running the Java API Locally (Without Docker):</b>
 
 ```
+Ensure the MySQL local database is running
 In IntelliJ or similar IDE
 Open the folder src->main->java->com.javabackend.fin
 Find FinApplication.java-> Right Click-> Run 'FinApplication.main()'
@@ -79,6 +80,8 @@ docker push sitarobinson/fin:firsttry
 
 <b>Running the Java API Locally (With Docker):</b>
 `docker run -p 8181:8080 springio/fin Open up localhost:8181 to view`
+
+[API Docker Hub Link](https://hub.docker.com/repository/docker/sitarobinson/fin)
 
 <b>Viewing the production Java API:</b>
 
