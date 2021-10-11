@@ -73,6 +73,7 @@ import { APIService } from './../api.service';
       .active {
         text-decoration: none;
         background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 0.625rem;
       }
 
       .navbar-nav > li > a {

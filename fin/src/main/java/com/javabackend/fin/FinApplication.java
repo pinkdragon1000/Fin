@@ -19,6 +19,7 @@ public class FinApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/users").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/accounts").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/addAccount").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/transactions").allowedOrigins("http://localhost:4200");
 			}
 		};

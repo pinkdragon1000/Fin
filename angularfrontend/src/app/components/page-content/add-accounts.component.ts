@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from './../api.service';
 
 @Component({
   selector: 'add-accounts-content-component',
@@ -10,25 +11,29 @@ import { Component, OnInit } from '@angular/core';
     Manage Accounts in the navbar.'
       "
     >
-      <div class="inputs">
-        <label>Account Type (checking/savings)</label>
-        <br />
-        <select class="select">
-          <option value="0">Select your account type</option>
-          <option value="1">Checking</option>
-          <option value="2">Savings</option>
-        </select>
-        <div class="input" *ngFor="let input of accountFieldData">
-          <input-component
-            [label]="input.label"
-            [placeholder]="input.placeholder"
-            [type]="input.type"
-            [name]="input.name"
-            [min]="input.min"
-          ></input-component>
+      <form (onSubmit)="postAccountData()">
+        <div class="inputs">
+          <label>Account Type (checking/savings)</label>
+          <br />
+          <select class="select">
+            <option value="0">Select your account type</option>
+            <option value="1">Checking</option>
+            <option value="2">Savings</option>
+          </select>
+          <div class="input" *ngFor="let input of accountFieldData">
+            <input-component
+              [label]="input.label"
+              [placeholder]="input.placeholder"
+              [type]="input.type"
+              [name]="input.name"
+              [min]="input.min"
+            ></input-component>
+          </div>
         </div>
-      </div>
-      <button class="primary round" onclick="">Add Account</button>
+        <button type="submit" class="primary round" (click)="postAccountData()">
+          Add Account
+        </button>
+      </form>
     </page-template>
   `,
   styles: [
@@ -60,7 +65,9 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class AddAccountsComponent implements OnInit {
-  constructor() {}
+  description: string = '';
+
+  constructor(private apiService: APIService) {}
 
   accountFieldData = [
     {
@@ -78,6 +85,12 @@ export class AddAccountsComponent implements OnInit {
       min: 1,
     },
   ];
+
+  postAccountData() {
+    console.log(this.description);
+    //console.log(this.amount);
+    this.apiService.postAccountData();
+  }
 
   ngOnInit(): void {}
 }
