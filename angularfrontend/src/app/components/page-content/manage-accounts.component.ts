@@ -1,6 +1,6 @@
+import { userId } from './../../../environments/environment';
 import { APIService } from './../api.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { userId } from 'src/environments/environment';
 @Component({
   selector: 'manage-accounts-content-component',
   template: `
@@ -45,6 +45,7 @@ import { userId } from 'src/environments/environment';
 export class ManageAccountsComponent implements OnInit {
   constructor(private apiService: APIService) {}
   accountData: Object;
+  userId: any = userId;
 
   ngOnInit(): void {
     this.apiService.getAccountDataAsync((d: Object) => {
