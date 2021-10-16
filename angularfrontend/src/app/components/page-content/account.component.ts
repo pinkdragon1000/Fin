@@ -232,20 +232,12 @@ export class AccountComponent implements OnInit {
       parseInt(window.location.search.substring(4)) - 1
     ).toString();
 
-    this.apiService.getAccountDataAsync((d: number) => {
-      this.accountUser = d[this.accountID].user_id;
-    });
     this.apiService.getAccountDataAsync((d: Object) => {
       this.accountDescription = d[this.accountID].account_Description;
-    });
-    this.apiService.getAccountDataAsync((d: number) => {
-      this.accountStartingAmount = d[this.accountID].account_Starting_Amount;
-    });
-    this.apiService.getAccountDataAsync((d: Object) => {
       this.accountDeposits = d[this.accountID].deposit_amount;
-    });
-    this.apiService.getAccountDataAsync((d: Object) => {
       this.accountWithdraws = d[this.accountID].withdraw_amount;
+      this.accountUser = d[this.accountID].user_id;
+      this.accountStartingAmount = d[this.accountID].account_Starting_Amount;
     });
 
     this.apiService.getTransactionDataAsync((d: Array<any>) => {

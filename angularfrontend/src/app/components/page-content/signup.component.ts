@@ -77,18 +77,22 @@ export class SignupComponent implements OnInit {
       document.getElementById('password')
     )).value;
 
-    this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
+    if (this.fullName == '' || this.email == '' || this.password == '') {
+      console.log('Please fill out all fields');
+    } else {
+      this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
 
-    const body =
-      '{"fullName": "' +
-      this.fullName +
-      '", "email": "' +
-      this.email +
-      '", "password":"' +
-      this.hashedPassword +
-      '"}';
+      const body =
+        '{"fullName": "' +
+        this.fullName +
+        '", "email": "' +
+        this.email +
+        '", "password":"' +
+        this.hashedPassword +
+        '"}';
 
-    this.apiService.postUserData(body);
+      this.apiService.postUserData(body);
+    }
   }
 
   ngOnInit(): void {}
