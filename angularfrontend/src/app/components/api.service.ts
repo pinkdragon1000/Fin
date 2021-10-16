@@ -40,6 +40,28 @@ export class APIService {
       });
   }
 
+  postUserData(body: string) {
+    const headers = { 'content-type': 'application/json' };
+    this.http
+      .post('http://localhost:8080/addUser', body, {
+        headers: headers,
+        observe: 'response',
+      })
+      .subscribe(
+        (response) => {
+          console.log(
+            'POST completed sucessfully. The response received ' + response
+          );
+        },
+        (error) => {
+          console.log('Post failed with the errors');
+        },
+        () => {
+          console.log('Post Completed');
+        }
+      );
+  }
+
   postAccountData(body: string) {
     const headers = { 'content-type': 'application/json' };
     this.http
