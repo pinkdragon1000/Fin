@@ -40,10 +40,8 @@ export class APIService {
       });
   }
 
-  postAccountData() {
+  postAccountData(body: string) {
     const headers = { 'content-type': 'application/json' };
-    const body =
-      '{"user_id":{"user_id": 1}, "account_Type": "Checking", "account_Starting_Amount": 100, "account_Description": "VISA Checking", "deposit_amount": 0, "withdraw_amount": 0}';
     this.http
       .post('http://localhost:8080/addAccount', body, {
         headers: headers,
@@ -64,12 +62,36 @@ export class APIService {
       );
   }
 
-  postAccountDataTest() {
+  postTransactionData() {
     const headers = { 'content-type': 'application/json' };
     const body =
-      '{"user_id":{"user_id": 1}, "account_Type": "Checking", "account_Starting_Amount": 100, "account_Description": "VISA Checking", "deposit_amount": 0, "withdraw_amount": 0}';
+      '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
     this.http
-      .post('http://localhost:8080/addAccount', body, {
+      .post('http://localhost:8080/addTransaction', body, {
+        headers: headers,
+        observe: 'response',
+      })
+      .subscribe(
+        (response) => {
+          console.log(
+            'POST completed sucessfully. The response received ' + response
+          );
+        },
+        (error) => {
+          console.log('Post failed with the errors');
+        },
+        () => {
+          console.log('Post Completed');
+        }
+      );
+  }
+
+  postTransactionDataTest() {
+    const headers = { 'content-type': 'application/json' };
+    const body =
+      '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
+    this.http
+      .post('http://localhost:8080/addTransaction', body, {
         headers: headers,
         observe: 'response',
       })

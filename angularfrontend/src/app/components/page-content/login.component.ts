@@ -36,13 +36,6 @@ import { APIService } from './../api.service';
       .inputs {
         width: 30%;
       }
-
-      .error {
-        background-color: #e94057;
-        padding: 2rem;
-        border-radius: 2rem;
-        color: var(--fin-white);
-      }
     `,
   ],
 })
@@ -76,8 +69,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   signIn() {
-    this.apiService.getUserData((d: Object)=>{this.email=d[0].email})
-    console.log(this.email)
+    this.apiService.getUserData((d: Object) => {
+      this.email = d[0].email;
+    });
+    console.log(this.email);
     if (
       this.email ==
         (<HTMLInputElement>document.getElementById('email')).value &&

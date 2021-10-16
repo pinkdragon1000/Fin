@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from './../api.service';
+import { userId } from 'src/environments/environment';
 
 @Component({
   selector: 'add-accounts-content-component',
@@ -11,11 +12,12 @@ import { APIService } from './../api.service';
     Manage Accounts in the navbar.'
       "
     >
-      <form (onSubmit)="postAccountData()">
+      <div *ngIf="error" [innerHTML]="error" class="error"></div>
+      <form>
         <div class="inputs">
           <label>Account Type (checking/savings)</label>
           <br />
-          <select class="select">
+          <select class="select" id="select">
             <option value="0">Select your account type</option>
             <option value="1">Checking</option>
             <option value="2">Savings</option>
@@ -27,6 +29,7 @@ import { APIService } from './../api.service';
               [type]="input.type"
               [name]="input.name"
               [min]="input.min"
+              [id]="input.id"
             ></input-component>
           </div>
         </div>
@@ -65,7 +68,11 @@ import { APIService } from './../api.service';
   ],
 })
 export class AddAccountsComponent implements OnInit {
-  description: string = '';
+  error: string;
+  startingAmount: any = 0;
+  accountDescription: string;
+  accountTypeNum: any;
+  accountType: string;
 
   constructor(private apiService: APIService) {}
 
@@ -75,6 +82,7 @@ export class AddAccountsComponent implements OnInit {
       placeholder: 'Type in your account description',
       type: 'text',
       name: 'description',
+      id: 'description',
       min: 0,
     },
     {
@@ -82,14 +90,50 @@ export class AddAccountsComponent implements OnInit {
       placeholder: 'Type in your account starting amount',
       type: 'number',
       name: 'amount',
+      id: 'amount',
       min: 1,
     },
   ];
 
   postAccountData() {
-    console.log(this.description);
-    //console.log(this.amount);
-    this.apiService.postAccountData();
+    this.accountTypeNum = (<HTMLInputElement>(
+      document.getElementById('select')
+    )).value;
+    if (this.accountTypeNum == 1) {
+      this.accountType = 'Checking';
+    } else if (this.accountTypeNum == 2) {
+      this.accountType = 'Savings';
+    }
+    this.accountDescription = (<HTMLInputElement>(
+      document.getElementById('description')
+    )).value;
+    this.startingAmount = (<HTMLInputElement>(
+      document.getElementById('amount')
+    )).value;
+
+    if (
+      this.accountTypeNum == 0 ||
+      this.startingAmount == 0 ||
+      this.accountDescription == ''
+    ) {
+      this.error =
+        'Invalid inputs provided.  Please fill out all field inputs.';
+    } else {
+      const body =
+        '{"user_id":{"user_id":' +
+        userId +
+        '}, "account_Type": "' +
+        this.accountType +
+        '", "account_Starting_Amount": ' +
+        this.startingAmount +
+        ', "account_Description": "' +
+        this.accountDescription +
+        '", "deposit_amount": 0, "withdraw_amount": 0}';
+
+      console.log(body);
+
+      this.apiService.postAccountData(body);
+    }
   }
 
   ngOnInit(): void {}

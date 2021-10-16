@@ -1,6 +1,7 @@
 import { APIService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
+
 @Component({
   selector: 'account-component',
   template: `
@@ -9,24 +10,32 @@ import { formatDate } from '@angular/common';
       [pagetitle]="this.accountDescription"
     >
       <add-transaction-button-component modalAccountText="">
-        <div class="input" *ngFor="let input of accountFieldData">
-          <input-component
-            [label]="input.label"
-            [placeholder]="input.placeholder"
-            [type]="input.type"
-            [name]="input.name"
-            [min]="input.min"
-          ></input-component>
-        </div>
-        <label>Transaction Type </label>
-        <br />
-        <select class="select">
-          <option value="0">Select your transaction type</option>
-          <option value="1">Deposit</option>
-          <option value="2">Withdraw</option>
-        </select>
-        <br />
-        <button class="primary round">Submit Transaction</button>
+        <form (onSubmit)="postTransactionData()">
+          <div class="input" *ngFor="let input of accountFieldData">
+            <input-component
+              [label]="input.label"
+              [placeholder]="input.placeholder"
+              [type]="input.type"
+              [name]="input.name"
+              [min]="input.min"
+            ></input-component>
+          </div>
+          <label>Transaction Type </label>
+          <br />
+          <select class="select">
+            <option value="0">Select your transaction type</option>
+            <option value="1">Deposit</option>
+            <option value="2">Withdraw</option>
+          </select>
+          <br />
+          <button
+            type="submit"
+            class="primary round"
+            (click)="postTransactionData()"
+          >
+            Submit Transaction
+          </button>
+        </form>
       </add-transaction-button-component>
 
       <p>Transactions</p>
@@ -208,6 +217,14 @@ export class AccountComponent implements OnInit {
       name: 'date',
     },
   ];
+
+  postTransactionData() {
+    this.apiService.postTransactionData();
+  }
+
+  postTransactionDataTest() {
+    this.apiService.postTransactionDataTest();
+  }
 
   ngOnInit() {
     this.accountIDnum = parseInt(window.location.search.substring(4));

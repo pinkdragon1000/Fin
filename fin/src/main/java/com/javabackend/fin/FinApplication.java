@@ -21,6 +21,7 @@ public class FinApplication {
 				registry.addMapping("/accounts").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/addAccount").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/transactions").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/addTransaction").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}

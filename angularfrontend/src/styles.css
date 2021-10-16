@@ -150,10 +150,6 @@ button:focus {
     background-color: var(--fin-neutral-3-transparent);
 }
 
-.round {
-    border-radius: 2rem;
-}
-
 .btn-help {
     position: fixed;
     width: 3.75rem;
@@ -197,4 +193,11 @@ hr {
     background: var(--fin-gradient);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+}
+
+.error {
+    background-color: #e94057;
+    padding: 2rem;
+    border-radius: 2rem;
+    color: var(--fin-white);
 }

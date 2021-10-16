@@ -1,5 +1,6 @@
 import { APIService } from './../api.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { userId } from 'src/environments/environment';
 @Component({
   selector: 'manage-accounts-content-component',
   template: `
@@ -10,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
       <div *ngIf="accountData">
         <p class="align-right">Account Current Amount</p>
         <div *ngFor="let account of accountData" class="clickable-view">
-          <div *ngIf="account.user_id === currentUser">
+          <div *ngIf="account.user_id === userId">
             <clickable-list-view
               [name]="account.account_Description"
               [link]="'/account?id='.concat(account.account_id)"
@@ -44,8 +45,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ManageAccountsComponent implements OnInit {
   constructor(private apiService: APIService) {}
   accountData: Object;
-
-  currentUser: number = 1;
 
   ngOnInit(): void {
     this.apiService.getAccountDataAsync((d: Object) => {
