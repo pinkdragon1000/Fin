@@ -1,0 +1,75 @@
+swagger: "2.0"
+info:
+  description: "Fin is an application used to keep track of financial account transactions and deposits"
+  version: "1.0.0"
+  title: "Fin"
+  contact:
+    email: "sita.robinson@gmail.com"
+host: "localhost:8080"
+basePath: "/fin-accounts.webservice"
+tags:
+- name: "user"
+  description: "Operations performed on the user"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "accounts"
+  description: "Operations performed on accounts"
+- name: "transactions"
+  description: "Operations performed on transactions"
+
+schemes:
+- "https"
+- "http"
+paths:
+  /users:
+    get:
+      tags:
+      - "user"
+      summary: "Get a list of all the users in the database"
+      description: ""
+      operationId: "findUsers"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: "Successful response"
+          schema: 
+            $ref: "#/definitions/User"
+        "401":
+          description: "Unauthorized"
+definitions:
+  User:
+    type: array
+    items: 
+      type: "object"
+      properties:
+        user_id:
+          type: "integer"
+          format: "int64"
+          description: "Unique identifier of user"
+          example: 1
+        email:
+          type: "string"
+          description: "Email of User"
+          example: "blahworld@gmail.com"
+        password:
+          type: "string"
+          description: "Hashed password"
+          example: "d53d8d0632cd64e595b2cc9709bd580e4d323cd65ebbfaa778b3252c761ba1b8"
+        fullName:
+          type: "string"
+          description: "Full name of user"
+      xml:
+        name: "item"
