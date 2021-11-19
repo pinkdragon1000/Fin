@@ -3,6 +3,8 @@
 ![](https://github.com/pinkdragon1000/Fin/actions/workflows/node.js.yml/badge.svg)
 ![](https://github.com/pinkdragon1000/Fin/actions/workflows/java.yml/badge.svg)
 
+<!--![](http://online.swagger.io/validator?url=https://github.com/pinkdragon1000/Fin/blob/master/fin/swagger.yaml)-->
+
 - Angular application with Java backend to keep track of financial account transactions and deposits
 - This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4. The Java portion of this application uses Java 14 and Spring Boot.
 
