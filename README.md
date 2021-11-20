@@ -2,16 +2,20 @@
 
 ![](https://github.com/pinkdragon1000/Fin/actions/workflows/node.js.yml/badge.svg)
 ![](https://github.com/pinkdragon1000/Fin/actions/workflows/java.yml/badge.svg)
+![](http://online.swagger.io/validator?url=https%3A%2F%2Fpinkdragon1000.github.io%2Ffin-api-spec%2Fswagger.yaml)
 
-API Spec: ![](http://online.swagger.io/validator?url=https%3A%2F%2Fpinkdragon1000.github.io%2Ffin-api-spec%2Fswagger.yaml)
-
-View the API Spec Here: https://pinkdragon1000.github.io/fin-api-spec/
 
 - Angular application with Java backend to keep track of financial account transactions and deposits
 - This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4. The Java portion of this application uses Java 14 and Spring Boot.
 
 - End User Goal: An application to keep track of account transactions for checking and savings accounts.
 - End Technical Goal: Create a Java API that will be consumed by the Angular frontend application. Use technologies including Angular, Java Spring Boot, AWS ECS, MySQL, Firebase Hosting and Docker.
+
+
+### Architecture Diagram:
+
+
+![](https://github.com/pinkdragon1000/Fin/blob/master/architectureDiagram.png)
 
 ### Angular Application
 
@@ -49,6 +53,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ### Java API
+
+
+View the API Spec Here: https://pinkdragon1000.github.io/fin-api-spec/
 
 <b>Running the Java API Locally (Without Docker):</b>
 
