@@ -15,9 +15,10 @@
 ### Architecture Diagram:
 
 
-![](https://github.com/pinkdragon1000/Fin/blob/master/architectureDiagram.png)
+![](https://github.com/pinkdragon1000/Fin/blob/master/architectureDiagram.drawio.png)
 
 ### Angular Application
+![](https://github.com/pinkdragon1000/Fin/blob/master/angularBuildDeployDiagram.drawio.png)
 
 <b>Viewing the production deployed Angular Application:</b>
 
