@@ -11,9 +11,8 @@
 - End User Goal: An application to keep track of account transactions for checking and savings accounts.
 - End Technical Goal: Create a Java API that will be consumed by the Angular frontend application. Use technologies including Angular, Java Spring Boot, AWS ECS, MySQL, Firebase Hosting and Docker.
 
-
+**Zenhub board:** https://github.com/pinkdragon1000/Fin#workspaces/fin-5fef3b7ee371a2001164b41b/board?repos=270075836
 ### Architecture Diagram:
-
 
 ![](https://github.com/pinkdragon1000/Fin/blob/master/architectureDiagram.drawio.png)
 
