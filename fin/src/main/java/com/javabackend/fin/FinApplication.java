@@ -17,12 +17,7 @@ public class FinApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/users").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/accounts").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/addUser").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/addAccount").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/transactions").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/addTransaction").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/*").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}
