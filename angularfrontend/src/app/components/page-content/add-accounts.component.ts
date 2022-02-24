@@ -99,9 +99,9 @@ export class AddAccountsComponent implements OnInit {
     this.accountTypeNum = (<HTMLInputElement>(
       document.getElementById('select')
     )).value;
-    if (this.accountTypeNum == 1) {
+    if (this.accountTypeNum === 1) {
       this.accountType = 'Checking';
-    } else if (this.accountTypeNum == 2) {
+    } else if (this.accountTypeNum === 2) {
       this.accountType = 'Savings';
     }
     this.accountDescription = (<HTMLInputElement>(
@@ -112,9 +112,9 @@ export class AddAccountsComponent implements OnInit {
     )).value;
 
     if (
-      this.accountTypeNum == 0 ||
-      this.startingAmount == 0 ||
-      this.accountDescription == ''
+      this.accountTypeNum === 0 ||
+      this.startingAmount === 0 ||
+      this.accountDescription === ''
     ) {
       this.error =
         'Invalid inputs provided.  Please fill out all field inputs.';

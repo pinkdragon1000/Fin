@@ -1,6 +1,6 @@
 import { APIService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
-import { formatDate } from '@angular/common';
+//import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'account-component',
@@ -10,32 +10,31 @@ import { formatDate } from '@angular/common';
       [pagetitle]="this.accountDescription"
     >
       <add-transaction-button-component modalAccountText="">
-        <form (onSubmit)="postTransactionData()">
-          <div class="input" *ngFor="let input of accountFieldData">
-            <input-component
-              [label]="input.label"
-              [placeholder]="input.placeholder"
-              [type]="input.type"
-              [name]="input.name"
-              [min]="input.min"
-            ></input-component>
-          </div>
-          <label>Transaction Type </label>
-          <br />
-          <select class="select">
-            <option value="0">Select your transaction type</option>
-            <option value="1">Deposit</option>
-            <option value="2">Withdraw</option>
-          </select>
-          <br />
-          <button
-            type="submit"
-            class="primary round"
-            (click)="postTransactionData()"
-          >
-            Submit Transaction
-          </button>
-        </form>
+        <div class="input" *ngFor="let input of accountFieldData">
+          <input-component
+            [label]="input.label"
+            [placeholder]="input.placeholder"
+            [type]="input.type"
+            [name]="input.name"
+            [min]="input.min"
+            [id]="input.id"
+          ></input-component>
+        </div>
+        <label>Transaction Type </label>
+        <br />
+        <select class="select">
+          <option value="0">Select your transaction type</option>
+          <option value="1">Deposit</option>
+          <option value="2">Withdraw</option>
+        </select>
+        <br />
+        <button
+          type="submit"
+          class="primary round"
+          (click)="postTransactionData()"
+        >
+          Submit Transaction
+        </button>
       </add-transaction-button-component>
 
       <p>Transactions</p>
@@ -203,27 +202,48 @@ export class AccountComponent implements OnInit {
       type: 'number',
       name: 'amount',
       min: 0,
+      id: 'amount',
     },
     {
       label: 'Transaction Group',
       placeholder: 'Type in your transaction group',
       type: 'text',
       name: 'transaction group',
+      id: 'group',
     },
     {
       label: 'Transaction Date',
       placeholder: 'Type in your transaction date',
       type: 'date',
       name: 'date',
+      id: 'date',
     },
   ];
 
   postTransactionData() {
-    this.apiService.postTransactionData();
-  }
+    this.accountIDnum = parseInt(window.location.search.substring(4));
+    const transactionType = 'Deposit';
+    const transactionDate = (<HTMLInputElement>document.getElementById('date'))
+      .value;
 
-  postTransactionDataTest() {
-    this.apiService.postTransactionDataTest();
+    const transactionAmount = (<HTMLInputElement>(
+      document.getElementById('amount')
+    )).value;
+
+    console.log(transactionDate);
+
+    const body =
+      '{"account_id":{"account_id":' +
+      this.accountIDnum +
+      '}, "transaction_type":' +
+      transactionType +
+      ', "transaction_date":' +
+      transactionDate +
+      ', "transaction_amount":' +
+      transactionAmount +
+      ', "transaction_subTotal": 0}';
+    this.apiService.postTransactionData(body);
+    location.reload();
   }
 
   ngOnInit() {

@@ -2,9 +2,11 @@ package com.javabackend.fin.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "Users")
+@XmlRootElement(name = "User")
 public class User {
 
     @Id

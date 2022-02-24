@@ -77,7 +77,7 @@ export class SignupComponent implements OnInit {
       document.getElementById('password')
     )).value;
 
-    if (this.fullName == '' || this.email == '' || this.password == '') {
+    if (this.fullName === '' || this.email === '' || this.password === '') {
       console.log('Please fill out all fields');
     } else {
       this.hashedPassword = shajs('sha256').update(this.password).digest('hex');

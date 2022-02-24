@@ -1,6 +1,5 @@
 package com.javabackend.fin.controller;
 
-import com.javabackend.fin.models.Account;
 import com.javabackend.fin.models.User;
 import com.javabackend.fin.service.UserService;
 import org.springframework.http.MediaType;
@@ -8,9 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.*;
+
+import static com.javabackend.fin.constants.ErrorConstants.*;
 
 @RestController
 public class UserController {
@@ -21,10 +22,19 @@ public class UserController {
     //Shows users from user table in database
     @GetMapping(path = "/users", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin(origins = "http://localhost:8080/users")
-    public List<User> findUsers(Model model) {
-        var users = (List<User>) userService.findAllUsers();
-        model.addAttribute("users", users);
-        return users;
+    public List<?> findUsers(Model model, HttpServletResponse response) {
+        List<String> errorArray= new ArrayList<String>();
+            var users = (List<User>) userService.findAllUsers();
+            if(users.size()>0) {
+                model.addAttribute("users", users);
+                return users;
+            }
+            else {
+                errorArray.add(NO_USERS);
+                System.out.println(errorArray);
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                return errorArray;
+            }
     }
 
     //Adds a user to the database

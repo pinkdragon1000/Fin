@@ -7,6 +7,7 @@ import { APIService } from './../api.service';
   template: `
     <header-page-template class="signin" [pagetitle]="'Sign In'">
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
+
       <div class="inputs" *ngFor="let input of inputFieldData">
         <input-component
           [label]="input.label"
@@ -41,8 +42,11 @@ import { APIService } from './../api.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private apiService: APIService) {}
-  email: Object;
+  email: string;
+  password: string;
   error: string;
+  response: any;
+  user: string;
   inputFieldData = [
     {
       label: 'Email',
@@ -69,9 +73,31 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   signIn() {
-    this.apiService.getUserData((d: Object) => {
-      this.email = d[0].email;
-    });
+    this.email = (<HTMLInputElement>document.getElementById('email')).value;
+    this.password = (<HTMLInputElement>(
+      document.getElementById('password')
+    )).value;
+
+    if (this.email === '' || this.password === '') {
+      console.log('Please fill out all fields');
+    } else {
+      const body =
+        '{"email": "' + this.email + '", "password": "' + this.password + '"}';
+
+      console.log(body);
+      this.response = this.apiService.postValidateUser(body);
+
+      console.log(this.response);
+      if (!this.response.includes('error') || this.response !== undefined) {
+        console.log('yay');
+        location.href = '/manageAccounts';
+      } else {
+        console.log("can't authenticate");
+        location.href = '/';
+      }
+    }
+
+    /*
     console.log(this.email);
     if (
       this.email ==
@@ -100,5 +126,6 @@ export class LoginComponent implements OnInit {
       this.error = "Email doesn't exist.  Please signup first";
       console.log("Email doesn't exist.  Please signup first");
     }
+      */
   }
 }

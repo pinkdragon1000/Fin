@@ -8,6 +8,8 @@ export class APIService {
   userResult: Object;
   accountsResult: Object;
   transactionsResult: Object;
+  msg: string;
+
   getUserData(callback: any) {
     this.http
       .get('http://localhost:8080/users')
@@ -16,6 +18,37 @@ export class APIService {
         this.userResult = res;
         callback(this.userResult);
       });
+  }
+
+  postValidateUser(body: string): string {
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+    };
+    this.http
+      .post('http://localhost:8080/validateUser', body, {
+        headers: headers,
+        observe: 'response',
+      })
+      .subscribe(
+        (response) => {
+          console.log(
+            'POST completed sucessfully. The response received ' + response
+          );
+          this.msg = 'success';
+          return this.msg;
+        },
+        (error) => {
+          console.log('Post failed with the errors');
+          console.log(error);
+          this.msg = 'error';
+          return this.msg;
+        },
+        () => {
+          console.log('Post Completed');
+        }
+      );
+    return this.msg;
   }
 
   getAccountDataAsync(callback: any) {
@@ -41,7 +74,10 @@ export class APIService {
   }
 
   postUserData(body: string) {
-    const headers = { 'content-type': 'application/json' };
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+    };
     this.http
       .post('http://localhost:8080/addUser', body, {
         headers: headers,
@@ -63,7 +99,10 @@ export class APIService {
   }
 
   postAccountData(body: string) {
-    const headers = { 'content-type': 'application/json' };
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+    };
     this.http
       .post('http://localhost:8080/addAccount', body, {
         headers: headers,
@@ -76,7 +115,7 @@ export class APIService {
           );
         },
         (error) => {
-          console.log('Post failed with the errors');
+          console.log('Post failed with errors');
         },
         () => {
           console.log('Post Completed');
@@ -84,8 +123,11 @@ export class APIService {
       );
   }
 
-  postTransactionData() {
-    const headers = { 'content-type': 'application/json' };
+  postTransactionDataTest() {
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+    };
     const body =
       '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
     this.http
@@ -108,10 +150,11 @@ export class APIService {
       );
   }
 
-  postTransactionDataTest() {
-    const headers = { 'content-type': 'application/json' };
-    const body =
-      '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
+  postTransactionData(body: string) {
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+    };
     this.http
       .post('http://localhost:8080/addTransaction', body, {
         headers: headers,
