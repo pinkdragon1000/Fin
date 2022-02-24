@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'header-page-template',
+  selector: 'app-header-page-template',
   template: `
-    <header-component
+    <app-header-component
       [maintitle]="'Fin'"
       [tagline]="'Financial Accounts Management'"
-    ></header-component>
+    ></app-header-component>
     <div class="content">
       <div class="column login-signup-container">
         <h2 class="pagetitle">{{ pagetitle }}</h2>
@@ -28,9 +28,7 @@ import { Component, OnInit, Input } from '@angular/core';
   ],
 })
 export class HeaderPageTemplateComponent implements OnInit {
-  constructor() {}
-
   @Input() pagetitle: string;
-
+  constructor() {}
   ngOnInit(): void {}
 }

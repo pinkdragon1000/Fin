@@ -411,13 +411,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       factory: function AppModule_Factory(t) {
         return new (t || AppModule)();
       },
-      providers: [_components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_api_service__WEBPACK_IMPORTED_MODULE_19__["APIService"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListView"]],
+      providers: [_components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_api_service__WEBPACK_IMPORTED_MODULE_19__["APIService"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListViewComponent"]],
       imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_20__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _swimlane_ngx_charts__WEBPACK_IMPORTED_MODULE_24__["NgxChartsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__["BrowserAnimationsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppModule, {
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"], _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__["SignupComponent"], _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__["ManageAccountsComponent"], _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AddAccountsComponent"], _components_page_content_account_component__WEBPACK_IMPORTED_MODULE_9__["AccountComponent"], _components_small_components_add_transaction_modal_component__WEBPACK_IMPORTED_MODULE_0__["AddTransactionModal"], _components_small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_21__["AddTransactionButtonComponent"], _components_small_components_tabs_component__WEBPACK_IMPORTED_MODULE_22__["TabsComponent"], _components_small_components_tab_component__WEBPACK_IMPORTED_MODULE_23__["TabComponent"], _components_small_components_help_modal_component__WEBPACK_IMPORTED_MODULE_15__["ModalComponent"], _components_small_components_help_modal_button_component__WEBPACK_IMPORTED_MODULE_16__["HelpModalButtonComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListView"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"], _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__["SignupComponent"], _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__["ManageAccountsComponent"], _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AddAccountsComponent"], _components_page_content_account_component__WEBPACK_IMPORTED_MODULE_9__["AccountComponent"], _components_small_components_add_transaction_modal_component__WEBPACK_IMPORTED_MODULE_0__["AddTransactionModalComponent"], _components_small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_21__["AddTransactionButtonComponent"], _components_small_components_tabs_component__WEBPACK_IMPORTED_MODULE_22__["TabsComponent"], _components_small_components_tab_component__WEBPACK_IMPORTED_MODULE_23__["TabComponent"], _components_small_components_help_modal_component__WEBPACK_IMPORTED_MODULE_15__["ModalComponent"], _components_small_components_help_modal_button_component__WEBPACK_IMPORTED_MODULE_16__["HelpModalButtonComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListViewComponent"]],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_20__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _swimlane_ngx_charts__WEBPACK_IMPORTED_MODULE_24__["NgxChartsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__["BrowserAnimationsModule"]]
       });
     })();
@@ -428,9 +428,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"],
         args: [{
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"], _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__["SignupComponent"], _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__["ManageAccountsComponent"], _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AddAccountsComponent"], _components_page_content_account_component__WEBPACK_IMPORTED_MODULE_9__["AccountComponent"], _components_small_components_add_transaction_modal_component__WEBPACK_IMPORTED_MODULE_0__["AddTransactionModal"], _components_small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_21__["AddTransactionButtonComponent"], _components_small_components_tabs_component__WEBPACK_IMPORTED_MODULE_22__["TabsComponent"], _components_small_components_tab_component__WEBPACK_IMPORTED_MODULE_23__["TabComponent"], _components_small_components_help_modal_component__WEBPACK_IMPORTED_MODULE_15__["ModalComponent"], _components_small_components_help_modal_button_component__WEBPACK_IMPORTED_MODULE_16__["HelpModalButtonComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListView"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"], _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__["SignupComponent"], _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__["ManageAccountsComponent"], _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AddAccountsComponent"], _components_page_content_account_component__WEBPACK_IMPORTED_MODULE_9__["AccountComponent"], _components_small_components_add_transaction_modal_component__WEBPACK_IMPORTED_MODULE_0__["AddTransactionModalComponent"], _components_small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_21__["AddTransactionButtonComponent"], _components_small_components_tabs_component__WEBPACK_IMPORTED_MODULE_22__["TabsComponent"], _components_small_components_tab_component__WEBPACK_IMPORTED_MODULE_23__["TabComponent"], _components_small_components_help_modal_component__WEBPACK_IMPORTED_MODULE_15__["ModalComponent"], _components_small_components_help_modal_button_component__WEBPACK_IMPORTED_MODULE_16__["HelpModalButtonComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListViewComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_20__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _swimlane_ngx_charts__WEBPACK_IMPORTED_MODULE_24__["NgxChartsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__["BrowserAnimationsModule"]],
-          providers: [_components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_api_service__WEBPACK_IMPORTED_MODULE_19__["APIService"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListView"]],
+          providers: [_components_small_components_input_component__WEBPACK_IMPORTED_MODULE_18__["InputComponent"], _components_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_5__["PageTemplateComponent"], _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"], _components_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_6__["HeaderPageTemplateComponent"], _components_api_service__WEBPACK_IMPORTED_MODULE_19__["APIService"], _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"], _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"], _components_small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_14__["ClickableListViewComponent"]],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
           schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"]]
         }]
@@ -504,7 +504,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var headers = {
             'content-type': 'application/json',
-            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21')
+            Authorization: 'Basic ' + btoa('srobinson:bl')
           };
           this.http.post('http://localhost:8080/validateUser', body, {
             headers: headers,
@@ -554,7 +554,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function postUserData(body) {
           var headers = {
             'content-type': 'application/json',
-            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21')
+            Authorization: 'Basic ' + btoa('srobinson:bl')
           };
           this.http.post('http://localhost:8080/addUser', body, {
             headers: headers,
@@ -572,7 +572,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function postAccountData(body) {
           var headers = {
             'content-type': 'application/json',
-            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21')
+            Authorization: 'Basic ' + btoa('srobinson:bl')
           };
           this.http.post('http://localhost:8080/addAccount', body, {
             headers: headers,
@@ -590,7 +590,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function postTransactionDataTest() {
           var headers = {
             'content-type': 'application/json',
-            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21')
+            Authorization: 'Basic ' + btoa('srobinson:bl')
           };
           var body = '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
           this.http.post('http://localhost:8080/addTransaction', body, {
@@ -609,7 +609,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function postTransactionData(body) {
           var headers = {
             'content-type': 'application/json',
-            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21')
+            Authorization: 'Basic ' + btoa('srobinson:bl')
           };
           this.http.post('http://localhost:8080/addTransaction', body, {
             headers: headers,
@@ -699,12 +699,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../small-components/input.component */
-    "./src/app/components/small-components/input.component.ts");
 
     function AccountComponent_div_2_Template(rf, ctx) {
       if (rf & 1) {
@@ -848,7 +842,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AccountComponent, [{
         key: "postTransactionData",
         value: function postTransactionData() {
-          this.accountIDnum = parseInt(window.location.search.substring(4));
+          this.accountIDnum = parseInt(window.location.search.substring(4), 10);
           var transactionType = 'Deposit';
           var transactionDate = document.getElementById('date').value;
           var transactionAmount = document.getElementById('amount').value;
@@ -862,8 +856,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this5 = this;
 
-          this.accountIDnum = parseInt(window.location.search.substring(4));
-          this.accountID = (parseInt(window.location.search.substring(4)) - 1).toString();
+          this.accountIDnum = parseInt(window.location.search.substring(4), 10);
+          this.accountID = (parseInt(window.location.search.substring(4), 10) - 1).toString();
           this.apiService.getAccountDataAsync(function (d) {
             _this5.accountDescription = d[_this5.accountID].account_Description;
             _this5.accountDeposits = d[_this5.accountID].deposit_amount;
@@ -886,15 +880,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AccountComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AccountComponent,
-      selectors: [["account-component"]],
+      selectors: [["app-account-component"]],
       decls: 57,
       vars: 9,
       consts: [[3, "pagedirections", "pagetitle"], ["modalAccountText", ""], ["class", "input", 4, "ngFor", "ngForOf"], [1, "select"], ["value", "0"], ["value", "1"], ["value", "2"], ["type", "submit", 1, "primary", "round", 3, "click"], [1, "scroll"], [3, "ngClass", 4, "ngFor", "ngForOf"], [1, "input"], [3, "label", "placeholder", "type", "name", "min", "id"], [3, "ngClass"], [4, "ngIf"]],
       template: function AccountComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "page-template", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-page-template", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "add-transaction-button-component", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-add-transaction-button-component", 1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AccountComponent_div_2_Template, 2, 6, "div", 2);
 
@@ -1103,7 +1097,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", ctx.transactionData.slice(0 - 1).pop().transaction_subTotal - ctx.accountStartingAmount, " ");
         }
       },
-      directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["PageTemplateComponent"], _small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_3__["AddTransactionButtonComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__["InputComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"]],
+      directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["PageTemplateComponent"], _small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_3__["AddTransactionButtonComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"]],
       styles: [".scroll[_ngcontent-%COMP%] {\n        height: 10rem;\n        overflow-y: scroll;\n      }\n      .clickable-view[_ngcontent-%COMP%] {\n        margin: 0.625rem;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        align-items: center;\n      }\n      .input[_ngcontent-%COMP%] {\n        width: 50%;\n      }\n      .select[_ngcontent-%COMP%] {\n        width: 52%;\n      }\n\n      .row[_ngcontent-%COMP%] {\n        padding-right: 5rem;\n      }\n\n      .text-deposit[_ngcontent-%COMP%] {\n        color: green;\n      }\n\n      .text-withdraw[_ngcontent-%COMP%] {\n        color: #a10a28;\n      }\n\n      .text-deposit-arrow[_ngcontent-%COMP%]::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2191';\n      }\n\n      .text-withdraw-arrow[_ngcontent-%COMP%]::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2193';\n      }\n\n      select[_ngcontent-%COMP%] {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      table[_ngcontent-%COMP%] {\n        border-collapse: collapse;\n        width: 100%;\n      }\n\n      th[_ngcontent-%COMP%] {\n        background-color: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      td[_ngcontent-%COMP%], th[_ngcontent-%COMP%] {\n        border: 0.063rem solid #dddddd;\n        text-align: left;\n        padding: 0.5rem;\n      }"]
     });
     /*@__PURE__*/
@@ -1112,8 +1106,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AccountComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'account-component',
-          template: "\n    <page-template\n      [pagedirections]=\"'Click on an account to view and add information'\"\n      [pagetitle]=\"this.accountDescription\"\n    >\n      <add-transaction-button-component modalAccountText=\"\">\n        <div class=\"input\" *ngFor=\"let input of accountFieldData\">\n          <input-component\n            [label]=\"input.label\"\n            [placeholder]=\"input.placeholder\"\n            [type]=\"input.type\"\n            [name]=\"input.name\"\n            [min]=\"input.min\"\n            [id]=\"input.id\"\n          ></input-component>\n        </div>\n        <label>Transaction Type </label>\n        <br />\n        <select class=\"select\">\n          <option value=\"0\">Select your transaction type</option>\n          <option value=\"1\">Deposit</option>\n          <option value=\"2\">Withdraw</option>\n        </select>\n        <br />\n        <button\n          type=\"submit\"\n          class=\"primary round\"\n          (click)=\"postTransactionData()\"\n        >\n          Submit Transaction\n        </button>\n      </add-transaction-button-component>\n\n      <p>Transactions</p>\n      <div class=\"scroll\">\n        <table>\n          <tr>\n            <th>Transaction Date</th>\n            <th>Transaction Type</th>\n            <th>Transaction Amount</th>\n            <th>Sub-Total</th>\n          </tr>\n\n          <tr\n            *ngFor=\"let transaction of transactionData\"\n            [ngClass]=\"{\n              'text-deposit': transaction.transaction_type === 'Deposit',\n              'text-withdraw': transaction.transaction_type === 'Withdraw'\n            }\"\n          >\n            <ng-container\n              *ngIf=\"\n                accountUser === currentUser &&\n                transaction.account_id === accountIDnum\n              \"\n            >\n              <td>{{ transaction.transaction_date }}</td>\n              <td>{{ transaction.transaction_type }}</td>\n              <td\n                [ngClass]=\"{\n                  'text-deposit-arrow':\n                    transaction.transaction_type === 'Deposit',\n                  'text-withdraw-arrow':\n                    transaction.transaction_type === 'Withdraw'\n                }\"\n              >\n                ${{ transaction.transaction_amount }}\n              </td>\n              <td>${{ transaction.transaction_subTotal }}</td>\n            </ng-container>\n          </tr>\n        </table>\n      </div>\n      <br />\n      <br />\n      <p>Overall Account Summary</p>\n      <table>\n        <tr>\n          <th>Account Starting Amount</th>\n          <th>Account Deposits</th>\n          <th>Account Withdraws</th>\n          <th>Account Current Amount</th>\n          <th>Overall Account Difference</th>\n        </tr>\n        <tr>\n          <td>${{ this.accountStartingAmount }}</td>\n          <td>${{ this.accountDeposits }}</td>\n          <td>${{ this.accountWithdraws }}</td>\n          <td>\n            ${{ this.transactionData.slice(-1).pop().transaction_subTotal }}\n          </td>\n          <td>\n            ${{\n              this.transactionData.slice(-1).pop().transaction_subTotal -\n                this.accountStartingAmount\n            }}\n          </td>\n        </tr>\n      </table>\n    </page-template>\n  ",
+          selector: 'app-account-component',
+          template: "\n    <app-page-template\n      [pagedirections]=\"'Click on an account to view and add information'\"\n      [pagetitle]=\"this.accountDescription\"\n    >\n      <app-add-transaction-button-component modalAccountText=\"\">\n        <div class=\"input\" *ngFor=\"let input of accountFieldData\">\n          <input-component\n            [label]=\"input.label\"\n            [placeholder]=\"input.placeholder\"\n            [type]=\"input.type\"\n            [name]=\"input.name\"\n            [min]=\"input.min\"\n            [id]=\"input.id\"\n          ></input-component>\n        </div>\n        <label>Transaction Type </label>\n        <br />\n        <select class=\"select\">\n          <option value=\"0\">Select your transaction type</option>\n          <option value=\"1\">Deposit</option>\n          <option value=\"2\">Withdraw</option>\n        </select>\n        <br />\n        <button\n          type=\"submit\"\n          class=\"primary round\"\n          (click)=\"postTransactionData()\"\n        >\n          Submit Transaction\n        </button>\n      </app-add-transaction-button-component>\n\n      <p>Transactions</p>\n      <div class=\"scroll\">\n        <table>\n          <tr>\n            <th>Transaction Date</th>\n            <th>Transaction Type</th>\n            <th>Transaction Amount</th>\n            <th>Sub-Total</th>\n          </tr>\n\n          <tr\n            *ngFor=\"let transaction of transactionData\"\n            [ngClass]=\"{\n              'text-deposit': transaction.transaction_type === 'Deposit',\n              'text-withdraw': transaction.transaction_type === 'Withdraw'\n            }\"\n          >\n            <ng-container\n              *ngIf=\"\n                accountUser === currentUser &&\n                transaction.account_id === accountIDnum\n              \"\n            >\n              <td>{{ transaction.transaction_date }}</td>\n              <td>{{ transaction.transaction_type }}</td>\n              <td\n                [ngClass]=\"{\n                  'text-deposit-arrow':\n                    transaction.transaction_type === 'Deposit',\n                  'text-withdraw-arrow':\n                    transaction.transaction_type === 'Withdraw'\n                }\"\n              >\n                ${{ transaction.transaction_amount }}\n              </td>\n              <td>${{ transaction.transaction_subTotal }}</td>\n            </ng-container>\n          </tr>\n        </table>\n      </div>\n      <br />\n      <br />\n      <p>Overall Account Summary</p>\n      <table>\n        <tr>\n          <th>Account Starting Amount</th>\n          <th>Account Deposits</th>\n          <th>Account Withdraws</th>\n          <th>Account Current Amount</th>\n          <th>Overall Account Difference</th>\n        </tr>\n        <tr>\n          <td>${{ this.accountStartingAmount }}</td>\n          <td>${{ this.accountDeposits }}</td>\n          <td>${{ this.accountWithdraws }}</td>\n          <td>\n            ${{ this.transactionData.slice(-1).pop().transaction_subTotal }}\n          </td>\n          <td>\n            ${{\n              this.transactionData.slice(-1).pop().transaction_subTotal -\n                this.accountStartingAmount\n            }}\n          </td>\n        </tr>\n      </table>\n    </app-page-template>\n  ",
           styles: ["\n      .scroll {\n        height: 10rem;\n        overflow-y: scroll;\n      }\n      .clickable-view {\n        margin: 0.625rem;\n      }\n\n      .inputs {\n        align-items: center;\n      }\n      .input {\n        width: 50%;\n      }\n      .select {\n        width: 52%;\n      }\n\n      .row {\n        padding-right: 5rem;\n      }\n\n      .text-deposit {\n        color: green;\n      }\n\n      .text-withdraw {\n        color: #a10a28;\n      }\n\n      .text-deposit-arrow::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2191';\n      }\n\n      .text-withdraw-arrow::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2193';\n      }\n\n      select {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      table {\n        border-collapse: collapse;\n        width: 100%;\n      }\n\n      th {\n        background-color: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      td,\n      th {\n        border: 0.063rem solid #dddddd;\n        text-align: left;\n        padding: 0.5rem;\n      }\n    "]
         }]
       }], function () {
@@ -1175,12 +1169,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../small-components/input.component */
-    "./src/app/components/small-components/input.component.ts");
 
     function AddAccountsComponent_div_1_Template(rf, ctx) {
       if (rf & 1) {
@@ -1271,13 +1259,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AddAccountsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AddAccountsComponent,
-      selectors: [["add-accounts-content-component"]],
+      selectors: [["app-add-accounts-content-component"]],
       decls: 17,
       vars: 4,
       consts: [[3, "pagetitle", "pagedirections"], ["class", "error", 3, "innerHTML", 4, "ngIf"], [1, "inputs"], ["id", "select", 1, "select"], ["value", "0"], ["value", "1"], ["value", "2"], ["class", "input", 4, "ngFor", "ngForOf"], ["type", "submit", 1, "primary", "round", 3, "click"], [1, "error", 3, "innerHTML"], [1, "input"], [3, "label", "placeholder", "type", "name", "min", "id"]],
       template: function AddAccountsComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "page-template", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-page-template", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AddAccountsComponent_div_1_Template, 1, 1, "div", 1);
 
@@ -1346,7 +1334,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.accountFieldData);
         }
       },
-      directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["PageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__["InputComponent"]],
+      directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["PageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]],
       styles: [".inputs[_ngcontent-%COMP%] {\n        align-items: center;\n      }\n      .input[_ngcontent-%COMP%] {\n        width: 50%;\n      }\n      .select[_ngcontent-%COMP%] {\n        width: 52%;\n      }\n\n      select[_ngcontent-%COMP%] {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }"]
     });
     /*@__PURE__*/
@@ -1355,8 +1343,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddAccountsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'add-accounts-content-component',
-          template: "\n    <page-template\n      [pagetitle]=\"'Add Accounts'\"\n      [pagedirections]=\"\n        'Fill out the form to add an account. To view and manage accounts click\n    Manage Accounts in the navbar.'\n      \"\n    >\n      <div *ngIf=\"error\" [innerHTML]=\"error\" class=\"error\"></div>\n      <form>\n        <div class=\"inputs\">\n          <label>Account Type (checking/savings)</label>\n          <br />\n          <select class=\"select\" id=\"select\">\n            <option value=\"0\">Select your account type</option>\n            <option value=\"1\">Checking</option>\n            <option value=\"2\">Savings</option>\n          </select>\n          <div class=\"input\" *ngFor=\"let input of accountFieldData\">\n            <input-component\n              [label]=\"input.label\"\n              [placeholder]=\"input.placeholder\"\n              [type]=\"input.type\"\n              [name]=\"input.name\"\n              [min]=\"input.min\"\n              [id]=\"input.id\"\n            ></input-component>\n          </div>\n        </div>\n        <button type=\"submit\" class=\"primary round\" (click)=\"postAccountData()\">\n          Add Account\n        </button>\n      </form>\n    </page-template>\n  ",
+          selector: 'app-add-accounts-content-component',
+          template: "\n    <app-page-template\n      [pagetitle]=\"'Add Accounts'\"\n      [pagedirections]=\"\n        'Fill out the form to add an account. To view and manage accounts click\n    Manage Accounts in the navbar.'\n      \"\n    >\n      <div *ngIf=\"error\" [innerHTML]=\"error\" class=\"error\"></div>\n      <form>\n        <div class=\"inputs\">\n          <label>Account Type (checking/savings)</label>\n          <br />\n          <select class=\"select\" id=\"select\">\n            <option value=\"0\">Select your account type</option>\n            <option value=\"1\">Checking</option>\n            <option value=\"2\">Savings</option>\n          </select>\n          <div class=\"input\" *ngFor=\"let input of accountFieldData\">\n            <input-component\n              [label]=\"input.label\"\n              [placeholder]=\"input.placeholder\"\n              [type]=\"input.type\"\n              [name]=\"input.name\"\n              [min]=\"input.min\"\n              [id]=\"input.id\"\n            ></input-component>\n          </div>\n        </div>\n        <button type=\"submit\" class=\"primary round\" (click)=\"postAccountData()\">\n          Add Account\n        </button>\n      </form>\n    </app-page-template>\n  ",
           styles: ["\n      .inputs {\n        align-items: center;\n      }\n      .input {\n        width: 50%;\n      }\n      .select {\n        width: 52%;\n      }\n\n      select {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n    "]
         }]
       }], function () {
@@ -1412,12 +1400,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _small_components_input_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../small-components/input.component */
-    "./src/app/components/small-components/input.component.ts");
 
     function LoginComponent_div_1_Template(rf, ctx) {
       if (rf & 1) {
@@ -1540,13 +1522,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: LoginComponent,
-      selectors: [["login-content-component"]],
+      selectors: [["app-login-content-component"]],
       decls: 8,
       vars: 3,
       consts: [[1, "signin", 3, "pagetitle"], ["class", "error", 3, "innerHTML", 4, "ngIf"], ["class", "inputs", 4, "ngFor", "ngForOf"], [1, "login-button"], ["type", "submit", 1, "primary", "round", 3, "click"], ["href", "/signup"], [1, "error", 3, "innerHTML"], [1, "inputs"], [3, "label", "placeholder", "id", "type", "name"]],
       template: function LoginComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "header-page-template", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-header-page-template", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LoginComponent_div_1_Template, 1, 1, "div", 1);
 
@@ -1587,7 +1569,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.inputFieldData);
         }
       },
-      directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_4__["InputComponent"]],
+      directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"]],
       styles: [".login-button[_ngcontent-%COMP%] {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        width: 30%;\n      }"]
     });
     /*@__PURE__*/
@@ -1596,8 +1578,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LoginComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'login-content-component',
-          template: "\n    <header-page-template class=\"signin\" [pagetitle]=\"'Sign In'\">\n      <div *ngIf=\"error\" [innerHTML]=\"error\" class=\"error\"></div>\n\n      <div class=\"inputs\" *ngFor=\"let input of inputFieldData\">\n        <input-component\n          [label]=\"input.label\"\n          [placeholder]=\"input.placeholder\"\n          [id]=\"input.id\"\n          [type]=\"input.type\"\n          [name]=\"input.name\"\n        ></input-component>\n      </div>\n\n      <div class=\"login-button\">\n        <button type=\"submit\" class=\"primary round\" (click)=\"signIn()\">\n          Sign In\n        </button>\n      </div>\n      <a href=\"/signup\">Don't have an account? Signup -> </a>\n    </header-page-template>\n  ",
+          selector: 'app-login-content-component',
+          template: "\n    <app-header-page-template class=\"signin\" [pagetitle]=\"'Sign In'\">\n      <div *ngIf=\"error\" [innerHTML]=\"error\" class=\"error\"></div>\n\n      <div class=\"inputs\" *ngFor=\"let input of inputFieldData\">\n        <input-component\n          [label]=\"input.label\"\n          [placeholder]=\"input.placeholder\"\n          [id]=\"input.id\"\n          [type]=\"input.type\"\n          [name]=\"input.name\"\n        ></input-component>\n      </div>\n\n      <div class=\"login-button\">\n        <button type=\"submit\" class=\"primary round\" (click)=\"signIn()\">\n          Sign In\n        </button>\n      </div>\n      <a href=\"/signup\">Don't have an account? Signup -> </a>\n    </app-header-page-template>\n  ",
           styles: ["\n      .login-button {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs {\n        width: 30%;\n      }\n    "]
         }]
       }], function () {
@@ -1676,7 +1658,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "clickable-list-view", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "app-clickable-list-view", 5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
       }
@@ -1772,13 +1754,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     ManageAccountsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
       type: ManageAccountsComponent,
-      selectors: [["manage-accounts-content-component"]],
+      selectors: [["app-manage-accounts-content-component"]],
       decls: 3,
       vars: 4,
       consts: [[3, "pagetitle", "pagedirections"], [4, "ngIf"], [1, "align-right"], ["class", "clickable-view", 4, "ngFor", "ngForOf"], [1, "clickable-view"], [3, "name", "link", "amount"], ["emptyHeader", "No Accounts Yet", "emptyPar", "Click 'Add Accounts' in the navbar to add an account. "]],
       template: function ManageAccountsComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "page-template", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "app-page-template", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, ManageAccountsComponent_div_1_Template, 4, 1, "div", 1);
 
@@ -1799,7 +1781,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.accountData);
         }
       },
-      directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["PageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_5__["ClickableListView"], _small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_6__["EmptyContentComponent"]],
+      directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["PageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_clickable_list_view_component__WEBPACK_IMPORTED_MODULE_5__["ClickableListViewComponent"], _small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_6__["EmptyContentComponent"]],
       styles: [".align-right[_ngcontent-%COMP%] {\n        text-align: right;\n        margin-right: 10rem;\n      }\n      .clickable-view[_ngcontent-%COMP%] {\n        margin: 0.625rem;\n      }"]
     });
     /*@__PURE__*/
@@ -1808,8 +1790,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ManageAccountsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
         args: [{
-          selector: 'manage-accounts-content-component',
-          template: "\n    <page-template\n      [pagetitle]=\"'Manage Accounts'\"\n      [pagedirections]=\"'Click on an account to view and add information'\"\n    >\n      <div *ngIf=\"accountData\">\n        <p class=\"align-right\">Account Current Amount</p>\n        <div *ngFor=\"let account of accountData\" class=\"clickable-view\">\n          <div *ngIf=\"account.user_id === userId\">\n            <clickable-list-view\n              [name]=\"account.account_Description\"\n              [link]=\"'/account?id='.concat(account.account_id)\"\n              [amount]=\"account.account_Starting_Amount.toLocaleString('en-GB')\"\n            >\n            </clickable-list-view>\n          </div>\n        </div>\n      </div>\n\n      <div *ngIf=\"!accountData\">\n        <app-emptycontent\n          emptyHeader=\"No Accounts Yet\"\n          emptyPar=\"Click 'Add Accounts' in the navbar to add an account. \"\n        ></app-emptycontent>\n      </div>\n    </page-template>\n  ",
+          selector: 'app-manage-accounts-content-component',
+          template: "\n    <app-page-template\n      [pagetitle]=\"'Manage Accounts'\"\n      [pagedirections]=\"'Click on an account to view and add information'\"\n    >\n      <div *ngIf=\"accountData\">\n        <p class=\"align-right\">Account Current Amount</p>\n        <div *ngFor=\"let account of accountData\" class=\"clickable-view\">\n          <div *ngIf=\"account.user_id === userId\">\n            <app-clickable-list-view\n              [name]=\"account.account_Description\"\n              [link]=\"'/account?id='.concat(account.account_id)\"\n              [amount]=\"account.account_Starting_Amount.toLocaleString('en-GB')\"\n            >\n            </app-clickable-list-view>\n          </div>\n        </div>\n      </div>\n\n      <div *ngIf=\"!accountData\">\n        <app-emptycontent\n          emptyHeader=\"No Accounts Yet\"\n          emptyPar=\"Click 'Add Accounts' in the navbar to add an account. \"\n        ></app-emptycontent>\n      </div>\n    </app-page-template>\n  ",
           styles: ["\n      .align-right {\n        text-align: right;\n        margin-right: 10rem;\n      }\n      .clickable-view {\n        margin: 0.625rem;\n      }\n    "]
         }]
       }], function () {
@@ -1875,12 +1857,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../small-components/input.component */
-    "./src/app/components/small-components/input.component.ts");
 
     function SignupComponent_div_2_Template(rf, ctx) {
       if (rf & 1) {
@@ -1955,13 +1931,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     SignupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: SignupComponent,
-      selectors: [["signup-content-component"]],
+      selectors: [["app-signup-content-component"]],
       decls: 8,
       vars: 2,
       consts: [[3, "pagetitle"], ["class", "inputs", 4, "ngFor", "ngForOf"], [1, "login-button"], ["type", "submit", 1, "primary", "round", 3, "click"], ["href", "/"], [1, "inputs"], [3, "label", "placeholder", "type", "name", "id"]],
       template: function SignupComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "header-page-template", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-header-page-template", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "form");
 
@@ -2000,7 +1976,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.signupFieldData);
         }
       },
-      directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__["InputComponent"]],
+      directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]],
       styles: [".login-button[_ngcontent-%COMP%] {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        width: 30%;\n      }"]
     });
     /*@__PURE__*/
@@ -2009,8 +1985,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SignupComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'signup-content-component',
-          template: "\n    <header-page-template [pagetitle]=\"'Sign Up'\">\n      <form>\n        <div class=\"inputs\" *ngFor=\"let input of signupFieldData\">\n          <input-component\n            [label]=\"input.label\"\n            [placeholder]=\"input.placeholder\"\n            [type]=\"input.type\"\n            [name]=\"input.name\"\n            [id]=\"input.id\"\n          ></input-component>\n        </div>\n\n        <div class=\"login-button\">\n          <button type=\"submit\" class=\"primary round\" (click)=\"postUserData()\">\n            Sign Up\n          </button>\n        </div>\n      </form>\n      <a href=\"/\">Already have an account? Login -> </a>\n    </header-page-template>\n  ",
+          selector: 'app-signup-content-component',
+          template: "\n    <app-header-page-template [pagetitle]=\"'Sign Up'\">\n      <form>\n        <div class=\"inputs\" *ngFor=\"let input of signupFieldData\">\n          <input-component\n            [label]=\"input.label\"\n            [placeholder]=\"input.placeholder\"\n            [type]=\"input.type\"\n            [name]=\"input.name\"\n            [id]=\"input.id\"\n          ></input-component>\n        </div>\n\n        <div class=\"login-button\">\n          <button type=\"submit\" class=\"primary round\" (click)=\"postUserData()\">\n            Sign Up\n          </button>\n        </div>\n      </form>\n      <a href=\"/\">Already have an account? Login -> </a>\n    </app-header-page-template>\n  ",
           styles: ["\n      .login-button {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs {\n        width: 30%;\n      }\n    "]
         }]
       }], function () {
@@ -2076,7 +2052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     HeaderPageTemplateComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: HeaderPageTemplateComponent,
-      selectors: [["header-page-template"]],
+      selectors: [["app-header-page-template"]],
       inputs: {
         pagetitle: "pagetitle"
       },
@@ -2088,7 +2064,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "header-component", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-header-component", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
 
@@ -2124,8 +2100,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HeaderPageTemplateComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'header-page-template',
-          template: "\n    <header-component\n      [maintitle]=\"'Fin'\"\n      [tagline]=\"'Financial Accounts Management'\"\n    ></header-component>\n    <div class=\"content\">\n      <div class=\"column login-signup-container\">\n        <h2 class=\"pagetitle\">{{ pagetitle }}</h2>\n        <ng-content></ng-content>\n      </div>\n    </div>\n  ",
+          selector: 'app-header-page-template',
+          template: "\n    <app-header-component\n      [maintitle]=\"'Fin'\"\n      [tagline]=\"'Financial Accounts Management'\"\n    ></app-header-component>\n    <div class=\"content\">\n      <div class=\"column login-signup-container\">\n        <h2 class=\"pagetitle\">{{ pagetitle }}</h2>\n        <ng-content></ng-content>\n      </div>\n    </div>\n  ",
           styles: ["\n      .content {\n        margin: 2rem 2rem 0rem 2rem;\n      }\n\n      .login-signup-container {\n        align-items: center;\n        margin-top: 5rem;\n      }\n    "]
         }]
       }], function () {
@@ -2213,7 +2189,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     PageTemplateComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: PageTemplateComponent,
-      selectors: [["page-template"]],
+      selectors: [["app-page-template"]],
       inputs: {
         pagedirections: "pagedirections",
         pagetitle: "pagetitle"
@@ -2226,7 +2202,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "navbar-component", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-navbar-component", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
 
@@ -2248,7 +2224,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "help-modal-button-component", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "app-help-modal-button-component", 3);
         }
 
         if (rf & 2) {
@@ -2276,8 +2252,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PageTemplateComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'page-template',
-          template: "\n    <navbar-component [childToMaster]=\"this.userData\"></navbar-component>\n    <div class=\"content\">\n      <h2 class=\"pagetitle\">{{ pagetitle }}</h2>\n      <p>{{ pagedirections }}</p>\n      <br />\n      <ng-content></ng-content>\n    </div>\n    <help-modal-button-component\n      [modaltext]=\"\n        'To add an account click Add An Account.  To view accounts click Manage Accounts.  To add transactions for a specific account click on that account.'\n      \"\n    ></help-modal-button-component>\n  ",
+          selector: 'app-page-template',
+          template: "\n    <app-navbar-component\n      [childToMaster]=\"this.userData\"\n    ></app-navbar-component>\n    <div class=\"content\">\n      <h2 class=\"pagetitle\">{{ pagetitle }}</h2>\n      <p>{{ pagedirections }}</p>\n      <br />\n      <ng-content></ng-content>\n    </div>\n    <app-help-modal-button-component\n      [modaltext]=\"\n        'To add an account click Add An Account.  To view accounts click Manage Accounts.  To add transactions for a specific account click on that account.'\n      \"\n    ></app-help-modal-button-component>\n  ",
           styles: ["\n      .content {\n        margin: 2rem 2rem 0rem 2rem;\n      }\n    "]
         }]
       }], function () {
@@ -2328,12 +2304,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _help_modal_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ./help-modal.service */
     "./src/app/components/small-components/help-modal.service.ts");
-    /* harmony import */
-
-
-    var _help_modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./help-modal.component */
-    "./src/app/components/small-components/help-modal.component.ts");
 
     var _c0 = ["*"];
 
@@ -2368,7 +2338,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AddTransactionButtonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AddTransactionButtonComponent,
-      selectors: [["add-transaction-button-component"]],
+      selectors: [["app-add-transaction-button-component"]],
       inputs: {
         modaltext: "modaltext"
       },
@@ -2386,11 +2356,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return ctx.openModal("custom-modal-2");
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Add Transaction\n");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Add Transaction ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "modal", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "modal-component", 1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
 
@@ -2411,7 +2381,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
       },
-      directives: [_help_modal_component__WEBPACK_IMPORTED_MODULE_2__["ModalComponent"]],
       styles: [".float-right[_ngcontent-%COMP%] {\n        float: right;\n      }"]
     });
     /*@__PURE__*/
@@ -2420,8 +2389,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddTransactionButtonComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'add-transaction-button-component',
-          template: "\n  <button (click)=\"openModal('custom-modal-2')\" class=\"primary round\">\n  Add Transaction\n</button>\n\n    <modal id=\"custom-modal-2\">\n      <div class=\"float-right\">\n        <button class=\"secondary\" (click)=\"closeModal('custom-modal-2')\">\n          X\n        </button>\n      </div>\n      <ng-content></ng-content>\n    </modal>\n  ",
+          selector: 'app-add-transaction-button-component',
+          template: "\n    <button (click)=\"openModal('custom-modal-2')\" class=\"primary round\">\n      Add Transaction\n    </button>\n\n    <modal-component id=\"custom-modal-2\">\n      <div class=\"float-right\">\n        <button class=\"secondary\" (click)=\"closeModal('custom-modal-2')\">\n          X\n        </button>\n      </div>\n      <ng-content></ng-content>\n    </modal-component>\n  ",
           styles: ["\n      .float-right {\n        float: right;\n      }\n    "]
         }]
       }], function () {
@@ -2444,7 +2413,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/components/small-components/add-transaction-modal.component.ts ***!
     \********************************************************************************/
 
-  /*! exports provided: AddTransactionModal */
+  /*! exports provided: AddTransactionModalComponent */
 
   /***/
   function srcAppComponentsSmallComponentsAddTransactionModalComponentTs(module, __webpack_exports__, __webpack_require__) {
@@ -2454,8 +2423,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddTransactionModal", function () {
-      return AddTransactionModal;
+    __webpack_require__.d(__webpack_exports__, "AddTransactionModalComponent", function () {
+      return AddTransactionModalComponent;
     });
     /* harmony import */
 
@@ -2472,16 +2441,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _c0 = ["*"];
 
-    var AddTransactionModal = /*#__PURE__*/function () {
-      function AddTransactionModal(addTransactionModalService, el) {
-        _classCallCheck(this, AddTransactionModal);
+    var AddTransactionModalComponent = /*#__PURE__*/function () {
+      function AddTransactionModalComponent(addTransactionModalService, el) {
+        _classCallCheck(this, AddTransactionModalComponent);
 
         this.addTransactionModalService = addTransactionModalService;
         this.el = el;
         this.element = el.nativeElement;
       }
 
-      _createClass(AddTransactionModal, [{
+      _createClass(AddTransactionModalComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
           var _this8 = this;
@@ -2526,16 +2495,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }]);
 
-      return AddTransactionModal;
+      return AddTransactionModalComponent;
     }();
 
-    AddTransactionModal.ɵfac = function AddTransactionModal_Factory(t) {
-      return new (t || AddTransactionModal)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_add_transaction_modal_service__WEBPACK_IMPORTED_MODULE_1__["AddTransactionModalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]));
+    AddTransactionModalComponent.ɵfac = function AddTransactionModalComponent_Factory(t) {
+      return new (t || AddTransactionModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_add_transaction_modal_service__WEBPACK_IMPORTED_MODULE_1__["AddTransactionModalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]));
     };
 
-    AddTransactionModal.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-      type: AddTransactionModal,
-      selectors: [["add-transaction-modal"]],
+    AddTransactionModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: AddTransactionModalComponent,
+      selectors: [["app-add-transaction-modal"]],
       inputs: {
         id: "id"
       },
@@ -2543,7 +2512,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       decls: 4,
       vars: 0,
       consts: [[1, "modal"], [1, "modal-body"], [1, "modal-background"]],
-      template: function AddTransactionModal_Template(rf, ctx) {
+      template: function AddTransactionModalComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
 
@@ -2566,10 +2535,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*@__PURE__*/
 
     (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddTransactionModal, [{
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddTransactionModalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'add-transaction-modal',
+          selector: 'app-add-transaction-modal',
           template: "\n    <div class=\"modal\">\n      <div class=\"modal-body\">\n        <ng-content></ng-content>\n      </div>\n    </div>\n    <div class=\"modal-background\"></div>\n  ",
           styles: ["\n      modal {\n        display: none;\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        z-index: 1000;\n        overflow: auto;\n      }\n      .modal .modal-body {\n        padding: 1.25rem;\n        background: #fff;\n        margin: 16rem;\n        border-radius: 2rem;\n        min-height: 20rem;\n        max-width: 80rem;\n      }\n      .modal-background {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: var(--fin-black-transparent);\n        opacity: 0.75;\n        z-index: 900;\n      }\n      body.modal-open-2 {\n        overflow: hidden;\n      }\n    "],
           encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None
@@ -2689,7 +2658,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/components/small-components/clickable-list-view.component.ts ***!
     \******************************************************************************/
 
-  /*! exports provided: ClickableListView */
+  /*! exports provided: ClickableListViewComponent */
 
   /***/
   function srcAppComponentsSmallComponentsClickableListViewComponentTs(module, __webpack_exports__, __webpack_require__) {
@@ -2699,8 +2668,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ClickableListView", function () {
-      return ClickableListView;
+    __webpack_require__.d(__webpack_exports__, "ClickableListViewComponent", function () {
+      return ClickableListViewComponent;
     });
     /* harmony import */
 
@@ -2709,26 +2678,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
-    var ClickableListView = /*#__PURE__*/function () {
-      function ClickableListView() {
-        _classCallCheck(this, ClickableListView);
+    var ClickableListViewComponent = /*#__PURE__*/function () {
+      function ClickableListViewComponent() {
+        _classCallCheck(this, ClickableListViewComponent);
       }
 
-      _createClass(ClickableListView, [{
+      _createClass(ClickableListViewComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return ClickableListView;
+      return ClickableListViewComponent;
     }();
 
-    ClickableListView.ɵfac = function ClickableListView_Factory(t) {
-      return new (t || ClickableListView)();
+    ClickableListViewComponent.ɵfac = function ClickableListViewComponent_Factory(t) {
+      return new (t || ClickableListViewComponent)();
     };
 
-    ClickableListView.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-      type: ClickableListView,
-      selectors: [["clickable-list-view"]],
+    ClickableListViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: ClickableListViewComponent,
+      selectors: [["app-clickable-list-view"]],
       inputs: {
         link: "link",
         amount: "amount",
@@ -2737,7 +2706,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       decls: 7,
       vars: 3,
       consts: [[3, "href"], [1, "clickable-list"], [1, "space-between"]],
-      template: function ClickableListView_Template(rf, ctx) {
+      template: function ClickableListViewComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 0);
 
@@ -2781,10 +2750,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*@__PURE__*/
 
     (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ClickableListView, [{
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ClickableListViewComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'clickable-list-view',
+          selector: 'app-clickable-list-view',
           template: "\n    <a href=\"{{ link }}\">\n      <div class=\"clickable-list\">\n        <div class=\"space-between\">\n          <p>{{ name }}</p>\n          <p>${{ amount }}</p>\n        </div>\n      </div>\n    </a>\n  ",
           styles: ["\n      div {\n        background: #efefef;\n        width: 90%;\n        padding: 1rem;\n        border-radius: 0.625rem;\n      }\n\n      .space-between {\n        display: flex;\n        justify-content: space-between;\n      }\n    "]
         }]
@@ -2970,7 +2939,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: HeaderComponent,
-      selectors: [["header-component"]],
+      selectors: [["app-header-component"]],
       inputs: {
         maintitle: "maintitle",
         tagline: "tagline"
@@ -3025,7 +2994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HeaderComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'header-component',
+          selector: 'app-header-component',
           template: "\n    <div class=\"row hero\">\n      <div class=\"column center\">\n        <div class=\"row\">\n          <img src=\"../../assets/logo.svg\" rel=\"icon\" alt=\"\" class=\"logo\" />\n          <h1 class=\"fin\">{{ maintitle }}</h1>\n        </div>\n        <p class=\"tag-line\">{{ tagline }}</p>\n      </div>\n    </div>\n  ",
           styles: ["\n      .hero {\n        align-items: center;\n        background: var(--fin-gradient);\n        border-radius: 0rem 0rem 2rem 2rem;\n        justify-content: center;\n        padding: 6rem;\n      }\n\n      .fin {\n        color: var(--fin-white);\n        font-family: 'Courgette', cursive;\n        font-size: 4rem;\n        text-shadow: 0rem 0.125rem rgb(0 0 0 / 16%);\n        font-weight: 300;\n      }\n\n      .tag-line {\n        color: var(--fin-white);\n      }\n\n      img {\n        padding-right: 1rem;\n        width: 9.813rem;\n        height: 5.188rem;\n      }\n    "]
         }]
@@ -3115,7 +3084,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     HelpModalButtonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: HelpModalButtonComponent,
-      selectors: [["help-modal-button-component"]],
+      selectors: [["app-help-modal-button-component"]],
       inputs: {
         modaltext: "modaltext"
       },
@@ -3137,7 +3106,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "modal", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "app-modal-component", 1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
 
@@ -3179,8 +3148,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HelpModalButtonComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'help-modal-button-component',
-          template: "\n    <button class=\"btn-help\" (click)=\"openModal('custom-modal-1')\">?</button>\n\n    <modal id=\"custom-modal-1\">\n      <div class=\"float-right\">\n        <button class=\"secondary\" (click)=\"closeModal('custom-modal-1')\">\n          X\n        </button>\n      </div>\n      <p class=\"modaltext\">{{ modaltext }}</p>\n      <ng-content></ng-content>\n    </modal>\n  ",
+          selector: 'app-help-modal-button-component',
+          template: "\n    <button class=\"btn-help\" (click)=\"openModal('custom-modal-1')\">?</button>\n\n    <app-modal-component id=\"custom-modal-1\">\n      <div class=\"float-right\">\n        <button class=\"secondary\" (click)=\"closeModal('custom-modal-1')\">\n          X\n        </button>\n      </div>\n      <p class=\"modaltext\">{{ modaltext }}</p>\n      <ng-content></ng-content>\n    </app-modal-component>\n  ",
           styles: ["\n      .float-right {\n        float: right;\n      }\n\n      .modaltext {\n        padding: 4rem;\n      }\n    "]
         }]
       }], function () {
@@ -3294,7 +3263,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     ModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: ModalComponent,
-      selectors: [["modal"]],
+      selectors: [["app-modal-component"]],
       inputs: {
         id: "id"
       },
@@ -3328,7 +3297,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ModalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'modal',
+          selector: 'app-modal-component',
           template: "\n    <div class=\"modal\">\n      <div class=\"modal-body\">\n        <ng-content></ng-content>\n      </div>\n    </div>\n    <div class=\"modal-background\"></div>\n  ",
           styles: ["\n      modal {\n        display: none;\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        z-index: 1000;\n        overflow: auto;\n      }\n      .modal .modal-body {\n        padding: 1.25rem;\n        background: #fff;\n        margin: 16rem;\n        border-radius: 0.625rem;\n        min-height: 20rem;\n        max-width: 80rem;\n      }\n      .modal-background {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: var(--fin-black-transparent);\n        opacity: 0.75;\n        z-index: 900;\n      }\n      body.modal-open {\n        overflow: hidden;\n      }\n    "],
           encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None
@@ -3487,7 +3456,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     InputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: InputComponent,
-      selectors: [["input-component"]],
+      selectors: [["app-input-component"]],
       inputs: {
         label: "label",
         placeholder: "placeholder",
@@ -3539,7 +3508,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](InputComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'input-component',
+          selector: 'app-input-component',
           template: "\n    <label>{{ label }}</label>\n\n    <input\n      placeholder=\"{{ placeholder }}\"\n      type=\"{{ type }}\"\n      name=\"{{ name }}\"\n      required=\"{{ required }}\"\n      min=\"{{ min }}\"\n      id=\"{{ id }}\"\n    />\n  ",
           styles: ["\n      label {\n        color: var(--fin-neutral-1);\n      }\n\n      input {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        padding: 0.75rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      input[type='checkbox'],\n      input[type='radio'] {\n        width: 1.2rem;\n        height: 1.2rem;\n        margin-top: 0.3rem;\n      }\n\n      input[type='date'] {\n        font-family: Inter, sans-serif;\n      }\n\n      input:focus {\n        outline: none;\n        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);\n      }\n    "]
         }]
@@ -3658,7 +3627,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     NavbarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: NavbarComponent,
-      selectors: [["navbar-component"]],
+      selectors: [["app-navbar-component"]],
       inputs: {
         userData: ["childToMaster", "userData"]
       },
@@ -3751,7 +3720,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NavbarComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'navbar-component',
+          selector: 'app-navbar-component',
           template: "\n    <div class=\"row navbar\">\n      <div class=\"column center\">\n        <img src=\"../../assets/logo.svg\" rel=\"icon\" alt=\"\" class=\"logo\" />\n      </div>\n\n      <h3 *ngIf=\"!userData\" class=\"name\">Welcome!</h3>\n      <h3 *ngIf=\"userData\" class=\"name\">Welcome {{ this.userData }}!</h3>\n\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"nav-item\" routerLinkActive=\"active\">\n          <a routerLink=\"/addAccounts\">\n            <p class=\"white-text\">Add Accounts</p>\n          </a>\n        </li>\n        <li class=\"nav-item\" routerLinkActive=\"active\">\n          <a routerLink=\"/manageAccounts\">\n            <p class=\"white-text\">Manage Accounts</p>\n          </a>\n        </li>\n\n        <div style=\"width:2rem; border-right:0.05rem solid white;\"></div>\n        <li class=\"nav-item\" routerLinkActive=\"active\">\n          <a href=\"/\">\n            <i class=\"fa fa-power-off\"></i>\n            <p class=\"white-text\">Logout</p>\n          </a>\n        </li>\n      </ul>\n    </div>\n  ",
           styles: ["\n      .logo {\n        width: 8rem;\n        height: 8rem;\n      }\n      .name {\n        width: 100%;\n        color: var(--fin-white);\n        font-weight: normal;\n      }\n\n      .profilelogo {\n        width: 3rem;\n        height: 3rem;\n      }\n      .navbar {\n        align-items: center;\n        background: var(--fin-gradient);\n        border-radius: 0rem 0rem 2rem 2rem;\n        min-width: 39.6875rem;\n      }\n\n      .nav {\n        padding-left: 0;\n        margin-bottom: 0;\n        list-style: none;\n        width: 50rem;\n      }\n\n      .nav > li > a {\n        position: relative;\n        display: block;\n        padding: 0.625rem 0.9375rem;\n      }\n\n      .active {\n        text-decoration: none;\n        background-color: rgba(255, 255, 255, 0.2);\n        border-radius: 0.625rem;\n      }\n\n      .navbar-nav > li > a {\n        padding-top: 0.9375rem;\n        padding-bottom: 0.9375rem;\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n      }\n      .navbar-right {\n        float: right;\n        display: flex;\n        justify-content: flex-end;\n        width: 95rem;\n      }\n\n      .white-text {\n        color: white;\n      }\n    "]
         }]
@@ -3812,9 +3781,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     TabComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: TabComponent,
-      selectors: [["my-tab"]],
+      selectors: [["app-tab-component"]],
       inputs: {
-        title: ["tabTitle", "title"],
+        title: "title",
         active: "active"
       },
       ngContentSelectors: _c0,
@@ -3844,14 +3813,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'my-tab',
+          selector: 'app-tab-component',
           styles: ["\n      .pane {\n        padding: 1em;\n      }\n    "],
           template: "\n    <div [hidden]=\"!active\" class=\"pane\">\n      <ng-content></ng-content>\n    </div>\n  "
         }]
       }], null, {
         title: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-          args: ['tabTitle']
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }],
         active: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
@@ -3982,7 +3950,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     TabsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: TabsComponent,
-      selectors: [["my-tabs"]],
+      selectors: [["app-tabs-component"]],
       contentQueries: function TabsComponent_ContentQueries(rf, ctx, dirIndex) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵcontentQuery"](dirIndex, _tab_component__WEBPACK_IMPORTED_MODULE_1__["TabComponent"], false);
@@ -4026,7 +3994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'my-tabs',
+          selector: 'app-tabs-component',
           template: "\n    <ul class=\"nav nav-tabs\">\n      <li\n        *ngFor=\"let tab of tabs\"\n        (click)=\"selectTab(tab)\"\n        [class.active]=\"tab.active\"\n      >\n        <a href=\"tab\">{{ tab.title }}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n  ",
           styles: ["\n      .tab-close {\n        color: gray;\n        text-align: right;\n        cursor: pointer;\n      }\n    "]
         }]

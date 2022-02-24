@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 @Component({
-  selector: 'clickable-list-view',
+  selector: 'app-clickable-list-view',
   template: `
     <a href="{{ link }}">
       <div class="clickable-list">
@@ -27,10 +27,10 @@ import { Component, OnInit, Input } from '@angular/core';
     `,
   ],
 })
-export class ClickableListView implements OnInit {
-  constructor() {}
+export class ClickableListViewComponent implements OnInit {
   @Input() link: string;
   @Input() amount: string;
   @Input() name: string;
+  constructor() {}
   ngOnInit(): void {}
 }

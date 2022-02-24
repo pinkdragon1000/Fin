@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { APIService } from './../api.service';
 
 @Component({
-  selector: 'navbar-component',
+  selector: 'app-navbar-component',
   template: `
     <div class="row navbar">
       <div class="column center">

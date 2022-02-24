@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalService } from './help-modal.service';
 
 @Component({
-  selector: 'help-modal-button-component',
+  selector: 'app-help-modal-button-component',
   template: `
     <button class="btn-help" (click)="openModal('custom-modal-1')">?</button>
 
-    <modal id="custom-modal-1">
+    <app-modal-component id="custom-modal-1">
       <div class="float-right">
         <button class="secondary" (click)="closeModal('custom-modal-1')">
           X
@@ -14,7 +14,7 @@ import { ModalService } from './help-modal.service';
       </div>
       <p class="modaltext">{{ modaltext }}</p>
       <ng-content></ng-content>
-    </modal>
+    </app-modal-component>
   `,
   styles: [
     `
@@ -29,9 +29,9 @@ import { ModalService } from './help-modal.service';
   ],
 })
 export class HelpModalButtonComponent implements OnInit {
+  @Input() modaltext: string;
   constructor(private modalService: ModalService) {}
 
-  @Input() modaltext: string;
   ngOnInit(): void {}
 
   openModal(id: string) {

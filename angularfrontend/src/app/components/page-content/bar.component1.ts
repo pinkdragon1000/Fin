@@ -4,7 +4,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 //import { single } from './data';
 
 @Component({
-  selector: 'BarComponent1',
+  selector: 'bar-1-component',
   template: `
     <ngx-charts-bar-horizontal
       class="border"
@@ -29,26 +29,26 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     `,
   ],
 })
-export class BarComponent1 implements OnInit {
+export class Bar1Component implements OnInit {
   //single: any[];
   view: any[] = [700, 400];
 
   // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = false;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  yAxisLabel: string = 'Account Amount Type';
-  showYAxisLabel: boolean = true;
-  xAxisLabel: string = 'Dollars';
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  yAxisLabel = 'Account Amount Type';
+  showYAxisLabel = true;
+  xAxisLabel = 'Dollars';
 
   colorScheme = {
     domain: ['#C7B42C', '#AAAAAA'],
   };
 
   constructor() {
-    var single = [
+    const single = [
       {
         name: 'Account Starting Amount',
         value: 500,

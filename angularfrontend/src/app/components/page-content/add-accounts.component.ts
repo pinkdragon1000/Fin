@@ -3,9 +3,9 @@ import { APIService } from './../api.service';
 import { userId } from 'src/environments/environment';
 
 @Component({
-  selector: 'add-accounts-content-component',
+  selector: 'app-add-accounts-content-component',
   template: `
-    <page-template
+    <app-page-template
       [pagetitle]="'Add Accounts'"
       [pagedirections]="
         'Fill out the form to add an account. To view and manage accounts click
@@ -23,21 +23,21 @@ import { userId } from 'src/environments/environment';
             <option value="2">Savings</option>
           </select>
           <div class="input" *ngFor="let input of accountFieldData">
-            <input-component
+            <app-input-component
               [label]="input.label"
               [placeholder]="input.placeholder"
               [type]="input.type"
               [name]="input.name"
               [min]="input.min"
               [id]="input.id"
-            ></input-component>
+            ></app-input-component>
           </div>
         </div>
         <button type="submit" class="primary round" (click)="postAccountData()">
           Add Account
         </button>
       </form>
-    </page-template>
+    </app-page-template>
   `,
   styles: [
     `
@@ -96,20 +96,20 @@ export class AddAccountsComponent implements OnInit {
   ];
 
   postAccountData() {
-    this.accountTypeNum = (<HTMLInputElement>(
-      document.getElementById('select')
-    )).value;
+    this.accountTypeNum = (
+      document.getElementById('select') as HTMLInputElement
+    ).value;
     if (this.accountTypeNum === 1) {
       this.accountType = 'Checking';
     } else if (this.accountTypeNum === 2) {
       this.accountType = 'Savings';
     }
-    this.accountDescription = (<HTMLInputElement>(
-      document.getElementById('description')
-    )).value;
-    this.startingAmount = (<HTMLInputElement>(
-      document.getElementById('amount')
-    )).value;
+    this.accountDescription = (
+      document.getElementById('description') as HTMLInputElement
+    ).value;
+    this.startingAmount = (
+      document.getElementById('amount') as HTMLInputElement
+    ).value;
 
     if (
       this.accountTypeNum === 0 ||

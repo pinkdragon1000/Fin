@@ -9,7 +9,7 @@ import {
 import { AddTransactionModalService } from './add-transaction-modal.service';
 
 @Component({
-  selector: 'add-transaction-modal',
+  selector: 'app-add-transaction-modal',
   template: `
     <div class="modal">
       <div class="modal-body">
@@ -57,7 +57,7 @@ import { AddTransactionModalService } from './add-transaction-modal.service';
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class AddTransactionModal implements OnInit, OnDestroy {
+export class AddTransactionModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
 

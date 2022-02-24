@@ -3,18 +3,18 @@ import { APIService } from './../api.service';
 import * as shajs from 'sha.js';
 
 @Component({
-  selector: 'signup-content-component',
+  selector: 'app-signup-content-component',
   template: `
-    <header-page-template [pagetitle]="'Sign Up'">
+    <app-header-page-template [pagetitle]="'Sign Up'">
       <form>
         <div class="inputs" *ngFor="let input of signupFieldData">
-          <input-component
+          <app-input-component
             [label]="input.label"
             [placeholder]="input.placeholder"
             [type]="input.type"
             [name]="input.name"
             [id]="input.id"
-          ></input-component>
+          ></app-input-component>
         </div>
 
         <div class="login-button">
@@ -24,7 +24,7 @@ import * as shajs from 'sha.js';
         </div>
       </form>
       <a href="/">Already have an account? Login -> </a>
-    </header-page-template>
+    </app-header-page-template>
   `,
   styles: [
     `
@@ -41,7 +41,6 @@ import * as shajs from 'sha.js';
   ],
 })
 export class SignupComponent implements OnInit {
-  constructor(private apiService: APIService) {}
   fullName: string;
   email: string;
   password: string;
@@ -69,13 +68,16 @@ export class SignupComponent implements OnInit {
       id: 'password',
     },
   ];
+  constructor(private apiService: APIService) {}
 
   postUserData() {
-    this.fullName = (<HTMLInputElement>document.getElementById('fname')).value;
-    this.email = (<HTMLInputElement>document.getElementById('email')).value;
-    this.password = (<HTMLInputElement>(
-      document.getElementById('password')
-    )).value;
+    this.fullName = (
+      document.getElementById('fname') as HTMLInputElement
+    ).value;
+    this.email = (document.getElementById('email') as HTMLInputElement).value;
+    this.password = (
+      document.getElementById('password') as HTMLInputElement
+    ).value;
 
     if (this.fullName === '' || this.email === '' || this.password === '') {
       console.log('Please fill out all fields');

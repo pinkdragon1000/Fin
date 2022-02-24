@@ -4,7 +4,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 //import { single } from './data';
 
 @Component({
-  selector: 'BarComponent',
+  selector: 'bar-component',
   template: `
     <ngx-charts-bar-horizontal
       class="border"
@@ -37,21 +37,21 @@ export class BarComponent implements OnInit {
   view: any[] = [700, 400];
 
   // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = false;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  yAxisLabel: string = 'Transaction Type';
-  showYAxisLabel: boolean = true;
-  xAxisLabel: string = 'Dollars';
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  yAxisLabel = 'Transaction Type';
+  showYAxisLabel = true;
+  xAxisLabel = 'Dollars';
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28'],
   };
 
   constructor() {
-    var single = [
+    const single = [
       {
         name: 'Deposits',
         value: 1500,

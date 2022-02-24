@@ -8,15 +8,12 @@ import {
   ContentChildren,
   QueryList,
   AfterContentInit,
-  ViewChild,
-  ComponentFactoryResolver,
-  ViewContainerRef,
 } from '@angular/core';
 
 import { TabComponent } from './tab.component';
 
 @Component({
-  selector: 'my-tabs',
+  selector: 'app-tabs-component',
   template: `
     <ul class="nav nav-tabs">
       <li
@@ -45,7 +42,7 @@ export class TabsComponent implements AfterContentInit {
   // contentChildren are set
   ngAfterContentInit() {
     // get all active tabs
-    let activeTabs = this.tabs.filter((tab) => tab.active);
+    const activeTabs = this.tabs.filter((tab) => tab.active);
 
     // if there is no active tab set, activate the first
     if (activeTabs.length === 0) {

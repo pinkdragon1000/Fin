@@ -1,21 +1,21 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { APIService } from './../api.service';
+import { APIService } from '../api.service';
 
 @Component({
-  selector: 'login-content-component',
+  selector: 'app-login-content-component',
   template: `
-    <header-page-template class="signin" [pagetitle]="'Sign In'">
+    <app-header-page-template class="signin" [pagetitle]="'Sign In'">
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
 
       <div class="inputs" *ngFor="let input of inputFieldData">
-        <input-component
+        <app-input-component
           [label]="input.label"
           [placeholder]="input.placeholder"
           [id]="input.id"
           [type]="input.type"
           [name]="input.name"
-        ></input-component>
+        ></app-input-component>
       </div>
 
       <div class="login-button">
@@ -24,7 +24,7 @@ import { APIService } from './../api.service';
         </button>
       </div>
       <a href="/signup">Don't have an account? Signup -> </a>
-    </header-page-template>
+    </app-header-page-template>
   `,
   styles: [
     `
@@ -40,8 +40,7 @@ import { APIService } from './../api.service';
     `,
   ],
 })
-export class LoginComponent implements OnInit {
-  constructor(private apiService: APIService) {}
+export class SigninComponent implements OnInit {
   email: string;
   password: string;
   error: string;
@@ -69,14 +68,15 @@ export class LoginComponent implements OnInit {
       password: 'B!ah123',
     },
   ];
+  constructor(private apiService: APIService) {}
 
   ngOnInit(): void {}
 
   signIn() {
-    this.email = (<HTMLInputElement>document.getElementById('email')).value;
-    this.password = (<HTMLInputElement>(
-      document.getElementById('password')
-    )).value;
+    this.email = (document.getElementById('email') as HTMLInputElement).value;
+    this.password = (
+      document.getElementById('password') as HTMLInputElement
+    ).value;
 
     if (this.email === '' || this.password === '') {
       console.log('Please fill out all fields');

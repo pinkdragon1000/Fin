@@ -10,7 +10,7 @@ import {
 import { ModalService } from './help-modal.service';
 
 @Component({
-  selector: 'modal',
+  selector: 'app-modal-component',
   template: `
     <div class="modal">
       <div class="modal-body">
@@ -21,7 +21,7 @@ import { ModalService } from './help-modal.service';
   `,
   styles: [
     `
-      modal {
+      app-modal-component {
         display: none;
       }
       .modal {

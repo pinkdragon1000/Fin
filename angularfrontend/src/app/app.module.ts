@@ -1,5 +1,4 @@
-
-import { AddTransactionModal } from './components/small-components/add-transaction-modal.component';
+import { AddTransactionModalComponent } from './components/small-components/add-transaction-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,12 +10,12 @@ import { HeaderPageTemplateComponent } from './components/page-template/headerpa
 import { ManageAccountsComponent } from './components/page-content/manage-accounts.component';
 import { AddAccountsComponent } from './components/page-content/add-accounts.component';
 import { AccountComponent } from './components/page-content/account.component';
-import { LoginComponent } from './components/page-content/login.component';
+import { SigninComponent } from './components/page-content/signin.component';
 import { SignupComponent } from './components/page-content/signup.component';
 
 import { NavbarComponent } from './components/small-components/navbar.component';
 import { HeaderComponent } from './components/small-components/header.component';
-import { ClickableListView } from './components/small-components/clickable-list-view.component';
+import { ClickableListViewComponent } from './components/small-components/clickable-list-view.component';
 
 import { ModalComponent } from './components/small-components/help-modal.component';
 import { HelpModalButtonComponent } from './components/small-components/help-modal-button.component';
@@ -43,20 +42,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmptyContentComponent,
     NavbarComponent,
     HeaderComponent,
-    LoginComponent,
+    SigninComponent,
     SignupComponent,
     ManageAccountsComponent,
     AddAccountsComponent,
     AccountComponent,
-    AddTransactionModal,
+    AddTransactionModalComponent,
     AddTransactionButtonComponent,
     TabsComponent,
     TabComponent,
     ModalComponent,
     HelpModalButtonComponent,
-    ClickableListView,
+    ClickableListViewComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule,NgxChartsModule, BrowserAnimationsModule ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+  ],
   providers: [
     InputComponent,
     PageTemplateComponent,
@@ -65,7 +70,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     APIService,
     NavbarComponent,
     HeaderComponent,
-    ClickableListView
+    ClickableListViewComponent,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

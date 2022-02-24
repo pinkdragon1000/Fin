@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'header-component',
+  selector: 'app-header-component',
   template: `
     <div class="row hero">
       <div class="column center">
@@ -44,9 +44,9 @@ import { Component, OnInit, Input } from '@angular/core';
   ],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
   @Input() maintitle: string;
   @Input() tagline: string;
 
+  constructor() {}
   ngOnInit(): void {}
 }

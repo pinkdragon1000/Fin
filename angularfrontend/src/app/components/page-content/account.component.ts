@@ -3,22 +3,22 @@ import { Component, OnInit } from '@angular/core';
 //import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'account-component',
+  selector: 'app-account-component',
   template: `
-    <page-template
+    <app-page-template
       [pagedirections]="'Click on an account to view and add information'"
       [pagetitle]="this.accountDescription"
     >
-      <add-transaction-button-component modalAccountText="">
+      <app-add-transaction-button-component modalAccountText="">
         <div class="input" *ngFor="let input of accountFieldData">
-          <input-component
+          <app-input-component
             [label]="input.label"
             [placeholder]="input.placeholder"
             [type]="input.type"
             [name]="input.name"
             [min]="input.min"
             [id]="input.id"
-          ></input-component>
+          ></app-input-component>
         </div>
         <label>Transaction Type </label>
         <br />
@@ -35,7 +35,7 @@ import { Component, OnInit } from '@angular/core';
         >
           Submit Transaction
         </button>
-      </add-transaction-button-component>
+      </app-add-transaction-button-component>
 
       <p>Transactions</p>
       <div class="scroll">
@@ -103,7 +103,7 @@ import { Component, OnInit } from '@angular/core';
           </td>
         </tr>
       </table>
-    </page-template>
+    </app-page-template>
   `,
   styles: [
     `
@@ -181,7 +181,6 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class AccountComponent implements OnInit {
-  constructor(private apiService: APIService) {}
   accountStartingAmount: number;
   accountDeposits: string;
   accountWithdraws: string;
@@ -191,7 +190,7 @@ export class AccountComponent implements OnInit {
   transactionId: string;
   accountUser: number;
 
-  currentUser: number = 1;
+  currentUser = 1;
 
   transactionData: Array<any>;
 
@@ -220,15 +219,17 @@ export class AccountComponent implements OnInit {
     },
   ];
 
+  constructor(private apiService: APIService) {}
   postTransactionData() {
-    this.accountIDnum = parseInt(window.location.search.substring(4));
+    this.accountIDnum = parseInt(window.location.search.substring(4), 10);
     const transactionType = 'Deposit';
-    const transactionDate = (<HTMLInputElement>document.getElementById('date'))
-      .value;
+    const transactionDate = (
+      document.getElementById('date') as HTMLInputElement
+    ).value;
 
-    const transactionAmount = (<HTMLInputElement>(
-      document.getElementById('amount')
-    )).value;
+    const transactionAmount = (
+      document.getElementById('amount') as HTMLInputElement
+    ).value;
 
     console.log(transactionDate);
 
@@ -247,9 +248,9 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.accountIDnum = parseInt(window.location.search.substring(4));
+    this.accountIDnum = parseInt(window.location.search.substring(4), 10);
     this.accountID = (
-      parseInt(window.location.search.substring(4)) - 1
+      parseInt(window.location.search.substring(4), 10) - 1
     ).toString();
 
     this.apiService.getAccountDataAsync((d: Object) => {

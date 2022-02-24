@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'input-component',
+  selector: 'app-input-component',
   template: `
     <label>{{ label }}</label>
 
@@ -59,7 +59,6 @@ import {
   ],
 })
 export class InputComponent implements OnInit {
-  constructor() {}
   @Input() label: string;
   @Input() placeholder: string;
   @Input() type: string;
@@ -67,5 +66,6 @@ export class InputComponent implements OnInit {
   @Input() required: string;
   @Input() min: number;
   @Input() id: string;
+  constructor() {}
   ngOnInit(): void {}
 }

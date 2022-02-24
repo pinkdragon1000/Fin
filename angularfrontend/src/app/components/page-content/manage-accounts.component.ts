@@ -2,9 +2,9 @@ import { userId } from './../../../environments/environment';
 import { APIService } from './../api.service';
 import { Component, OnInit, Input } from '@angular/core';
 @Component({
-  selector: 'manage-accounts-content-component',
+  selector: 'app-manage-accounts-content-component',
   template: `
-    <page-template
+    <app-page-template
       [pagetitle]="'Manage Accounts'"
       [pagedirections]="'Click on an account to view and add information'"
     >
@@ -12,12 +12,12 @@ import { Component, OnInit, Input } from '@angular/core';
         <p class="align-right">Account Current Amount</p>
         <div *ngFor="let account of accountData" class="clickable-view">
           <div *ngIf="account.user_id === userId">
-            <clickable-list-view
+            <app-clickable-list-view
               [name]="account.account_Description"
               [link]="'/account?id='.concat(account.account_id)"
               [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
             >
-            </clickable-list-view>
+            </app-clickable-list-view>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@ import { Component, OnInit, Input } from '@angular/core';
           emptyPar="Click 'Add Accounts' in the navbar to add an account. "
         ></app-emptycontent>
       </div>
-    </page-template>
+    </app-page-template>
   `,
   styles: [
     `
@@ -43,9 +43,9 @@ import { Component, OnInit, Input } from '@angular/core';
   ],
 })
 export class ManageAccountsComponent implements OnInit {
-  constructor(private apiService: APIService) {}
   accountData: Object;
   userId: any = userId;
+  constructor(private apiService: APIService) {}
 
   ngOnInit(): void {
     this.apiService.getAccountDataAsync((d: Object) => {

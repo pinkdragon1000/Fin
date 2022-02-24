@@ -23,11 +23,11 @@ export class APIService {
   postValidateUser(body: string): string {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+      Authorization: 'Basic ' + btoa('srobinson:bl'),
     };
     this.http
       .post('http://localhost:8080/validateUser', body, {
-        headers: headers,
+        headers,
         observe: 'response',
       })
       .subscribe(
@@ -76,11 +76,11 @@ export class APIService {
   postUserData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+      Authorization: 'Basic ' + btoa('srobinson:bl'),
     };
     this.http
       .post('http://localhost:8080/addUser', body, {
-        headers: headers,
+        headers,
         observe: 'response',
       })
       .subscribe(
@@ -101,11 +101,11 @@ export class APIService {
   postAccountData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+      Authorization: 'Basic ' + btoa('srobinson:bl'),
     };
     this.http
       .post('http://localhost:8080/addAccount', body, {
-        headers: headers,
+        headers,
         observe: 'response',
       })
       .subscribe(
@@ -126,13 +126,13 @@ export class APIService {
   postTransactionDataTest() {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+      Authorization: 'Basic ' + btoa('srobinson:bl'),
     };
     const body =
       '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
     this.http
       .post('http://localhost:8080/addTransaction', body, {
-        headers: headers,
+        headers,
         observe: 'response',
       })
       .subscribe(
@@ -153,11 +153,11 @@ export class APIService {
   postTransactionData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+      Authorization: 'Basic ' + btoa('srobinson:bl'),
     };
     this.http
       .post('http://localhost:8080/addTransaction', body, {
-        headers: headers,
+        headers,
         observe: 'response',
       })
       .subscribe(
