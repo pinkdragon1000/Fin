@@ -4,15 +4,23 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class APIService {
-  constructor(private http: HttpClient) {}
   userResult: Object;
   accountsResult: Object;
   transactionsResult: Object;
   msg: string;
+  auth: string = 'Basic ' + btoa('srobinson:bl');
+
+  constructor(private http: HttpClient) {}
 
   getUserData(callback: any) {
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: this.auth,
+    };
     this.http
-      .get('http://localhost:8080/users')
+      .get('http://localhost:8080/fin-accounts.webservice/users', {
+        headers,
+      })
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.userResult = res;
@@ -23,13 +31,17 @@ export class APIService {
   postValidateUser(body: string): string {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:bl'),
+      Authorization: this.auth,
     };
     this.http
-      .post('http://localhost:8080/validateUser', body, {
-        headers,
-        observe: 'response',
-      })
+      .post(
+        'http://localhost:8080/fin-accounts.webservice/validateUser',
+        body,
+        {
+          headers,
+          observe: 'response',
+        }
+      )
       .subscribe(
         (response) => {
           console.log(
@@ -52,8 +64,14 @@ export class APIService {
   }
 
   getAccountDataAsync(callback: any) {
+    const headers = {
+      'content-type': 'application/json',
+      Authorization: this.auth,
+    };
     this.http
-      .get('http://localhost:8080/accounts')
+      .get('http://localhost:8080/fin-accounts.webservice/accounts', {
+        headers,
+      })
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.accountsResult = res;
@@ -64,7 +82,7 @@ export class APIService {
 
   getTransactionDataAsync(callback: any) {
     this.http
-      .get('http://localhost:8080/transactions')
+      .get('http://localhost:8080/fin-accounts.webservice/transactions')
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.transactionsResult = res;
@@ -76,10 +94,10 @@ export class APIService {
   postUserData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:bl'),
+      Authorization: this.auth,
     };
     this.http
-      .post('http://localhost:8080/addUser', body, {
+      .post('http://localhost:8080//fin-accounts.webservice/addUser', body, {
         headers,
         observe: 'response',
       })
@@ -101,10 +119,10 @@ export class APIService {
   postAccountData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:bl'),
+      Authorization: this.auth,
     };
     this.http
-      .post('http://localhost:8080/addAccount', body, {
+      .post('http://localhost:8080/fin-accounts.webservice/addAccount', body, {
         headers,
         observe: 'response',
       })
@@ -126,15 +144,19 @@ export class APIService {
   postTransactionDataTest() {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:bl'),
+      Authorization: this.auth,
     };
     const body =
       '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
     this.http
-      .post('http://localhost:8080/addTransaction', body, {
-        headers,
-        observe: 'response',
-      })
+      .post(
+        'http://localhost:8080/fin-accounts.webservice/addTransaction',
+        body,
+        {
+          headers,
+          observe: 'response',
+        }
+      )
       .subscribe(
         (response) => {
           console.log(
@@ -153,13 +175,17 @@ export class APIService {
   postTransactionData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: 'Basic ' + btoa('srobinson:bl'),
+      Authorization: this.auth,
     };
     this.http
-      .post('http://localhost:8080/addTransaction', body, {
-        headers,
-        observe: 'response',
-      })
+      .post(
+        'http://localhost:8080/fin-accounts.webservice/addTransaction',
+        body,
+        {
+          headers,
+          observe: 'response',
+        }
+      )
       .subscribe(
         (response) => {
           console.log(

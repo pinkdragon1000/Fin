@@ -17,7 +17,7 @@ public class AccountController {
 
     //Gets account information for a user such as account description, account type, account starting amount, transaction amount from database and calculated fields
     @GetMapping(path = "/accounts", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    @CrossOrigin(origins = "http://localhost:8080/accounts")
+    @CrossOrigin
     public List<Account> findAccounts(Model model) {
         var accounts = (List<Account>) accountService.findAllAccounts();
         if(accounts==null){

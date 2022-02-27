@@ -65,7 +65,7 @@ export class SigninComponent implements OnInit {
 
   loginData = [
     {
-      password: 'B!ah123',
+      password: 'blah',
     },
   ];
   constructor(private apiService: APIService) {}

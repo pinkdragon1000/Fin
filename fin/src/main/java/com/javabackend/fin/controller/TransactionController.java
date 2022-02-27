@@ -17,7 +17,7 @@ public class TransactionController {
 
     //shows all transactions
     @GetMapping(path = "/transactions", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    @CrossOrigin(origins = "http://localhost:8080/transactions")
+    @CrossOrigin
     public List<Transaction> findTransactions (Model model) {
         var transactions = (List<Transaction>) transactionService.findAllTransactions();
         model.addAttribute("transactions", transactions);

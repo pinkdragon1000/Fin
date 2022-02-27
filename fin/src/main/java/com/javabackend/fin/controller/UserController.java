@@ -21,7 +21,7 @@ public class UserController {
 
     //Shows users from user table in database
     @GetMapping(path = "/users", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    @CrossOrigin(origins = "http://localhost:8080/users")
+    @CrossOrigin
     public List<?> findUsers(Model model, HttpServletResponse response) {
         List<String> errorArray= new ArrayList<String>();
             var users = (List<User>) userService.findAllUsers();

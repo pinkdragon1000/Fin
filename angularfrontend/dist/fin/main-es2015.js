@@ -36,7 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/page-content/add-accounts.component */ "./src/app/components/page-content/add-accounts.component.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/page-content/login.component */ "./src/app/components/page-content/login.component.ts");
+/* harmony import */ var _components_page_content_signin_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/page-content/signin.component */ "./src/app/components/page-content/signin.component.ts");
 /* harmony import */ var _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/page-content/signup.component */ "./src/app/components/page-content/signup.component.ts");
 /* harmony import */ var _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/page-content/manage-accounts.component */ "./src/app/components/page-content/manage-accounts.component.ts");
 /* harmony import */ var _components_page_content_account_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/page-content/account.component */ "./src/app/components/page-content/account.component.ts");
@@ -50,7 +50,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: '', component: _components_page_content_signin_component__WEBPACK_IMPORTED_MODULE_3__["SigninComponent"] },
     { path: 'signup', component: _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_4__["SignupComponent"] },
     { path: 'addAccounts', component: _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_0__["AddAccountsComponent"] },
     { path: 'manageAccounts', component: _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_5__["ManageAccountsComponent"] },
@@ -129,7 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/page-content/manage-accounts.component */ "./src/app/components/page-content/manage-accounts.component.ts");
 /* harmony import */ var _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/page-content/add-accounts.component */ "./src/app/components/page-content/add-accounts.component.ts");
 /* harmony import */ var _components_page_content_account_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/page-content/account.component */ "./src/app/components/page-content/account.component.ts");
-/* harmony import */ var _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/page-content/login.component */ "./src/app/components/page-content/login.component.ts");
+/* harmony import */ var _components_page_content_signin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/page-content/signin.component */ "./src/app/components/page-content/signin.component.ts");
 /* harmony import */ var _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/page-content/signup.component */ "./src/app/components/page-content/signup.component.ts");
 /* harmony import */ var _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/small-components/navbar.component */ "./src/app/components/small-components/navbar.component.ts");
 /* harmony import */ var _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/small-components/header.component */ "./src/app/components/small-components/header.component.ts");
@@ -200,7 +200,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector
         _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"],
         _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"],
         _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"],
-        _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+        _components_page_content_signin_component__WEBPACK_IMPORTED_MODULE_10__["SigninComponent"],
         _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__["SignupComponent"],
         _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__["ManageAccountsComponent"],
         _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AddAccountsComponent"],
@@ -227,7 +227,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector
                     _components_small_components_empty_content_component__WEBPACK_IMPORTED_MODULE_17__["EmptyContentComponent"],
                     _components_small_components_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"],
                     _components_small_components_header_component__WEBPACK_IMPORTED_MODULE_13__["HeaderComponent"],
-                    _components_page_content_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                    _components_page_content_signin_component__WEBPACK_IMPORTED_MODULE_10__["SigninComponent"],
                     _components_page_content_signup_component__WEBPACK_IMPORTED_MODULE_11__["SignupComponent"],
                     _components_page_content_manage_accounts_component__WEBPACK_IMPORTED_MODULE_7__["ManageAccountsComponent"],
                     _components_page_content_add_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AddAccountsComponent"],
@@ -287,21 +287,28 @@ class APIService {
         this.http = http;
     }
     getUserData(callback) {
+        const headers = {
+            'content-type': 'application/json',
+            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+        };
         this.http
-            .get('http://localhost:8080/users')
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => res))
-            .subscribe((res) => {
-            this.userResult = res;
+            .get('http://localhost:8080/fin-accounts.webservice/users', {
+            headers,
+            observe: 'response',
+        })
+            //.pipe(map((res) => res))
+            .subscribe((response) => {
+            this.userResult = response;
             callback(this.userResult);
         });
     }
     postValidateUser(body) {
         const headers = {
             'content-type': 'application/json',
-            Authorization: 'Basic ' + btoa('srobinson:bl'),
+            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
         };
         this.http
-            .post('http://localhost:8080/validateUser', body, {
+            .post('http://localhost:8080/fin-accounts.webservice/validateUser', body, {
             headers,
             observe: 'response',
         })
@@ -320,18 +327,25 @@ class APIService {
         return this.msg;
     }
     getAccountDataAsync(callback) {
+        const headers = {
+            'content-type': 'application/json',
+            Authorization: 'Basic ' + btoa('srobinson:0p3n$esame21'),
+        };
         this.http
-            .get('http://localhost:8080/accounts')
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => res))
-            .subscribe((res) => {
-            this.accountsResult = res;
+            .get('http://localhost:8080/fin-accounts.webservice/accounts', {
+            headers,
+            observe: 'response',
+        })
+            //.pipe(map((res) => res))
+            .subscribe((response) => {
+            this.accountsResult = response;
             callback(this.accountsResult);
             console.log(this.accountsResult);
         });
     }
     getTransactionDataAsync(callback) {
         this.http
-            .get('http://localhost:8080/transactions')
+            .get('http://localhost:8080/fin-accounts.webservice/transactions')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => res))
             .subscribe((res) => {
             this.transactionsResult = res;
@@ -345,7 +359,7 @@ class APIService {
             Authorization: 'Basic ' + btoa('srobinson:bl'),
         };
         this.http
-            .post('http://localhost:8080/addUser', body, {
+            .post('http://localhost:8080//fin-accounts.webservice/addUser', body, {
             headers,
             observe: 'response',
         })
@@ -363,7 +377,7 @@ class APIService {
             Authorization: 'Basic ' + btoa('srobinson:bl'),
         };
         this.http
-            .post('http://localhost:8080/addAccount', body, {
+            .post('http://localhost:8080/fin-accounts.webservice/addAccount', body, {
             headers,
             observe: 'response',
         })
@@ -382,7 +396,7 @@ class APIService {
         };
         const body = '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
         this.http
-            .post('http://localhost:8080/addTransaction', body, {
+            .post('http://localhost:8080/fin-accounts.webservice/addTransaction', body, {
             headers,
             observe: 'response',
         })
@@ -400,7 +414,7 @@ class APIService {
             Authorization: 'Basic ' + btoa('srobinson:bl'),
         };
         this.http
-            .post('http://localhost:8080/addTransaction', body, {
+            .post('http://localhost:8080/fin-accounts.webservice/addTransaction', body, {
             headers,
             observe: 'response',
         })
@@ -437,6 +451,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../page-template/pagetemplate.component */ "./src/app/components/page-template/pagetemplate.component.ts");
 /* harmony import */ var _small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../small-components/add-transaction-modal-button.component */ "./src/app/components/small-components/add-transaction-modal-button.component.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../small-components/input.component */ "./src/app/components/small-components/input.component.ts");
+
 
 
 
@@ -445,7 +461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function AccountComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input-component", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-input-component", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const input_r2 = ctx.$implicit;
@@ -662,7 +678,7 @@ AccountComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", ctx.transactionData.slice(0 - 1).pop().transaction_subTotal, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", ctx.transactionData.slice(0 - 1).pop().transaction_subTotal - ctx.accountStartingAmount, " ");
-    } }, directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["PageTemplateComponent"], _small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_3__["AddTransactionButtonComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"]], styles: [".scroll[_ngcontent-%COMP%] {\n        height: 10rem;\n        overflow-y: scroll;\n      }\n      .clickable-view[_ngcontent-%COMP%] {\n        margin: 0.625rem;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        align-items: center;\n      }\n      .input[_ngcontent-%COMP%] {\n        width: 50%;\n      }\n      .select[_ngcontent-%COMP%] {\n        width: 52%;\n      }\n\n      .row[_ngcontent-%COMP%] {\n        padding-right: 5rem;\n      }\n\n      .text-deposit[_ngcontent-%COMP%] {\n        color: green;\n      }\n\n      .text-withdraw[_ngcontent-%COMP%] {\n        color: #a10a28;\n      }\n\n      .text-deposit-arrow[_ngcontent-%COMP%]::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2191';\n      }\n\n      .text-withdraw-arrow[_ngcontent-%COMP%]::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2193';\n      }\n\n      select[_ngcontent-%COMP%] {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      table[_ngcontent-%COMP%] {\n        border-collapse: collapse;\n        width: 100%;\n      }\n\n      th[_ngcontent-%COMP%] {\n        background-color: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      td[_ngcontent-%COMP%], th[_ngcontent-%COMP%] {\n        border: 0.063rem solid #dddddd;\n        text-align: left;\n        padding: 0.5rem;\n      }"] });
+    } }, directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["PageTemplateComponent"], _small_components_add_transaction_modal_button_component__WEBPACK_IMPORTED_MODULE_3__["AddTransactionButtonComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__["InputComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"]], styles: [".scroll[_ngcontent-%COMP%] {\n        height: 10rem;\n        overflow-y: scroll;\n      }\n      .clickable-view[_ngcontent-%COMP%] {\n        margin: 0.625rem;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        align-items: center;\n      }\n      .input[_ngcontent-%COMP%] {\n        width: 50%;\n      }\n      .select[_ngcontent-%COMP%] {\n        width: 52%;\n      }\n\n      .row[_ngcontent-%COMP%] {\n        padding-right: 5rem;\n      }\n\n      .text-deposit[_ngcontent-%COMP%] {\n        color: green;\n      }\n\n      .text-withdraw[_ngcontent-%COMP%] {\n        color: #a10a28;\n      }\n\n      .text-deposit-arrow[_ngcontent-%COMP%]::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2191';\n      }\n\n      .text-withdraw-arrow[_ngcontent-%COMP%]::before {\n        font-family: 'Font Awesome 5 Free';\n        content: '\u2193';\n      }\n\n      select[_ngcontent-%COMP%] {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      table[_ngcontent-%COMP%] {\n        border-collapse: collapse;\n        width: 100%;\n      }\n\n      th[_ngcontent-%COMP%] {\n        background-color: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }\n\n      td[_ngcontent-%COMP%], th[_ngcontent-%COMP%] {\n        border: 0.063rem solid #dddddd;\n        text-align: left;\n        padding: 0.5rem;\n      }"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AccountComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -674,14 +690,14 @@ AccountComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
     >
       <app-add-transaction-button-component modalAccountText="">
         <div class="input" *ngFor="let input of accountFieldData">
-          <input-component
+          <app-input-component
             [label]="input.label"
             [placeholder]="input.placeholder"
             [type]="input.type"
             [name]="input.name"
             [min]="input.min"
             [id]="input.id"
-          ></input-component>
+          ></app-input-component>
         </div>
         <label>Transaction Type </label>
         <br />
@@ -863,6 +879,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../api.service */ "./src/app/components/api.service.ts");
 /* harmony import */ var _page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../page-template/pagetemplate.component */ "./src/app/components/page-template/pagetemplate.component.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../small-components/input.component */ "./src/app/components/small-components/input.component.ts");
+
 
 
 
@@ -877,7 +895,7 @@ function AddAccountsComponent_div_1_Template(rf, ctx) { if (rf & 1) {
 } }
 function AddAccountsComponent_div_14_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input-component", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-input-component", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const input_r2 = ctx.$implicit;
@@ -974,7 +992,7 @@ AddAccountsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.error);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.accountFieldData);
-    } }, directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["PageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]], styles: [".inputs[_ngcontent-%COMP%] {\n        align-items: center;\n      }\n      .input[_ngcontent-%COMP%] {\n        width: 50%;\n      }\n      .select[_ngcontent-%COMP%] {\n        width: 52%;\n      }\n\n      select[_ngcontent-%COMP%] {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }"] });
+    } }, directives: [_page_template_pagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["PageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__["InputComponent"]], styles: [".inputs[_ngcontent-%COMP%] {\n        align-items: center;\n      }\n      .input[_ngcontent-%COMP%] {\n        width: 50%;\n      }\n      .select[_ngcontent-%COMP%] {\n        width: 52%;\n      }\n\n      select[_ngcontent-%COMP%] {\n        border-radius: 20rem;\n        font-size: 1rem;\n        height: 1.5rem;\n        min-width: 15rem;\n        width: 100%;\n        height: 3.25rem;\n        padding: 0rem 1rem;\n        border: 0.063rem solid var(--fin-white);\n        margin: 0.5rem 0;\n        background: var(--fin-neutral-6);\n        color: var(--fin-neutral-1);\n      }"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddAccountsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -998,14 +1016,14 @@ AddAccountsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
             <option value="2">Savings</option>
           </select>
           <div class="input" *ngFor="let input of accountFieldData">
-            <input-component
+            <app-input-component
               [label]="input.label"
               [placeholder]="input.placeholder"
               [type]="input.type"
               [name]="input.name"
               [min]="input.min"
               [id]="input.id"
-            ></input-component>
+            ></app-input-component>
           </div>
         </div>
         <button type="submit" class="primary round" (click)="postAccountData()">
@@ -1043,185 +1061,6 @@ AddAccountsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
                 ],
             }]
     }], function () { return [{ type: _api_service__WEBPACK_IMPORTED_MODULE_2__["APIService"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "./src/app/components/page-content/login.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/components/page-content/login.component.ts ***!
-  \************************************************************/
-/*! exports provided: LoginComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../api.service */ "./src/app/components/api.service.ts");
-/* harmony import */ var _page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../page-template/headerpagetemplate.component */ "./src/app/components/page-template/headerpagetemplate.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-
-
-
-
-
-function LoginComponent_div_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 6);
-} if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHTML", ctx_r0.error, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
-} }
-function LoginComponent_div_2_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input-component", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const input_r2 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("label", input_r2.label)("placeholder", input_r2.placeholder)("id", input_r2.id)("type", input_r2.type)("name", input_r2.name);
-} }
-class LoginComponent {
-    constructor(apiService) {
-        this.apiService = apiService;
-        this.inputFieldData = [
-            {
-                label: 'Email',
-                placeholder: 'Type in your email',
-                type: 'email',
-                name: 'email',
-                id: 'email',
-            },
-            {
-                label: 'Password',
-                placeholder: 'Type in your password',
-                type: 'password',
-                name: 'password',
-                id: 'password',
-            },
-        ];
-        this.loginData = [
-            {
-                password: 'B!ah123',
-            },
-        ];
-    }
-    ngOnInit() { }
-    signIn() {
-        this.email = document.getElementById('email').value;
-        this.password = document.getElementById('password').value;
-        if (this.email === '' || this.password === '') {
-            console.log('Please fill out all fields');
-        }
-        else {
-            const body = '{"email": "' + this.email + '", "password": "' + this.password + '"}';
-            console.log(body);
-            this.response = this.apiService.postValidateUser(body);
-            console.log(this.response);
-            if (!this.response.includes('error') || this.response !== undefined) {
-                console.log('yay');
-                location.href = '/manageAccounts';
-            }
-            else {
-                console.log("can't authenticate");
-                location.href = '/';
-            }
-        }
-        /*
-        console.log(this.email);
-        if (
-          this.email ==
-            (<HTMLInputElement>document.getElementById('email')).value &&
-          this.loginData[0].password ==
-            (<HTMLInputElement>document.getElementById('password')).value
-        ) {
-          console.log('Input matches account sign-in info!');
-          location.href = '/manageAccounts';
-        } else if (
-          this.email ==
-            (<HTMLInputElement>document.getElementById('email')).value &&
-          this.loginData[0].password !=
-            (<HTMLInputElement>document.getElementById('password')).value
-        ) {
-          this.error = 'Email exists but password is incorrect';
-          console.log('Email exists but password is incorrect');
-        } else if (
-          (<HTMLInputElement>document.getElementById('email')).value == '' &&
-          (<HTMLInputElement>document.getElementById('password')).value == ''
-        ) {
-          this.error = 'Please enter in a valid username and password';
-        } else if (
-          this.email != (<HTMLInputElement>document.getElementById('email')).value
-        ) {
-          this.error = "Email doesn't exist.  Please signup first";
-          console.log("Email doesn't exist.  Please signup first");
-        }
-          */
-    }
-}
-LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_api_service__WEBPACK_IMPORTED_MODULE_1__["APIService"])); };
-LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login-content-component"]], decls: 8, vars: 3, consts: [[1, "signin", 3, "pagetitle"], ["class", "error", 3, "innerHTML", 4, "ngIf"], ["class", "inputs", 4, "ngFor", "ngForOf"], [1, "login-button"], ["type", "submit", 1, "primary", "round", 3, "click"], ["href", "/signup"], [1, "error", 3, "innerHTML"], [1, "inputs"], [3, "label", "placeholder", "id", "type", "name"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-header-page-template", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LoginComponent_div_1_Template, 1, 1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, LoginComponent_div_2_Template, 2, 5, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_4_listener() { return ctx.signIn(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Sign In ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "a", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Don't have an account? Signup -> ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagetitle", "Sign In");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.error);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.inputFieldData);
-    } }, directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"]], styles: [".login-button[_ngcontent-%COMP%] {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        width: 30%;\n      }"] });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LoginComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-                selector: 'app-login-content-component',
-                template: `
-    <app-header-page-template class="signin" [pagetitle]="'Sign In'">
-      <div *ngIf="error" [innerHTML]="error" class="error"></div>
-
-      <div class="inputs" *ngFor="let input of inputFieldData">
-        <input-component
-          [label]="input.label"
-          [placeholder]="input.placeholder"
-          [id]="input.id"
-          [type]="input.type"
-          [name]="input.name"
-        ></input-component>
-      </div>
-
-      <div class="login-button">
-        <button type="submit" class="primary round" (click)="signIn()">
-          Sign In
-        </button>
-      </div>
-      <a href="/signup">Don't have an account? Signup -> </a>
-    </app-header-page-template>
-  `,
-                styles: [
-                    `
-      .login-button {
-        display: flex;
-        justify-content: center;
-        width: 70%;
-      }
-
-      .inputs {
-        width: 30%;
-      }
-    `,
-                ],
-            }]
-    }], function () { return [{ type: _api_service__WEBPACK_IMPORTED_MODULE_1__["APIService"] }]; }, null); })();
 
 
 /***/ }),
@@ -1359,6 +1198,187 @@ ManageAccountsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
 
 /***/ }),
 
+/***/ "./src/app/components/page-content/signin.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/components/page-content/signin.component.ts ***!
+  \*************************************************************/
+/*! exports provided: SigninComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SigninComponent", function() { return SigninComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.service */ "./src/app/components/api.service.ts");
+/* harmony import */ var _page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../page-template/headerpagetemplate.component */ "./src/app/components/page-template/headerpagetemplate.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _small_components_input_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../small-components/input.component */ "./src/app/components/small-components/input.component.ts");
+
+
+
+
+
+
+function SigninComponent_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 6);
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("innerHTML", ctx_r0.error, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeHtml"]);
+} }
+function SigninComponent_div_2_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-input-component", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const input_r2 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("label", input_r2.label)("placeholder", input_r2.placeholder)("id", input_r2.id)("type", input_r2.type)("name", input_r2.name);
+} }
+class SigninComponent {
+    constructor(apiService) {
+        this.apiService = apiService;
+        this.inputFieldData = [
+            {
+                label: 'Email',
+                placeholder: 'Type in your email',
+                type: 'email',
+                name: 'email',
+                id: 'email',
+            },
+            {
+                label: 'Password',
+                placeholder: 'Type in your password',
+                type: 'password',
+                name: 'password',
+                id: 'password',
+            },
+        ];
+        this.loginData = [
+            {
+                password: 'B!ah123',
+            },
+        ];
+    }
+    ngOnInit() { }
+    signIn() {
+        this.email = document.getElementById('email').value;
+        this.password = document.getElementById('password').value;
+        if (this.email === '' || this.password === '') {
+            console.log('Please fill out all fields');
+        }
+        else {
+            const body = '{"email": "' + this.email + '", "password": "' + this.password + '"}';
+            console.log(body);
+            this.response = this.apiService.postValidateUser(body);
+            console.log(this.response);
+            if (!this.response.includes('error') || this.response !== undefined) {
+                console.log('yay');
+                location.href = '/manageAccounts';
+            }
+            else {
+                console.log("can't authenticate");
+                location.href = '/';
+            }
+        }
+        /*
+        console.log(this.email);
+        if (
+          this.email ==
+            (<HTMLInputElement>document.getElementById('email')).value &&
+          this.loginData[0].password ==
+            (<HTMLInputElement>document.getElementById('password')).value
+        ) {
+          console.log('Input matches account sign-in info!');
+          location.href = '/manageAccounts';
+        } else if (
+          this.email ==
+            (<HTMLInputElement>document.getElementById('email')).value &&
+          this.loginData[0].password !=
+            (<HTMLInputElement>document.getElementById('password')).value
+        ) {
+          this.error = 'Email exists but password is incorrect';
+          console.log('Email exists but password is incorrect');
+        } else if (
+          (<HTMLInputElement>document.getElementById('email')).value == '' &&
+          (<HTMLInputElement>document.getElementById('password')).value == ''
+        ) {
+          this.error = 'Please enter in a valid username and password';
+        } else if (
+          this.email != (<HTMLInputElement>document.getElementById('email')).value
+        ) {
+          this.error = "Email doesn't exist.  Please signup first";
+          console.log("Email doesn't exist.  Please signup first");
+        }
+          */
+    }
+}
+SigninComponent.ɵfac = function SigninComponent_Factory(t) { return new (t || SigninComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_api_service__WEBPACK_IMPORTED_MODULE_1__["APIService"])); };
+SigninComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SigninComponent, selectors: [["app-login-content-component"]], decls: 8, vars: 3, consts: [[1, "signin", 3, "pagetitle"], ["class", "error", 3, "innerHTML", 4, "ngIf"], ["class", "inputs", 4, "ngFor", "ngForOf"], [1, "login-button"], ["type", "submit", 1, "primary", "round", 3, "click"], ["href", "/signup"], [1, "error", 3, "innerHTML"], [1, "inputs"], [3, "label", "placeholder", "id", "type", "name"]], template: function SigninComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-header-page-template", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, SigninComponent_div_1_Template, 1, 1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, SigninComponent_div_2_Template, 2, 5, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SigninComponent_Template_button_click_4_listener() { return ctx.signIn(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Sign In ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "a", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Don't have an account? Signup -> ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagetitle", "Sign In");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.error);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.inputFieldData);
+    } }, directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_2__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_4__["InputComponent"]], styles: [".login-button[_ngcontent-%COMP%] {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        width: 30%;\n      }"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SigninComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-login-content-component',
+                template: `
+    <app-header-page-template class="signin" [pagetitle]="'Sign In'">
+      <div *ngIf="error" [innerHTML]="error" class="error"></div>
+
+      <div class="inputs" *ngFor="let input of inputFieldData">
+        <app-input-component
+          [label]="input.label"
+          [placeholder]="input.placeholder"
+          [id]="input.id"
+          [type]="input.type"
+          [name]="input.name"
+        ></app-input-component>
+      </div>
+
+      <div class="login-button">
+        <button type="submit" class="primary round" (click)="signIn()">
+          Sign In
+        </button>
+      </div>
+      <a href="/signup">Don't have an account? Signup -> </a>
+    </app-header-page-template>
+  `,
+                styles: [
+                    `
+      .login-button {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+      }
+
+      .inputs {
+        width: 30%;
+      }
+    `,
+                ],
+            }]
+    }], function () { return [{ type: _api_service__WEBPACK_IMPORTED_MODULE_1__["APIService"] }]; }, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/components/page-content/signup.component.ts":
 /*!*************************************************************!*\
   !*** ./src/app/components/page-content/signup.component.ts ***!
@@ -1375,6 +1395,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../api.service */ "./src/app/components/api.service.ts");
 /* harmony import */ var _page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../page-template/headerpagetemplate.component */ "./src/app/components/page-template/headerpagetemplate.component.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../small-components/input.component */ "./src/app/components/small-components/input.component.ts");
+
 
 
 
@@ -1383,7 +1405,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function SignupComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input-component", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-input-component", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const input_r1 = ctx.$implicit;
@@ -1458,7 +1480,7 @@ SignupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagetitle", "Sign Up");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.signupFieldData);
-    } }, directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]], styles: [".login-button[_ngcontent-%COMP%] {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        width: 30%;\n      }"] });
+    } }, directives: [_page_template_headerpagetemplate_component__WEBPACK_IMPORTED_MODULE_3__["HeaderPageTemplateComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _small_components_input_component__WEBPACK_IMPORTED_MODULE_5__["InputComponent"]], styles: [".login-button[_ngcontent-%COMP%] {\n        display: flex;\n        justify-content: center;\n        width: 70%;\n      }\n\n      .inputs[_ngcontent-%COMP%] {\n        width: 30%;\n      }"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SignupComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1467,13 +1489,13 @@ SignupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
     <app-header-page-template [pagetitle]="'Sign Up'">
       <form>
         <div class="inputs" *ngFor="let input of signupFieldData">
-          <input-component
+          <app-input-component
             [label]="input.label"
             [placeholder]="input.placeholder"
             [type]="input.type"
             [name]="input.name"
             [id]="input.id"
-          ></input-component>
+          ></app-input-component>
         </div>
 
         <div class="login-button">
@@ -1680,6 +1702,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddTransactionButtonComponent", function() { return AddTransactionButtonComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _help_modal_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./help-modal.service */ "./src/app/components/small-components/help-modal.service.ts");
+/* harmony import */ var _help_modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./help-modal.component */ "./src/app/components/small-components/help-modal.component.ts");
+
 
 
 
@@ -1703,7 +1727,7 @@ AddTransactionButtonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AddTransactionButtonComponent_Template_button_click_0_listener() { return ctx.openModal("custom-modal-2"); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Add Transaction ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "modal-component", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "app-modal-component", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AddTransactionButtonComponent_Template_button_click_4_listener() { return ctx.closeModal("custom-modal-2"); });
@@ -1712,7 +1736,7 @@ AddTransactionButtonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, styles: [".float-right[_ngcontent-%COMP%] {\n        float: right;\n      }"] });
+    } }, directives: [_help_modal_component__WEBPACK_IMPORTED_MODULE_2__["ModalComponent"]], styles: [".float-right[_ngcontent-%COMP%] {\n        float: right;\n      }"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddTransactionButtonComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1722,14 +1746,14 @@ AddTransactionButtonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__
       Add Transaction
     </button>
 
-    <modal-component id="custom-modal-2">
+    <app-modal-component id="custom-modal-2">
       <div class="float-right">
         <button class="secondary" (click)="closeModal('custom-modal-2')">
           X
         </button>
       </div>
       <ng-content></ng-content>
-    </modal-component>
+    </app-modal-component>
   `,
                 styles: [
                     `
@@ -2317,7 +2341,7 @@ ModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "div", 2);
-    } }, styles: ["\n      modal {\n        display: none;\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        z-index: 1000;\n        overflow: auto;\n      }\n      .modal .modal-body {\n        padding: 1.25rem;\n        background: #fff;\n        margin: 16rem;\n        border-radius: 0.625rem;\n        min-height: 20rem;\n        max-width: 80rem;\n      }\n      .modal-background {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: var(--fin-black-transparent);\n        opacity: 0.75;\n        z-index: 900;\n      }\n      body.modal-open {\n        overflow: hidden;\n      }\n    "], encapsulation: 2 });
+    } }, styles: ["\n      app-modal-component {\n        display: none;\n      }\n      .modal {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        z-index: 1000;\n        overflow: auto;\n      }\n      .modal .modal-body {\n        padding: 1.25rem;\n        background: #fff;\n        margin: 16rem;\n        border-radius: 0.625rem;\n        min-height: 20rem;\n        max-width: 80rem;\n      }\n      .modal-background {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: var(--fin-black-transparent);\n        opacity: 0.75;\n        z-index: 900;\n      }\n      body.modal-open {\n        overflow: hidden;\n      }\n    "], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ModalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -2332,7 +2356,7 @@ ModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
   `,
                 styles: [
                     `
-      modal {
+      app-modal-component {
         display: none;
       }
       .modal {
