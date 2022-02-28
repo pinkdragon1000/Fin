@@ -86,7 +86,7 @@ import { Component, OnInit } from '@angular/core';
           <th>Account Deposits</th>
           <th>Account Withdraws</th>
           <th>Account Current Amount</th>
-          <th>Overall Account Difference</th>
+          <th>Overall Account Difference (Current-Starting)</th>
         </tr>
         <tr>
           <td>\${{ this.accountStartingAmount }}</td>

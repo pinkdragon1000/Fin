@@ -16,12 +16,12 @@ public class AccountService{
    @Autowired
     private TransactionRepository transactionRepository;
 
-    public BigDecimal calculateAllDeposits(){
+    public BigDecimal calculateAllDeposits(int accountId){
         List<Transaction> transactions=  (List<Transaction>) transactionRepository.findAll();
         Account account=new Account();
         BigDecimal aggTransactions= BigDecimal.ZERO;
         for (Transaction transaction : transactions) {
-            if(transaction.getTransaction_type().equals("Deposit")){
+            if(transaction.getTransaction_type().equals("Deposit") && transaction.getAccount_id()==accountId){
                 aggTransactions=aggTransactions.add(transaction.getTransaction_amount());
             }
         }
@@ -30,12 +30,12 @@ public class AccountService{
         return account.getDeposit_amount();
     }
 
-    public BigDecimal calculateAllWithdrawals(){
+    public BigDecimal calculateAllWithdrawals(int accountId){
         List<Transaction> transactions=  (List<Transaction>) transactionRepository.findAll();
         Account account=new Account();
         BigDecimal aggTransactions= BigDecimal.ZERO;
         for (Transaction transaction : transactions) {
-            if(transaction.getTransaction_type().equals("Withdraw")) {
+            if(transaction.getTransaction_type().equals("Withdraw") && transaction.getAccount_id()==accountId) {
                 aggTransactions = aggTransactions.add(transaction.getTransaction_amount());
             }
         }

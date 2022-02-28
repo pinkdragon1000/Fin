@@ -23,9 +23,14 @@ public class AccountController {
         if(accounts==null){
             System.out.println("ERROR");
         }
-        model.addAttribute("accounts", accounts);
-        accounts.get(0).setDeposit_amount(accountService.calculateAllDeposits());
-        accounts.get(0).setWithdraw_amount(accountService.calculateAllWithdrawals());
+        else {
+            model.addAttribute("accounts", accounts);
+            for(int x=0;x<accounts.size();x++)
+            {
+                accounts.get(x).setDeposit_amount(accountService.calculateAllDeposits(x+1));
+                accounts.get(x).setWithdraw_amount(accountService.calculateAllWithdrawals(x+1));
+            }
+        }
         return accounts;
     }
 

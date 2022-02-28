@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
       [pagedirections]="'Click on an account to view and add information'"
     >
       <div *ngIf="accountData">
-        <p class="align-right">Account Current Amount</p>
+        <p class="align-right">Account Starting Amount</p>
         <div *ngFor="let account of accountData" class="clickable-view">
           <div *ngIf="account.user_id === userId">
             <app-clickable-list-view
