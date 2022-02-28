@@ -24,6 +24,11 @@ import { APIService } from '../api.service';
       .content {
         margin: 2rem 2rem 0rem 2rem;
       }
+      .pagetitle {
+        background: var(--fin-gradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
     `,
   ],
 })

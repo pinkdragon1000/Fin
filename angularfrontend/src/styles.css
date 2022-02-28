@@ -9,7 +9,7 @@
     --fin-white: rgba(255, 255, 255, 1);
     --fin-blue-1: rgba(3, 100, 255, 1);
     --fin-blue-2: rgba(48, 98, 178, 1);
-    --fin-gradient: linear-gradient(25deg, rgba(233, 64, 87, 1), rgba(242, 113, 33, 1));
+    --fin-gradient: linear-gradient( 25deg, rgba(233, 64, 87, 1), rgba(242, 113, 33, 1));
     --fin-neutral-1: rgba(117, 117, 117, 1);
     --fin-neutral-2: rgba(148, 148, 148, 1);
     --fin-neutral-3: rgba(172, 172, 172, 1);
@@ -18,11 +18,6 @@
     --fin-neutral-4: rgba(205, 205, 205, 1);
     --fin-neutral-5: rgba(233, 233, 233, 1);
     --fin-neutral-6: rgba(245, 245, 245, 1);
-}
-
-::-webkit-input-placeholder {
-    font-style: italic;
-    color: var(--fin-neutral-3);
 }
 
 html {
@@ -40,7 +35,6 @@ body {
 h1,
 h2,
 h3,
-h5,
 p {
     margin: 0.5rem 0;
 }
@@ -56,16 +50,6 @@ h2 {
 h3 {
     font-size: 1.5rem;
     font-weight: 400;
-}
-
-h4 {
-    font-size: 1.375rem;
-    margin: 0.25rem 0 1.75rem 0;
-    font-weight: 100;
-}
-
-h5 {
-    font-size: 1.25rem;
 }
 
 p {
@@ -191,12 +175,6 @@ form {
 
 .center {
     align-items: center;
-}
-
-.pagetitle {
-    background: var(--fin-gradient);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
 }
 
 .error {

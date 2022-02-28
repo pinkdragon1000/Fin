@@ -28,6 +28,12 @@ import * as shajs from 'sha.js';
   `,
   styles: [
     `
+      .pagetitle {
+        background: var(--fin-gradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+
       .login-button {
         display: flex;
         justify-content: center;

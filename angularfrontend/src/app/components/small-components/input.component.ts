@@ -1,10 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
 
 @Component({
   selector: 'app-input-component',
