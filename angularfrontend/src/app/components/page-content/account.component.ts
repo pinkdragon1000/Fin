@@ -93,11 +93,11 @@ import { Component, OnInit } from '@angular/core';
           <td>\${{ this.accountDeposits }}</td>
           <td>\${{ this.accountWithdraws }}</td>
           <td>
-            \${{ this.transactionData.slice(-1).pop().transaction_subTotal }}
+            \${{ this.transactionData?.slice(-1).pop().transaction_subTotal }}
           </td>
           <td>
             \${{
-              this.transactionData.slice(-1).pop().transaction_subTotal -
+              this.transactionData?.slice(-1).pop().transaction_subTotal -
                 this.accountStartingAmount
             }}
           </td>
