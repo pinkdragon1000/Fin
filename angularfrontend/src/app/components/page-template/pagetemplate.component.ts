@@ -5,7 +5,7 @@ import { APIService } from '../api.service';
   selector: 'app-page-template',
   template: `
     <app-navbar-component
-      [childToMaster]="this.userData"
+      [userData]="this.userData"
     ></app-navbar-component>
     <div class="content">
       <h2 class="pagetitle">{{ pagetitle }}</h2>
@@ -15,7 +15,8 @@ import { APIService } from '../api.service';
     </div>
     <app-help-modal-button-component
       [modaltext]="
-        'To add an account click Add An Account.  To view accounts click Manage Accounts.  To add transactions for a specific account click on that account.'
+        'To add an account click Add An Account.  To view accounts click Manage Accounts.
+        To add transactions for a specific account click on that account.'
       "
     ></app-help-modal-button-component>
   `,

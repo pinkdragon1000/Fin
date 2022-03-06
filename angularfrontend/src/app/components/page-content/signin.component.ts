@@ -28,11 +28,6 @@ import { APIService } from '../api.service';
   `,
   styles: [
     `
-      .pagetitle {
-        background: var(--fin-gradient);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-      }
       .login-button {
         display: flex;
         justify-content: center;
@@ -97,7 +92,7 @@ export class SigninComponent implements OnInit {
         console.log('yay');
         location.href = '/manageAccounts';
       } else {
-        console.log("can't authenticate");
+        console.log('can\'t authenticate');
         location.href = '/';
       }
     }

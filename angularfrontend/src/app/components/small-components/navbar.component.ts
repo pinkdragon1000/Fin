@@ -96,7 +96,7 @@ import { Component, Input, OnInit } from '@angular/core';
   ],
 })
 export class NavbarComponent implements OnInit {
-  @Input('childToMaster') userData: string;
+  @Input() userData: string;
 
   ngOnInit() {}
 }

@@ -15,7 +15,7 @@ export class APIService {
   getUserData(callback: any) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     this.http
       .get('http://localhost:8080/fin-accounts.webservice/users', {
@@ -31,7 +31,7 @@ export class APIService {
   postValidateUser(body: string): string {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     this.http
       .post(
@@ -66,7 +66,7 @@ export class APIService {
   getAccountDataAsync(callback: any) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     this.http
       .get('http://localhost:8080/fin-accounts.webservice/accounts', {
@@ -94,7 +94,7 @@ export class APIService {
   postUserData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     this.http
       .post('http://localhost:8080//fin-accounts.webservice/addUser', body, {
@@ -119,7 +119,7 @@ export class APIService {
   postAccountData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     this.http
       .post('http://localhost:8080/fin-accounts.webservice/addAccount', body, {
@@ -144,10 +144,11 @@ export class APIService {
   postTransactionDataTest() {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     const body =
-      '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", "transaction_amount": 20, "transaction_subTotal": 0}';
+      '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", \
+      "transaction_amount": 20, "transaction_subTotal": 0}';
     this.http
       .post(
         'http://localhost:8080/fin-accounts.webservice/addTransaction',
@@ -175,7 +176,7 @@ export class APIService {
   postTransactionData(body: string) {
     const headers = {
       'content-type': 'application/json',
-      Authorization: this.auth,
+      authorization: this.auth,
     };
     this.http
       .post(

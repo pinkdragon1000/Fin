@@ -34,7 +34,7 @@ import { Component, OnInit, Input } from '@angular/core';
     `
       .align-right {
         text-align: right;
-        margin-right: 5rem;
+        margin-right: 9rem;
       }
       .clickable-view {
         margin: 0.625rem;

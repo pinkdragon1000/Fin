@@ -26,8 +26,6 @@ import { APIService } from './components/api.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AddTransactionButtonComponent } from './components/small-components/add-transaction-modal-button.component';
-import { TabsComponent } from './components/small-components/tabs.component';
-import { TabComponent } from './components/small-components/tab.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { BarComponent } from './components/page-content/bar.component';
@@ -49,8 +47,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AccountComponent,
     AddTransactionModalComponent,
     AddTransactionButtonComponent,
-    TabsComponent,
-    TabComponent,
     ModalComponent,
     HelpModalButtonComponent,
     ClickableListViewComponent,

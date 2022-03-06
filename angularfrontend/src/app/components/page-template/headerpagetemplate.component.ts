@@ -16,6 +16,11 @@ import { Component, OnInit, Input } from '@angular/core';
   `,
   styles: [
     `
+      .pagetitle {
+        background: var(--fin-gradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
       .content {
         margin: 2rem 2rem 0rem 2rem;
       }

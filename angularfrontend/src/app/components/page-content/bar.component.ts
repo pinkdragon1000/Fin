@@ -4,7 +4,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 //import { single } from './data';
 
 @Component({
-  selector: 'bar-component',
+  selector: 'app-bar-component',
   template: `
     <ngx-charts-bar-horizontal
       class="border"

@@ -47,6 +47,9 @@ import { userId } from 'src/environments/environment';
       .input {
         width: 50%;
       }
+      label {
+        color: var(--fin-neutral-1);
+      }
       .select {
         width: 52%;
       }
@@ -74,8 +77,6 @@ export class AddAccountsComponent implements OnInit {
   accountTypeNum: any;
   accountType: string;
 
-  constructor(private apiService: APIService) {}
-
   accountFieldData = [
     {
       label: 'Account Description (Example: TD Bank Checking)',
@@ -94,6 +95,8 @@ export class AddAccountsComponent implements OnInit {
       min: 1,
     },
   ];
+
+  constructor(private apiService: APIService) {}
 
   postAccountData() {
     this.accountTypeNum = (
