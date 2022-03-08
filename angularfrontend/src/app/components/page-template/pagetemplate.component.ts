@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { APIService } from '../api.service';
+import {User} from '../../models/user.models';
 
 @Component({
   selector: 'app-page-template',
@@ -41,7 +42,7 @@ export class PageTemplateComponent implements OnInit {
   constructor(private apiService: APIService) {}
 
   ngOnInit() {
-    this.apiService.getUserData((d: Object) => {
+    this.apiService.getUserData((d: User) => {
       this.userData = d[0].fullName;
     });
   }

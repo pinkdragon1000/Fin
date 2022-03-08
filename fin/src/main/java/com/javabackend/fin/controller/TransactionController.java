@@ -29,6 +29,7 @@ public class TransactionController {
     }
 
     @PostMapping("/addTransaction")
+    @CrossOrigin
     Transaction newTransaction(@RequestBody Transaction newTransaction) {
         return transactionService.addNewTransaction(newTransaction);
     }

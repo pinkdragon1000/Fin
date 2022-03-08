@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Account } from '../models/account.models';
+import { User } from '../models/user.models';
 
 @Injectable()
 export class APIService {
-  userResult: Object;
-  accountsResult: Object;
-  transactionsResult: Object;
+  userResult: any;
+  accountsResult: any;
+  transactionsResult: any;
   msg: string;
   auth: string = 'Basic ' + btoa('srobinson:bl');
 
@@ -23,7 +25,7 @@ export class APIService {
       })
       .pipe(map((res) => res))
       .subscribe((res) => {
-        this.userResult = res;
+        this.userResult= res;
         callback(this.userResult);
       });
   }
@@ -97,7 +99,7 @@ export class APIService {
       authorization: this.auth,
     };
     this.http
-      .post('http://localhost:8080//fin-accounts.webservice/addUser', body, {
+      .post('http://localhost:8080/fin-accounts.webservice/addUser', body, {
         headers,
         observe: 'response',
       })

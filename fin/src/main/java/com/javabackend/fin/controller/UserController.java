@@ -39,11 +39,13 @@ public class UserController {
 
     //Adds a user to the database
     @PostMapping("/addUser")
+    @CrossOrigin
     public User newUser(@RequestBody User newUser) {
         return userService.addNewUser(newUser);
     }
 
     @PostMapping(path="/validateUser", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @CrossOrigin
     public List<String> validateUser(@RequestBody User userToValidate){
         List<String> text=new ArrayList<>();
         var users = (List<User>) userService.findAllUsers();

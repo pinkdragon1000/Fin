@@ -36,6 +36,7 @@ public class AccountController {
 
     //Add an account to the database
     @PostMapping("/addAccount")
+    @CrossOrigin
     Account newAccount(@RequestBody Account newAccount) {
         return accountService.addNewAccount(newAccount);
     }

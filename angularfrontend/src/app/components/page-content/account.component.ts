@@ -1,3 +1,4 @@
+import { Account } from './../../models/account.models';
 import { APIService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
 //import { formatDate } from '@angular/common';
@@ -253,7 +254,7 @@ export class AccountComponent implements OnInit {
       parseInt(window.location.search.substring(4), 10) - 1
     ).toString();
 
-    this.apiService.getAccountDataAsync((d: Object) => {
+    this.apiService.getAccountDataAsync((d: Account) => {
       this.accountDescription = d[this.accountID].account_Description;
       this.accountDeposits = d[this.accountID].deposit_amount;
       this.accountWithdraws = d[this.accountID].withdraw_amount;

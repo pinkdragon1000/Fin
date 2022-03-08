@@ -14,13 +14,18 @@ import { ModalService } from './help-modal.service';
           X
         </button>
       </div>
+      <div class="modaltext">
       <ng-content></ng-content>
+      </div>
     </app-modal-component>
   `,
   styles: [
     `
       .float-right {
         float: right;
+      }
+      .modaltext {
+        padding: 4rem;
       }
     `,
   ],
