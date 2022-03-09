@@ -185,11 +185,11 @@ export class AccountComponent implements OnInit {
   accountStartingAmount: number;
   accountDeposits: string;
   accountWithdraws: string;
-  accountID: string;
   accountIDnum: number;
   accountDescription: string;
   transactionId: string;
   accountUser: number;
+  accountIndex: number;
 
   currentUser = 1;
 
@@ -250,16 +250,14 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
-    this.accountID = (
-      parseInt(window.location.search.substring(4), 10) - 1
-    ).toString();
 
-    this.apiService.getAccountDataAsync((d: Account) => {
-      this.accountDescription = d[this.accountID].account_Description;
-      this.accountDeposits = d[this.accountID].deposit_amount;
-      this.accountWithdraws = d[this.accountID].withdraw_amount;
-      this.accountUser = d[this.accountID].user_id;
-      this.accountStartingAmount = d[this.accountID].account_Starting_Amount;
+    this.apiService.getAccountDataAsync((d: any) => {
+      this.accountIndex=d.findIndex(account=>account.account_id==this.accountIDnum);
+      this.accountDescription = d[this.accountIndex].account_Description;
+      this.accountDeposits = d[this.accountIndex].deposit_amount;
+      this.accountWithdraws = d[this.accountIndex].withdraw_amount;
+      this.accountUser = d[this.accountIndex].user_id;
+      this.accountStartingAmount = d[this.accountIndex].account_Starting_Amount;
     });
 
     this.apiService.getTransactionDataAsync((d: Array<any>) => {
