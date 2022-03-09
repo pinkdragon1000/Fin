@@ -103,9 +103,9 @@ export class AddAccountsComponent implements OnInit {
       document.getElementById('select') as HTMLInputElement
     ).value;
     console.log(this.accountTypeNum);
-    if (this.accountTypeNum === 1) {
+    if (this.accountTypeNum === '1') {
       this.accountType = 'Checking';
-    } else if (this.accountTypeNum === 2) {
+    } else if (this.accountTypeNum === '2') {
       this.accountType = 'Savings';
     }
     this.accountDescription = (

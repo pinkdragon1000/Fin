@@ -23,7 +23,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
         <label>Transaction Type </label>
         <br />
-        <select class="select">
+        <select class="select" id="select">
           <option value="0">Select your transaction type</option>
           <option value="1">Deposit</option>
           <option value="2">Withdraw</option>
@@ -190,6 +190,8 @@ export class AccountComponent implements OnInit {
   transactionId: string;
   accountUser: number;
   accountIndex: number;
+  transactionTypeNum: any;
+  transactionType: string;
 
   currentUser = 1;
 
@@ -223,7 +225,18 @@ export class AccountComponent implements OnInit {
   constructor(private apiService: APIService) {}
   postTransactionData() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
-    const transactionType = 'Deposit';
+
+    this.transactionTypeNum = (
+      document.getElementById('select') as HTMLInputElement
+    ).value;
+    console.log(this.transactionTypeNum);
+    if (this.transactionTypeNum === '1') {
+      this.transactionType = 'Deposit';
+    } else if (this.transactionTypeNum === '2') {
+      this.transactionType = 'Withdraw';
+    }
+
+
     const transactionDate = (
       document.getElementById('date') as HTMLInputElement
     ).value;
@@ -237,13 +250,14 @@ export class AccountComponent implements OnInit {
     const body =
       '{"account_id":{"account_id":' +
       this.accountIDnum +
-      '}, "transaction_type":' +
-      transactionType +
-      ', "transaction_date":' +
+      '}, "transaction_type": "' +
+      this.transactionType +
+      '", "transaction_date":"' +
       transactionDate +
-      ', "transaction_amount":' +
+      '", "transaction_amount":' +
       transactionAmount +
       ', "transaction_subTotal": 0}';
+      console.log(body);
     this.apiService.postTransactionData(body);
     location.reload();
   }

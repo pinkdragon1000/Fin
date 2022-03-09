@@ -142,39 +142,7 @@ export class APIService {
         }
       );
   }
-
-  postTransactionDataTest() {
-    const headers = {
-      'content-type': 'application/json',
-      authorization: this.auth,
-    };
-    const body =
-      '{"account_id":{"account_id": 1}, "transaction_type": "Deposit", "transaction_date": "2021-09-18", \
-      "transaction_amount": 20, "transaction_subTotal": 0}';
-    this.http
-      .post(
-        'http://localhost:8080/fin-accounts.webservice/addTransaction',
-        body,
-        {
-          headers,
-          observe: 'response',
-        }
-      )
-      .subscribe(
-        (response) => {
-          console.log(
-            'POST completed sucessfully. The response received ' + response
-          );
-        },
-        (error) => {
-          console.log('Post failed with the errors');
-        },
-        () => {
-          console.log('Post Completed');
-        }
-      );
-  }
-
+  
   postTransactionData(body: string) {
     const headers = {
       'content-type': 'application/json',
