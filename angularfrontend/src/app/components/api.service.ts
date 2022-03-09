@@ -34,6 +34,7 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
+      "XSRF-TOKEN": "123"
     };
     this.http
       .post(
@@ -97,6 +98,7 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
+      "XSRF-TOKEN": "123"
     };
     this.http
       .post('http://localhost:8080/fin-accounts.webservice/addUser', body, {
@@ -122,6 +124,7 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
+      "XSRF-TOKEN": "123"
     };
     this.http
       .post('http://localhost:8080/fin-accounts.webservice/addAccount', body, {
@@ -142,11 +145,12 @@ export class APIService {
         }
       );
   }
-  
+
   postTransactionData(body: string) {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
+      "XSRF-TOKEN": "123"
     };
     this.http
       .post(
