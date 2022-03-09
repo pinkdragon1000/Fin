@@ -25,6 +25,10 @@ import { ModalService } from './help-modal.service';
       .modaltext {
         padding: 4rem;
       }
+
+      #custom-modal-1{
+        display: none;
+      }
     `,
   ],
 })

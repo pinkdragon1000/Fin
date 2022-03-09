@@ -27,6 +27,9 @@ import { ModalService } from './help-modal.service';
       .modaltext {
         padding: 4rem;
       }
+      #custom-modal-2{
+        display: none;
+      }
     `,
   ],
 })
