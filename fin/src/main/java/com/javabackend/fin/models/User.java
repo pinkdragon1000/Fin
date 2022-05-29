@@ -13,7 +13,7 @@ public class User {
     @Column(name = "user_id", nullable=false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private int user_id;
+    private Long user_id;
 
     @Column(name="full_name", nullable=false)
     private String full_name;
@@ -22,11 +22,11 @@ public class User {
     @Column(name="password", nullable=false)
     private String password;
 
-    public int getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

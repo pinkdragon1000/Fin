@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import java.util.List;
+import java.util.Collection;
 
 @RestController
 public class AccountController {
@@ -15,26 +15,16 @@ public class AccountController {
     @Inject
     private AccountService accountService;
 
-    //Gets account information for a user such as account description, account type, account starting amount, transaction amount from database and calculated fields
+    //Displays all account information for a specific userID
     @GetMapping(path = "/accounts", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
-    public List<Account> findAccounts(Model model) {
-        var accounts = (List<Account>) accountService.findAllAccounts();
-        if(accounts==null){
-            System.out.println("ERROR");
-        }
-        else {
-            model.addAttribute("accounts", accounts);
-            for(int x=0;x<accounts.size();x++)
-            {
-                accounts.get(x).setDeposit_amount(accountService.calculateAllDeposits(x+1));
-                accounts.get(x).setWithdraw_amount(accountService.calculateAllWithdrawals(x+1));
-            }
-        }
+    public Collection<Account> findAccounts(@RequestParam Long userID) {
+        Collection<Account> accounts= accountService.findAllAccountsByUserID(userID);
+        accounts=accountService.setDepositWithdrawAmount(accounts);
         return accounts;
     }
 
-    //Add an account to the database
+    //Posts a new account to the database
     @PostMapping("/addAccount")
     @CrossOrigin
     Account newAccount(@RequestBody Account newAccount) {

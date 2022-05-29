@@ -3,11 +3,10 @@ package com.javabackend.fin.controller;
 import com.javabackend.fin.models.Transaction;
 import com.javabackend.fin.service.TransactionService;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import java.util.List;
+import java.util.Collection;
 
 @RestController
 public class TransactionController {
@@ -15,19 +14,14 @@ public class TransactionController {
     @Inject
     private TransactionService transactionService;
 
-    //shows all transactions
+    //Displays all transactions for a specific accountID
     @GetMapping(path = "/transactions", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
-    public List<Transaction> findTransactions (Model model) {
-        var transactions = (List<Transaction>) transactionService.findAllTransactions();
-        model.addAttribute("transactions", transactions);
-
-        for(int x=0; x< transactions.size(); x++){
-            transactions.get(x).setTransaction_subTotal(transactionService.calculateTransactionSubTotals(x+1));
-        }
-        return transactions;
+    public Collection<Transaction> findTransactions(@RequestParam Long accountID) {
+        return transactionService.calculateAndRetrieveTransactions(accountID);
     }
 
+//Posts a new transaction to the database
     @PostMapping("/addTransaction")
     @CrossOrigin
     Transaction newTransaction(@RequestBody Transaction newTransaction) {

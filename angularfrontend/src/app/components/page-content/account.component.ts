@@ -38,6 +38,8 @@ import { Component, OnInit } from '@angular/core';
         </button>
       </app-add-transaction-button-component>
 
+      
+
       <p>Transactions</p>
       <div class="scroll">
         <table>
@@ -276,6 +278,6 @@ export class AccountComponent implements OnInit {
 
     this.apiService.getTransactionDataAsync((d: Array<any>) => {
       this.transactionData = d;
-    });
+    }, this.accountIDnum);
   }
 }

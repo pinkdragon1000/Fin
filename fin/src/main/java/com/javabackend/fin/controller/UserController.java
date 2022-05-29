@@ -1,5 +1,6 @@
 package com.javabackend.fin.controller;
 
+import com.javabackend.fin.models.Account;
 import com.javabackend.fin.models.User;
 import com.javabackend.fin.service.UserService;
 import org.springframework.http.MediaType;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
 import static com.javabackend.fin.constants.ErrorConstants.*;
@@ -19,31 +19,21 @@ public class UserController {
     @Inject
     private UserService userService;
 
-    //Shows users from user table in database
+    //Displays all user information for a specific userID
     @GetMapping(path = "/users", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
-    public List<?> findUsers(Model model, HttpServletResponse response) {
-        List<String> errorArray= new ArrayList<String>();
-            var users = (List<User>) userService.findAllUsers();
-            if(users.size()>0) {
-                model.addAttribute("users", users);
-                return users;
-            }
-            else {
-                errorArray.add(NO_USERS);
-                System.out.println(errorArray);
-                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                return errorArray;
-            }
+    public Collection<User> findUser(@RequestParam Long userID) {
+            return userService.findUserByID(userID);
     }
 
-    //Adds a user to the database
+    //Posts a new user to the database
     @PostMapping("/addUser")
     @CrossOrigin
     public User newUser(@RequestBody User newUser) {
         return userService.addNewUser(newUser);
     }
 
+    /*
     @PostMapping(path="/validateUser", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
     public List<String> validateUser(@RequestBody User userToValidate){
@@ -76,4 +66,6 @@ public class UserController {
         text.add(message);
         return text;
     }
+
+ */
 }

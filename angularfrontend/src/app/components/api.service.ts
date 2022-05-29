@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Account } from '../models/account.models';
-import { User } from '../models/user.models';
 
 @Injectable()
 export class APIService {
@@ -20,7 +18,7 @@ export class APIService {
       authorization: this.auth,
     };
     this.http
-      .get('http://localhost:8080/fin-accounts.webservice/users', {
+      .get('http://localhost:8080/fin-accounts.webservice/users?userID=1', {
         headers,
       })
       .pipe(map((res) => res))
@@ -72,20 +70,19 @@ export class APIService {
       authorization: this.auth,
     };
     this.http
-      .get('http://localhost:8080/fin-accounts.webservice/accounts', {
+      .get('http://localhost:8080/fin-accounts.webservice/accounts?userID=1', {
         headers,
       })
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.accountsResult = res;
         callback(this.accountsResult);
-        console.log(this.accountsResult);
       });
   }
 
-  getTransactionDataAsync(callback: any) {
+  getTransactionDataAsync(callback: any, accountID: number) {
     this.http
-      .get('http://localhost:8080/fin-accounts.webservice/transactions')
+      .get('http://localhost:8080/fin-accounts.webservice/transactions?accountID='+accountID)
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.transactionsResult = res;
@@ -98,7 +95,8 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      "XSRF-TOKEN": "123"
+      "XSRF-TOKEN": "123",
+      "X-CSRF-TOKEN": "123"
     };
     this.http
       .post('http://localhost:8080/fin-accounts.webservice/addUser', body, {

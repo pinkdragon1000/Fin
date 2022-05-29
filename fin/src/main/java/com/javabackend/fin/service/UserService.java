@@ -1,8 +1,8 @@
 package com.javabackend.fin.service;
 import com.javabackend.fin.models.User;
 
+import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +13,10 @@ public class UserService  {
     @Autowired
     private UserRepository userRepository;
 
+    public Collection<User> findUserByID(Long userID) {
+        return userRepository.findAllUsersByUserID(userID);
+    }
+
     public List<User> findAllUsers() {
         return (List<User>) userRepository.findAll();
     }
@@ -20,5 +24,6 @@ public class UserService  {
     public User addNewUser(User newUser) {
         return userRepository.save(newUser);
     }
+
 
 }

@@ -11,7 +11,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "account_id", nullable=false)
-   private int account_id;
+   private Long account_id;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
@@ -32,15 +32,15 @@ public class Account {
     private BigDecimal withdraw_amount;
 
 
-    public int getAccount_id() {
+    public Long getAccount_id() {
         return account_id;
     }
 
-    public void setAccount_id(int account_id) {
+    public void setAccount_id(Long account_id) {
         this.account_id = account_id;
     }
 
-    public int getUser_id() {
+    public Long getUser_id() {
         return user_id.getUser_id();
     }
 

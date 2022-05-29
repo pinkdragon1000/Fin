@@ -1,4 +1,5 @@
 package com.javabackend.fin.models;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -27,9 +28,10 @@ public class Transaction {
     private BigDecimal transaction_amount;
 
     @Column(name="transaction_subTotal", nullable=false)
+    @ColumnDefault("0")
     private BigDecimal transaction_subTotal;
 
-    public int getAccount_id() {
+    public Long getAccount_id() {
         return account_id.getAccount_id();
     }
 
