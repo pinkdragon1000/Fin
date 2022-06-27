@@ -16,7 +16,7 @@ public class Transaction {
     @Column(name = "transaction_id", nullable=false)
     private Long transaction_id;
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.REMOVE })
     @JoinColumn(name="account_id", nullable=false)
     private Account account_id;
 

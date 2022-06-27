@@ -4,6 +4,7 @@ import com.javabackend.fin.models.User;
 import java.util.Collection;
 import java.util.List;
 
+import com.javabackend.fin.models.UserLite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +12,22 @@ import org.springframework.stereotype.Service;
 public class UserService  {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserReadRepository userReadRepository;
 
-    public Collection<User> findUserByID(Long userID) {
-        return userRepository.findAllUsersByUserID(userID);
+    @Autowired
+    private UserWriteRepository userWriteRepository;
+
+
+    public Collection<UserLite> findUserByID(Long userID) {
+        return userReadRepository.findAllUsersByUserID(userID);
     }
 
-    public List<User> findAllUsers() {
-        return (List<User>) userRepository.findAll();
+    public List<UserLite> findAllUsers() {
+        return (List<UserLite>) userReadRepository.findAll();
     }
 
     public User addNewUser(User newUser) {
-        return userRepository.save(newUser);
+        return userWriteRepository.save(newUser);
     }
 
 

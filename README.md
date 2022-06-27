@@ -89,8 +89,8 @@ docker tag springio/fin:latest sitarobinson/fin:firsttry
 docker push sitarobinson/fin:firsttry
 ```
 
-<b>Running the Java API Locally (With Docker):</b>
-`docker run -p 8181:8080 springio/fin Open up localhost:8181 to view`
+<b>Running the Java API Locally (With Docker).  Open on port 8081:</b>
+`docker-compose up`
 
 [API Docker Hub Link](https://hub.docker.com/repository/docker/sitarobinson/fin)
 
