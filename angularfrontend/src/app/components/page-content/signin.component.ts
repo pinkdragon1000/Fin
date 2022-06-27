@@ -8,15 +8,8 @@ import { APIService } from '../api.service';
     <app-header-page-template class="signin" [pagetitle]="'Sign In'">
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
 
-      <div class="inputs" *ngFor="let input of inputFieldData">
-        <app-input-component
-          [label]="input.label"
-          [placeholder]="input.placeholder"
-          [id]="input.id"
-          [type]="input.type"
-          [name]="input.name"
-        ></app-input-component>
-      </div>
+      <app-input-group-component [inputData]="this.inputData">
+      </app-input-group-component>
 
       <div class="login-button">
         <button type="submit" class="primary round" (click)="signIn()">
@@ -46,7 +39,7 @@ export class SigninComponent implements OnInit {
   error: string;
   response: any;
   user: string;
-  inputFieldData = [
+  inputData = [
     {
       label: 'Email',
       placeholder: 'Type in your email',
@@ -92,7 +85,7 @@ export class SigninComponent implements OnInit {
         console.log('yay');
         location.href = '/manageAccounts';
       } else {
-        console.log('can\'t authenticate');
+        console.log("can't authenticate");
         location.href = '/';
       }
     }

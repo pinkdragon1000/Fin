@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-input-component',
   template: `
     <label>{{ label }}</label>
-
+    <br />
     <input
       placeholder="{{ placeholder }}"
       type="{{ type }}"

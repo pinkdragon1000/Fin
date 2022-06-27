@@ -10,16 +10,8 @@ import { Component, OnInit } from '@angular/core';
       [pagetitle]="this.accountDescription"
     >
       <app-add-transaction-button-component modalAccountText="">
-        <div class="input" *ngFor="let input of accountFieldData">
-          <app-input-component
-            [label]="input.label"
-            [placeholder]="input.placeholder"
-            [type]="input.type"
-            [name]="input.name"
-            [min]="input.min"
-            [id]="input.id"
-          ></app-input-component>
-        </div>
+        <app-input-group-component [inputData]="this.inputData">
+        </app-input-group-component>
 
         <app-select-component
           [label]="'Transaction Type'"
@@ -192,7 +184,7 @@ export class AccountComponent implements OnInit {
     },
   ];
 
-  accountFieldData = [
+  inputData = [
     {
       label: 'Transaction Amount',
       placeholder: 'Type in your transaction amount',

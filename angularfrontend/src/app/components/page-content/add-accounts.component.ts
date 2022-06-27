@@ -19,16 +19,9 @@ import { userId } from 'src/environments/environment';
             [label]="'Account Type (checking/savings)'"
             [selectData]="this.selectData"
           ></app-select-component>
-          <div class="input" *ngFor="let input of accountFieldData">
-            <app-input-component
-              [label]="input.label"
-              [placeholder]="input.placeholder"
-              [type]="input.type"
-              [name]="input.name"
-              [min]="input.min"
-              [id]="input.id"
-            ></app-input-component>
-          </div>
+
+          <app-input-group-component [inputData]="this.inputData">
+          </app-input-group-component>
         </div>
         <button type="submit" class="primary round" (click)="postAccountData()">
           Add Account
@@ -36,16 +29,7 @@ import { userId } from 'src/environments/environment';
       </form>
     </app-page-template>
   `,
-  styles: [
-    `
-      .inputs {
-        align-items: center;
-      }
-      .input {
-        width: 50%;
-      }
-    `,
-  ],
+  styles: [``],
 })
 export class AddAccountsComponent implements OnInit {
   error: string;
@@ -54,7 +38,7 @@ export class AddAccountsComponent implements OnInit {
   accountTypeNum: any;
   accountType: string;
 
-  accountFieldData = [
+  inputData = [
     {
       label: 'Account Description (Example: TD Bank Checking)',
       placeholder: 'Type in your account description',

@@ -1,3 +1,4 @@
+import { InputGroupComponent } from './components/small-components/input-group.component';
 import { SelectComponent } from './components/small-components/select.component';
 import { AddTransactionModalComponent } from './components/small-components/add-transaction-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent, 
+    InputGroupComponent,
+    InputComponent,
     SelectComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,

@@ -8,15 +8,8 @@ import { Router } from '@angular/router';
   template: `
     <app-header-page-template [pagetitle]="'Sign Up'">
       <form>
-        <div class="inputs" *ngFor="let input of signupFieldData">
-          <app-input-component
-            [label]="input.label"
-            [placeholder]="input.placeholder"
-            [type]="input.type"
-            [name]="input.name"
-            [id]="input.id"
-          ></app-input-component>
-        </div>
+        <app-input-group-component [inputData]="this.inputData">
+        </app-input-group-component>
 
         <div class="login-button">
           <button type="submit" class="primary round" (click)="postUserData()">
@@ -34,10 +27,6 @@ import { Router } from '@angular/router';
         justify-content: center;
         width: 70%;
       }
-
-      .inputs {
-        width: 30%;
-      }
     `,
   ],
 })
@@ -46,7 +35,7 @@ export class SignupComponent implements OnInit {
   email: string;
   password: string;
   hashedPassword: string;
-  signupFieldData = [
+  inputData = [
     {
       label: 'Full Name',
       placeholder: 'Type in your full name',
