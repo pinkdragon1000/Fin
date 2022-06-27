@@ -34,13 +34,6 @@ import { Component, OnInit, Input } from '@angular/core';
         color: var(--fin-neutral-1);
       }
 
-      input[type='checkbox'],
-      input[type='radio'] {
-        width: 1.2rem;
-        height: 1.2rem;
-        margin-top: 0.3rem;
-      }
-
       input[type='date'] {
         font-family: Inter, sans-serif;
       }

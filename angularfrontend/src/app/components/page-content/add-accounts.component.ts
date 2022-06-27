@@ -15,13 +15,10 @@ import { userId } from 'src/environments/environment';
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
       <form>
         <div class="inputs">
-          <label>Account Type (checking/savings)</label>
-          <br />
-          <select class="select" id="select">
-            <option value="0">Select your account type</option>
-            <option value="1">Checking</option>
-            <option value="2">Savings</option>
-          </select>
+          <app-select-component
+            [label]="'Account Type (checking/savings)'"
+            [selectData]="this.selectData"
+          ></app-select-component>
           <div class="input" *ngFor="let input of accountFieldData">
             <app-input-component
               [label]="input.label"
@@ -46,26 +43,6 @@ import { userId } from 'src/environments/environment';
       }
       .input {
         width: 50%;
-      }
-      label {
-        color: var(--fin-neutral-1);
-      }
-      .select {
-        width: 52%;
-      }
-
-      select {
-        border-radius: 20rem;
-        font-size: 1rem;
-        height: 1.5rem;
-        min-width: 15rem;
-        width: 100%;
-        height: 3.25rem;
-        padding: 0rem 1rem;
-        border: 0.063rem solid var(--fin-white);
-        margin: 0.5rem 0;
-        background: var(--fin-neutral-6);
-        color: var(--fin-neutral-1);
       }
     `,
   ],
@@ -93,6 +70,21 @@ export class AddAccountsComponent implements OnInit {
       name: 'amount',
       id: 'amount',
       min: 1,
+    },
+  ];
+
+  selectData = [
+    {
+      value: '0',
+      description: 'Select your account type',
+    },
+    {
+      value: '1',
+      description: 'Checking',
+    },
+    {
+      value: '2',
+      description: 'Savings',
     },
   ];
 

@@ -1,3 +1,4 @@
+import { SelectComponent } from './components/small-components/select.component';
 import { AddTransactionModalComponent } from './components/small-components/add-transaction-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -34,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
+    InputComponent, 
+    SelectComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,
     EmptyContentComponent,

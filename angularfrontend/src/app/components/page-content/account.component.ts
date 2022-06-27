@@ -1,4 +1,3 @@
-import { Account } from './../../models/account.models';
 import { APIService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
 //import { formatDate } from '@angular/common';
@@ -21,13 +20,11 @@ import { Component, OnInit } from '@angular/core';
             [id]="input.id"
           ></app-input-component>
         </div>
-        <label>Transaction Type </label>
-        <br />
-        <select class="select" id="select">
-          <option value="0">Select your transaction type</option>
-          <option value="1">Deposit</option>
-          <option value="2">Withdraw</option>
-        </select>
+
+        <app-select-component
+          [label]="'Transaction Type'"
+          [selectData]="this.selectData"
+        ></app-select-component>
         <br />
         <button
           type="submit"
@@ -37,8 +34,6 @@ import { Component, OnInit } from '@angular/core';
           Submit Transaction
         </button>
       </app-add-transaction-button-component>
-
-      
 
       <p>Transactions</p>
       <div class="scroll">
@@ -124,9 +119,6 @@ import { Component, OnInit } from '@angular/core';
       .input {
         width: 50%;
       }
-      .select {
-        width: 52%;
-      }
 
       .row {
         padding-right: 5rem;
@@ -148,20 +140,6 @@ import { Component, OnInit } from '@angular/core';
       .text-withdraw-arrow::before {
         font-family: 'Font Awesome 5 Free';
         content: '↓';
-      }
-
-      select {
-        border-radius: 20rem;
-        font-size: 1rem;
-        height: 1.5rem;
-        min-width: 15rem;
-        width: 100%;
-        height: 3.25rem;
-        padding: 0rem 1rem;
-        border: 0.063rem solid var(--fin-white);
-        margin: 0.5rem 0;
-        background: var(--fin-neutral-6);
-        color: var(--fin-neutral-1);
       }
 
       table {
@@ -198,6 +176,21 @@ export class AccountComponent implements OnInit {
   currentUser = 1;
 
   transactionData: Array<any>;
+
+  selectData = [
+    {
+      value: 0,
+      description: 'Select your transaction type',
+    },
+    {
+      value: 1,
+      description: 'Deposit',
+    },
+    {
+      value: 2,
+      description: 'Withdraw',
+    },
+  ];
 
   accountFieldData = [
     {
@@ -238,7 +231,6 @@ export class AccountComponent implements OnInit {
       this.transactionType = 'Withdraw';
     }
 
-
     const transactionDate = (
       document.getElementById('date') as HTMLInputElement
     ).value;
@@ -259,7 +251,7 @@ export class AccountComponent implements OnInit {
       '", "transaction_amount":' +
       transactionAmount +
       ', "transaction_subTotal": 0}';
-      console.log(body);
+    console.log(body);
     this.apiService.postTransactionData(body);
     location.reload();
   }
@@ -268,7 +260,9 @@ export class AccountComponent implements OnInit {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
 
     this.apiService.getAccountDataAsync((d: any) => {
-      this.accountIndex=d.findIndex(account=>account.account_id==this.accountIDnum);
+      this.accountIndex = d.findIndex(
+        (account) => account.account_id == this.accountIDnum
+      );
       this.accountDescription = d[this.accountIndex].account_Description;
       this.accountDeposits = d[this.accountIndex].deposit_amount;
       this.accountWithdraws = d[this.accountIndex].withdraw_amount;
