@@ -1,7 +1,6 @@
 import { ButtonComponent } from './components/small-components/button.component';
 import { InputGroupComponent } from './components/small-components/input-group.component';
 import { SelectComponent } from './components/small-components/select.component';
-import { AddTransactionModalComponent } from './components/small-components/add-transaction-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +19,7 @@ import { NavbarComponent } from './components/small-components/navbar.component'
 import { HeaderComponent } from './components/small-components/header.component';
 import { ClickableListViewComponent } from './components/small-components/clickable-list-view.component';
 
-import { ModalComponent } from './components/small-components/help-modal.component';
+import { ModalComponent } from './components/small-components/modal.component';
 import { HelpModalButtonComponent } from './components/small-components/help-modal-button.component';
 import { EmptyContentComponent } from './components/small-components/empty-content.component';
 import { InputComponent } from './components/small-components/input.component';
@@ -51,7 +50,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ManageAccountsComponent,
     AddAccountsComponent,
     AccountComponent,
-    AddTransactionModalComponent,
     AddTransactionButtonComponent,
     ModalComponent,
     HelpModalButtonComponent,

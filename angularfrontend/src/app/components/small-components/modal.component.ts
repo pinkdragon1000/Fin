@@ -6,10 +6,11 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-import { AddTransactionModalService } from './add-transaction-modal.service';
+
+import { ModalService } from './modal.service';
 
 @Component({
-  selector: 'app-add-transaction-modal',
+  selector: 'app-modal-component',
   template: `
     <div class="modal">
       <div class="modal-body">
@@ -20,7 +21,7 @@ import { AddTransactionModalService } from './add-transaction-modal.service';
   `,
   styles: [
     `
-      modal {
+      app-modal-component {
         display: none;
       }
       .modal {
@@ -36,7 +37,7 @@ import { AddTransactionModalService } from './add-transaction-modal.service';
         padding: 1.25rem;
         background: #fff;
         margin: 16rem;
-        border-radius: 2rem;
+        border-radius: 0.625rem;
         min-height: 20rem;
         max-width: 80rem;
       }
@@ -50,21 +51,18 @@ import { AddTransactionModalService } from './add-transaction-modal.service';
         opacity: 0.75;
         z-index: 900;
       }
-      body.modal-open-2 {
+      body.modal-open {
         overflow: hidden;
       }
     `,
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class AddTransactionModalComponent implements OnInit, OnDestroy {
+export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
 
-  constructor(
-    private addTransactionModalService: AddTransactionModalService,
-    private el: ElementRef
-  ) {
+  constructor(private modalService: ModalService, private el: ElementRef) {
     this.element = el.nativeElement;
   }
 
@@ -86,12 +84,12 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     });
 
     // add self (this modal instance) to the modal service so it's accessible from controllers
-    this.addTransactionModalService.add(this);
+    this.modalService.add(this);
   }
 
   // remove self from modal service when component is destroyed
   ngOnDestroy(): void {
-    this.addTransactionModalService.remove(this.id);
+    this.modalService.remove(this.id);
     this.element.remove();
   }
 

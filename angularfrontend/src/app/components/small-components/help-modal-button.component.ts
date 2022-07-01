@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalService } from './help-modal.service';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: 'app-help-modal-button-component',
