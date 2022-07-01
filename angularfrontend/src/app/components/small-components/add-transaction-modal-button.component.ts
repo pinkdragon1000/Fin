@@ -4,18 +4,25 @@ import { ModalService } from './help-modal.service';
 @Component({
   selector: 'app-add-transaction-button-component',
   template: `
-    <button (click)="openModal('custom-modal-2')" class="primary round">
+    <app-button-component
+      [label]="'Add Transaction'"
+      [class]="'primary'"
+      (click)="openModal('custom-modal-2')"
+    >
       Add Transaction
-    </button>
+    </app-button-component>
 
     <app-modal-component id="custom-modal-2">
       <div class="float-right">
-        <button class="secondary" (click)="closeModal('custom-modal-2')">
-          X
-        </button>
+        <app-button-component
+          [label]="'X'"
+          [class]="'secondary'"
+          (click)="closeModal('custom-modal-2')"
+        >
+        </app-button-component>
       </div>
       <div class="modaltext">
-      <ng-content></ng-content>
+        <ng-content></ng-content>
       </div>
     </app-modal-component>
   `,
@@ -27,7 +34,7 @@ import { ModalService } from './help-modal.service';
       .modaltext {
         padding: 4rem;
       }
-      #custom-modal-2{
+      #custom-modal-2 {
         display: none;
       }
     `,

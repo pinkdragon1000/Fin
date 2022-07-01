@@ -7,7 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
       <label>{{ label }}</label>
       <br />
       <select class="select" id="select">
-        <option *ngFor="let option of selectData" value="{{ option.value }}">
+        <option
+          *ngFor="let option of selectData"
+          value="{{ option.value }}"
+          disabled="{{ option.disabled }}"
+        >
           {{ option.description }}
         </option>
       </select>
@@ -35,6 +39,11 @@ import { Component, Input, OnInit } from '@angular/core';
         margin: 0.5rem 0;
         background: var(--fin-neutral-6);
         color: var(--fin-neutral-1);
+      }
+
+      select:focus {
+        outline: none;
+        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
       }
     `,
   ],

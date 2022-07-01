@@ -4,13 +4,21 @@ import { ModalService } from './help-modal.service';
 @Component({
   selector: 'app-help-modal-button-component',
   template: `
-    <button class="btn-help" (click)="openModal('custom-modal-1')">?</button>
+    <app-button-component
+      [label]="'?'"
+      [class]="'btn-help'"
+      (click)="openModal('custom-modal-1')"
+    >
+    </app-button-component>
 
     <app-modal-component id="custom-modal-1">
       <div class="float-right">
-        <button class="secondary" (click)="closeModal('custom-modal-1')">
-          X
-        </button>
+        <app-button-component
+          [label]="'X'"
+          [class]="'secondary'"
+          (click)="closeModal('custom-modal-1')"
+        >
+        </app-button-component>
       </div>
       <p class="modaltext">{{ modaltext }}</p>
       <ng-content></ng-content>
@@ -26,7 +34,7 @@ import { ModalService } from './help-modal.service';
         padding: 4rem;
       }
 
-      #custom-modal-1{
+      #custom-modal-1 {
         display: none;
       }
     `,

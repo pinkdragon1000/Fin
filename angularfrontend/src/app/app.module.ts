@@ -1,3 +1,4 @@
+import { ButtonComponent } from './components/small-components/button.component';
 import { InputGroupComponent } from './components/small-components/input-group.component';
 import { SelectComponent } from './components/small-components/select.component';
 import { AddTransactionModalComponent } from './components/small-components/add-transaction-modal.component';
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
+    ButtonComponent,
     InputGroupComponent,
     InputComponent,
     SelectComponent,
@@ -63,6 +65,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
   ],
   providers: [
+    InputGroupComponent,
     InputComponent,
     PageTemplateComponent,
     EmptyContentComponent,

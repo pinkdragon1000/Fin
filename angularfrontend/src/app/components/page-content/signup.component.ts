@@ -12,9 +12,11 @@ import { Router } from '@angular/router';
         </app-input-group-component>
 
         <div class="login-button">
-          <button type="submit" class="primary round" (click)="postUserData()">
-            Sign Up
-          </button>
+          <app-button-component
+            [label]="'Sign In'"
+            [class]="'primary'"
+            (click)="postUserData()"
+          ></app-button-component>
         </div>
       </form>
       <a href="/">Already have an account? Login -> </a>

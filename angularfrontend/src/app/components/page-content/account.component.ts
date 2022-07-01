@@ -18,13 +18,11 @@ import { Component, OnInit } from '@angular/core';
           [selectData]="this.selectData"
         ></app-select-component>
         <br />
-        <button
-          type="submit"
-          class="primary round"
+        <app-button-component
+          [label]="'Submit Transaction'"
+          [class]="'primary'"
           (click)="postTransactionData()"
-        >
-          Submit Transaction
-        </button>
+        ></app-button-component>
       </app-add-transaction-button-component>
 
       <p>Transactions</p>
@@ -101,16 +99,6 @@ import { Component, OnInit } from '@angular/core';
         height: 10rem;
         overflow-y: scroll;
       }
-      .clickable-view {
-        margin: 0.625rem;
-      }
-
-      .inputs {
-        align-items: center;
-      }
-      .input {
-        width: 50%;
-      }
 
       .row {
         padding-right: 5rem;
@@ -173,6 +161,7 @@ export class AccountComponent implements OnInit {
     {
       value: 0,
       description: 'Select your transaction type',
+      disabled: true,
     },
     {
       value: 1,

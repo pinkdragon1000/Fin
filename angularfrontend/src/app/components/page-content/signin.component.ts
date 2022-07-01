@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../api.service';
 
@@ -12,9 +11,11 @@ import { APIService } from '../api.service';
       </app-input-group-component>
 
       <div class="login-button">
-        <button type="submit" class="primary round" (click)="signIn()">
-          Sign In
-        </button>
+        <app-button-component
+          [label]="'Sign Up'"
+          [class]="'primary'"
+          (click)="signIn()"
+        ></app-button-component>
       </div>
       <a href="/signup">Don't have an account? Signup -> </a>
     </app-header-page-template>

@@ -14,18 +14,19 @@ import { userId } from 'src/environments/environment';
     >
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
       <form>
-        <div class="inputs">
-          <app-select-component
-            [label]="'Account Type (checking/savings)'"
-            [selectData]="this.selectData"
-          ></app-select-component>
+        <app-select-component
+          [label]="'Account Type (checking/savings)'"
+          [selectData]="this.selectData"
+        ></app-select-component>
 
-          <app-input-group-component [inputData]="this.inputData">
-          </app-input-group-component>
-        </div>
-        <button type="submit" class="primary round" (click)="postAccountData()">
-          Add Account
-        </button>
+        <app-input-group-component [inputData]="this.inputData">
+        </app-input-group-component>
+
+        <app-button-component
+          [label]="'Add Account'"
+          [class]="'primary'"
+          (click)="postAccountData()"
+        ></app-button-component>
       </form>
     </app-page-template>
   `,
@@ -61,6 +62,7 @@ export class AddAccountsComponent implements OnInit {
     {
       value: '0',
       description: 'Select your account type',
+      disabled: true,
     },
     {
       value: '1',
