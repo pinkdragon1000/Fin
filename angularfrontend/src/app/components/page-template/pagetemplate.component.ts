@@ -13,7 +13,11 @@ import { User } from '../../models/user.models';
       <ng-content></ng-content>
     </div>
 
-    <app-modal-button-component [type]="'help'">
+    <app-modal-button-component
+      [type]="'help'"
+      [label]="'?'"
+      [class]="'btn-help'"
+    >
       <p>
         To add an account click Add An Account. To view accounts click Manage
         Accounts. To add transactions for a specific account click on that

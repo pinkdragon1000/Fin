@@ -9,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
       [pagedirections]="'Click on an account to view and add information'"
       [pagetitle]="this.accountDescription"
     >
-      <app-modal-button-component [type]="'transaction'">
+      <app-modal-button-component
+        [type]="'transaction'"
+        [label]="'Add Transaction'"
+        [class]="'primary'"
+      >
         <app-input-group-component [inputData]="this.inputData">
         </app-input-group-component>
 

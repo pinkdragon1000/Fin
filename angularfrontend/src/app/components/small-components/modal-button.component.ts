@@ -5,23 +5,14 @@ import { ModalService } from './modal.service';
   selector: 'app-modal-button-component',
   template: `
     <p class="hidden">{{ type }}</p>
-    <div *ngIf="this.type === 'help'">
-      <app-button-component
-        [label]="'?'"
-        [class]="'btn-help'"
-        (click)="openModal('help')"
-      >
-      </app-button-component>
-    </div>
 
-    <div *ngIf="this.type === 'transaction'">
-      <app-button-component
-        [label]="'Add Transaction'"
-        [class]="'primary'"
-        (click)="openModal('transaction')"
-      >
-      </app-button-component>
-    </div>
+    <app-button-component
+      label="{{ label }}"
+      class="{{ class }}"
+      (click)="openModal(this.type)"
+    >
+    </app-button-component>
+
     <app-modal-component id="{{ type }}" (click)="closeModal(this.type)">
       <ng-content></ng-content>
     </app-modal-component>
@@ -43,6 +34,8 @@ import { ModalService } from './modal.service';
 })
 export class ModalButtonComponent implements OnInit {
   @Input() type: string;
+  @Input() label: string;
+  @Input() class: string;
   constructor(private modalService: ModalService) {}
   ngOnInit(): void {}
 
