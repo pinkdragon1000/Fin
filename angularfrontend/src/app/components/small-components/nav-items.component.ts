@@ -17,9 +17,6 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
   styles: [
     `
-      .nav {
-      }
-
       .nav > li > a {
         position: relative;
         display: block;
@@ -28,7 +25,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
       .active {
         text-decoration: none;
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: var(--fin-white-transparent);
         border-radius: 0.625rem;
       }
 
@@ -48,7 +45,7 @@ import { Component, Input, OnInit } from '@angular/core';
       }
 
       .white-text {
-        color: white;
+        color: var(--fin-white);
       }
     `,
   ],
