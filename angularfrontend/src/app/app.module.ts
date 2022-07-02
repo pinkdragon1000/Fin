@@ -1,3 +1,4 @@
+import { NavItemsComponent } from './components/small-components/nav-items.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,12 +8,10 @@ import { ButtonComponent } from './components/small-components/button.component'
 import { InputComponent } from './components/small-components/input.component';
 import { InputGroupComponent } from './components/small-components/input-group.component';
 import { SelectComponent } from './components/small-components/select.component';
-
 import { ModalComponent } from './components/small-components/modal.component';
 import { ModalButtonComponent } from './components/small-components/modal-button.component';
 import { PageTemplateComponent } from './components/page-template/pagetemplate.component';
 import { HeaderPageTemplateComponent } from './components/page-template/headerpagetemplate.component';
-
 import { ManageAccountsComponent } from './components/page-content/manage-accounts.component';
 import { AddAccountsComponent } from './components/page-content/add-accounts.component';
 import { AccountComponent } from './components/page-content/account.component';
@@ -40,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderPageTemplateComponent,
     PageTemplateComponent,
     EmptyContentComponent,
+    NavItemsComponent,
     NavbarComponent,
     HeaderComponent,
     SigninComponent,
@@ -64,6 +64,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmptyContentComponent,
     HeaderPageTemplateComponent,
     APIService,
+    NavItemsComponent,
     NavbarComponent,
     HeaderComponent,
     ClickableListViewComponent,
