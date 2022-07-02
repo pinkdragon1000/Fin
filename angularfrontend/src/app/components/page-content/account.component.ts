@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
       [pagedirections]="'Click on an account to view and add information'"
       [pagetitle]="this.accountDescription"
     >
-      <app-add-transaction-button-component modalAccountText="">
+      <app-modal-button-component [type]="'transaction'">
         <app-input-group-component [inputData]="this.inputData">
         </app-input-group-component>
 
@@ -23,7 +23,7 @@ import { Component, OnInit } from '@angular/core';
           [class]="'primary'"
           (click)="postTransactionData()"
         ></app-button-component>
-      </app-add-transaction-button-component>
+      </app-modal-button-component>
 
       <p>Transactions</p>
       <div class="scroll">

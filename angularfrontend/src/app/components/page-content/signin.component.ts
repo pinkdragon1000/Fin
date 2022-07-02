@@ -27,10 +27,6 @@ import { APIService } from '../api.service';
         justify-content: center;
         width: 70%;
       }
-
-      .inputs {
-        width: 30%;
-      }
     `,
   ],
 })

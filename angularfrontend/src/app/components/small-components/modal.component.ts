@@ -5,6 +5,8 @@ import {
   Input,
   OnInit,
   OnDestroy,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 import { ModalService } from './modal.service';
@@ -14,7 +16,17 @@ import { ModalService } from './modal.service';
   template: `
     <div class="modal">
       <div class="modal-body">
-        <ng-content></ng-content>
+        <div class="float-right">
+          <app-button-component
+            [label]="'X'"
+            [class]="'secondary'"
+            (click)="(this.click)"
+          >
+          </app-button-component>
+        </div>
+        <div class="modaltext">
+          <ng-content></ng-content>
+        </div>
       </div>
     </div>
     <div class="modal-background"></div>
@@ -54,12 +66,22 @@ import { ModalService } from './modal.service';
       body.modal-open {
         overflow: hidden;
       }
+      .modaltext {
+        padding: 4rem;
+      }
+      .float-right {
+        float: right;
+      }
     `,
   ],
   encapsulation: ViewEncapsulation.None,
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
+  @Output() onClick: EventEmitter<string> = new EventEmitter<string>();
+  click() {
+    this.onClick.emit();
+  }
   private element: any;
 
   constructor(private modalService: ModalService, private el: ElementRef) {
