@@ -12,7 +12,7 @@ import { APIService } from '../api.service';
 
       <div class="login-button">
         <app-button-component
-          [label]="'Sign Up'"
+          [label]="'Sign In'"
           [class]="'primary'"
           (click)="signIn()"
         ></app-button-component>

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
         <div class="login-button">
           <app-button-component
-            [label]="'Sign In'"
+            [label]="'Sign Up'"
             [class]="'primary'"
             (click)="postUserData()"
           ></app-button-component>

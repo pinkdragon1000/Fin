@@ -54,6 +54,17 @@ export class ManageAccountsComponent implements OnInit {
   deleteAccount(accountId): void {
     if (window.confirm('Are sure you want to delete this item ?')) {
       console.log(accountId);
+      const body =
+        '{"user_id":{"user_id":' +
+        userId +
+        '}, "account_id": ' +
+        accountId +
+        '}"';
+
+      console.log(body);
+
+      this.apiService.deleteAccount(body);
+      location.reload();
     }
   }
 

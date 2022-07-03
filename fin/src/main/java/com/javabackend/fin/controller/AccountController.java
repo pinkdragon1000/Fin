@@ -31,4 +31,10 @@ public class AccountController {
         return accountService.addNewAccount(newAccount);
     }
 
+    @PostMapping("/deleteAccount")
+    @CrossOrigin
+    public Collection<Account> deleteAccount(@RequestBody Account account){
+        return accountService.deleteAccountAndTransactions(account.getAccount_id(), account.getUser_id());
+    }
+
 }

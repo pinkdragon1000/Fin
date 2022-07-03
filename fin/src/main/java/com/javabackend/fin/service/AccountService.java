@@ -62,4 +62,10 @@ public class AccountService{
         return accountRepository.save(newAccount);
     }
 
+    public Collection<Account> deleteAccountAndTransactions(Long account_id, Long user_id){
+       transactionRepository.deleteTransactions(account_id);
+       accountRepository.deleteAccount(account_id);
+       return accountRepository.findAllAccountsByUserID(user_id);
+    }
+
 }
