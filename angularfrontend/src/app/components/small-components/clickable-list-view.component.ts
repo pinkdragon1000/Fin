@@ -2,20 +2,22 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-clickable-list-view',
   template: `
-    <a href="{{ link }}">
-      <div class="clickable-list">
+    <div class="clickable-list">
+      <a href="{{ link }}">
         <div class="space-between">
           <p>{{ name }}</p>
           <p>\${{ amount }}</p>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   `,
   styles: [
     `
-      div {
-        background: #efefef;
+      .clickable-list {
         width: 90%;
+      }
+      div {
+        background: var(--fin-neutral-5);
         padding: 1rem;
         border-radius: 0.625rem;
       }
