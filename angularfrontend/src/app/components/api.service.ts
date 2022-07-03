@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { userId } from './../../environments/environment';
 
 @Injectable()
 export class APIService {
@@ -18,12 +19,15 @@ export class APIService {
       authorization: this.auth,
     };
     this.http
-      .get('http://localhost:8080/fin-accounts.webservice/users?userID=1', {
-        headers,
-      })
+      .get(
+        'http://localhost:8080/fin-accounts.webservice/users?userID=' + userId,
+        {
+          headers,
+        }
+      )
       .pipe(map((res) => res))
       .subscribe((res) => {
-        this.userResult= res;
+        this.userResult = res;
         callback(this.userResult);
       });
   }
@@ -32,7 +36,7 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      "XSRF-TOKEN": "123"
+      'XSRF-TOKEN': '123',
     };
     this.http
       .post(
@@ -70,9 +74,13 @@ export class APIService {
       authorization: this.auth,
     };
     this.http
-      .get('http://localhost:8080/fin-accounts.webservice/accounts?userID=1', {
-        headers,
-      })
+      .get(
+        'http://localhost:8080/fin-accounts.webservice/accounts?userID=' +
+          userId,
+        {
+          headers,
+        }
+      )
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.accountsResult = res;
@@ -82,7 +90,10 @@ export class APIService {
 
   getTransactionDataAsync(callback: any, accountID: number) {
     this.http
-      .get('http://localhost:8080/fin-accounts.webservice/transactions?accountID='+accountID)
+      .get(
+        'http://localhost:8080/fin-accounts.webservice/transactions?accountID=' +
+          accountID
+      )
       .pipe(map((res) => res))
       .subscribe((res) => {
         this.transactionsResult = res;
@@ -95,8 +106,8 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      "XSRF-TOKEN": "123",
-      "X-CSRF-TOKEN": "123"
+      'XSRF-TOKEN': '123',
+      'X-CSRF-TOKEN': '123',
     };
     this.http
       .post('http://localhost:8080/fin-accounts.webservice/addUser', body, {
@@ -122,7 +133,7 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      "XSRF-TOKEN": "123"
+      'XSRF-TOKEN': '123',
     };
     this.http
       .post('http://localhost:8080/fin-accounts.webservice/addAccount', body, {
@@ -148,7 +159,7 @@ export class APIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      "XSRF-TOKEN": "123"
+      'XSRF-TOKEN': '123',
     };
     this.http
       .post(
