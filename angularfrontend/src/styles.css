@@ -11,7 +11,6 @@
     --fin-blue-1: rgba(3, 100, 255, 1);
     --fin-blue-2: rgba(48, 98, 178, 1);
     --fin-pink: rgba(233, 64, 87, 1);
-    --fin-pink-transparent: rgba(233, 64, 87, 0.5);
     --fin-orange: rgba(242, 113, 33, 1);
     --fin-gradient: linear-gradient(25deg, var(--fin-pink), var(--fin-orange));
     --fin-neutral-1: rgba(117, 117, 117, 1);
@@ -95,7 +94,7 @@ form {
 }
 
 .error {
-    background-color: var(--fin-pink-transparent);
+    background-color: var(--fin-pink);
     padding: 2rem;
     border-radius: 2rem;
     color: var(--fin-white);

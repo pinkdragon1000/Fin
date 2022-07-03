@@ -31,14 +31,7 @@ import { Component, OnInit } from '@angular/core';
 
       <p>Transactions</p>
       <div class="scroll">
-        <table>
-          <tr>
-            <th>Transaction Date</th>
-            <th>Transaction Type</th>
-            <th>Transaction Amount</th>
-            <th>Sub-Total</th>
-          </tr>
-
+        <app-table-component [headerData]="this.transactionHeaders">
           <tr
             *ngFor="let transaction of transactionData"
             [ngClass]="{
@@ -46,55 +39,45 @@ import { Component, OnInit } from '@angular/core';
               'text-withdraw': transaction.transaction_type === 'Withdraw'
             }"
           >
-            <ng-container
-              *ngIf="
-                accountUser === currentUser &&
-                transaction.account_id === accountIDnum
-              "
+            <td>{{ transaction.transaction_date }}</td>
+            <td>{{ transaction.transaction_type }}</td>
+            <td
+              [ngClass]="{
+                'text-deposit-arrow':
+                  transaction.transaction_type === 'Deposit',
+                'text-withdraw-arrow':
+                  transaction.transaction_type === 'Withdraw'
+              }"
             >
-              <td>{{ transaction.transaction_date }}</td>
-              <td>{{ transaction.transaction_type }}</td>
-              <td
-                [ngClass]="{
-                  'text-deposit-arrow':
-                    transaction.transaction_type === 'Deposit',
-                  'text-withdraw-arrow':
-                    transaction.transaction_type === 'Withdraw'
-                }"
-              >
-                \${{ transaction.transaction_amount }}
-              </td>
-              <td>\${{ transaction.transaction_subTotal }}</td>
-            </ng-container>
+              \${{ transaction.transaction_amount }}
+            </td>
+            <td>\${{ transaction.transaction_subTotal }}</td>
           </tr>
-        </table>
+        </app-table-component>
       </div>
       <br />
       <br />
       <p>Overall Account Summary</p>
-      <table>
-        <tr>
-          <th>Account Starting Amount</th>
-          <th>Account Deposits</th>
-          <th>Account Withdraws</th>
-          <th>Account Current Amount</th>
-          <th>Overall Account Difference (Current-Starting)</th>
-        </tr>
+      <app-table-component [headerData]="this.accountHeaders">
         <tr>
           <td>\${{ this.accountStartingAmount }}</td>
           <td>\${{ this.accountDeposits }}</td>
           <td>\${{ this.accountWithdraws }}</td>
-          <td>
-            \${{ this.transactionData?.slice(-1).pop().transaction_subTotal }}
-          </td>
+
           <td>
             \${{
-              this.transactionData?.slice(-1).pop().transaction_subTotal -
+              this.transactionData?.slice(-1).pop().transaction_subTotal ||
                 this.accountStartingAmount
             }}
           </td>
+          <td>
+            \${{
+              (this.transactionData?.slice(-1).pop().transaction_subTotal ||
+                this.accountStartingAmount) - this.accountStartingAmount
+            }}
+          </td>
         </tr>
-      </table>
+      </app-table-component>
     </app-page-template>
   `,
   styles: [
@@ -125,19 +108,7 @@ import { Component, OnInit } from '@angular/core';
         font-family: 'Font Awesome 5 Free';
         content: '↓';
       }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      th {
-        background-color: var(--fin-neutral-6);
-        color: var(--fin-neutral-1);
-      }
-
-      td,
-      th {
+      td {
         border: 0.063rem solid #dddddd;
         text-align: left;
         padding: 0.5rem;
@@ -146,15 +117,14 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class AccountComponent implements OnInit {
-  accountStartingAmount: number;
-  accountDeposits: string;
-  accountWithdraws: string;
+  accountStartingAmount: number = 0;
+  accountDeposits: number = 0;
+  accountWithdraws: number = 0;
   accountIDnum: number;
   accountDescription: string;
-  transactionId: string;
   accountUser: number;
   accountIndex: number;
-  transactionTypeNum: any;
+  transactionTypeNum: string;
   transactionType: string;
 
   currentUser = 1;
@@ -175,6 +145,21 @@ export class AccountComponent implements OnInit {
       value: 2,
       description: 'Withdraw',
     },
+  ];
+
+  transactionHeaders = [
+    'Transaction Date',
+    'Transaction Type',
+    'Transaction Amount',
+    'Sub-Total',
+  ];
+
+  accountHeaders = [
+    'Account Starting Amount',
+    'Account Deposits',
+    'Account Withdraws',
+    'Account Current Amount',
+    'Overall Account Difference (Current-Starting)',
   ];
 
   inputData = [

@@ -8,6 +8,7 @@ import { ButtonComponent } from './components/small-components/button.component'
 import { InputComponent } from './components/small-components/input.component';
 import { InputGroupComponent } from './components/small-components/input-group.component';
 import { SelectComponent } from './components/small-components/select.component';
+import { TableComponent } from './components/small-components/table.component';
 import { ModalComponent } from './components/small-components/modal.component';
 import { ModalButtonComponent } from './components/small-components/modal-button.component';
 import { PageTemplateComponent } from './components/page-template/pagetemplate.component';
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonComponent,
     InputGroupComponent,
     InputComponent,
+    TableComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,
     EmptyContentComponent,
