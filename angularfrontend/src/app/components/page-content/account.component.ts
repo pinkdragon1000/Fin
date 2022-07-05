@@ -1,5 +1,6 @@
-import { APIService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
+import { TransactionAPIService } from '../../service/transaction-api.service';
+import { AccountAPIService } from '../../service/account-api.service';
 //import { formatDate } from '@angular/common';
 
 @Component({
@@ -126,8 +127,7 @@ export class AccountComponent implements OnInit {
   accountIndex: number;
   transactionTypeNum: string;
   transactionType: string;
-
-  currentUser = 1;
+  userId: string = sessionStorage.getItem('userId');
 
   transactionData: Array<any>;
 
@@ -187,7 +187,10 @@ export class AccountComponent implements OnInit {
     },
   ];
 
-  constructor(private apiService: APIService) {}
+  constructor(
+    private accountApiService: AccountAPIService,
+    private transactionApiService: TransactionAPIService
+  ) {}
   postTransactionData() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
 
@@ -222,14 +225,14 @@ export class AccountComponent implements OnInit {
       transactionAmount +
       ', "transaction_subTotal": 0}';
     console.log(body);
-    this.apiService.postTransactionData(body);
+    this.transactionApiService.postTransactionData(body);
     location.reload();
   }
 
   ngOnInit() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
 
-    this.apiService.getAccountDataAsync((d: any) => {
+    this.accountApiService.getAccountDataAsync((d: any) => {
       this.accountIndex = d.findIndex(
         (account) => account.account_id == this.accountIDnum
       );
@@ -238,9 +241,9 @@ export class AccountComponent implements OnInit {
       this.accountWithdraws = d[this.accountIndex].withdraw_amount;
       this.accountUser = d[this.accountIndex].user_id;
       this.accountStartingAmount = d[this.accountIndex].account_Starting_Amount;
-    });
+    }, this.userId);
 
-    this.apiService.getTransactionDataAsync((d: Array<any>) => {
+    this.transactionApiService.getTransactionDataAsync((d: Array<any>) => {
       this.transactionData = d;
     }, this.accountIDnum);
   }

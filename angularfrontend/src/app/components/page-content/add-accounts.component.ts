@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from './../api.service';
-import { userId } from 'src/environments/environment';
+import { AccountAPIService } from '../../service/account-api.service';
 
 @Component({
   selector: 'app-add-accounts-content-component',
@@ -38,6 +37,7 @@ export class AddAccountsComponent implements OnInit {
   accountDescription: string;
   accountTypeNum: any;
   accountType: string;
+  userId: string = sessionStorage.getItem('userId');
 
   inputData = [
     {
@@ -74,7 +74,7 @@ export class AddAccountsComponent implements OnInit {
     },
   ];
 
-  constructor(private apiService: APIService) {}
+  constructor(private accountApiService: AccountAPIService) {}
 
   postAccountData() {
     this.accountTypeNum = (
@@ -103,7 +103,7 @@ export class AddAccountsComponent implements OnInit {
     } else {
       const body =
         '{"user_id":{"user_id":' +
-        userId +
+        this.userId +
         '}, "account_Type": "' +
         this.accountType +
         '", "account_Starting_Amount": ' +
@@ -114,7 +114,7 @@ export class AddAccountsComponent implements OnInit {
 
       console.log(body);
 
-      this.apiService.postAccountData(body);
+      this.accountApiService.postAccountData(body);
     }
   }
 

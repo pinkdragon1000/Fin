@@ -31,6 +31,7 @@ public class AccountController {
         return accountService.addNewAccount(newAccount);
     }
 
+    //Deletes accounts and associated transactions for that account
     @PostMapping("/deleteAccount")
     @CrossOrigin
     public Collection<Account> deleteAccount(@RequestBody Account account){

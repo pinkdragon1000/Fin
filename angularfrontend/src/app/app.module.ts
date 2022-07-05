@@ -1,8 +1,10 @@
-import { NavItemsComponent } from './components/small-components/nav-items.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TransactionAPIService } from './service/transaction-api.service';
+import { AccountAPIService } from './service/account-api.service';
+import { UserAPIService } from './service/user-api.service';
 
 import { ButtonComponent } from './components/small-components/button.component';
 import { InputComponent } from './components/small-components/input.component';
@@ -18,14 +20,12 @@ import { AddAccountsComponent } from './components/page-content/add-accounts.com
 import { AccountComponent } from './components/page-content/account.component';
 import { SigninComponent } from './components/page-content/signin.component';
 import { SignupComponent } from './components/page-content/signup.component';
-
+import { NavItemsComponent } from './components/small-components/nav-items.component';
 import { NavbarComponent } from './components/small-components/navbar.component';
 import { HeaderComponent } from './components/small-components/header.component';
 import { ClickableListViewComponent } from './components/small-components/clickable-list-view.component';
 
 import { EmptyContentComponent } from './components/small-components/empty-content.component';
-
-import { APIService } from './components/api.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -65,7 +65,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PageTemplateComponent,
     EmptyContentComponent,
     HeaderPageTemplateComponent,
-    APIService,
+    UserAPIService,
+    AccountAPIService,
+    TransactionAPIService,
     NavItemsComponent,
     NavbarComponent,
     HeaderComponent,

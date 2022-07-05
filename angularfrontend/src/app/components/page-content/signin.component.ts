@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from '../api.service';
+import { UserAPIService } from '../../service/user-api.service';
 
 @Component({
   selector: 'app-login-content-component',
@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
   password: string;
   error: string;
   response: any;
-  user: string;
+  public userId: string;
   inputData = [
     {
       label: 'Email',
@@ -53,12 +53,7 @@ export class SigninComponent implements OnInit {
     },
   ];
 
-  loginData = [
-    {
-      password: 'blah',
-    },
-  ];
-  constructor(private apiService: APIService) {}
+  constructor(private userApiService: UserAPIService) {}
 
   ngOnInit(): void {}
 
@@ -75,47 +70,22 @@ export class SigninComponent implements OnInit {
         '{"email": "' + this.email + '", "password": "' + this.password + '"}';
 
       console.log(body);
-      this.response = this.apiService.postValidateUser(body);
+      this.userApiService.postValidateUser(body, (response) => {
+        console.log(response);
 
-      console.log(this.response);
-      if (!this.response.includes('error') || this.response !== undefined) {
-        console.log('yay');
-        location.href = '/manageAccounts';
-      } else {
-        console.log("can't authenticate");
-        location.href = '/';
-      }
+        if (
+          response === 'Email and password failed validation.' ||
+          response === "Email doesn't exist.  Please signup" ||
+          response == undefined
+        ) {
+          this.error = response;
+        } else {
+          location.href = '/manageAccounts';
+          this.userId = response.split('as ').pop();
+          console.log(this.userId);
+          sessionStorage.setItem('userId', this.userId);
+        }
+      });
     }
-
-    /*
-    console.log(this.email);
-    if (
-      this.email ==
-        (<HTMLInputElement>document.getElementById('email')).value &&
-      this.loginData[0].password ==
-        (<HTMLInputElement>document.getElementById('password')).value
-    ) {
-      console.log('Input matches account sign-in info!');
-      location.href = '/manageAccounts';
-    } else if (
-      this.email ==
-        (<HTMLInputElement>document.getElementById('email')).value &&
-      this.loginData[0].password !=
-        (<HTMLInputElement>document.getElementById('password')).value
-    ) {
-      this.error = 'Email exists but password is incorrect';
-      console.log('Email exists but password is incorrect');
-    } else if (
-      (<HTMLInputElement>document.getElementById('email')).value == '' &&
-      (<HTMLInputElement>document.getElementById('password')).value == ''
-    ) {
-      this.error = 'Please enter in a valid username and password';
-    } else if (
-      this.email != (<HTMLInputElement>document.getElementById('email')).value
-    ) {
-      this.error = "Email doesn't exist.  Please signup first";
-      console.log("Email doesn't exist.  Please signup first");
-    }
-      */
   }
 }

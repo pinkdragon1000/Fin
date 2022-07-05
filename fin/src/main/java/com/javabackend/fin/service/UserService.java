@@ -26,8 +26,17 @@ public class UserService  {
         return (List<UserLite>) userReadRepository.findAll();
     }
 
+    public List<User> findAllUsersIncludingPasswords(){
+        return (List<User>) userWriteRepository.findAll();
+    }
+
     public User addNewUser(User newUser) {
         return userWriteRepository.save(newUser);
+    }
+
+
+    public String decryptPassword(String encryptedPassword){
+        
     }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from './../api.service';
+import { UserAPIService } from '../../service/user-api.service';
 import * as shajs from 'sha.js';
 import { Router } from '@angular/router';
 
@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
       id: 'password',
     },
   ];
-  constructor(private apiService: APIService, private router: Router) {}
+  constructor(private userApiService: UserAPIService, private router: Router) {}
 
   postUserData() {
     this.fullName = (
@@ -85,7 +85,7 @@ export class SignupComponent implements OnInit {
         this.hashedPassword +
         '"}';
 
-      this.apiService.postUserData(body);
+      this.userApiService.postUserData(body);
       this.router.navigate(['manageAccounts']);
     }
   }

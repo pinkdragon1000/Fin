@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { APIService } from '../api.service';
+import { UserAPIService } from '../../service/user-api.service';
 import { User } from '../../models/user.models';
 
 @Component({
@@ -42,12 +42,13 @@ export class PageTemplateComponent implements OnInit {
   @Input() pagedirections: string;
   @Input() pagetitle: string;
   userData: string;
+  userId: string = sessionStorage.getItem('userId');
 
-  constructor(private apiService: APIService) {}
+  constructor(private userApiService: UserAPIService) {}
 
   ngOnInit() {
-    this.apiService.getUserData((d: User) => {
+    this.userApiService.getUserData((d: User) => {
       this.userData = d[0].fullName;
-    });
+    }, this.userId);
   }
 }

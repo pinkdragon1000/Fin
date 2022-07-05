@@ -27,4 +27,38 @@ public class UserController {
     public User newUser(@RequestBody User newUser) {
         return userService.addNewUser(newUser);
     }
+
+
+    //Validate User
+    @PostMapping(path="/validateUser", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @CrossOrigin
+    public List<String> validateUser(@RequestBody User userToValidate){
+        List<String> text=new ArrayList<>();
+        var users = (List<User>) userService.findAllUsersIncludingPasswords();
+        String message="";
+        for(User user: users){
+            if(user.getEmail().equals(userToValidate.getEmail())){
+                System.out.println(user.getEmail());
+                System.out.println(userToValidate.getEmail());
+                message="Email exists ";
+                if(user.getPassword().equals(userToValidate.getPassword())){
+                    System.out.println(user.getPassword());
+                    System.out.println(userToValidate.getPassword());
+                    Long id =user.getUser_id();
+                    message += "and password exists.  Successfully validated as "+id;
+                    break;
+                }
+                else {
+                    message = "Email and password failed validation.";
+                    break;
+                }
+            }
+            else {
+                message = "Email doesn't exist.  Please signup";
+            }
+        }
+        text.add(message);
+        return text;
+    }
+
 }

@@ -1,6 +1,5 @@
-import { userId } from './../../../environments/environment';
-import { APIService } from './../api.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { AccountAPIService } from '../../service/account-api.service';
+import { Component, OnInit } from '@angular/core';
 import { Account } from 'src/app/models/account.models';
 @Component({
   selector: 'app-manage-accounts-content-component',
@@ -48,29 +47,28 @@ import { Account } from 'src/app/models/account.models';
 })
 export class ManageAccountsComponent implements OnInit {
   accountData: any;
-  userId: any = userId;
-  constructor(private apiService: APIService) {}
-
+  userId: string = sessionStorage.getItem('userId');
+  constructor(private accountApiService: AccountAPIService) {}
   deleteAccount(accountId): void {
     if (window.confirm('Are sure you want to delete this item ?')) {
       console.log(accountId);
       const body =
         '{"user_id":{"user_id":' +
-        userId +
+        this.userId +
         '}, "account_id": ' +
         accountId +
         '}"';
 
       console.log(body);
 
-      this.apiService.deleteAccount(body);
+      this.accountApiService.deleteAccount(body);
       location.reload();
     }
   }
 
   ngOnInit(): void {
-    this.apiService.getAccountDataAsync((d: Account) => {
+    this.accountApiService.getAccountDataAsync((d: Account) => {
       this.accountData = d;
-    });
+    }, this.userId);
   }
 }
