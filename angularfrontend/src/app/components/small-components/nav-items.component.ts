@@ -23,6 +23,11 @@ import { Component, Input, OnInit } from '@angular/core';
         padding: 0.625rem 0.9375rem;
       }
 
+      .nav-item {
+        width: 11.5rem;
+        margin-right: 2rem;
+      }
+
       .active {
         text-decoration: none;
         background-color: var(--fin-white-transparent);
@@ -41,7 +46,6 @@ import { Component, Input, OnInit } from '@angular/core';
         float: right;
         display: flex;
         justify-content: flex-end;
-        width: 78rem;
       }
 
       .white-text {
