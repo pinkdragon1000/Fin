@@ -4,19 +4,20 @@
 ![](https://github.com/pinkdragon1000/Fin/actions/workflows/java.yml/badge.svg)
 ![](http://online.swagger.io/validator?url=https%3A%2F%2Fpinkdragon1000.github.io%2Ffin-api-spec%2Fswagger.yaml)
 
-
 - Angular application with Java backend to keep track of financial account transactions and deposits
 - This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4. The Java portion of this application uses Java 14 and Spring Boot.
 
 - End User Goal: An application to keep track of account transactions for checking and savings accounts.
-- End Technical Goal: Create a Java API that will be consumed by the Angular frontend application. Use technologies including Angular, Java Spring Boot, AWS ECS, MySQL, Firebase Hosting and Docker.
+- End Technical Goal: Create a Java API that will be consumed by the Angular frontend application. Use technologies including Angular, Java Spring Boot, Heroku, MySQL, Firebase Hosting and Docker.
 
 **Zenhub board:** https://github.com/pinkdragon1000/Fin#workspaces/fin-5fef3b7ee371a2001164b41b/board?repos=270075836
+
 ### Architecture Diagram:
 
 ![](https://github.com/pinkdragon1000/Fin/blob/master/architectureDiagram.drawio.png)
 
 ### Angular Application
+
 ![](https://github.com/pinkdragon1000/Fin/blob/master/angularBuildDeployDiagram.drawio.png)
 
 <b>Viewing the production deployed Angular Application:</b>
@@ -32,7 +33,7 @@ ng serve
 
 <b>Deploying the Angular Application:</b>
 
-The frontend is deployed using [Firebase Hosting](https://firebase.google.com/).  By default new code is pushed to Firebase through a Github Actions workflow.  If I want to manually deploy I do the following:
+The frontend is deployed using [Firebase Hosting](https://firebase.google.com/). By default new code is pushed to Firebase through a Github Actions workflow. If I want to manually deploy I do the following:
 
 ```
 cd angularfrontend
@@ -53,7 +54,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ### Java API
-
 
 View the API Spec Here: https://pinkdragon1000.github.io/fin-api-spec/
 
@@ -89,16 +89,13 @@ docker tag springio/fin:latest sitarobinson/fin:firsttry
 docker push sitarobinson/fin:firsttry
 ```
 
-<b>Running the Java API Locally (With Docker).  Open on port 8081:</b>
+<b>Running the Java API Locally (With Docker). Open on port 8081:</b>
 `docker-compose up`
 
 [API Docker Hub Link](https://hub.docker.com/repository/docker/sitarobinson/fin)
 
 <b>Viewing the production Java API:</b>
-
-```
-TODO
-```
+https://finaccounts-webservice.herokuapp.com/users?userID=1
 
 Resources
 

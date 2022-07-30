@@ -2,22 +2,22 @@ name: Java CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
-jobs: 
+jobs:
   compile:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./fin
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-java@v1
-      with:
-        java-version: '15' # The JDK version to make available on the path.
-        java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
-        architecture: x64 # (x64 or x86) - defaults to x64
-    - run: mvn compile
+      - uses: actions/checkout@master
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "15" # The JDK version to make available on the path.
+          java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - run: mvn compile
   test:
     runs-on: ubuntu-latest
     name: Running tests
@@ -30,9 +30,15 @@ jobs:
       - name: Set up JDK 15
         uses: actions/setup-java@v1
         with:
-          java-version: '15'
+          java-version: "15"
       - name: Run unit tests
         run: mvn test
-        
- 
-        
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "finaccounts-webservice"
+          heroku_email: "sita.robinson@gmail.com"
