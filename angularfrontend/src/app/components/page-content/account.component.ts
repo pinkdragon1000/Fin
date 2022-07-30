@@ -7,7 +7,9 @@ import { AccountAPIService } from '../../service/account-api.service';
   selector: 'app-account-component',
   template: `
     <app-page-template
-      [pagedirections]="'Click on an account to view and add information'"
+      [pagedirections]="
+        'Click on the Add Transaction button to add a deposit/withdraw'
+      "
       [pagetitle]="this.accountDescription"
     >
       <app-modal-button-component
