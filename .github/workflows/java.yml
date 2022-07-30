@@ -35,6 +35,9 @@ jobs:
         run: mvn test
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./fin
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
@@ -42,5 +45,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "finaccounts-webservice"
           heroku_email: "sita.robinson@gmail.com"
-        env:
-          PROJECT_PATH: ./fin
