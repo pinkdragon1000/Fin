@@ -42,3 +42,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "finaccounts-webservice"
           heroku_email: "sita.robinson@gmail.com"
+        env:
+          PROJECT_PATH: ./fin
