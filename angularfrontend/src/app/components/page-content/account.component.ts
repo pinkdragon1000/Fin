@@ -30,53 +30,64 @@ import { AccountAPIService } from '../../service/account-api.service';
         ></app-button-component>
       </app-modal-button-component>
 
-      <p>Transactions</p>
       <div class="scroll">
-        <app-table-component [headerData]="this.transactionHeaders">
-          <tr
-            *ngFor="let transaction of transactionData"
-            [ngClass]="{
-              'text-deposit': transaction.transaction_type === 'Deposit',
-              'text-withdraw': transaction.transaction_type === 'Withdraw'
-            }"
+        <ng-container *ngIf="this.transactionData?.length !== 0">
+          <app-table-component
+            [tableLabel]="'Transactions'"
+            [headerData]="this.transactionHeaders"
           >
-            <td>{{ transaction.transaction_date }}</td>
-            <td>{{ transaction.transaction_type }}</td>
-            <td
+            <tr
+              *ngFor="let transaction of transactionData"
               [ngClass]="{
-                'text-deposit-arrow':
-                  transaction.transaction_type === 'Deposit',
-                'text-withdraw-arrow':
-                  transaction.transaction_type === 'Withdraw'
+                'text-deposit': transaction.transaction_type === 'Deposit',
+                'text-withdraw': transaction.transaction_type === 'Withdraw'
               }"
             >
-              \${{ transaction.transaction_amount }}
-            </td>
-            <td>\${{ transaction.transaction_subTotal }}</td>
-          </tr>
-        </app-table-component>
+              <td>{{ transaction.transaction_date }}</td>
+              <td>{{ transaction.transaction_type }}</td>
+              <td
+                [ngClass]="{
+                  'text-deposit-arrow':
+                    transaction.transaction_type === 'Deposit',
+                  'text-withdraw-arrow':
+                    transaction.transaction_type === 'Withdraw'
+                }"
+              >
+                \${{ transaction.transaction_amount }}
+              </td>
+              <td>\${{ transaction.transaction_subTotal }}</td>
+            </tr>
+          </app-table-component>
+        </ng-container>
       </div>
+
       <br />
       <br />
-      <p>Overall Account Summary</p>
-      <app-table-component [headerData]="this.accountHeaders">
+      <app-table-component
+        [tableLabel]="'Overall Account Summary'"
+        [headerData]="this.accountHeaders"
+      >
         <tr>
           <td>\${{ this.accountStartingAmount }}</td>
           <td>\${{ this.accountDeposits }}</td>
           <td>\${{ this.accountWithdraws }}</td>
 
-          <td>
-            \${{
-              this.transactionData?.slice(-1).pop().transaction_subTotal ||
-                this.accountStartingAmount
-            }}
-          </td>
-          <td>
-            \${{
-              (this.transactionData?.slice(-1).pop().transaction_subTotal ||
-                this.accountStartingAmount) - this.accountStartingAmount
-            }}
-          </td>
+          <ng-container *ngIf="this.transactionData?.length !== 0">
+            <td>
+              \${{ this.transactionData?.slice(-1).pop().transaction_subTotal }}
+            </td>
+            <td>
+              \${{
+                this.transactionData?.slice(-1).pop().transaction_subTotal -
+                  this.accountStartingAmount
+              }}
+            </td>
+          </ng-container>
+
+          <ng-container *ngIf="this.transactionData?.length === 0">
+            <td>\${{ this.accountStartingAmount }}</td>
+            <td>$0</td>
+          </ng-container>
         </tr>
       </app-table-component>
     </app-page-template>

@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-table-component',
   template: `
+    <p>{{ tableLabel }}</p>
     <table>
       <tr>
         <th *ngFor="let header of headerData">{{ header }}</th>
@@ -33,6 +34,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input() headerData: any;
+  @Input() tableLabel: string;
 
   ngOnInit() {}
 }
