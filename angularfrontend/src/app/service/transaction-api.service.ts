@@ -1,8 +1,7 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { environment as envirDev } from 'src/environments/environment';
-import { environment as envirProd } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TransactionAPIService {
@@ -13,13 +12,7 @@ export class TransactionAPIService {
   constructor(private http: HttpClient) {}
 
   getEnvironmentCommon() {
-    if (isDevMode) {
-      console.log('dev');
-      this.webservicePath = envirDev.webservicePath;
-    } else {
-      console.log('prod');
-      this.webservicePath = envirProd.webservicePath;
-    }
+    this.webservicePath = environment.webservicePath;
     return this.webservicePath;
   }
 
