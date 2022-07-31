@@ -1,7 +1,8 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment as envirDev } from 'src/environments/environment';
+import { environment as envirProd } from 'src/environments/environment.prod';
 
 @Injectable()
 export class UserAPIService {
@@ -15,15 +16,16 @@ export class UserAPIService {
   getEnvironmentCommon() {
     if (isDevMode) {
       console.log('dev');
-      this.webservicePath = environment.webservicePath;
+      this.webservicePath = envirDev.webservicePath;
     } else {
       console.log('prod');
-      this.webservicePath = environment.webservicePath;
+      this.webservicePath = envirProd.webservicePath;
     }
     return this.webservicePath;
   }
 
   getUserData(callback: any, userId: string) {
+    this.webservicePath = this.getEnvironmentCommon();
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
