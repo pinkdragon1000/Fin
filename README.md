@@ -104,3 +104,5 @@ Resources
 - https://spring.io/guides/gs/spring-boot/
 - https://spring.io/guides/gs/spring-boot-docker/
 - https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.5.4
+- https://www.codejava.net/heroku/deploy-spring-boot-app-with-mysql
+- https://devcenter.heroku.com/articles/java-support
