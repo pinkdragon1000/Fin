@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  webservicePath: 'http://localhost:8080/',
 };
 
 /*
