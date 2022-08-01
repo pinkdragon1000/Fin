@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAPIService } from '../../service/user-api.service';
+import * as shajs from 'sha.js';
 
 @Component({
   selector: 'app-login-content-component',
@@ -35,6 +36,7 @@ export class SigninComponent implements OnInit {
   password: string;
   error: string;
   response: any;
+  hashedPassword: string;
   public userId: string;
   inputData = [
     {
@@ -66,8 +68,14 @@ export class SigninComponent implements OnInit {
     if (this.email === '' || this.password === '') {
       console.log('Please fill out all fields');
     } else {
+      this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
+
       const body =
-        '{"email": "' + this.email + '", "password": "' + this.password + '"}';
+        '{"email": "' +
+        this.email +
+        '", "password": "' +
+        this.hashedPassword +
+        '"}';
 
       console.log(body);
       this.userApiService.postValidateUser(body, (response) => {
