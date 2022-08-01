@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'addAccounts', component: AddAccountsComponent },
   { path: 'manageAccounts', component: ManageAccountsComponent },
   { path: 'account', component: AccountComponent },
+  { path: '**', component: SigninComponent },
 ];
 
 @NgModule({
