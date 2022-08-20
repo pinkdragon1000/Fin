@@ -65,7 +65,7 @@ export class SigninComponent implements OnInit {
     ).value;
 
     if (this.email === '' || this.password === '') {
-      console.log('Please fill out all fields');
+      this.error = 'Please fill out all fields';
     } else {
       this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
 
@@ -76,10 +76,7 @@ export class SigninComponent implements OnInit {
         this.hashedPassword +
         '"}';
 
-      console.log(body);
       this.userApiService.postValidateUser(body, (response) => {
-        console.log(response);
-
         if (
           response === 'Email and password failed validation.' ||
           response === "Email doesn't exist.  Please signup" ||
@@ -89,7 +86,6 @@ export class SigninComponent implements OnInit {
         } else {
           location.href = '/manageAccounts';
           this.userId = response.split('as ').pop();
-          console.log(this.userId);
           sessionStorage.setItem('userId', this.userId);
         }
       });
