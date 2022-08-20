@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   selector: 'app-signup-content-component',
   template: `
     <app-header-page-template [pagetitle]="'Sign Up'">
-      <form>
+      <div>
+        <div *ngIf="error" [innerHTML]="error" class="error"></div>
+
         <app-input-group-component [inputData]="this.inputData">
         </app-input-group-component>
 
@@ -18,7 +20,7 @@ import { Router } from '@angular/router';
             (click)="postUserData()"
           ></app-button-component>
         </div>
-      </form>
+      </div>
       <a href="/">Already have an account? Login -> </a>
     </app-header-page-template>
   `,
@@ -27,7 +29,6 @@ import { Router } from '@angular/router';
       .login-button {
         display: flex;
         justify-content: center;
-        width: 70%;
       }
     `,
   ],
@@ -35,8 +36,10 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   fullName: string;
   email: string;
+  error: string;
   password: string;
   hashedPassword: string;
+  public userId: string;
   inputData = [
     {
       label: 'Full Name',
@@ -72,7 +75,7 @@ export class SignupComponent implements OnInit {
     ).value;
 
     if (this.fullName === '' || this.email === '' || this.password === '') {
-      console.log('Please fill out all fields');
+      this.error = 'Please fill out all fields';
     } else {
       this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
 
@@ -85,8 +88,15 @@ export class SignupComponent implements OnInit {
         this.hashedPassword +
         '"}';
 
-      this.userApiService.postUserData(body);
-      this.router.navigate(['manageAccounts']);
+      this.userApiService.postUserData(body, (response) => {
+        if (response === 'Post failed with errors') {
+          this.error = 'User was not created.  Please try again';
+        } else {
+          this.userId = response['user_id'];
+          sessionStorage.setItem('userId', this.userId);
+          this.router.navigate(['manageAccounts']);
+        }
+      });
     }
   }
 

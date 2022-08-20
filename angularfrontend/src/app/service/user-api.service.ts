@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 export class UserAPIService {
   userResult: any;
   authResult: string;
+  addUserResult: any;
   auth: string = 'Basic ' + btoa('srobinson:bl');
   webservicePath: string;
 
@@ -34,7 +35,7 @@ export class UserAPIService {
       });
   }
 
-  postUserData(body: string) {
+  postUserData(body: string, callback: any) {
     this.webservicePath = this.getEnvironmentCommon();
     const headers = {
       'content-type': 'application/json',
@@ -47,14 +48,18 @@ export class UserAPIService {
         headers,
         observe: 'response',
       })
+      .pipe(map((res) => res))
       .subscribe(
-        (response) => {
+        (res) => {
           console.log(
-            'POST completed sucessfully. The response received ' + response
+            'POST completed sucessfully. The response received ' + res
           );
+          this.addUserResult = res['body'];
+          callback(this.addUserResult);
         },
         (error) => {
-          console.log('Post failed with the errors');
+          this.addUserResult = 'Post failed with errors';
+          callback(this.addUserResult);
         },
         () => {
           console.log('Post Completed');

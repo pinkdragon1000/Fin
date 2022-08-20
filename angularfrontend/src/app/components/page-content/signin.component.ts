@@ -26,7 +26,6 @@ import * as shajs from 'sha.js';
       .login-button {
         display: flex;
         justify-content: center;
-        width: 70%;
       }
     `,
   ],
