@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-select-component',
   template: `
-    <div class="selectComponent">
+    <ng-container class="selectComponent">
       <label>{{ label }}</label>
       <br />
       <select class="select" id="select">
@@ -15,7 +15,8 @@ import { Component, Input, OnInit } from '@angular/core';
           {{ option.description }}
         </option>
       </select>
-    </div>
+      <br />
+    </ng-container>
   `,
   styles: [
     `

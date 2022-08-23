@@ -17,13 +17,13 @@ import { AccountAPIService } from '../../service/account-api.service';
         [label]="'Add Transaction'"
         [class]="'primary'"
       >
-        <app-input-group-component [inputData]="this.inputData">
-        </app-input-group-component>
-
-        <app-select-component
-          [label]="'Transaction Type'"
+        <app-input-select-group-component
+          [inputData]="this.inputData"
+          [selectLabelData]="this.selectLabelData"
           [selectData]="this.selectData"
-        ></app-select-component>
+        >
+        </app-input-select-group-component>
+
         <br />
         <app-button-component
           [label]="'Submit Transaction'"
@@ -144,20 +144,23 @@ export class AccountComponent implements OnInit {
 
   transactionData: Array<any>;
 
+  selectLabelData = ['Transaction Type'];
   selectData = [
-    {
-      value: 0,
-      description: 'Select your transaction type',
-      disabled: true,
-    },
-    {
-      value: 1,
-      description: 'Deposit',
-    },
-    {
-      value: 2,
-      description: 'Withdraw',
-    },
+    [
+      {
+        value: 0,
+        description: 'Select your transaction type',
+        disabled: true,
+      },
+      {
+        value: 1,
+        description: 'Deposit',
+      },
+      {
+        value: 2,
+        description: 'Withdraw',
+      },
+    ],
   ];
 
   transactionHeaders = [

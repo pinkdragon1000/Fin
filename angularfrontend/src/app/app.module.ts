@@ -29,6 +29,7 @@ import { EmptyContentComponent } from './components/small-components/empty-conte
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputSelectGroupComponent } from './components/small-components/input-select-group.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SelectComponent,
     ButtonComponent,
     InputGroupComponent,
+    InputSelectGroupComponent,
     InputComponent,
     TableComponent,
     HeaderPageTemplateComponent,

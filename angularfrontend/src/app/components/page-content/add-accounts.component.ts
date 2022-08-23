@@ -13,13 +13,12 @@ import { AccountAPIService } from '../../service/account-api.service';
     >
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
       <form>
-        <app-select-component
-          [label]="'Account Type (checking/savings)'"
+        <app-input-select-group-component
+          [inputData]="this.inputData"
+          [selectLabelData]="this.selectLabelData"
           [selectData]="this.selectData"
-        ></app-select-component>
-
-        <app-input-group-component [inputData]="this.inputData">
-        </app-input-group-component>
+        >
+        </app-input-select-group-component>
 
         <app-button-component
           [label]="'Add Account'"
@@ -38,6 +37,8 @@ export class AddAccountsComponent implements OnInit {
   accountTypeNum: any;
   accountType: string;
   userId: string = sessionStorage.getItem('userId');
+
+  selectLabelData = ['Account Type (checking/savings)'];
 
   inputData = [
     {
@@ -59,19 +60,21 @@ export class AddAccountsComponent implements OnInit {
   ];
 
   selectData = [
-    {
-      value: '0',
-      description: 'Select your account type',
-      disabled: true,
-    },
-    {
-      value: '1',
-      description: 'Checking',
-    },
-    {
-      value: '2',
-      description: 'Savings',
-    },
+    [
+      {
+        value: '0',
+        description: 'Select your account type',
+        disabled: true,
+      },
+      {
+        value: '1',
+        description: 'Checking',
+      },
+      {
+        value: '2',
+        description: 'Savings',
+      },
+    ],
   ];
 
   constructor(private accountApiService: AccountAPIService) {}

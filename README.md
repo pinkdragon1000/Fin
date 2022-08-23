@@ -5,7 +5,7 @@
 ![](http://online.swagger.io/validator?url=https%3A%2F%2Fpinkdragon1000.github.io%2Ffin-api-spec%2Fswagger.yaml)
 
 - Angular application with Java backend to keep track of financial account transactions and deposits
-- This project uses [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4. The Java portion of this application uses Java 14 and Spring Boot.
+- This project uses [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4. The Java portion of this application uses Java 15 and Spring Boot.
 
 - End User Goal: An application to keep track of account transactions for checking and savings accounts.
 - End Technical Goal: Create a Java API that will be consumed by the Angular frontend application. Use technologies including Angular, Java Spring Boot, Heroku, MySQL, Firebase Hosting and Docker.
@@ -16,9 +16,11 @@
 
 ![](https://github.com/pinkdragon1000/Fin/blob/master/architectureDiagram.drawio.png)
 
-### Angular Application
+### Deploy Diagram
 
-![](https://github.com/pinkdragon1000/Fin/blob/master/angularBuildDeployDiagram.drawio.png)
+![](https://github.com/pinkdragon1000/Fin/blob/master/angularspringBuildDeployDiagram.drawio.png)
+
+### Angular Application
 
 <b>Viewing the production deployed Angular Application:</b>
 
@@ -41,21 +43,12 @@ ng build --prod
 firebase deploy
 ```
 
-<b> Code scaffolding </b>
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-<b> Running unit tests </b>
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-<b> Running end-to-end tests </b>
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
 ### Java API
 
 View the API Spec Here: https://pinkdragon1000.github.io/fin-api-spec/
+
+<b>Viewing the production Java API:</b>
+https://finaccounts-webservice.herokuapp.com/users?userID=1
 
 <b>Running the Java API Locally (Without Docker):</b>
 
@@ -93,9 +86,6 @@ docker push sitarobinson/fin:firsttry
 `docker-compose up`
 
 [API Docker Hub Link](https://hub.docker.com/repository/docker/sitarobinson/fin)
-
-<b>Viewing the production Java API:</b>
-https://finaccounts-webservice.herokuapp.com/users?userID=1
 
 Resources
 
