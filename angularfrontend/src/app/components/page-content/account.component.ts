@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionAPIService } from '../../service/transaction-api.service';
 import { AccountAPIService } from '../../service/account-api.service';
-//import { formatDate } from '@angular/common';
+import * as accountUtils from './../../utils/account-utils';
+import * as dateUtils from './../../utils/date-utils';
 
 @Component({
   selector: 'app-account-component',
@@ -18,9 +19,9 @@ import { AccountAPIService } from '../../service/account-api.service';
         [class]="'primary'"
       >
         <app-input-select-group-component
-          [inputData]="this.inputData"
-          [selectLabelData]="this.selectLabelData"
-          [selectData]="this.selectData"
+          [inputData]="accountUtils.inputData"
+          [selectLabelData]="accountUtils.selectLabelData"
+          [selectData]="accountUtils.selectData"
         >
         </app-input-select-group-component>
 
@@ -36,7 +37,7 @@ import { AccountAPIService } from '../../service/account-api.service';
         <ng-container *ngIf="this.transactionData?.length !== 0">
           <app-table-component
             [tableLabel]="'Transactions'"
-            [headerData]="this.transactionHeaders"
+            [headerData]="accountUtils.transactionHeaders"
           >
             <tr
               *ngFor="let transaction of transactionData"
@@ -45,7 +46,9 @@ import { AccountAPIService } from '../../service/account-api.service';
                 'text-withdraw': transaction.transaction_type === 'Withdraw'
               }"
             >
-              <td>{{ transaction.transaction_date }}</td>
+              <td>
+                {{ dateUtils.dateFormatter(transaction.transaction_date) }}
+              </td>
               <td>{{ transaction.transaction_type }}</td>
               <td
                 [ngClass]="{
@@ -67,31 +70,41 @@ import { AccountAPIService } from '../../service/account-api.service';
       <br />
       <app-table-component
         [tableLabel]="'Overall Account Summary'"
-        [headerData]="this.accountHeaders"
+        [headerData]="accountUtils.accountHeaders"
       >
         <tr>
           <td>\${{ this.accountStartingAmount }}</td>
           <td>\${{ this.accountDeposits }}</td>
           <td>\${{ this.accountWithdraws }}</td>
-
-          <ng-container *ngIf="this.transactionData?.length !== 0">
-            <td>
-              \${{ this.transactionData?.slice(-1).pop().transaction_subTotal }}
-            </td>
-            <td>
-              \${{
-                this.transactionData?.slice(-1).pop().transaction_subTotal -
-                  this.accountStartingAmount
-              }}
-            </td>
-          </ng-container>
-
-          <ng-container *ngIf="this.transactionData?.length === 0">
-            <td>\${{ this.accountStartingAmount }}</td>
-            <td>$0</td>
-          </ng-container>
+          <td>\${{ this.accountCurrentAmount }}</td>
+          <td>\${{ this.accountDifference }}</td>
         </tr>
       </app-table-component>
+
+      <!--
+      <div class="row">
+        <app-vertical-bar-component
+          [colorScheme]="'orangePink'"
+          [plot]="[
+            {name: 'Account Starting', value: this.accountStartingAmount },
+            { name: 'Account Current', value: this.accountCurrentAmount }
+          ]"
+          [xLabel]="'Account Status'"
+          [yLabel]="'Dollars ($)'"
+        >
+        </app-vertical-bar-component>
+        <app-vertical-bar-component
+          [colorScheme]="'redGreen'"
+          [plot]="[
+            { name: 'Deposits', value: this.accountDeposits },
+            { name: 'Withdrawals', value: this.accountWithdraws }
+          ]"
+          [xLabel]="'Transaction Type'"
+          [yLabel]="'Dollars ($)'"
+        >
+        </app-vertical-bar-component>
+      </div>
+      -->
     </app-page-template>
   `,
   styles: [
@@ -132,76 +145,22 @@ import { AccountAPIService } from '../../service/account-api.service';
 })
 export class AccountComponent implements OnInit {
   accountStartingAmount: number = 0;
-  accountDeposits: number = 0;
-  accountWithdraws: number = 0;
+  accountDeposits: number;
+  accountWithdraws: number;
+  accountCurrentAmount: number;
+  accountDifference: number;
   accountIDnum: number;
   accountDescription: string;
-  accountUser: number;
   accountIndex: number;
   transactionTypeNum: string;
   transactionType: string;
-  userId: string = sessionStorage.getItem('userId');
+  userID: string = sessionStorage.getItem('userId');
+
+  //Reference imported util variables
+  accountUtils: any = accountUtils;
+  dateUtils: any = dateUtils;
 
   transactionData: Array<any>;
-
-  selectLabelData = ['Transaction Type'];
-  selectData = [
-    [
-      {
-        value: 0,
-        description: 'Select your transaction type',
-        disabled: true,
-      },
-      {
-        value: 1,
-        description: 'Deposit',
-      },
-      {
-        value: 2,
-        description: 'Withdraw',
-      },
-    ],
-  ];
-
-  transactionHeaders = [
-    'Transaction Date',
-    'Transaction Type',
-    'Transaction Amount',
-    'Sub-Total',
-  ];
-
-  accountHeaders = [
-    'Account Starting Amount',
-    'Account Deposits',
-    'Account Withdraws',
-    'Account Current Amount',
-    'Overall Account Difference (Current-Starting)',
-  ];
-
-  inputData = [
-    {
-      label: 'Transaction Amount',
-      placeholder: 'Type in your transaction amount',
-      type: 'number',
-      name: 'amount',
-      min: 0,
-      id: 'amount',
-    },
-    {
-      label: 'Transaction Group',
-      placeholder: 'Type in your transaction group',
-      type: 'text',
-      name: 'transaction group',
-      id: 'group',
-    },
-    {
-      label: 'Transaction Date',
-      placeholder: 'Type in your transaction date',
-      type: 'date',
-      name: 'date',
-      id: 'date',
-    },
-  ];
 
   constructor(
     private accountApiService: AccountAPIService,
@@ -213,7 +172,6 @@ export class AccountComponent implements OnInit {
     this.transactionTypeNum = (
       document.getElementById('select') as HTMLInputElement
     ).value;
-    console.log(this.transactionTypeNum);
     if (this.transactionTypeNum === '1') {
       this.transactionType = 'Deposit';
     } else if (this.transactionTypeNum === '2') {
@@ -228,8 +186,6 @@ export class AccountComponent implements OnInit {
       document.getElementById('amount') as HTMLInputElement
     ).value;
 
-    console.log(transactionDate);
-
     const body =
       '{"account_id":{"account_id":' +
       this.accountIDnum +
@@ -240,7 +196,6 @@ export class AccountComponent implements OnInit {
       '", "transaction_amount":' +
       transactionAmount +
       ', "transaction_subTotal": 0}';
-    console.log(body);
     this.transactionApiService.postTransactionData(body);
     location.reload();
   }
@@ -255,9 +210,10 @@ export class AccountComponent implements OnInit {
       this.accountDescription = d[this.accountIndex].account_Description;
       this.accountDeposits = d[this.accountIndex].deposit_amount;
       this.accountWithdraws = d[this.accountIndex].withdraw_amount;
-      this.accountUser = d[this.accountIndex].user_id;
       this.accountStartingAmount = d[this.accountIndex].account_Starting_Amount;
-    }, this.userId);
+      this.accountCurrentAmount = d[this.accountIndex].account_Current_Amount;
+      this.accountDifference = d[this.accountIndex].account_Difference;
+    }, this.userID);
 
     this.transactionApiService.getTransactionDataAsync((d: Array<any>) => {
       this.transactionData = d;

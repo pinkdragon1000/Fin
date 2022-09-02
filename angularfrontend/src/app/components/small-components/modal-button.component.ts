@@ -23,7 +23,6 @@ import { ModalService } from './modal.service';
       #transaction {
         display: none;
       }
-
       .hidden {
         display: none;
       }

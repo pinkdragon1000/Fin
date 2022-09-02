@@ -23,11 +23,9 @@ import { Component, Input, OnInit } from '@angular/core';
       label {
         color: var(--fin-neutral-1);
       }
-
       .select {
         width: 52%;
       }
-
       select {
         border-radius: 20rem;
         font-size: 1rem;
@@ -41,7 +39,6 @@ import { Component, Input, OnInit } from '@angular/core';
         background: var(--fin-neutral-6);
         color: var(--fin-neutral-1);
       }
-
       select:focus {
         outline: none;
         box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);

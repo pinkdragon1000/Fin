@@ -17,12 +17,10 @@ import { Component, Input, OnInit } from '@angular/core';
         background-color: var(--fin-neutral-6);
         color: var(--fin-neutral-1);
       }
-
       table {
         border-collapse: collapse;
         width: 100%;
       }
-
       td,
       th {
         border: 0.063rem solid #dddddd;

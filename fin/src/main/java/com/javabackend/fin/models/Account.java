@@ -26,11 +26,16 @@ public class Account {
     private String account_description;
 
     @Column(name="deposit_amount", nullable=false)
-    private BigDecimal deposit_amount;
+    private BigDecimal deposit_amount=BigDecimal.ZERO;
 
     @Column(name="withdraw_amount", nullable=false)
-    private BigDecimal withdraw_amount;
+    private BigDecimal withdraw_amount=BigDecimal.ZERO;
 
+    @Column(name="account_current_amount")
+    private BigDecimal account_current_amount;
+
+    @Column(name="account_difference")
+    private BigDecimal account_difference;
 
     public Long getAccount_id() {
         return account_id;
@@ -70,6 +75,22 @@ public class Account {
 
     public void setAccount_Starting_Amount(BigDecimal account_starting_amount) {
         this.account_starting_amount = account_starting_amount;
+    }
+
+    public BigDecimal getAccount_Current_Amount() {
+        return account_current_amount;
+    }
+
+    public void setAccount_Current_Amount(BigDecimal account_current_amount) {
+        this.account_current_amount = account_current_amount;
+    }
+
+    public BigDecimal getAccount_Difference() {
+        return account_difference;
+    }
+
+    public void setAccount_Difference(BigDecimal account_difference) {
+        this.account_difference = account_difference;
     }
 
     public BigDecimal getDeposit_amount() {

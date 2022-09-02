@@ -21,7 +21,6 @@ import { Component, OnInit, Input } from '@angular/core';
         padding: 1rem;
         border-radius: 0.625rem;
       }
-
       .space-between {
         display: flex;
         justify-content: space-between;

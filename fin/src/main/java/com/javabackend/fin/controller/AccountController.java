@@ -21,6 +21,8 @@ public class AccountController {
     public Collection<Account> findAccounts(@RequestParam Long userID) {
         Collection<Account> accounts= accountService.findAllAccountsByUserID(userID);
         accounts=accountService.setDepositWithdrawAmount(accounts);
+        accounts=accountService.setAllAccountCurrentAmounts(accounts);
+        accounts=accountService.setAllAccountDifferences(accounts);
         return accounts;
     }
 

@@ -24,7 +24,6 @@ import { Component, OnInit, Input } from '@angular/core';
       .content {
         margin: 2rem 2rem 0rem 2rem;
       }
-
       .login-signup-container {
         align-items: center;
         margin-top: 5rem;

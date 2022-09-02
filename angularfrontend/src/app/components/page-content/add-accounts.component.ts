@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountAPIService } from '../../service/account-api.service';
+import * as addAccountsUtils from './../../utils/add-accounts-utils';
 
 @Component({
   selector: 'app-add-accounts-content-component',
@@ -14,9 +15,9 @@ import { AccountAPIService } from '../../service/account-api.service';
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
       <form>
         <app-input-select-group-component
-          [inputData]="this.inputData"
-          [selectLabelData]="this.selectLabelData"
-          [selectData]="this.selectData"
+          [inputData]="addAccountsUtils.inputData"
+          [selectLabelData]="addAccountsUtils.selectLabelData"
+          [selectData]="addAccountsUtils.selectData"
         >
         </app-input-select-group-component>
 
@@ -37,45 +38,8 @@ export class AddAccountsComponent implements OnInit {
   accountTypeNum: any;
   accountType: string;
   userId: string = sessionStorage.getItem('userId');
-
-  selectLabelData = ['Account Type (checking/savings)'];
-
-  inputData = [
-    {
-      label: 'Account Description (Example: TD Bank Checking)',
-      placeholder: 'Type in your account description',
-      type: 'text',
-      name: 'description',
-      id: 'description',
-      min: 0,
-    },
-    {
-      label: 'Account Starting Amount ($)',
-      placeholder: 'Type in your account starting amount',
-      type: 'number',
-      name: 'amount',
-      id: 'amount',
-      min: 1,
-    },
-  ];
-
-  selectData = [
-    [
-      {
-        value: '0',
-        description: 'Select your account type',
-        disabled: true,
-      },
-      {
-        value: '1',
-        description: 'Checking',
-      },
-      {
-        value: '2',
-        description: 'Savings',
-      },
-    ],
-  ];
+  //Reference imported util variables
+  addAccountsUtils: any = addAccountsUtils;
 
   constructor(private accountApiService: AccountAPIService) {}
 
@@ -83,7 +47,6 @@ export class AddAccountsComponent implements OnInit {
     this.accountTypeNum = (
       document.getElementById('select') as HTMLInputElement
     ).value;
-    console.log(this.accountTypeNum);
     if (this.accountTypeNum === '1') {
       this.accountType = 'Checking';
     } else if (this.accountTypeNum === '2') {
@@ -113,9 +76,7 @@ export class AddAccountsComponent implements OnInit {
         this.startingAmount +
         ', "account_Description": "' +
         this.accountDescription +
-        '", "deposit_amount": 0, "withdraw_amount": 0}';
-
-      console.log(body);
+        '"}';
 
       this.accountApiService.postAccountData(body);
     }

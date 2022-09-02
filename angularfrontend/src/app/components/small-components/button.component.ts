@@ -21,28 +21,23 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         letter-spacing: 0.094rem;
         min-width: 8rem;
       }
-
       button:hover {
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
           border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       }
-
       button:focus {
         outline: none;
         box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
       }
-
       .primary {
         background: var(--fin-gradient);
         padding: 1rem 2.5rem;
         text-transform: uppercase;
       }
-
       .primary:hover {
         box-shadow: 0.125rem 0.188rem 0.313rem 0.063rem
           var(--fin-blue-1-transparent);
       }
-
       .secondary {
         background-color: var(--fin-white);
         border: 0.063rem var(--fin-neutral-4) solid;
@@ -50,12 +45,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         padding: 0.75rem 1rem;
         min-width: 5rem;
       }
-
       .secondary:hover {
         box-shadow: 0.063rem 0.125rem 0.5rem 0.063rem
           var(--fin-neutral-3-transparent);
       }
-
       .btn-help {
         position: fixed;
         width: 3.75rem;
@@ -69,7 +62,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         font-size: 2rem;
         text-shadow: 0.05rem 0.05rem var(--fin-neutral-1);
       }
-
       .trash {
         background: url('../../../assets/trash.svg');
         background-repeat: no-repeat;

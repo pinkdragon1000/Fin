@@ -24,7 +24,6 @@ export class TransactionAPIService {
       .subscribe((res) => {
         this.transactionsResult = res;
         callback(this.transactionsResult);
-        console.log(this.transactionsResult);
       });
   }
 

@@ -18,7 +18,6 @@ import { Component, OnInit, Input } from '@angular/core';
       .emptyicon {
         padding-left: 3rem;
       }
-
       .wrapper {
         display: flex;
         flex-direction: column;

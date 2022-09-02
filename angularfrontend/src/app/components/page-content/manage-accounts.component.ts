@@ -1,6 +1,7 @@
 import { AccountAPIService } from '../../service/account-api.service';
 import { Component, OnInit } from '@angular/core';
 import { Account } from 'src/app/models/account.models';
+
 @Component({
   selector: 'app-manage-accounts-content-component',
   template: `

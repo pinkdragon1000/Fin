@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAPIService } from '../../service/user-api.service';
 import * as shajs from 'sha.js';
+import * as signinUtils from '../../utils/signup-signin-utils';
 
 @Component({
   selector: 'app-login-content-component',
@@ -8,7 +9,7 @@ import * as shajs from 'sha.js';
     <app-header-page-template class="signin" [pagetitle]="'Sign In'">
       <div *ngIf="error" [innerHTML]="error" class="error"></div>
 
-      <app-input-group-component [inputData]="this.inputData">
+      <app-input-group-component [inputData]="signinUtils.inputData.slice(1)">
       </app-input-group-component>
 
       <div class="login-button">
@@ -37,22 +38,8 @@ export class SigninComponent implements OnInit {
   response: any;
   hashedPassword: string;
   public userId: string;
-  inputData = [
-    {
-      label: 'Email',
-      placeholder: 'Type in your email',
-      type: 'email',
-      name: 'email',
-      id: 'email',
-    },
-    {
-      label: 'Password',
-      placeholder: 'Type in your password',
-      type: 'password',
-      name: 'password',
-      id: 'password',
-    },
-  ];
+
+  signinUtils: any = signinUtils;
 
   constructor(private userApiService: UserAPIService) {}
 

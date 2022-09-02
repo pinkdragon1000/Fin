@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TransactionAPIService } from './service/transaction-api.service';
 import { AccountAPIService } from './service/account-api.service';
 import { UserAPIService } from './service/user-api.service';
 
+import { VerticalBarComponent } from './components/small-components/vertical-bar.component';
 import { ButtonComponent } from './components/small-components/button.component';
 import { InputComponent } from './components/small-components/input.component';
 import { InputGroupComponent } from './components/small-components/input-group.component';
@@ -37,8 +39,8 @@ import { InputSelectGroupComponent } from './components/small-components/input-s
     SelectComponent,
     ButtonComponent,
     InputGroupComponent,
-    InputSelectGroupComponent,
     InputComponent,
+    InputSelectGroupComponent,
     TableComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,
@@ -54,12 +56,14 @@ import { InputSelectGroupComponent } from './components/small-components/input-s
     AccountComponent,
     ModalComponent,
     ClickableListViewComponent,
+    VerticalBarComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxChartsModule,
   ],
   providers: [
     InputGroupComponent,

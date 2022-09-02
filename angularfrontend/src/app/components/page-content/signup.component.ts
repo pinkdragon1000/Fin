@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAPIService } from '../../service/user-api.service';
 import * as shajs from 'sha.js';
 import { Router } from '@angular/router';
+import { UserAPIService } from '../../service/user-api.service';
+import * as signupUtils from '../../utils/signup-signin-utils';
 
 @Component({
   selector: 'app-signup-content-component',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
       <div>
         <div *ngIf="error" [innerHTML]="error" class="error"></div>
 
-        <app-input-group-component [inputData]="this.inputData">
+        <app-input-group-component [inputData]="signupUtils.inputData">
         </app-input-group-component>
 
         <div class="login-button">
@@ -40,29 +41,10 @@ export class SignupComponent implements OnInit {
   password: string;
   hashedPassword: string;
   public userId: string;
-  inputData = [
-    {
-      label: 'Full Name',
-      placeholder: 'Type in your full name',
-      type: 'fname',
-      name: 'fname',
-      id: 'fname',
-    },
-    {
-      label: 'Email',
-      placeholder: 'Type in your email',
-      type: 'email',
-      name: 'email',
-      id: 'email',
-    },
-    {
-      label: 'Password',
-      placeholder: 'Type in your password',
-      type: 'password',
-      name: 'password',
-      id: 'password',
-    },
-  ];
+
+  //Reference imported util variables
+  signupUtils: any = signupUtils;
+
   constructor(private userApiService: UserAPIService, private router: Router) {}
 
   postUserData() {

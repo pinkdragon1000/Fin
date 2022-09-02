@@ -16,7 +16,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styles: [
     `
       .inputs {
-        width: 50%;
+        width: 80%;
       }
     `,
   ],
