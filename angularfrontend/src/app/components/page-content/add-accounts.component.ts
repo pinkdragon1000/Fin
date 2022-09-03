@@ -12,21 +12,23 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
     Manage Accounts in the navbar.'
       "
     >
-      <div *ngIf="error" [innerHTML]="error" class="error"></div>
-      <form>
-        <app-input-select-group-component
-          [inputData]="addAccountsUtils.inputData"
-          [selectLabelData]="addAccountsUtils.selectLabelData"
-          [selectData]="addAccountsUtils.selectData"
-        >
-        </app-input-select-group-component>
+      <div content>
+        <div *ngIf="error" [innerHTML]="error" class="error"></div>
+        <form>
+          <app-input-select-group-component
+            [inputData]="addAccountsUtils.inputData"
+            [selectLabelData]="addAccountsUtils.selectLabelData"
+            [selectData]="addAccountsUtils.selectData"
+          >
+          </app-input-select-group-component>
 
-        <app-button-component
-          [label]="'Add Account'"
-          [class]="'primary'"
-          (click)="postAccountData()"
-        ></app-button-component>
-      </form>
+          <app-button-component
+            [label]="'Add Account'"
+            [class]="'primary'"
+            (click)="postAccountData()"
+          ></app-button-component>
+        </form>
+      </div>
     </app-page-template>
   `,
   styles: [``],

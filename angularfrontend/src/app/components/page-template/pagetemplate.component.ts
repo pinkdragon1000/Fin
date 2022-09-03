@@ -7,10 +7,24 @@ import { User } from '../../models/user.models';
   template: `
     <app-navbar-component [userData]="this.userData"></app-navbar-component>
     <div class="content">
-      <h2 class="pagetitle">{{ pagetitle }}</h2>
-      <p>{{ pagedirections }}</p>
+      <div class="spaceBetween">
+        <div>
+          <h2 class="pagetitle">{{ pagetitle }}</h2>
+          <p>{{ pagedirections }}</p>
+        </div>
+
+        <app-modal-button-component
+          *ngIf="this.buttonlabel"
+          [type]="'transaction'"
+          [label]="this.buttonlabel"
+          [class]="'primary'"
+        >
+          <ng-content select="[form]"></ng-content>
+        </app-modal-button-component>
+      </div>
+
       <br />
-      <ng-content></ng-content>
+      <ng-content select="[content]"></ng-content>
     </div>
 
     <app-modal-button-component
@@ -35,12 +49,18 @@ import { User } from '../../models/user.models';
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
       }
+
+      .spaceBetween {
+        display: flex;
+        justify-content: space-between;
+      }
     `,
   ],
 })
 export class PageTemplateComponent implements OnInit {
   @Input() pagedirections: string;
   @Input() pagetitle: string;
+  @Input() buttonlabel: string;
   userData: string;
   userId: string = sessionStorage.getItem('userId');
 

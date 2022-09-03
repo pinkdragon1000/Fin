@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatTabsModule } from '@angular/material/tabs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TransactionAPIService } from './service/transaction-api.service';
@@ -64,6 +65,7 @@ import { InputSelectGroupComponent } from './components/small-components/input-s
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxChartsModule,
+    MatTabsModule,
   ],
   providers: [
     InputGroupComponent,

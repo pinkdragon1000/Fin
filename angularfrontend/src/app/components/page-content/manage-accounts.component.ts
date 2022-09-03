@@ -9,29 +9,31 @@ import { Account } from 'src/app/models/account.models';
       [pagetitle]="'Manage Accounts'"
       [pagedirections]="'Click on an account to view and add information'"
     >
-      <div *ngIf="accountData?.length !== 0">
-        <p class="align-right">Account Starting Amount</p>
-        <div *ngFor="let account of accountData" class="clickable-view">
-          <app-clickable-list-view
-            [name]="account.account_Description"
-            [link]="'/account?id='.concat(account.account_id)"
-            [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
-          >
-          </app-clickable-list-view>
+      <ng-container content>
+        <div *ngIf="accountData?.length !== 0">
+          <p class="align-right">Account Starting Amount</p>
+          <div *ngFor="let account of accountData" class="clickable-view">
+            <app-clickable-list-view
+              [name]="account.account_Description"
+              [link]="'/account?id='.concat(account.account_id)"
+              [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
+            >
+            </app-clickable-list-view>
 
-          <app-button-component
-            [class]="'trash'"
-            (click)="deleteAccount(account.account_id)"
-          ></app-button-component>
+            <app-button-component
+              [class]="'trash'"
+              (click)="deleteAccount(account.account_id)"
+            ></app-button-component>
+          </div>
         </div>
-      </div>
 
-      <div *ngIf="accountData?.length === 0">
-        <app-emptycontent
-          emptyHeader="No Accounts Yet"
-          emptyPar="Click 'Add Accounts' in the navbar to add an account. "
-        ></app-emptycontent>
-      </div>
+        <div *ngIf="accountData?.length === 0">
+          <app-emptycontent
+            emptyHeader="No Accounts Yet"
+            emptyPar="Click 'Add Accounts' in the navbar to add an account. "
+          ></app-emptycontent>
+        </div>
+      </ng-container>
     </app-page-template>
   `,
   styles: [

@@ -12,12 +12,9 @@ import * as dateUtils from './../../utils/date-utils';
         'Click on the Add Transaction button to add a deposit/withdraw'
       "
       [pagetitle]="this.accountDescription"
+      [buttonlabel]="'Add Transaction'"
     >
-      <app-modal-button-component
-        [type]="'transaction'"
-        [label]="'Add Transaction'"
-        [class]="'primary'"
-      >
+      <ng-container form>
         <app-input-select-group-component
           [inputData]="accountUtils.inputData"
           [selectLabelData]="accountUtils.selectLabelData"
@@ -26,85 +23,96 @@ import * as dateUtils from './../../utils/date-utils';
         </app-input-select-group-component>
 
         <br />
+
         <app-button-component
           [label]="'Submit Transaction'"
           [class]="'primary'"
           (click)="postTransactionData()"
         ></app-button-component>
-      </app-modal-button-component>
+      </ng-container>
 
-      <div class="scroll">
-        <ng-container *ngIf="this.transactionData?.length !== 0">
-          <app-table-component
-            [tableLabel]="'Transactions'"
-            [headerData]="accountUtils.transactionHeaders"
-          >
-            <tr
-              *ngFor="let transaction of transactionData"
-              [ngClass]="{
-                'text-deposit': transaction.transaction_type === 'Deposit',
-                'text-withdraw': transaction.transaction_type === 'Withdraw'
-              }"
+      <div [@.disabled]="true" content>
+        <mat-tab-group mat-align-tabs="center" color="accent">
+          <mat-tab label="Table View">
+            <div class="scroll">
+              <ng-container *ngIf="this.transactionData?.length !== 0">
+                <app-table-component
+                  [tableLabel]="'Transactions'"
+                  [headerData]="accountUtils.transactionHeaders"
+                >
+                  <tr
+                    *ngFor="let transaction of transactionData"
+                    [ngClass]="{
+                      'text-deposit':
+                        transaction.transaction_type === 'Deposit',
+                      'text-withdraw':
+                        transaction.transaction_type === 'Withdraw'
+                    }"
+                  >
+                    <td>
+                      {{
+                        dateUtils.dateFormatter(transaction.transaction_date)
+                      }}
+                    </td>
+                    <td>{{ transaction.transaction_type }}</td>
+                    <td
+                      [ngClass]="{
+                        'text-deposit-arrow':
+                          transaction.transaction_type === 'Deposit',
+                        'text-withdraw-arrow':
+                          transaction.transaction_type === 'Withdraw'
+                      }"
+                    >
+                      \${{ transaction.transaction_amount }}
+                    </td>
+                    <td>\${{ transaction.transaction_subTotal }}</td>
+                  </tr>
+                </app-table-component>
+              </ng-container>
+            </div>
+
+            <br />
+            <br />
+            <app-table-component
+              [tableLabel]="'Overall Account Summary'"
+              [headerData]="accountUtils.accountHeaders"
             >
-              <td>
-                {{ dateUtils.dateFormatter(transaction.transaction_date) }}
-              </td>
-              <td>{{ transaction.transaction_type }}</td>
-              <td
-                [ngClass]="{
-                  'text-deposit-arrow':
-                    transaction.transaction_type === 'Deposit',
-                  'text-withdraw-arrow':
-                    transaction.transaction_type === 'Withdraw'
-                }"
+              <tr>
+                <td>\${{ this.accountStartingAmount }}</td>
+                <td>\${{ this.accountDeposits }}</td>
+                <td>\${{ this.accountWithdraws }}</td>
+                <td>\${{ this.accountCurrentAmount }}</td>
+                <td>\${{ this.accountDifference }}</td>
+              </tr>
+            </app-table-component>
+          </mat-tab>
+          <mat-tab label="Graph View">
+            <div class="row padding">
+              <app-vertical-bar-component
+                [colorScheme]="'orangePink'"
+                [plot]="[
+                  {
+                    name: 'Account Starting',
+                    value: this.accountStartingAmount
+                  },
+                  { name: 'Account Current', value: this.accountCurrentAmount }
+                ]"
+                [yLabel]="'Dollars ($)'"
               >
-                \${{ transaction.transaction_amount }}
-              </td>
-              <td>\${{ transaction.transaction_subTotal }}</td>
-            </tr>
-          </app-table-component>
-        </ng-container>
+              </app-vertical-bar-component>
+              <app-vertical-bar-component
+                [colorScheme]="'redGreen'"
+                [plot]="[
+                  { name: 'Deposits', value: this.accountDeposits },
+                  { name: 'Withdrawals', value: this.accountWithdraws }
+                ]"
+                [yLabel]="'Dollars ($)'"
+              >
+              </app-vertical-bar-component>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
       </div>
-
-      <br />
-      <br />
-      <app-table-component
-        [tableLabel]="'Overall Account Summary'"
-        [headerData]="accountUtils.accountHeaders"
-      >
-        <tr>
-          <td>\${{ this.accountStartingAmount }}</td>
-          <td>\${{ this.accountDeposits }}</td>
-          <td>\${{ this.accountWithdraws }}</td>
-          <td>\${{ this.accountCurrentAmount }}</td>
-          <td>\${{ this.accountDifference }}</td>
-        </tr>
-      </app-table-component>
-
-      <!--
-      <div class="row">
-        <app-vertical-bar-component
-          [colorScheme]="'orangePink'"
-          [plot]="[
-            {name: 'Account Starting', value: this.accountStartingAmount },
-            { name: 'Account Current', value: this.accountCurrentAmount }
-          ]"
-          [xLabel]="'Account Status'"
-          [yLabel]="'Dollars ($)'"
-        >
-        </app-vertical-bar-component>
-        <app-vertical-bar-component
-          [colorScheme]="'redGreen'"
-          [plot]="[
-            { name: 'Deposits', value: this.accountDeposits },
-            { name: 'Withdrawals', value: this.accountWithdraws }
-          ]"
-          [xLabel]="'Transaction Type'"
-          [yLabel]="'Dollars ($)'"
-        >
-        </app-vertical-bar-component>
-      </div>
-      -->
     </app-page-template>
   `,
   styles: [
@@ -139,6 +147,12 @@ import * as dateUtils from './../../utils/date-utils';
         border: 0.063rem solid #dddddd;
         text-align: left;
         padding: 0.5rem;
+      }
+
+      .padding {
+        padding-top: 2rem;
+        padding-left: 1rem;
+        padding-bottom: 5rem;
       }
     `,
   ],

@@ -8,12 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
         [view]="[400, 400]"
         [scheme]="this.orangePinkScheme"
         [results]="this.plot"
-        [xAxisLabel]="this.xLabel"
         [yAxisLabel]="this.yLabel"
-        [showXAxisLabel]="true"
-        [showYAxisLabel]="true"
         [xAxis]="true"
         [yAxis]="true"
+        [showYAxisLabel]="true"
         [gradient]="true"
         [animations]="true"
       >
@@ -24,12 +22,10 @@ import { Component, Input, OnInit } from '@angular/core';
         [view]="[400, 400]"
         [scheme]="this.redGreenScheme"
         [results]="this.plot"
-        [xAxisLabel]="this.xLabel"
         [yAxisLabel]="this.yLabel"
-        [showXAxisLabel]="true"
-        [showYAxisLabel]="true"
         [xAxis]="true"
         [yAxis]="true"
+        [showYAxisLabel]="true"
         [gradient]="true"
       >
       </ngx-charts-bar-vertical>
