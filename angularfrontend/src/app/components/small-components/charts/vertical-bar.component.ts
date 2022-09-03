@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-vertical-bar-component',
@@ -33,7 +33,7 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
   styles: [``],
 })
-export class VerticalBarComponent implements OnInit {
+export class VerticalBarComponent {
   @Input() plot: any;
   @Input() yLabel: string;
   @Input() xLabel: string;
@@ -46,6 +46,4 @@ export class VerticalBarComponent implements OnInit {
   orangePinkScheme = {
     domain: ['var(--fin-pink)', 'var(--fin-orange)'],
   };
-
-  ngOnInit() {}
 }

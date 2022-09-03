@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input-component',
@@ -44,7 +44,7 @@ import { Component, OnInit, Input } from '@angular/core';
     `,
   ],
 })
-export class InputComponent implements OnInit {
+export class InputComponent {
   @Input() label: string;
   @Input() placeholder: string;
   @Input() type: string;
@@ -52,6 +52,4 @@ export class InputComponent implements OnInit {
   @Input() required: string;
   @Input() min: number;
   @Input() id: string;
-  constructor() {}
-  ngOnInit(): void {}
 }

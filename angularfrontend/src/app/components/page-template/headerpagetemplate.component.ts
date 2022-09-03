@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header-page-template',
@@ -31,8 +31,7 @@ import { Component, OnInit, Input } from '@angular/core';
     `,
   ],
 })
-export class HeaderPageTemplateComponent implements OnInit {
+export class HeaderPageTemplateComponent {
   @Input() pagetitle: string;
   constructor() {}
-  ngOnInit(): void {}
 }

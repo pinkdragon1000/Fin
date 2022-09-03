@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input-group-component',
@@ -21,8 +21,6 @@ import { Component, Input, OnInit } from '@angular/core';
     `,
   ],
 })
-export class InputGroupComponent implements OnInit {
+export class InputGroupComponent {
   @Input() inputData: any;
-
-  ngOnInit() {}
 }

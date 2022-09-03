@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalService } from './modal.service';
 
 @Component({
@@ -29,12 +29,11 @@ import { ModalService } from './modal.service';
     `,
   ],
 })
-export class ModalButtonComponent implements OnInit {
+export class ModalButtonComponent {
   @Input() type: string;
   @Input() label: string;
   @Input() class: string;
   constructor(private modalService: ModalService) {}
-  ngOnInit(): void {}
 
   openModal(id: string) {
     this.modalService.open(id);

@@ -31,9 +31,9 @@ import * as dateUtils from './../../utils/date-utils';
         ></app-button-component>
       </ng-container>
 
-      <div [@.disabled]="true" content>
-        <mat-tab-group mat-align-tabs="center" color="accent">
-          <mat-tab label="Table View">
+      <ng-container content>
+        <app-tabs-component>
+          <app-tab-component [tabTitle]="'Table View'">
             <div class="scroll">
               <ng-container *ngIf="this.transactionData?.length !== 0">
                 <app-table-component
@@ -85,8 +85,8 @@ import * as dateUtils from './../../utils/date-utils';
                 <td>\${{ this.accountDifference }}</td>
               </tr>
             </app-table-component>
-          </mat-tab>
-          <mat-tab label="Graph View">
+          </app-tab-component>
+          <app-tab-component tabTitle="Graph View">
             <div class="row padding">
               <app-vertical-bar-component
                 [colorScheme]="'orangePink'"
@@ -110,9 +110,9 @@ import * as dateUtils from './../../utils/date-utils';
               >
               </app-vertical-bar-component>
             </div>
-          </mat-tab>
-        </mat-tab-group>
-      </div>
+          </app-tab-component>
+        </app-tabs-component>
+      </ng-container>
     </app-page-template>
   `,
   styles: [

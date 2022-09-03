@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as shajs from 'sha.js';
 import { Router } from '@angular/router';
 import { UserAPIService } from '../../service/user-api.service';
@@ -34,7 +34,7 @@ import * as signupUtils from '../../utils/signup-signin-utils';
     `,
   ],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
   fullName: string;
   email: string;
   error: string;
@@ -81,6 +81,4 @@ export class SignupComponent implements OnInit {
       });
     }
   }
-
-  ngOnInit(): void {}
 }

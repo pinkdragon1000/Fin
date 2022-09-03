@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserAPIService } from '../../service/user-api.service';
 import * as shajs from 'sha.js';
 import * as signinUtils from '../../utils/signup-signin-utils';
@@ -31,7 +31,7 @@ import * as signinUtils from '../../utils/signup-signin-utils';
     `,
   ],
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent {
   email: string;
   password: string;
   error: string;
@@ -42,8 +42,6 @@ export class SigninComponent implements OnInit {
   signinUtils: any = signinUtils;
 
   constructor(private userApiService: UserAPIService) {}
-
-  ngOnInit(): void {}
 
   signIn() {
     this.email = (document.getElementById('email') as HTMLInputElement).value;

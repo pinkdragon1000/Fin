@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-items-component',
@@ -53,8 +53,6 @@ import { Component, Input, OnInit } from '@angular/core';
     `,
   ],
 })
-export class NavItemsComponent implements OnInit {
+export class NavItemsComponent {
   @Input() items: any;
-
-  ngOnInit() {}
 }

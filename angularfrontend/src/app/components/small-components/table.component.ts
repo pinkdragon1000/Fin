@@ -30,9 +30,7 @@ import { Component, Input, OnInit } from '@angular/core';
     `,
   ],
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   @Input() headerData: any;
   @Input() tableLabel: string;
-
-  ngOnInit() {}
 }

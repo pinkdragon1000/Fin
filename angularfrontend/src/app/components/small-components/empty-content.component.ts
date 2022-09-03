@@ -27,10 +27,9 @@ import { Component, OnInit, Input } from '@angular/core';
     `,
   ],
 })
-export class EmptyContentComponent implements OnInit {
+export class EmptyContentComponent {
   @Input() emptyHeader: string;
   @Input() emptyPar: string;
 
   constructor() {}
-  ngOnInit(): void {}
 }

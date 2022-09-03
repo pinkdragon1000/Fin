@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AccountAPIService } from '../../service/account-api.service';
 import * as addAccountsUtils from './../../utils/add-accounts-utils';
 
@@ -33,7 +33,7 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
   `,
   styles: [``],
 })
-export class AddAccountsComponent implements OnInit {
+export class AddAccountsComponent {
   error: string;
   startingAmount: any = 0;
   accountDescription: string;
@@ -83,6 +83,4 @@ export class AddAccountsComponent implements OnInit {
       this.accountApiService.postAccountData(body);
     }
   }
-
-  ngOnInit(): void {}
 }

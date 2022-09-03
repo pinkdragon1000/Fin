@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-component',
@@ -36,7 +36,7 @@ import { Component, Input, OnInit } from '@angular/core';
     `,
   ],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   @Input() userData: string;
 
   navItems = [
@@ -51,10 +51,8 @@ export class NavbarComponent implements OnInit {
       activeLink: 'active',
     },
     {
-      link: '/',
+      link: '',
       label: 'Logout',
     },
   ];
-
-  ngOnInit() {}
 }

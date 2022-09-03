@@ -28,10 +28,9 @@ import { Component, OnInit, Input } from '@angular/core';
     `,
   ],
 })
-export class ClickableListViewComponent implements OnInit {
+export class ClickableListViewComponent {
   @Input() link: string;
   @Input() amount: string;
   @Input() name: string;
   constructor() {}
-  ngOnInit(): void {}
 }

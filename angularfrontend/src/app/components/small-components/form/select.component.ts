@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-select-component',
@@ -46,9 +46,7 @@ import { Component, Input, OnInit } from '@angular/core';
     `,
   ],
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent {
   @Input() selectData: any;
   @Input() label: string;
-
-  ngOnInit() {}
 }
