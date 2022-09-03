@@ -25,7 +25,6 @@ import { Component, Input, OnInit } from '@angular/core';
 
       .nav-item {
         width: 11.5rem;
-        margin-right: 2rem;
       }
 
       .active {

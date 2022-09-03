@@ -61,6 +61,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         box-shadow: 0.125rem 0.125rem 0.1875rem var(--fin-neutral-2);
         font-size: 2rem;
         text-shadow: 0.05rem 0.05rem var(--fin-neutral-1);
+        z-index: 1;
       }
       .trash {
         background: url('../../../assets/trash.svg');
