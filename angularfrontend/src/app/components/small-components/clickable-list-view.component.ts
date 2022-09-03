@@ -32,5 +32,4 @@ export class ClickableListViewComponent {
   @Input() link: string;
   @Input() amount: string;
   @Input() name: string;
-  constructor() {}
 }

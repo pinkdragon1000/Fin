@@ -1,5 +1,3 @@
 import { formatDate } from '@angular/common';
 
-export function dateFormatter(date: Date) {
-  return formatDate(date, 'MM-dd-YYYY', 'en-US');
-}
+export const dateFormatter = (date: Date) => formatDate(date, 'MM-dd-YYYY', 'en-US');

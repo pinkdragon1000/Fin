@@ -21,7 +21,6 @@ export class AccountAPIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      'XSRF-TOKEN': '123',
     };
     this.http
       .post(this.webservicePath + 'addAccount', body, {
@@ -65,7 +64,6 @@ export class AccountAPIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      'XSRF-TOKEN': '123',
     };
     this.http
       .post(this.webservicePath + 'deleteAccount', body, {

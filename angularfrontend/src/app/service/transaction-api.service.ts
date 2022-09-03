@@ -32,7 +32,6 @@ export class TransactionAPIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      'XSRF-TOKEN': '123',
     };
     this.http
       .post(this.webservicePath + 'addTransaction', body, {

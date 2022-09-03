@@ -11,7 +11,7 @@ import { ModalService } from './modal.service';
       (click)="openModal(this.type)"
     >
     </app-button-component>
-    <app-modal-component id="{{ type }}" (click)="closeModal(this.type)">
+    <app-modal-component id="{{ type }}">
       <ng-content></ng-content>
     </app-modal-component>
   `,
@@ -37,9 +37,5 @@ export class ModalButtonComponent {
 
   openModal(id: string) {
     this.modalService.open(id);
-  }
-
-  closeModal(id: string) {
-    this.modalService.close(id);
   }
 }

@@ -77,10 +77,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ButtonComponent {
   @Input() label: string;
   @Input() class: string;
-  @Output() onClick: EventEmitter<string> = new EventEmitter<string>();
-  click() {
-    this.onClick.emit();
+  @Output() click: EventEmitter<string> = new EventEmitter<string>();
+  onClick() {
+    this.click.emit();
   }
-
-  constructor() {}
 }

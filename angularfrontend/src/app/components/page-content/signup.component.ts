@@ -74,7 +74,7 @@ export class SignupComponent {
         if (response === 'Post failed with errors') {
           this.error = 'User was not created.  Please try again';
         } else {
-          this.userId = response['user_id'];
+          this.userId = response.user_id;
           sessionStorage.setItem('userId', this.userId);
           this.router.navigate(['manageAccounts']);
         }

@@ -20,7 +20,7 @@ import { ModalService } from './modal.service';
           <app-button-component
             [label]="'X'"
             [class]="'secondary'"
-            (click)="(this.click)"
+            (click)="this.close()"
           >
           </app-button-component>
         </div>
@@ -78,14 +78,16 @@ import { ModalService } from './modal.service';
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
-  @Output() onClick: EventEmitter<string> = new EventEmitter<string>();
-  click() {
-    this.onClick.emit();
-  }
+  @Output() click: EventEmitter<string> = new EventEmitter<string>();
+
   private element: any;
 
   constructor(private modalService: ModalService, private el: ElementRef) {
     this.element = el.nativeElement;
+  }
+
+  onClick() {
+    this.click.emit();
   }
 
   ngOnInit(): void {

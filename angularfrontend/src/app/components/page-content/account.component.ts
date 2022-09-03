@@ -158,7 +158,7 @@ import * as dateUtils from './../../utils/date-utils';
   ],
 })
 export class AccountComponent implements OnInit {
-  accountStartingAmount: number = 0;
+  accountStartingAmount: number;
   accountDeposits: number;
   accountWithdraws: number;
   accountCurrentAmount: number;
@@ -219,7 +219,7 @@ export class AccountComponent implements OnInit {
 
     this.accountApiService.getAccountDataAsync((d: any) => {
       this.accountIndex = d.findIndex(
-        (account) => account.account_id == this.accountIDnum
+        (account) => account.account_id === this.accountIDnum
       );
       this.accountDescription = d[this.accountIndex].account_Description;
       this.accountDeposits = d[this.accountIndex].deposit_amount;

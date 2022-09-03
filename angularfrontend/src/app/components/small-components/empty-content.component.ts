@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-emptycontent',
   template: `
@@ -30,6 +30,4 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EmptyContentComponent {
   @Input() emptyHeader: string;
   @Input() emptyPar: string;
-
-  constructor() {}
 }

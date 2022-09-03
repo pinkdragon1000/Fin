@@ -64,8 +64,8 @@ export class SigninComponent {
       this.userApiService.postValidateUser(body, (response) => {
         if (
           response === 'Email and password failed validation.' ||
-          response === "Email doesn't exist.  Please signup" ||
-          response == undefined
+          response === 'Email doesn\'t exist.  Please signup' ||
+          response === undefined
         ) {
           this.error = response;
         } else {

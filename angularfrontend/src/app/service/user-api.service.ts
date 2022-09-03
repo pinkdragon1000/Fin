@@ -40,8 +40,6 @@ export class UserAPIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      'XSRF-TOKEN': '123',
-      'X-CSRF-TOKEN': '123',
     };
     this.http
       .post(this.webservicePath + 'addUser', body, {
@@ -54,7 +52,7 @@ export class UserAPIService {
           console.log(
             'POST completed sucessfully. The response received ' + res
           );
-          this.addUserResult = res['body'];
+          this.addUserResult = res.body;
           callback(this.addUserResult);
         },
         (error) => {
@@ -72,7 +70,6 @@ export class UserAPIService {
     const headers = {
       'content-type': 'application/json',
       authorization: this.auth,
-      'XSRF-TOKEN': '123',
     };
     this.http
       .post(this.webservicePath + 'validateUser', body, {
@@ -81,7 +78,7 @@ export class UserAPIService {
       })
       .pipe(map((res) => res))
       .subscribe((res) => {
-        this.authResult = res['body'][0];
+        this.authResult = res.body[0];
         callback(this.authResult);
       });
   }
