@@ -12,7 +12,6 @@ import { User } from '../../models/user.models';
           <h2 class="pagetitle">{{ pagetitle }}</h2>
           <p>{{ pagedirections }}</p>
         </div>
-
         <app-modal-button-component
           *ngIf="this.buttonlabel"
           [type]="'transaction'"
@@ -22,11 +21,9 @@ import { User } from '../../models/user.models';
           <ng-content select="[form]"></ng-content>
         </app-modal-button-component>
       </div>
-
       <br />
       <ng-content select="[content]"></ng-content>
     </div>
-
     <app-modal-button-component
       [type]="'help'"
       [label]="'?'"
@@ -65,7 +62,6 @@ export class PageTemplateComponent implements OnInit {
   userId: string = sessionStorage.getItem('userId');
 
   constructor(private userApiService: UserAPIService) {}
-
   ngOnInit() {
     this.userApiService.getUserData((d: User) => {
       this.userData = d[0].fullName;

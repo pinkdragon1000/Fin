@@ -21,7 +21,7 @@ import { Component, Input } from '@angular/core';
       .wrapper {
         display: flex;
         flex-direction: column;
-        padding: 4rem;
+        padding: 0.3rem;
         align-items: center;
       }
     `,

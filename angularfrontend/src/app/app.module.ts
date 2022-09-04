@@ -1,7 +1,9 @@
 import { TabsComponent } from './components/small-components/tabs/tabs.component';
 import { TabComponent } from './components/small-components/tabs/tab.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputSelectGroupComponent } from './components/small-components/form/input-select-group.component';
 
+import { YearFilterPipe } from './components/filters/year-filter.pipe';
+import { MonthFilterPipe } from './components/filters/month-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +60,8 @@ import { InputSelectGroupComponent } from './components/small-components/form/in
     ModalButtonComponent,
     ManageAccountsComponent,
     AddAccountsComponent,
+    YearFilterPipe,
+    MonthFilterPipe,
     AccountComponent,
     ModalComponent,
     ClickableListViewComponent,
@@ -68,6 +75,7 @@ import { InputSelectGroupComponent } from './components/small-components/form/in
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxChartsModule,
+    FormsModule,
   ],
   providers: [
     InputGroupComponent,

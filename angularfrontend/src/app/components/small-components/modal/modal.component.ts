@@ -43,12 +43,12 @@ import { ModalService } from './modal.service';
         bottom: 0;
         left: 0;
         z-index: 1000;
-        overflow: auto;
+        overflow: hidden;
       }
       .modal .modal-body {
         padding: 1.25rem;
         background: #fff;
-        margin: 16rem;
+        margin: 10rem;
         border-radius: 0.625rem;
         min-height: 20rem;
         max-width: 80rem;

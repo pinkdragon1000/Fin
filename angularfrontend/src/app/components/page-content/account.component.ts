@@ -23,7 +23,6 @@ import * as dateUtils from './../../utils/date-utils';
         </app-input-select-group-component>
 
         <br />
-
         <app-button-component
           [label]="'Submit Transaction'"
           [class]="'primary'"
@@ -32,16 +31,50 @@ import * as dateUtils from './../../utils/date-utils';
       </ng-container>
 
       <ng-container content>
+        <div *ngIf="transactionData?.length !== 0" class="row filterBox">
+          <div class="column">
+            <label>Month</label>
+            <br />
+            <select class="filterSelect" [(ngModel)]="month">
+              <option
+                *ngFor="let month of dateUtils.monthData"
+                value="{{ month }}"
+              >
+                {{ month }}
+              </option>
+            </select>
+          </div>
+          <div class="column">
+            <label>Year</label>
+            <br />
+            <select class="filterSelect" [(ngModel)]="year">
+              <option *ngFor="let year of yearData" value="{{ year }}">
+                {{ year }}
+              </option>
+            </select>
+          </div>
+        </div>
+
         <app-tabs-component>
           <app-tab-component [tabTitle]="'Table View'">
             <div class="scroll">
+              <div *ngIf="transactionData?.length === 0">
+                <app-emptycontent
+                  emptyHeader="No Transactions Yet"
+                  emptyPar="Click the 'Add Transaction' button to add a transaction."
+                ></app-emptycontent>
+              </div>
               <ng-container *ngIf="this.transactionData?.length !== 0">
                 <app-table-component
                   [tableLabel]="'Transactions'"
                   [headerData]="accountUtils.transactionHeaders"
                 >
                   <tr
-                    *ngFor="let transaction of transactionData"
+                    *ngFor="
+                      let transaction of transactionData
+                        | monthFilter: month
+                        | yearFilter: year
+                    "
                     [ngClass]="{
                       'text-deposit':
                         transaction.transaction_type === 'Deposit',
@@ -95,7 +128,10 @@ import * as dateUtils from './../../utils/date-utils';
                     name: 'Account Starting',
                     value: this.accountStartingAmount
                   },
-                  { name: 'Account Current', value: this.accountCurrentAmount }
+                  {
+                    name: 'Account Current',
+                    value: this.accountCurrentAmount
+                  }
                 ]"
                 [yLabel]="'Dollars ($)'"
               >
@@ -118,8 +154,8 @@ import * as dateUtils from './../../utils/date-utils';
   styles: [
     `
       .scroll {
-        height: 10rem;
-        overflow-y: scroll;
+        height: 20rem;
+        overflow-y: auto;
       }
 
       .row {
@@ -154,6 +190,28 @@ import * as dateUtils from './../../utils/date-utils';
         padding-left: 1rem;
         padding-bottom: 5rem;
       }
+
+      .filterBox {
+        width: 11rem;
+        background-color: var(--fin-neutral-5);
+        border-radius: 0.625rem;
+        float: center;
+      }
+
+      .filterSelect {
+        border-radius: 20rem;
+        font-size: 1rem;
+        height: 2.25rem;
+        padding: 0rem 1rem;
+        border: none;
+        margin: 0.5rem 0;
+        background: var(--fin-white);
+        color: var(--fin-neutral-1);
+      }
+      .filterSelect:focus {
+        outline: none;
+        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
+      }
     `,
   ],
 })
@@ -169,12 +227,17 @@ export class AccountComponent implements OnInit {
   transactionTypeNum: string;
   transactionType: string;
   userID: string = sessionStorage.getItem('userId');
+  transactionData: Array<any>;
 
   //Reference imported util variables
   accountUtils: any = accountUtils;
   dateUtils: any = dateUtils;
 
-  transactionData: Array<any>;
+  yearData: any = dateUtils.yearData(Number(new Date().getFullYear()) - 10);
+
+  //Filters
+  month: string;
+  year: string;
 
   constructor(
     private accountApiService: AccountAPIService,
