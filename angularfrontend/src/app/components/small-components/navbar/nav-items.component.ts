@@ -1,16 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-nav-items-component',
   template: `
-    <ul class="nav navbar-right">
+    <ul class="nav">
       <li
         class="nav-item"
         routerLinkActive="{{ item.activeLink }}"
         *ngFor="let item of items"
       >
-        <a routerLink="{{ item.link }}">
-          <p class="white-text">{{ item.label }}</p>
+        <a
+          routerLink="{{ item.link }}"
+          (click)="onClick($event)"
+          class="white-text"
+        >
+          {{ item.label }}
         </a>
       </li>
     </ul>
@@ -23,6 +27,14 @@ import { Component, Input } from '@angular/core';
         padding: 0.625rem 0.9375rem;
       }
 
+      .nav {
+        list-style: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: flex;
+      }
+
       .nav-item {
         width: 11.5rem;
       }
@@ -33,20 +45,6 @@ import { Component, Input } from '@angular/core';
         border-radius: 0.625rem;
       }
 
-      .navbar-right {
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none;
-        padding-top: 0.9375rem;
-        padding-bottom: 0.9375rem;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        float: right;
-        display: flex;
-        justify-content: flex-end;
-      }
-
       .white-text {
         color: var(--fin-white);
       }
@@ -55,4 +53,18 @@ import { Component, Input } from '@angular/core';
 })
 export class NavItemsComponent {
   @Input() items: any;
+
+  @Output() click: EventEmitter<string> = new EventEmitter<string>();
+
+  onClick(item: any): void {
+    this.click.emit(item);
+
+    if (
+      item.target.href === 'http://localhost:4200/' ||
+      item.target.href === 'https://finaccounts.web.app/'
+    ) {
+      console.log('clearing session...');
+      sessionStorage.clear();
+    }
+  }
 }

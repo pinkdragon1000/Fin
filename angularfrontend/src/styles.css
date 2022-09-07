@@ -93,7 +93,8 @@ form {
 
 .error {
     background-color: var(--fin-pink);
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 2rem;
     color: var(--fin-white);
+    width: 50%;
 }

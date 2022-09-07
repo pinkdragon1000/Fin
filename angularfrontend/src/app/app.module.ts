@@ -3,7 +3,6 @@ import { TabComponent } from './components/small-components/tabs/tab.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +38,7 @@ import { InputSelectGroupComponent } from './components/small-components/form/in
 
 import { YearFilterPipe } from './components/filters/year-filter.pipe';
 import { MonthFilterPipe } from './components/filters/month-filter.pipe';
+import { SearchFilterPipe } from './components/filters/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,8 @@ import { MonthFilterPipe } from './components/filters/month-filter.pipe';
     InputGroupComponent,
     InputComponent,
     InputSelectGroupComponent,
+    ModalComponent,
+    ModalButtonComponent,
     TableComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,
@@ -57,13 +59,13 @@ import { MonthFilterPipe } from './components/filters/month-filter.pipe';
     HeaderComponent,
     SigninComponent,
     SignupComponent,
-    ModalButtonComponent,
     ManageAccountsComponent,
     AddAccountsComponent,
     YearFilterPipe,
     MonthFilterPipe,
+    SearchFilterPipe,
     AccountComponent,
-    ModalComponent,
+
     ClickableListViewComponent,
     VerticalBarComponent,
     TabComponent,

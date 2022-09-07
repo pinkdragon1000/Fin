@@ -11,8 +11,24 @@ import { Account } from 'src/app/models/account.models';
     >
       <ng-container content>
         <div *ngIf="accountData?.length !== 0">
+          <div class="column filterBox">
+            <label>Search for an account</label>
+            <input
+              class="filterSearch"
+              type="text"
+              name="search"
+              [(ngModel)]="accountDescription"
+              autocomplete="off"
+              placeholder="Search ..."
+            />
+          </div>
           <p class="align-right">Account Starting Amount</p>
-          <div *ngFor="let account of accountData" class="clickable-view">
+          <div
+            *ngFor="
+              let account of accountData | searchFilter: accountDescription
+            "
+            class="clickable-view"
+          >
             <app-clickable-list-view
               [name]="account.account_Description"
               [link]="'/account?id='.concat(account.account_id)"
@@ -45,12 +61,33 @@ import { Account } from 'src/app/models/account.models';
       .clickable-view {
         margin: 0.625rem;
       }
+      .filterBox {
+        width: 11rem;
+        background-color: var(--fin-neutral-5);
+        border-radius: 0.625rem;
+        padding: 1rem;
+      }
+      .filterSearch {
+        border-radius: 20rem;
+        font-size: 1rem;
+        height: 2.25rem;
+        padding: 0rem 1rem;
+        border: none;
+        margin: 0.5rem 0;
+        background: var(--fin-white);
+        color: var(--fin-neutral-1);
+      }
+      .filterSearch:focus {
+        outline: none;
+        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
+      }
     `,
   ],
 })
 export class ManageAccountsComponent implements OnInit {
   accountData: any;
   userId: string = sessionStorage.getItem('userId');
+  accountDescription: string;
   constructor(private accountApiService: AccountAPIService) {}
   deleteAccount(accountId): void {
     if (window.confirm('Are sure you want to delete this item ?')) {

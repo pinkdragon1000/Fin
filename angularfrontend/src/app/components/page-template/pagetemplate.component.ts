@@ -46,7 +46,6 @@ import { User } from '../../models/user.models';
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
       }
-
       .spaceBetween {
         display: flex;
         justify-content: space-between;
@@ -58,13 +57,20 @@ export class PageTemplateComponent implements OnInit {
   @Input() pagedirections: string;
   @Input() pagetitle: string;
   @Input() buttonlabel: string;
+
   userData: string;
   userId: string = sessionStorage.getItem('userId');
 
   constructor(private userApiService: UserAPIService) {}
+
   ngOnInit() {
-    this.userApiService.getUserData((d: User) => {
-      this.userData = d[0].fullName;
-    }, this.userId);
+    if (sessionStorage.getItem('fullName') === null) {
+      this.userApiService.getUserData((d: User) => {
+        this.userData = d[0].fullName.split(' ')[0];
+        sessionStorage.setItem('fullName', this.userData);
+      }, this.userId);
+    } else {
+      this.userData = sessionStorage.getItem('fullName');
+    }
   }
 }

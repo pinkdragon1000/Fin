@@ -15,6 +15,7 @@ import * as dateUtils from './../../utils/date-utils';
       [buttonlabel]="'Add Transaction'"
     >
       <ng-container form>
+        <div *ngIf="error" [innerHTML]="error" class="error"></div>
         <app-input-select-group-component
           [inputData]="accountUtils.inputData"
           [selectLabelData]="accountUtils.selectLabelData"
@@ -34,7 +35,6 @@ import * as dateUtils from './../../utils/date-utils';
         <div *ngIf="transactionData?.length !== 0" class="row filterBox">
           <div class="column">
             <label>Month</label>
-            <br />
             <select class="filterSelect" [(ngModel)]="month">
               <option
                 *ngFor="let month of dateUtils.monthData"
@@ -46,7 +46,6 @@ import * as dateUtils from './../../utils/date-utils';
           </div>
           <div class="column">
             <label>Year</label>
-            <br />
             <select class="filterSelect" [(ngModel)]="year">
               <option *ngFor="let year of yearData" value="{{ year }}">
                 {{ year }}
@@ -139,7 +138,10 @@ import * as dateUtils from './../../utils/date-utils';
               <app-vertical-bar-component
                 [colorScheme]="'redGreen'"
                 [plot]="[
-                  { name: 'Deposits', value: this.accountDeposits },
+                  {
+                    name: 'Deposits',
+                    value: this.accountDeposits
+                  },
                   { name: 'Withdrawals', value: this.accountWithdraws }
                 ]"
                 [yLabel]="'Dollars ($)'"
@@ -224,7 +226,7 @@ export class AccountComponent implements OnInit {
   accountIDnum: number;
   accountDescription: string;
   accountIndex: number;
-  transactionTypeNum: string;
+  error: string;
   transactionType: string;
   userID: string = sessionStorage.getItem('userId');
   transactionData: Array<any>;
@@ -232,7 +234,6 @@ export class AccountComponent implements OnInit {
   //Reference imported util variables
   accountUtils: any = accountUtils;
   dateUtils: any = dateUtils;
-
   yearData: any = dateUtils.yearData(Number(new Date().getFullYear()) - 10);
 
   //Filters
@@ -246,12 +247,12 @@ export class AccountComponent implements OnInit {
   postTransactionData() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
 
-    this.transactionTypeNum = (
+    const transactionTypeNum = (
       document.getElementById('select') as HTMLInputElement
     ).value;
-    if (this.transactionTypeNum === '1') {
+    if (transactionTypeNum === '1') {
       this.transactionType = 'Deposit';
-    } else if (this.transactionTypeNum === '2') {
+    } else if (transactionTypeNum === '2') {
       this.transactionType = 'Withdraw';
     }
 
@@ -263,18 +264,26 @@ export class AccountComponent implements OnInit {
       document.getElementById('amount') as HTMLInputElement
     ).value;
 
-    const body =
-      '{"account_id":{"account_id":' +
-      this.accountIDnum +
-      '}, "transaction_type": "' +
-      this.transactionType +
-      '", "transaction_date":"' +
-      transactionDate +
-      '", "transaction_amount":' +
-      transactionAmount +
-      ', "transaction_subTotal": 0}';
-    this.transactionApiService.postTransactionData(body);
-    location.reload();
+    if (
+      transactionTypeNum === '0' ||
+      transactionDate === '' ||
+      transactionAmount === ''
+    ) {
+      this.error = 'Please fill out all fields';
+    } else {
+      const body =
+        '{"account_id":{"account_id":' +
+        this.accountIDnum +
+        '}, "transaction_type": "' +
+        this.transactionType +
+        '", "transaction_date":"' +
+        transactionDate +
+        '", "transaction_amount":' +
+        transactionAmount +
+        ', "transaction_subTotal": 0}';
+      this.transactionApiService.postTransactionData(body);
+      location.reload();
+    }
   }
 
   ngOnInit() {

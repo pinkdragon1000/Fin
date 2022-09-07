@@ -13,8 +13,8 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
       "
     >
       <div content>
-        <div *ngIf="error" [innerHTML]="error" class="error"></div>
         <form>
+          <div *ngIf="error" [innerHTML]="error" class="error"></div>
           <app-input-select-group-component
             [inputData]="addAccountsUtils.inputData"
             [selectLabelData]="addAccountsUtils.selectLabelData"
@@ -35,9 +35,6 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
 })
 export class AddAccountsComponent {
   error: string;
-  startingAmount: any = 0;
-  accountDescription: string;
-  accountTypeNum: any;
   accountType: string;
   userId: string = sessionStorage.getItem('userId');
   //Reference imported util variables
@@ -46,28 +43,27 @@ export class AddAccountsComponent {
   constructor(private accountApiService: AccountAPIService) {}
 
   postAccountData() {
-    this.accountTypeNum = (
+    const accountTypeNum = (
       document.getElementById('select') as HTMLInputElement
     ).value;
-    if (this.accountTypeNum === '1') {
+    if (accountTypeNum === '1') {
       this.accountType = 'Checking';
-    } else if (this.accountTypeNum === '2') {
+    } else if (accountTypeNum === '2') {
       this.accountType = 'Savings';
     }
-    this.accountDescription = (
+    const accountDescription = (
       document.getElementById('description') as HTMLInputElement
     ).value;
-    this.startingAmount = (
+    const accountStartingAmount = (
       document.getElementById('amount') as HTMLInputElement
     ).value;
 
     if (
-      this.accountTypeNum === 0 ||
-      this.startingAmount === 0 ||
-      this.accountDescription === ''
+      accountTypeNum === '0' ||
+      accountStartingAmount === '' ||
+      accountDescription === ''
     ) {
-      this.error =
-        'Invalid inputs provided.  Please fill out all field inputs.';
+      this.error = 'Please fill out all fields';
     } else {
       const body =
         '{"user_id":{"user_id":' +
@@ -75,9 +71,9 @@ export class AddAccountsComponent {
         '}, "account_Type": "' +
         this.accountType +
         '", "account_Starting_Amount": ' +
-        this.startingAmount +
+        accountStartingAmount +
         ', "account_Description": "' +
-        this.accountDescription +
+        accountDescription +
         '"}';
 
       this.accountApiService.postAccountData(body);
