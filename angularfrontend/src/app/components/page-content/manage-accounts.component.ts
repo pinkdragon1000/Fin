@@ -85,12 +85,10 @@ export class ManageAccountsComponent implements OnInit {
   constructor(private accountApiService: AccountAPIService) {}
   deleteAccount(accountId): void {
     if (window.confirm('Are sure you want to delete this item ?')) {
-      const body =
-        '{"user_id":{"user_id":' +
-        this.userId +
-        '}, "account_id": ' +
-        accountId +
-        '}"';
+      const body = JSON.stringify({
+        user_id: { user_id: this.userId },
+        account_id: accountId,
+      });
 
       this.accountApiService.deleteAccount(body);
       location.reload();

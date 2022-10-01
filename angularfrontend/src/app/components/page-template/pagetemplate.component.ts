@@ -17,6 +17,7 @@ import { User } from '../../models/user.models';
           [type]="'transaction'"
           [label]="this.buttonlabel"
           [class]="'primary'"
+          [pagetitle]="this.buttonlabel"
         >
           <ng-content select="[form]"></ng-content>
         </app-modal-button-component>
@@ -28,6 +29,7 @@ import { User } from '../../models/user.models';
       [type]="'help'"
       [label]="'?'"
       [class]="'btn-help'"
+      [pagetitle]="'Help'"
     >
       <p>
         To add an account click Add An Account. To view accounts click Manage

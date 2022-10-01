@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
           [selectData]="select"
         ></app-select-component>
       </ng-container>
+
       <div class="inputs" *ngFor="let input of inputData">
         <app-input-component
           [label]="input.label"

@@ -26,10 +26,13 @@ import { TabComponent } from './tab.component';
         display: inline-block;
         list-style: none;
         padding: 0.14rem;
-        cursor: pointer;
         display: flex;
         border-bottom: 0.1rem solid #dddddd;
         justify-content: center;
+      }
+
+      li {
+        cursor: pointer;
       }
 
       .navTabTitle {

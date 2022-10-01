@@ -44,16 +44,14 @@ export class SignupComponent {
     if (this.fullName === '' || this.email === '' || this.password === '') {
       this.error = 'Please fill out all fields';
     } else {
+      this.error = undefined;
       this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
 
-      const body =
-        '{"fullName": "' +
-        this.fullName +
-        '", "email": "' +
-        this.email +
-        '", "password":"' +
-        this.hashedPassword +
-        '"}';
+      const body = JSON.stringify({
+        fullName: this.fullName,
+        email: this.email,
+        password: this.hashedPassword,
+      });
 
       this.userApiService.postUserData(body, (response) => {
         if (response === 'Post failed with errors') {

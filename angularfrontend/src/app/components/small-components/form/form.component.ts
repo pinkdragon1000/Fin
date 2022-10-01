@@ -21,7 +21,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         [selectLabelData]="this.selectLabelData"
       >
       </app-input-select-group-component>
-
       <div
         [ngClass]="{
           'login-button': this.label === 'Sign In' || this.label === 'Sign Up'

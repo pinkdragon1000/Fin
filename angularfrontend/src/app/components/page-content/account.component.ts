@@ -238,16 +238,14 @@ export class AccountComponent implements OnInit {
     ) {
       this.error = 'Please fill out all fields';
     } else {
-      const body =
-        '{"account_id":{"account_id":' +
-        this.accountIDnum +
-        '}, "transaction_type": "' +
-        this.transactionType +
-        '", "transaction_date":"' +
-        transactionDate +
-        '", "transaction_amount":' +
-        transactionAmount +
-        ', "transaction_subTotal": 0}';
+      this.error = undefined;
+      const body = JSON.stringify({
+        account_id: { account_id: this.accountIDnum },
+        transaction_type: this.transactionType,
+        transaction_date: transactionDate,
+        transaction_amount: transactionAmount,
+      });
+
       this.transactionApiService.postTransactionData(body);
       location.reload();
     }

@@ -29,7 +29,7 @@ public class Transaction {
 
     @Column(name="transaction_subTotal", nullable=false)
     @ColumnDefault("0")
-    private BigDecimal transaction_subTotal;
+    private BigDecimal transaction_subTotal=BigDecimal.ZERO;
 
     public Long getAccount_id() {
         return account_id.getAccount_id();

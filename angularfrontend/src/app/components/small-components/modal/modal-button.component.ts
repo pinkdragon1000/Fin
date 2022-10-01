@@ -11,7 +11,7 @@ import { ModalService } from './modal.service';
       (click)="openModal(this.type)"
     >
     </app-button-component>
-    <app-modal-component id="{{ this.type }}">
+    <app-modal-component id="{{ this.type }}" pagetitle="{{ this.pagetitle }}">
       <ng-content></ng-content>
     </app-modal-component>
   `,
@@ -33,6 +33,7 @@ export class ModalButtonComponent {
   @Input() type: string;
   @Input() label: string;
   @Input() class: string;
+  @Input() pagetitle: string;
   constructor(private modalService: ModalService) {}
 
   openModal(id: string) {

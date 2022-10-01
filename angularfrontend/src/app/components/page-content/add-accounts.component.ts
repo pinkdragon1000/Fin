@@ -58,16 +58,13 @@ export class AddAccountsComponent {
     ) {
       this.error = 'Please fill out all fields';
     } else {
-      const body =
-        '{"user_id":{"user_id":' +
-        this.userId +
-        '}, "account_Type": "' +
-        this.accountType +
-        '", "account_Starting_Amount": ' +
-        accountStartingAmount +
-        ', "account_Description": "' +
-        accountDescription +
-        '"}';
+      this.error = undefined;
+      const body = JSON.stringify({
+        user_id: { user_id: this.userId },
+        account_Type: this.accountType,
+        account_Starting_Amount: accountStartingAmount,
+        account_Description: accountDescription,
+      });
 
       this.accountApiService.postAccountData(body);
     }

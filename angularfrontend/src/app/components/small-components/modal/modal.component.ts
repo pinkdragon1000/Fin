@@ -16,7 +16,8 @@ import { ModalService } from './modal.service';
   template: `
     <div class="modal">
       <div class="modal-body">
-        <div class="float-right">
+        <div class="spacebetween">
+          <h2 class="pagetitle">{{ pagetitle }}</h2>
           <app-button-component
             [label]="'X'"
             [class]="'secondary'"
@@ -67,10 +68,17 @@ import { ModalService } from './modal.service';
         overflow: hidden;
       }
       .modaltext {
-        padding: 4rem;
+        padding: 1rem 4rem 4rem 4rem;
       }
-      .float-right {
-        float: right;
+      .spacebetween {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4rem;
+      }
+      .pagetitle {
+        background: var(--fin-gradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
       }
     `,
   ],
@@ -79,6 +87,7 @@ import { ModalService } from './modal.service';
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   @Output() click: EventEmitter<string> = new EventEmitter<string>();
+  @Input() pagetitle: string;
 
   private element: any;
 

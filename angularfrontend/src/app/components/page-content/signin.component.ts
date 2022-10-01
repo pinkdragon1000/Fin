@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UserAPIService } from '../../service/user-api.service';
 import * as shajs from 'sha.js';
 import * as signinUtils from '../../utils/signup-signin-utils';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-content-component',
@@ -26,14 +25,12 @@ export class SigninComponent {
   response: any;
   hashedPassword: string;
   public userId: string;
-  public formGroup: FormGroup;
 
   signinUtils: any = signinUtils;
 
   constructor(private userApiService: UserAPIService) {}
 
   signIn() {
-    console.log('BLAH');
     this.email = (document.getElementById('email') as HTMLInputElement).value;
     this.password = (
       document.getElementById('password') as HTMLInputElement
@@ -42,14 +39,13 @@ export class SigninComponent {
     if (this.email === '' || this.password === '') {
       this.error = 'Please fill out all fields';
     } else {
+      this.error = undefined;
       this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
 
-      const body =
-        '{"email": "' +
-        this.email +
-        '", "password": "' +
-        this.hashedPassword +
-        '"}';
+      const body = JSON.stringify({
+        email: this.email,
+        password: this.hashedPassword,
+      });
 
       this.userApiService.postValidateUser(body, (response) => {
         if (
