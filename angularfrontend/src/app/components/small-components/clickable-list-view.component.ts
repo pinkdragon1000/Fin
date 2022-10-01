@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 @Component({
-  selector: 'app-clickable-list-view',
+  selector: 'app-clickable-list-view-component',
   template: `
     <div class="clickable-list">
       <a href="{{ link }}">

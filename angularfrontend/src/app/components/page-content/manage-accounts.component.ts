@@ -11,17 +11,11 @@ import { Account } from 'src/app/models/account.models';
     >
       <ng-container content>
         <div *ngIf="accountData?.length !== 0">
-          <div class="column filterBox">
-            <label>Search for an account</label>
-            <input
-              class="filterSearch"
-              type="text"
-              name="search"
-              [(ngModel)]="accountDescription"
-              autocomplete="off"
-              placeholder="Search ..."
-            />
-          </div>
+          <app-filter-component
+            label="Search for an account"
+            [(model)]="accountDescription"
+          ></app-filter-component>
+
           <p class="align-right">Account Starting Amount</p>
           <div
             *ngFor="
@@ -29,12 +23,12 @@ import { Account } from 'src/app/models/account.models';
             "
             class="clickable-view"
           >
-            <app-clickable-list-view
+            <app-clickable-list-view-component
               [name]="account.account_Description"
               [link]="'/account?id='.concat(account.account_id)"
               [amount]="account.account_Starting_Amount.toLocaleString('en-GB')"
             >
-            </app-clickable-list-view>
+            </app-clickable-list-view-component>
 
             <app-button-component
               [class]="'trash'"
@@ -44,10 +38,10 @@ import { Account } from 'src/app/models/account.models';
         </div>
 
         <div *ngIf="accountData?.length === 0">
-          <app-emptycontent
+          <app-emptycontent-component
             emptyHeader="No Accounts Yet"
             emptyPar="Click 'Add Accounts' in the navbar to add an account. "
-          ></app-emptycontent>
+          ></app-emptycontent-component>
         </div>
       </ng-container>
     </app-page-template>

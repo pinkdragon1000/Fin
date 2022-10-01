@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input-component',
@@ -11,6 +12,7 @@ import { Component, Input } from '@angular/core';
       required="{{ required }}"
       min="{{ min }}"
       id="{{ id }}"
+      autocomplete="true"
     />
   `,
 
@@ -49,7 +51,7 @@ export class InputComponent {
   @Input() placeholder: string;
   @Input() type: string;
   @Input() name: string;
-  @Input() required: string;
+  @Input() required: boolean;
   @Input() min: number;
   @Input() id: string;
 }

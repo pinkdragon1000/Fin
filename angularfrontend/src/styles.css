@@ -18,6 +18,8 @@
     --fin-neutral-4: rgba(205, 205, 205, 1);
     --fin-neutral-5: rgba(233, 233, 233, 1);
     --fin-neutral-6: rgba(245, 245, 245, 1);
+    --fin-green: rgb(0, 128, 0, 1);
+    --fin-red: rgba(161, 10, 40, 1);
 }
 
 html {
@@ -27,7 +29,6 @@ html {
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--fin-white);
     font-family: Inter, sans-serif;
     color: var(--fin-black);
 }
@@ -68,10 +69,6 @@ a:hover {
     float: right;
 }
 
-form {
-    display: contents;
-}
-
 .column {
     display: flex;
     flex-direction: column;
@@ -89,12 +86,4 @@ form {
 
 .center {
     align-items: center;
-}
-
-.error {
-    background-color: var(--fin-pink);
-    padding: 1rem;
-    border-radius: 2rem;
-    color: var(--fin-white);
-    width: 50%;
 }

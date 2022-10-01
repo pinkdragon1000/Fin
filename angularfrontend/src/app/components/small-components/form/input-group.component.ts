@@ -10,13 +10,15 @@ import { Component, Input } from '@angular/core';
         [id]="input.id"
         [type]="input.type"
         [name]="input.name"
+        [min]="input.min"
+        [required]="input.required"
       ></app-input-component>
     </div>
   `,
   styles: [
     `
       .inputs {
-        width: 80%;
+        width: 91%;
       }
     `,
   ],

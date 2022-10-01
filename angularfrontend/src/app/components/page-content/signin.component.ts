@@ -2,34 +2,22 @@ import { Component } from '@angular/core';
 import { UserAPIService } from '../../service/user-api.service';
 import * as shajs from 'sha.js';
 import * as signinUtils from '../../utils/signup-signin-utils';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-content-component',
   template: `
-    <app-header-page-template class="signin" [pagetitle]="'Sign In'">
-      <div *ngIf="error" [innerHTML]="error" class="error"></div>
-
-      <app-input-group-component [inputData]="signinUtils.inputData.slice(1)">
-      </app-input-group-component>
-
-      <div class="login-button">
-        <app-button-component
-          [label]="'Sign In'"
-          [class]="'primary'"
-          (click)="signIn()"
-        ></app-button-component>
-      </div>
-      <a href="/signup">Don't have an account? Signup -> </a>
+    <app-header-page-template [pagetitle]="'Sign In'">
+      <app-form-component
+        [inputData]="signinUtils.inputData.slice(1)"
+        [error]="this.error"
+        [formName]="'signIn'"
+        [label]="'Sign In'"
+        (click)="signIn()"
+      ></app-form-component>
+      <a href="/signup">Don't have an account? Sign Up -> </a>
     </app-header-page-template>
   `,
-  styles: [
-    `
-      .login-button {
-        display: flex;
-        justify-content: center;
-      }
-    `,
-  ],
 })
 export class SigninComponent {
   email: string;
@@ -38,12 +26,14 @@ export class SigninComponent {
   response: any;
   hashedPassword: string;
   public userId: string;
+  public formGroup: FormGroup;
 
   signinUtils: any = signinUtils;
 
   constructor(private userApiService: UserAPIService) {}
 
   signIn() {
+    console.log('BLAH');
     this.email = (document.getElementById('email') as HTMLInputElement).value;
     this.password = (
       document.getElementById('password') as HTMLInputElement
@@ -64,7 +54,7 @@ export class SigninComponent {
       this.userApiService.postValidateUser(body, (response) => {
         if (
           response === 'Email and password failed validation.' ||
-          response === 'Email doesn\'t exist.  Please signup' ||
+          response === "Email doesn't exist.  Please signup" ||
           response === undefined
         ) {
           this.error = response;

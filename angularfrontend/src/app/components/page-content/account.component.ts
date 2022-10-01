@@ -15,20 +15,15 @@ import * as dateUtils from './../../utils/date-utils';
       [buttonlabel]="'Add Transaction'"
     >
       <ng-container form>
-        <div *ngIf="error" [innerHTML]="error" class="error"></div>
-        <app-input-select-group-component
+        <app-form-component
           [inputData]="accountUtils.inputData"
           [selectLabelData]="accountUtils.selectLabelData"
           [selectData]="accountUtils.selectData"
-        >
-        </app-input-select-group-component>
-
-        <br />
-        <app-button-component
+          [error]="this.error"
+          [formName]="'accountTransaction'"
           [label]="'Submit Transaction'"
-          [class]="'primary'"
           (click)="postTransactionData()"
-        ></app-button-component>
+        ></app-form-component>
       </ng-container>
 
       <ng-container content>
@@ -58,10 +53,10 @@ import * as dateUtils from './../../utils/date-utils';
           <app-tab-component [tabTitle]="'Table View'">
             <div class="scroll">
               <div *ngIf="transactionData?.length === 0">
-                <app-emptycontent
+                <app-emptycontent-component
                   emptyHeader="No Transactions Yet"
                   emptyPar="Click the 'Add Transaction' button to add a transaction."
-                ></app-emptycontent>
+                ></app-emptycontent-component>
               </div>
               <ng-container *ngIf="this.transactionData?.length !== 0">
                 <app-table-component
@@ -119,35 +114,7 @@ import * as dateUtils from './../../utils/date-utils';
             </app-table-component>
           </app-tab-component>
           <app-tab-component tabTitle="Graph View">
-            <div class="row padding">
-              <app-vertical-bar-component
-                [colorScheme]="'orangePink'"
-                [plot]="[
-                  {
-                    name: 'Account Starting',
-                    value: this.accountStartingAmount
-                  },
-                  {
-                    name: 'Account Current',
-                    value: this.accountCurrentAmount
-                  }
-                ]"
-                [yLabel]="'Dollars ($)'"
-              >
-              </app-vertical-bar-component>
-              <app-vertical-bar-component
-                [colorScheme]="'redGreen'"
-                [plot]="[
-                  {
-                    name: 'Deposits',
-                    value: this.accountDeposits
-                  },
-                  { name: 'Withdrawals', value: this.accountWithdraws }
-                ]"
-                [yLabel]="'Dollars ($)'"
-              >
-              </app-vertical-bar-component>
-            </div>
+            <app-account-graphview-component></app-account-graphview-component>
           </app-tab-component>
         </app-tabs-component>
       </ng-container>
@@ -182,7 +149,7 @@ import * as dateUtils from './../../utils/date-utils';
         content: '↓';
       }
       td {
-        border: 0.063rem solid #dddddd;
+        border: 0.063rem solid var(--fin-neutral-4);
         text-align: left;
         padding: 0.5rem;
       }

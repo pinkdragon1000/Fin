@@ -24,7 +24,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       .nav > li > a {
         position: relative;
         display: block;
-        padding: 0.625rem 0.9375rem;
+        padding: 1.2rem;
       }
 
       .nav {

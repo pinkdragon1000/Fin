@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'app-emptycontent',
+  selector: 'app-emptycontent-component',
   template: `
     <div class="wrapper">
       <img src="../../assets/empty.svg" rel="icon" alt="" class="emptyicon" />

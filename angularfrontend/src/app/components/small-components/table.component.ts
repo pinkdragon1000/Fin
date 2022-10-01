@@ -23,7 +23,7 @@ import { Component, Input } from '@angular/core';
       }
       td,
       th {
-        border: 0.063rem solid #dddddd;
+        border: 0.063rem solid var(--fin-neutral-4);
         text-align: left;
         padding: 0.5rem;
       }

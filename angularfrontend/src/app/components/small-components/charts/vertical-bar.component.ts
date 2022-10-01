@@ -31,7 +31,6 @@ import { Component, Input } from '@angular/core';
       </ngx-charts-bar-vertical>
     </ng-container>
   `,
-  styles: [``],
 })
 export class VerticalBarComponent {
   @Input() plot: any;
@@ -40,7 +39,7 @@ export class VerticalBarComponent {
   @Input() colorScheme: string;
 
   redGreenScheme = {
-    domain: ['green', '#a10a28'],
+    domain: ['var(--fin-green)', 'var(--fin-red)'],
   };
 
   orangePinkScheme = {

@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
     <ng-container class="selectComponent">
       <label>{{ label }}</label>
       <br />
-      <select class="select" id="select">
+      <select id="select">
         <option
           *ngFor="let option of selectData"
           value="{{ option.value }}"
@@ -22,9 +22,6 @@ import { Component, Input } from '@angular/core';
     `
       label {
         color: var(--fin-neutral-1);
-      }
-      .select {
-        width: 52%;
       }
       select {
         border-radius: 20rem;

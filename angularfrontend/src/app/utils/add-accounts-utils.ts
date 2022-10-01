@@ -2,20 +2,21 @@ export const selectLabelData = ['Account Type (checking/savings)'];
 
 export const inputData = [
   {
-    label: 'Account Description (Example: TD Bank Checking)',
-    placeholder: 'Type in your account description',
-    type: 'text',
-    name: 'description',
     id: 'description',
-    min: 0,
+    label: 'Account Description (Example: TD Bank Checking)',
+    name: 'description',
+    placeholder: 'Type in your account description',
+    required: true,
+    type: 'text',
   },
   {
-    label: 'Account Starting Amount ($)',
-    placeholder: 'Type in your account starting amount',
-    type: 'number',
-    name: 'amount',
     id: 'amount',
-    min: 1,
+    label: 'Account Starting Amount ($)',
+    min: 0,
+    name: 'amount',
+    placeholder: 'Type in your account starting amount',
+    required: true,
+    type: 'number',
   },
 ];
 

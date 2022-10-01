@@ -12,26 +12,19 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
     Manage Accounts in the navbar.'
       "
     >
-      <div content>
-        <form>
-          <div *ngIf="error" [innerHTML]="error" class="error"></div>
-          <app-input-select-group-component
-            [inputData]="addAccountsUtils.inputData"
-            [selectLabelData]="addAccountsUtils.selectLabelData"
-            [selectData]="addAccountsUtils.selectData"
-          >
-          </app-input-select-group-component>
-
-          <app-button-component
-            [label]="'Add Account'"
-            [class]="'primary'"
-            (click)="postAccountData()"
-          ></app-button-component>
-        </form>
-      </div>
+      <ng-container content>
+        <app-form-component
+          [inputData]="addAccountsUtils.inputData"
+          [selectLabelData]="addAccountsUtils.selectLabelData"
+          [selectData]="addAccountsUtils.selectData"
+          [error]="this.error"
+          [formName]="'addAccount'"
+          [label]="'Add Account'"
+          (click)="postAccountData()"
+        ></app-form-component>
+      </ng-container>
     </app-page-template>
   `,
-  styles: [``],
 })
 export class AddAccountsComponent {
   error: string;

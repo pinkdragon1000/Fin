@@ -1,8 +1,9 @@
-import { TabsComponent } from './components/small-components/tabs/tabs.component';
-import { TabComponent } from './components/small-components/tabs/tab.component';
+import { FilterComponent } from './components/small-components/form/filter.component';
+import { ErrorComponent } from './components/small-components/error.component';
+import { FormComponent } from './components/small-components/form/form.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { TransactionAPIService } from './service/transaction-api.service';
 import { AccountAPIService } from './service/account-api.service';
 import { UserAPIService } from './service/user-api.service';
 
+import { TabsComponent } from './components/small-components/tabs/tabs.component';
+import { TabComponent } from './components/small-components/tabs/tab.component';
 import { VerticalBarComponent } from './components/small-components/charts/vertical-bar.component';
 import { ButtonComponent } from './components/small-components/button.component';
 import { InputComponent } from './components/small-components/form/input.component';
@@ -39,6 +42,7 @@ import { InputSelectGroupComponent } from './components/small-components/form/in
 import { YearFilterPipe } from './components/filters/year-filter.pipe';
 import { MonthFilterPipe } from './components/filters/month-filter.pipe';
 import { SearchFilterPipe } from './components/filters/search-filter.pipe';
+import { AccountGraphViewComponent } from './components/page-content/account-graphview.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,10 @@ import { SearchFilterPipe } from './components/filters/search-filter.pipe';
     InputSelectGroupComponent,
     ModalComponent,
     ModalButtonComponent,
+    ErrorComponent,
+    FormComponent,
     TableComponent,
+    AccountGraphViewComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,
     EmptyContentComponent,
@@ -64,8 +71,8 @@ import { SearchFilterPipe } from './components/filters/search-filter.pipe';
     YearFilterPipe,
     MonthFilterPipe,
     SearchFilterPipe,
+    FilterComponent,
     AccountComponent,
-
     ClickableListViewComponent,
     VerticalBarComponent,
     TabComponent,
@@ -78,6 +85,7 @@ import { SearchFilterPipe } from './components/filters/search-filter.pipe';
     BrowserAnimationsModule,
     NgxChartsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     InputGroupComponent,

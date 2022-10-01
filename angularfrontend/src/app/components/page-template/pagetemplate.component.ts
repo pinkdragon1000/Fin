@@ -64,13 +64,13 @@ export class PageTemplateComponent implements OnInit {
   constructor(private userApiService: UserAPIService) {}
 
   ngOnInit() {
-    if (sessionStorage.getItem('fullName') === null) {
+    if (sessionStorage.getItem('firstName') === null) {
       this.userApiService.getUserData((d: User) => {
         this.userData = d[0].fullName.split(' ')[0];
-        sessionStorage.setItem('fullName', this.userData);
+        sessionStorage.setItem('firstName', this.userData);
       }, this.userId);
     } else {
-      this.userData = sessionStorage.getItem('fullName');
+      this.userData = sessionStorage.getItem('firstName');
     }
   }
 }

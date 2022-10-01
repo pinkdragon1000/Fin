@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as shajs from 'sha.js';
 import { Router } from '@angular/router';
 import { UserAPIService } from '../../service/user-api.service';
@@ -8,31 +8,16 @@ import * as signupUtils from '../../utils/signup-signin-utils';
   selector: 'app-signup-content-component',
   template: `
     <app-header-page-template [pagetitle]="'Sign Up'">
-      <div>
-        <div *ngIf="error" [innerHTML]="error" class="error"></div>
-
-        <app-input-group-component [inputData]="signupUtils.inputData">
-        </app-input-group-component>
-
-        <div class="login-button">
-          <app-button-component
-            [label]="'Sign Up'"
-            [class]="'primary'"
-            (click)="postUserData()"
-          ></app-button-component>
-        </div>
-      </div>
-      <a href="/">Already have an account? Login -> </a>
+      <app-form-component
+        [inputData]="signupUtils.inputData"
+        [error]="this.error"
+        [formName]="'signUp'"
+        [label]="'Sign Up'"
+        (click)="postUserData()"
+      ></app-form-component>
+      <a href="/">Already have an account? Sign In -> </a>
     </app-header-page-template>
   `,
-  styles: [
-    `
-      .login-button {
-        display: flex;
-        justify-content: center;
-      }
-    `,
-  ],
 })
 export class SignupComponent {
   fullName: string;

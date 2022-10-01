@@ -18,6 +18,8 @@ import { Component, Input } from '@angular/core';
           [id]="input.id"
           [type]="input.type"
           [name]="input.name"
+          [min]="input.min"
+          [required]="input.required"
         ></app-input-component>
       </div>
     </ng-container>
@@ -25,7 +27,7 @@ import { Component, Input } from '@angular/core';
   styles: [
     `
       .inputs {
-        width: 50%;
+        width: 91%;
       }
     `,
   ],

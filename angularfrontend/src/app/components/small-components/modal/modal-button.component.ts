@@ -6,12 +6,12 @@ import { ModalService } from './modal.service';
   template: `
     <p class="hidden">{{ type }}</p>
     <app-button-component
-      label="{{ label }}"
-      class="{{ class }}"
+      label="{{ this.label }}"
+      class="{{ this.class }}"
       (click)="openModal(this.type)"
     >
     </app-button-component>
-    <app-modal-component id="{{ type }}">
+    <app-modal-component id="{{ this.type }}">
       <ng-content></ng-content>
     </app-modal-component>
   `,
