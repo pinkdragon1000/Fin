@@ -14,6 +14,7 @@ import { Account } from 'src/app/models/account.models';
           <app-filter-component
             label="Search for an account"
             [(model)]="accountDescription"
+            (searchChange)="searchHandler($event)"
           ></app-filter-component>
 
           <p class="align-right">Account Starting Amount</p>
@@ -93,6 +94,10 @@ export class ManageAccountsComponent implements OnInit {
       this.accountApiService.deleteAccount(body);
       location.reload();
     }
+  }
+
+  searchHandler(search: string) {
+    this.accountDescription = search;
   }
 
   ngOnInit(): void {

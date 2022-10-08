@@ -56,10 +56,9 @@ export class FilterComponent {
   @Input() data: any;
 
   @Input() model: string;
-  @Output() modelVarChange = new EventEmitter();
+  @Output() searchChange = new EventEmitter();
   change(newValue) {
-    console.log('newvalue', newValue);
     this.model = newValue;
-    this.modelVarChange.emit(newValue);
+    this.searchChange.emit(newValue);
   }
 }
