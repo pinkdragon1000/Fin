@@ -27,7 +27,6 @@ export class SignupComponent {
   constructor(private userApiService: UserAPIService, private router: Router) {}
 
   signUp() {
-    console.log('HERE');
     const fullName = (document.getElementById('fname') as HTMLInputElement)
       .value;
     const email = (document.getElementById('email') as HTMLInputElement).value;

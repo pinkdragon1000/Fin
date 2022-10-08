@@ -14,7 +14,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styles: [
     `
       .clickable-list {
-        width: 90%;
+        width: 85%;
       }
       div {
         background: var(--fin-neutral-5);

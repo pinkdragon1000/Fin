@@ -50,7 +50,7 @@ import { Account } from 'src/app/models/account.models';
     `
       .align-right {
         text-align: right;
-        margin-right: 9rem;
+        margin-right: 10%;
       }
       .clickable-view {
         margin: 0.625rem;
