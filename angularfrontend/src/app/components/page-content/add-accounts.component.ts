@@ -18,8 +18,7 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
           [selectLabelData]="addAccountsUtils.selectLabelData"
           [selectData]="addAccountsUtils.selectData"
           [error]="this.error"
-          [formName]="'addAccount'"
-          [label]="'Add Account'"
+          [label]="'Submit'"
           (click)="postAccountData()"
         ></app-form-component>
       </ng-container>

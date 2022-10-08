@@ -4,12 +4,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-form-component',
   template: `
     <form
-      [formGroup]="this.formName"
       #ngForm="ngForm"
+      (ngSubmit)="(this.click)"
       [ngClass]="{
         form: this.label !== 'Sign In' && this.label !== 'Sign Up'
       }"
-      (ngSubmit)="(this.click)"
     >
       <app-error-component
         *ngIf="ngForm.submitted && this.error"
@@ -50,7 +49,6 @@ export class FormComponent {
   @Input() inputData: any;
   @Input() selectData: any;
   @Input() selectLabelData: any;
-  @Input() formName: string;
   @Input() error: string;
   @Input() label: string;
 

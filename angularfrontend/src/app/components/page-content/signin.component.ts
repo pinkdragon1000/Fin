@@ -10,7 +10,6 @@ import * as signinUtils from '../../utils/signup-signin-utils';
       <app-form-component
         [inputData]="signinUtils.inputData.slice(1)"
         [error]="this.error"
-        [formName]="'signIn'"
         [label]="'Sign In'"
         (click)="signIn()"
       ></app-form-component>
@@ -19,11 +18,7 @@ import * as signinUtils from '../../utils/signup-signin-utils';
   `,
 })
 export class SigninComponent {
-  email: string;
-  password: string;
   error: string;
-  response: any;
-  hashedPassword: string;
   public userId: string;
 
   signinUtils: any = signinUtils;
@@ -31,23 +26,22 @@ export class SigninComponent {
   constructor(private userApiService: UserAPIService) {}
 
   signIn() {
-    this.email = (document.getElementById('email') as HTMLInputElement).value;
-    this.password = (
-      document.getElementById('password') as HTMLInputElement
-    ).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement)
+      .value;
 
-    if (this.email === '' || this.password === '') {
+    if (email === '' || password === '') {
       this.error = 'Please fill out all fields';
     } else {
       this.error = undefined;
-      this.hashedPassword = shajs('sha256').update(this.password).digest('hex');
+      const hashedPassword = shajs('sha256').update(password).digest('hex');
 
       const body = JSON.stringify({
-        email: this.email,
-        password: this.hashedPassword,
+        email,
+        password: hashedPassword,
       });
 
-      this.userApiService.postValidateUser(body, (response) => {
+      this.userApiService.postValidateUser(body, (response: any) => {
         if (
           response === 'Email and password failed validation.' ||
           response === "Email doesn't exist.  Please signup" ||

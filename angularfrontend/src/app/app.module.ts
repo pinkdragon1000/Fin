@@ -1,5 +1,5 @@
-import { FilterComponent } from './components/small-components/form/filter.component';
-import { ErrorComponent } from './components/small-components/error.component';
+import { FilterComponent } from './components/small-components/filter.component';
+import { ErrorComponent } from './components/small-components/form/error.component';
 import { FormComponent } from './components/small-components/form/form.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +16,6 @@ import { TabComponent } from './components/small-components/tabs/tab.component';
 import { VerticalBarComponent } from './components/small-components/charts/vertical-bar.component';
 import { ButtonComponent } from './components/small-components/button.component';
 import { InputComponent } from './components/small-components/form/input.component';
-import { InputGroupComponent } from './components/small-components/form/input-group.component';
 import { SelectComponent } from './components/small-components/form/select.component';
 import { TableComponent } from './components/small-components/table.component';
 import { ModalComponent } from './components/small-components/modal/modal.component';
@@ -49,7 +48,6 @@ import { AccountGraphViewComponent } from './components/page-content/account-gra
     AppComponent,
     SelectComponent,
     ButtonComponent,
-    InputGroupComponent,
     InputComponent,
     InputSelectGroupComponent,
     ModalComponent,
@@ -88,7 +86,6 @@ import { AccountGraphViewComponent } from './components/page-content/account-gra
     ReactiveFormsModule,
   ],
   providers: [
-    InputGroupComponent,
     InputComponent,
     PageTemplateComponent,
     EmptyContentComponent,

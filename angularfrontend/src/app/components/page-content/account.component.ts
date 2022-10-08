@@ -20,8 +20,7 @@ import * as dateUtils from './../../utils/date-utils';
           [selectLabelData]="accountUtils.selectLabelData"
           [selectData]="accountUtils.selectData"
           [error]="this.error"
-          [formName]="'accountTransaction'"
-          [label]="'Submit Transaction'"
+          [label]="'Submit'"
           (click)="postTransactionData()"
         ></app-form-component>
       </ng-container>
