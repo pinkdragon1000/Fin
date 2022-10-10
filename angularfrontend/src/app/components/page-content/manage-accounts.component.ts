@@ -56,26 +56,6 @@ import { Account } from 'src/app/models/account.models';
       .clickable-view {
         margin: 0.625rem;
       }
-      .filterBox {
-        width: 11rem;
-        background-color: var(--fin-neutral-5);
-        border-radius: 0.625rem;
-        padding: 1rem;
-      }
-      .filterSearch {
-        border-radius: 20rem;
-        font-size: 1rem;
-        height: 2.25rem;
-        padding: 0rem 1rem;
-        border: none;
-        margin: 0.5rem 0;
-        background: var(--fin-white);
-        color: var(--fin-neutral-1);
-      }
-      .filterSearch:focus {
-        outline: none;
-        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
-      }
     `,
   ],
 })

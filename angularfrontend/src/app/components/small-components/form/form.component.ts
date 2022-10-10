@@ -40,7 +40,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       }
 
       .form {
-        width: 60%;
+        width: calc(30rem);
       }
     `,
   ],

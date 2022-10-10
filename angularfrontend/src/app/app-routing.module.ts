@@ -6,13 +6,22 @@ import { SignupComponent } from './components/page-content/signup.component';
 import { ManageAccountsComponent } from './components/page-content/manage-accounts.component';
 import { AccountComponent } from './components/page-content/account.component';
 
+import { AuthGuard } from './auth-guard.service';
 const routes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'addAccounts', component: AddAccountsComponent },
-  { path: 'manageAccounts', component: ManageAccountsComponent },
-  { path: 'account', component: AccountComponent },
-  { path: '**', component: SigninComponent },
+  {
+    path: 'addAccounts',
+    component: AddAccountsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'manageAccounts',
+    component: ManageAccountsComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

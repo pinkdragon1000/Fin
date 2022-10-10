@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { FilterComponent } from './components/small-components/filter.component';
 import { ErrorComponent } from './components/small-components/form/error.component';
 import { FormComponent } from './components/small-components/form/form.component';
@@ -90,6 +91,7 @@ import { AccountGraphViewComponent } from './components/page-content/account-gra
     PageTemplateComponent,
     EmptyContentComponent,
     HeaderPageTemplateComponent,
+    AuthGuard,
     UserAPIService,
     AccountAPIService,
     TransactionAPIService,
