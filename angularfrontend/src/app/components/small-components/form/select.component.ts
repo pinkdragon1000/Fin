@@ -6,11 +6,12 @@ import { Component, Input } from '@angular/core';
     <ng-container class="selectComponent">
       <label>{{ label }}</label>
       <br />
-      <select id="select">
+      <select id="select" title="Select an option">
         <option
           *ngFor="let option of selectData"
           value="{{ option.value }}"
           disabled="{{ option.disabled }}"
+          selected="{{ option.selected }}"
         >
           {{ option.description }}
         </option>
@@ -22,6 +23,7 @@ import { Component, Input } from '@angular/core';
     `
       label {
         color: var(--fin-neutral-1);
+        font-weight: bold;
       }
       select {
         border-radius: 20rem;
@@ -33,7 +35,7 @@ import { Component, Input } from '@angular/core';
         padding: 0rem 1rem;
         border: 0.063rem solid var(--fin-white);
         margin: 0.5rem 0;
-        background: var(--fin-neutral-6);
+        background: var(--fin-white);
         color: var(--fin-neutral-1);
       }
       select:focus {

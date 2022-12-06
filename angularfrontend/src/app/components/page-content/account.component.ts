@@ -11,7 +11,7 @@ import * as dateUtils from './../../utils/date-utils';
       [pagedirections]="
         'Click on the Add Transaction button to add a deposit/withdraw'
       "
-      [pagetitle]="this.accountDescription"
+      [pagetitle]="overallAccountData[0]"
       [buttonlabel]="'Add Transaction'"
     >
       <ng-container form>
@@ -27,74 +27,75 @@ import * as dateUtils from './../../utils/date-utils';
 
       <ng-container content>
         <div *ngIf="transactionData?.length !== 0" class="row filterBox">
-          <div class="column">
-            <label>Month</label>
-            <select class="filterSelect" [(ngModel)]="month">
-              <option
-                *ngFor="let month of dateUtils.monthData"
-                value="{{ month }}"
-              >
-                {{ month }}
-              </option>
-            </select>
-          </div>
-          <div class="column">
-            <label>Year</label>
-            <select class="filterSelect" [(ngModel)]="year">
-              <option *ngFor="let year of yearData" value="{{ year }}">
-                {{ year }}
-              </option>
-            </select>
-          </div>
+          <app-filter-component
+            [label]="'Month'"
+            [data]="dateUtils.monthData"
+            [(model)]="month"
+            (searchChange)="monthHandler($event)"
+          ></app-filter-component>
+
+          <app-filter-component
+            [label]="'Year'"
+            [data]="yearData"
+            [(model)]="year"
+            (searchChange)="yearHandler($event)"
+          ></app-filter-component>
+
+          <app-filter-component
+            label="Transaction Group"
+            [(model)]="transactionGroup"
+            (searchChange)="transactionGroupSearchHandler($event)"
+          ></app-filter-component>
         </div>
 
         <app-tabs-component>
           <app-tab-component [tabTitle]="'Table View'">
-            <div class="scroll">
-              <div *ngIf="transactionData?.length === 0">
-                <app-emptycontent-component
-                  emptyHeader="No Transactions Yet"
-                  emptyPar="Click the 'Add Transaction' button to add a transaction."
-                ></app-emptycontent-component>
-              </div>
-              <ng-container *ngIf="this.transactionData?.length !== 0">
-                <app-table-component
-                  [tableLabel]="'Transactions'"
-                  [headerData]="accountUtils.transactionHeaders"
+            <div *ngIf="transactionData?.length === 0">
+              <app-emptycontent-component
+                emptyHeader="No Transactions Yet"
+                emptyPar="Click the 'Add Transaction' button to add a transaction."
+              ></app-emptycontent-component>
+            </div>
+            <div *ngIf="this.transactionData?.length !== 0" class="scroll">
+              <app-table-component
+                [tableLabel]="'Transactions'"
+                [headerData]="accountUtils.transactionHeaders"
+              >
+                <tr
+                  *ngFor="
+                    let i = index;
+                    let transaction;
+                    of: transactionData
+                      | monthFilter: month
+                      | yearFilter: year
+                      | transactionGroupFilter: transactionGroup
+                  "
+                  [ngClass]="{
+                    'text-deposit': transaction.transaction_type === 'Deposit',
+                    'text-withdraw': transaction.transaction_type === 'Withdraw'
+                  }"
                 >
-                  <tr
-                    *ngFor="
-                      let transaction of transactionData
-                        | monthFilter: month
-                        | yearFilter: year
-                    "
-                    [ngClass]="{
-                      'text-deposit':
-                        transaction.transaction_type === 'Deposit',
-                      'text-withdraw':
-                        transaction.transaction_type === 'Withdraw'
-                    }"
+                  <td *ngFor="let data of getTransactionTableData(transaction)">
+                    {{ data }}
+                  </td>
+                  <app-modal-button-component
+                    [type]="'transaction' + i"
+                    [class]="'edit'"
+                    [pagetitle]="'Edit Transaction'"
+                    [title]="'Edit Transaction'"
                   >
-                    <td>
-                      {{
-                        dateUtils.dateFormatter(transaction.transaction_date)
-                      }}
-                    </td>
-                    <td>{{ transaction.transaction_type }}</td>
-                    <td
-                      [ngClass]="{
-                        'text-deposit-arrow':
-                          transaction.transaction_type === 'Deposit',
-                        'text-withdraw-arrow':
-                          transaction.transaction_type === 'Withdraw'
-                      }"
-                    >
-                      \${{ transaction.transaction_amount }}
-                    </td>
-                    <td>\${{ transaction.transaction_subTotal }}</td>
-                  </tr>
-                </app-table-component>
-              </ng-container>
+                    <app-form-component
+                      [inputData]="accountUtils.inputDataFunc(transaction)"
+                      [selectLabelData]="accountUtils.selectLabelData"
+                      [selectData]="accountUtils.selectDataFunc(transaction)"
+                      [error]="this.error"
+                      [label]="'Update'"
+                      [containsDelete]="true"
+                      (deletionClick)="deleteTransaction(transaction)"
+                    ></app-form-component>
+                  </app-modal-button-component>
+                </tr>
+              </app-table-component>
             </div>
 
             <br />
@@ -104,11 +105,9 @@ import * as dateUtils from './../../utils/date-utils';
               [headerData]="accountUtils.accountHeaders"
             >
               <tr>
-                <td>\${{ this.accountStartingAmount }}</td>
-                <td>\${{ this.accountDeposits }}</td>
-                <td>\${{ this.accountWithdraws }}</td>
-                <td>\${{ this.accountCurrentAmount }}</td>
-                <td>\${{ this.accountDifference }}</td>
+                <td *ngFor="let data of overallAccountData.slice(1)">
+                  \${{ data }}
+                </td>
               </tr>
             </app-table-component>
           </app-tab-component>
@@ -131,67 +130,34 @@ import * as dateUtils from './../../utils/date-utils';
       }
 
       .text-deposit {
-        color: green;
+        color: var(--fin-green);
       }
 
       .text-withdraw {
-        color: #a10a28;
+        color: var(--fin-red);
       }
 
-      .text-deposit-arrow::before {
-        font-family: 'Font Awesome 5 Free';
-        content: '↑';
-      }
-
-      .text-withdraw-arrow::before {
-        font-family: 'Font Awesome 5 Free';
-        content: '↓';
-      }
       td {
-        border: 0.063rem solid var(--fin-neutral-4);
+        border: 0.063rem solid var(--fin-neutral-5);
         text-align: left;
         padding: 0.5rem;
       }
 
-      .padding {
-        padding-top: 2rem;
-        padding-left: 1rem;
-        padding-bottom: 5rem;
-      }
-
       .filterBox {
-        width: 11rem;
-        background-color: var(--fin-neutral-5);
+        width: 28rem;
+        background-color: var(--fin-neutral-6);
         border-radius: 0.625rem;
-        float: center;
-      }
-
-      .filterSelect {
-        border-radius: 20rem;
-        font-size: 1rem;
-        height: 2.25rem;
-        padding: 0rem 1rem;
-        border: none;
-        margin: 0.5rem 0;
-        background: var(--fin-white);
-        color: var(--fin-neutral-1);
-      }
-      .filterSelect:focus {
-        outline: none;
-        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
+        padding: 0.14rem;
       }
     `,
   ],
 })
 export class AccountComponent implements OnInit {
-  accountStartingAmount: number;
-  accountDeposits: number;
-  accountWithdraws: number;
-  accountCurrentAmount: number;
-  accountDifference: number;
   accountIDnum: number;
-  accountDescription: string;
   accountIndex: number;
+
+  transactionTableData: Array<any>;
+  overallAccountData: Array<number>;
   error: string;
   transactionType: string;
   userID: string = sessionStorage.getItem('userId');
@@ -205,6 +171,7 @@ export class AccountComponent implements OnInit {
   //Filters
   month: string;
   year: string;
+  transactionGroup: string;
 
   constructor(
     private accountApiService: AccountAPIService,
@@ -212,16 +179,9 @@ export class AccountComponent implements OnInit {
   ) {}
   postTransactionData() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
-
     const transactionTypeNum = (
       document.getElementById('select') as HTMLInputElement
     ).value;
-    if (transactionTypeNum === '1') {
-      this.transactionType = 'Deposit';
-    } else if (transactionTypeNum === '2') {
-      this.transactionType = 'Withdraw';
-    }
-
     const transactionDate = (
       document.getElementById('date') as HTMLInputElement
     ).value;
@@ -230,6 +190,14 @@ export class AccountComponent implements OnInit {
       document.getElementById('amount') as HTMLInputElement
     ).value;
 
+    const transactionGroup = (
+      document.getElementById('group') as HTMLInputElement
+    ).value;
+    if (transactionTypeNum === '1') {
+      this.transactionType = 'Deposit';
+    } else if (transactionTypeNum === '2') {
+      this.transactionType = 'Withdraw';
+    }
     if (
       transactionTypeNum === '0' ||
       transactionDate === '' ||
@@ -243,11 +211,47 @@ export class AccountComponent implements OnInit {
         transaction_type: this.transactionType,
         transaction_date: transactionDate,
         transaction_amount: transactionAmount,
+        transaction_group: transactionGroup,
       });
 
       this.transactionApiService.postTransactionData(body);
       location.reload();
     }
+  }
+
+  deleteTransaction(transaction: any): void {
+    if (window.confirm('Are sure you want to delete this item ?')) {
+      const body = JSON.stringify({
+        account_id: { account_id: transaction.account_id },
+        transaction_id: transaction.transaction_id,
+      });
+
+      this.transactionApiService.deleteTransaction(body);
+      location.reload();
+    }
+  }
+
+  monthHandler(search: string) {
+    this.month = search;
+  }
+
+  yearHandler(search: string) {
+    this.year = search;
+  }
+
+  transactionGroupSearchHandler(search: string) {
+    this.transactionGroup = search;
+  }
+
+  getTransactionTableData(transaction: any) {
+    this.transactionTableData = [
+      dateUtils.dateFormatter(transaction.transaction_date),
+      transaction.transaction_group || 'None',
+      '$' + transaction.transaction_amount,
+      '$' + transaction.transaction_subTotal,
+    ];
+
+    return this.transactionTableData;
   }
 
   ngOnInit() {
@@ -257,12 +261,14 @@ export class AccountComponent implements OnInit {
       this.accountIndex = d.findIndex(
         (account) => account.account_id === this.accountIDnum
       );
-      this.accountDescription = d[this.accountIndex].account_Description;
-      this.accountDeposits = d[this.accountIndex].deposit_amount;
-      this.accountWithdraws = d[this.accountIndex].withdraw_amount;
-      this.accountStartingAmount = d[this.accountIndex].account_Starting_Amount;
-      this.accountCurrentAmount = d[this.accountIndex].account_Current_Amount;
-      this.accountDifference = d[this.accountIndex].account_Difference;
+      this.overallAccountData = [
+        d[this.accountIndex].account_Description,
+        d[this.accountIndex].account_Starting_Amount,
+        d[this.accountIndex].deposit_amount,
+        d[this.accountIndex].withdraw_amount,
+        d[this.accountIndex].account_Current_Amount,
+        d[this.accountIndex].account_Difference,
+      ];
     }, this.userID);
 
     this.transactionApiService.getTransactionDataAsync((d: Array<any>) => {

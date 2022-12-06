@@ -1,4 +1,3 @@
-import { AddAccountsComponent } from './components/page-content/add-accounts.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SigninComponent } from './components/page-content/signin.component';
@@ -10,11 +9,6 @@ import { AuthGuard } from './auth-guard.service';
 const routes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  {
-    path: 'addAccounts',
-    component: AddAccountsComponent,
-    canActivate: [AuthGuard],
-  },
   {
     path: 'manageAccounts',
     component: ManageAccountsComponent,

@@ -1,20 +1,26 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table-component',
   template: `
     <p>{{ tableLabel }}</p>
     <table>
-      <tr>
-        <th *ngFor="let header of headerData">{{ header }}</th>
+      <tr class="tableHeaders">
+        <th *ngFor="let header of headerData">
+          {{ header }}
+        </th>
       </tr>
       <ng-content></ng-content>
     </table>
   `,
   styles: [
     `
+      .tableHeaders {
+        position: sticky;
+        top: 0;
+      }
       th {
-        background-color: var(--fin-neutral-6);
+        background-color: var(--fin-neutral-7);
         color: var(--fin-neutral-1);
       }
       table {
@@ -23,7 +29,7 @@ import { Component, Input } from '@angular/core';
       }
       td,
       th {
-        border: 0.063rem solid var(--fin-neutral-4);
+        border: 0.063rem solid var(--fin-neutral-5);
         text-align: left;
         padding: 0.5rem;
       }

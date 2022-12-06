@@ -41,11 +41,21 @@ interface AccountRepository extends CrudRepository<Account, Long> {
 
 @Repository
 interface TransactionRepository extends CrudRepository<Transaction, Long> {
+
  @Query(value="SELECT * FROM Transactions t WHERE t.account_id = ?1 order by transaction_date", nativeQuery = true)
 Collection<Transaction> findAllTransactionsByAccountID(Long accountID);
 
  @Modifying
 @Transactional
- @Query(value="Delete from Transactions t where t.account_id=?", nativeQuery=true)
+ @Query(value="Delete from Transactions t where t.account_id=?1 and t.transaction_id=?2", nativeQuery=true)
+ void deleteTransaction(Long accountID, Long transactionID);
+
+ @Modifying
+ @Transactional
+ @Query(value="Delete from Transactions t where t.account_id=?1", nativeQuery=true)
  void deleteTransactions(Long accountID);
+
+
 }
+
+

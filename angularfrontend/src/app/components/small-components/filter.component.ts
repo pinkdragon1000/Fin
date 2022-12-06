@@ -5,20 +5,28 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   template: `
     <ng-container>
       <div class="column" *ngIf="this.data">
-        <label>{{ this.label }}</label>
-        <select class="filterSelect" [(ngModel)]="this.model">
-          <option *ngFor="let d of this.data" value="{{ d }}">
-            {{ d }}
+        <label class="filterLabel">{{ this.label }}</label>
+        <select
+          class="filterSelect"
+          ngModel="{{ model }}"
+          (ngModelChange)="change($event)"
+          title="{{ this.label }}"
+        >
+          <option *ngFor="let d of data" value="{{ d }}">
+            {{ d === null ? 'All' : d }}
           </option>
         </select>
       </div>
       <div class="column filterBox" *ngIf="!this.data">
-        <label>{{ this.label }}</label>
+        <label class="filterLabel" id="{{ this.label }}">{{
+          this.label
+        }}</label>
         <input
           class="filterSearch"
           type="text"
           name="search"
-          [ngModel]="this.model"
+          title="{{ this.label }}"
+          ngModel="{{ model }}"
           (ngModelChange)="change($event)"
           autocomplete="off"
           placeholder="Search ..."
@@ -28,11 +36,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
   styles: [
     `
-      .filterBox {
-        width: 11rem;
-        background-color: var(--fin-neutral-5);
-        border-radius: 0.625rem;
-        padding: 1rem;
+      .filterLabel {
+        color: var(--fin-neutral-1);
+        font-weight: bold;
       }
       .filterSearch {
         border-radius: 20rem;
@@ -48,6 +54,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         outline: none;
         box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
       }
+
+      .filterSelect {
+        border-radius: 20rem;
+        font-size: 1rem;
+        height: 2.25rem;
+        padding: 0rem 1rem;
+        border: none;
+        margin: 0.5rem 0;
+        background: var(--fin-white);
+        color: var(--fin-neutral-1);
+      }
+      .filterSelect:focus {
+        outline: none;
+        box-shadow: 0rem 0rem 0.313rem var(--fin-blue-1);
+      }
     `,
   ],
 })
@@ -57,7 +78,7 @@ export class FilterComponent {
 
   @Input() model: string;
   @Output() searchChange = new EventEmitter();
-  change(newValue) {
+  change(newValue: string) {
     this.model = newValue;
     this.searchChange.emit(newValue);
   }

@@ -24,3 +24,30 @@ export const inputData = [
     type: 'password',
   },
 ];
+
+export const resetPassword = [
+  {
+    id: 'email',
+    label: 'Email',
+    name: 'email',
+    placeholder: 'Type in your email',
+    required: true,
+    type: 'email',
+  },
+  {
+    id: 'newPassword',
+    label: 'New Password',
+    name: 'password',
+    placeholder: 'Type in new password',
+    required: true,
+    type: 'password',
+  },
+  {
+    id: 'reenterPassword',
+    label: 'Re-Enter Password',
+    name: 'password',
+    placeholder: 'Type in new password',
+    required: true,
+    type: 'password',
+  },
+];

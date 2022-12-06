@@ -50,4 +50,11 @@ public class TransactionService {
     public Transaction addNewTransaction(Transaction newTransaction) {
         return transactionRepository.save(newTransaction);
     }
+
+    public Collection<Transaction> deleteTransaction(Long account_id, Long transaction_id){
+        transactionRepository.deleteTransaction(account_id, transaction_id);
+        return transactionRepository.findAllTransactionsByAccountID(account_id);
+    }
+
+
 }

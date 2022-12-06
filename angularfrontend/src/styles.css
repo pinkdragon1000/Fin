@@ -11,13 +11,14 @@
     --fin-pink: rgba(233, 64, 87, 1);
     --fin-orange: rgba(242, 113, 33, 1);
     --fin-gradient: linear-gradient(25deg, var(--fin-pink), var(--fin-orange));
-    --fin-neutral-1: rgba(117, 117, 117, 1);
-    --fin-neutral-2: rgba(148, 148, 148, 1);
-    --fin-neutral-3: rgba(172, 172, 172, 1);
-    --fin-neutral-3-transparent: rgba(172, 172, 172, 0.2);
-    --fin-neutral-4: rgba(205, 205, 205, 1);
-    --fin-neutral-5: rgba(233, 233, 233, 1);
-    --fin-neutral-6: rgba(245, 245, 245, 1);
+    --fin-neutral-1: rgba(102, 100, 100, 1);
+    --fin-neutral-2: rgba(117, 117, 117, 1);
+    --fin-neutral-3: rgba(148, 148, 148, 1);
+    --fin-neutral-4: rgba(172, 172, 172, 1);
+    --fin-neutral-4-transparent: rgba(172, 172, 172, 0.2);
+    --fin-neutral-5: rgba(205, 205, 205, 1);
+    --fin-neutral-6: rgba(233, 233, 233, 1);
+    --fin-neutral-7: rgba(245, 245, 245, 1);
     --fin-green: rgb(0, 128, 0, 1);
     --fin-red: rgba(161, 10, 40, 1);
 }
@@ -41,7 +42,7 @@ p {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 2rem;
 }
 
 h2 {

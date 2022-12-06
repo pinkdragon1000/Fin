@@ -17,6 +17,7 @@ import { User } from '../../models/user.models';
           [type]="'transaction'"
           [label]="this.buttonlabel"
           [class]="'primary'"
+          [title]="this.buttonlabel"
           [pagetitle]="this.buttonlabel"
         >
           <ng-content select="[form]"></ng-content>
@@ -28,6 +29,7 @@ import { User } from '../../models/user.models';
     <app-modal-button-component
       [type]="'help'"
       [label]="'?'"
+      [title]="'Help'"
       [class]="'btn-help'"
       [pagetitle]="'Help'"
     >

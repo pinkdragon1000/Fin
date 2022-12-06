@@ -5,7 +5,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   template: `
     <form
       #ngForm="ngForm"
-      (ngSubmit)="(this.click)"
       [ngClass]="{
         form: this.label !== 'Sign In' && this.label !== 'Sign Up'
       }"
@@ -28,7 +27,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         <app-button-component
           [label]="this.label"
           [class]="'primary'"
+          (click)="onClick(); $event.stopPropagation()"
+          [title]="'Submit Form'"
         ></app-button-component>
+
+        <div *ngIf="containsDelete">
+          <app-button-component
+            [class]="'trash'"
+            (click)="onClickDeletion(); $event.stopPropagation()"
+            [title]="'Delete Item'"
+          ></app-button-component>
+        </div>
       </div>
     </form>
   `,
@@ -37,6 +46,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       .login-button {
         display: flex;
         justify-content: center;
+      }
+
+      form {
+        padding: 2rem;
+        background-color: var(--fin-neutral-6);
+        border-radius: 0.625rem;
       }
 
       .form {
@@ -51,6 +66,12 @@ export class FormComponent {
   @Input() selectLabelData: any;
   @Input() error: string;
   @Input() label: string;
+  @Input() containsDelete: boolean;
+
+  @Output() deletionClick: EventEmitter<string> = new EventEmitter<string>();
+  onClickDeletion() {
+    this.deletionClick.emit();
+  }
 
   @Output() click: EventEmitter<string> = new EventEmitter<string>();
   onClick() {

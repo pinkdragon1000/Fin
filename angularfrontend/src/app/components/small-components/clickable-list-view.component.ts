@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-clickable-list-view-component',
   template: `
     <div class="clickable-list">
-      <a href="{{ link }}">
+      <a href="{{ link }}" title="View Account">
         <div class="space-between">
           <p>{{ name }}</p>
           <p>\${{ amount }}</p>
@@ -17,8 +17,8 @@ import { Component, OnInit, Input } from '@angular/core';
         width: 85%;
       }
       div {
-        background: var(--fin-neutral-5);
-        padding: 1rem;
+        background: var(--fin-neutral-6);
+        padding: 0.7rem;
         border-radius: 0.625rem;
       }
       .space-between {

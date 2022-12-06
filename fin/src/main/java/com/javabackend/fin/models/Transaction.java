@@ -27,6 +27,9 @@ public class Transaction {
     @Column(name="transaction_amount", nullable=false)
     private BigDecimal transaction_amount;
 
+    @Column(name="transaction_group")
+    private String transaction_group;
+
     @Column(name="transaction_subTotal", nullable=false)
     @ColumnDefault("0")
     private BigDecimal transaction_subTotal=BigDecimal.ZERO;
@@ -69,6 +72,13 @@ public class Transaction {
 
     public void setTransaction_amount(BigDecimal transaction_amount) {
         this.transaction_amount = transaction_amount;
+    }
+
+    public String getTransaction_group() {
+        return transaction_group;
+    }
+    public void setTransaction_group(String transaction_group) {
+        this.transaction_group=transaction_group;
     }
 
     public BigDecimal getTransaction_subTotal() {

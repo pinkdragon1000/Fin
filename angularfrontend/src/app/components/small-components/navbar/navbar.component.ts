@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
         <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
       </div>
 
-      <h3 *ngIf="!userData" class="name">Welcome!</h3>
-      <h3 *ngIf="userData" class="name">Welcome {{ this.userData }}!</h3>
+      <h1 *ngIf="!userData" class="name">Welcome!</h1>
+      <h1 *ngIf="userData" class="name">Welcome {{ this.userData }}!</h1>
 
       <app-nav-items-component
         [items]="this.navItems"
@@ -40,11 +40,6 @@ export class NavbarComponent {
   @Input() userData: string;
 
   navItems = [
-    {
-      link: '/addAccounts',
-      label: 'Add Accounts',
-      activeLink: 'active',
-    },
     {
       link: '/manageAccounts',
       label: 'Manage Accounts',

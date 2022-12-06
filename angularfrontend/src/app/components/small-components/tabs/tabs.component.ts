@@ -15,7 +15,7 @@ import { TabComponent } from './tab.component';
         (click)="selectTab(tab)"
         [class.active]="tab.active"
       >
-        <a class="navTabTitle">{{ tab.title }}</a>
+        <a class="navTabTitle" title="{{ tab.title }}">{{ tab.title }}</a>
       </li>
     </ul>
     <ng-content></ng-content>
@@ -36,7 +36,7 @@ import { TabComponent } from './tab.component';
       }
 
       .navTabTitle {
-        color: var(--fin-neutral-1);
+        color: var(--fin-neutral-2);
         font-size: 1.125rem;
         padding-left: 2rem;
         padding-right: 2rem;

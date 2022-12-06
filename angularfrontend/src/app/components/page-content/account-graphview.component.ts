@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionAPIService } from 'src/app/service/transaction-api.service';
 import { AccountAPIService } from '../../service/account-api.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { AccountAPIService } from '../../service/account-api.service';
   template: `
     <div class="row padding">
       <app-vertical-bar-component
-        [colorScheme]="'orangePink'"
+        [colorScheme]="'orangePinkScheme'"
         [plot]="[
           {
             name: 'Account Starting',
@@ -21,7 +22,7 @@ import { AccountAPIService } from '../../service/account-api.service';
       >
       </app-vertical-bar-component>
       <app-vertical-bar-component
-        [colorScheme]="'redGreen'"
+        [colorScheme]="'redGreenScheme'"
         [plot]="[
           {
             name: 'Deposits',
@@ -58,8 +59,12 @@ export class AccountGraphViewComponent implements OnInit {
   accountDescription: string;
   accountIndex: number;
   userID: string = sessionStorage.getItem('userId');
+  transactionData: Array<any> = [];
 
-  constructor(private accountApiService: AccountAPIService) {}
+  constructor(
+    private accountApiService: AccountAPIService,
+    private transactionApiService: TransactionAPIService
+  ) {}
 
   ngOnInit() {
     this.accountIDnum = parseInt(window.location.search.substring(4), 10);
@@ -75,5 +80,9 @@ export class AccountGraphViewComponent implements OnInit {
       this.accountCurrentAmount = d[this.accountIndex].account_Current_Amount;
       this.accountDifference = d[this.accountIndex].account_Difference;
     }, this.userID);
+
+    this.transactionApiService.getTransactionDataAsync((d: Array<any>) => {
+      this.transactionData = d;
+    }, this.accountIDnum);
   }
 }

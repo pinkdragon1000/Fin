@@ -1,3 +1,4 @@
+import { LineChartComponent } from './components/small-components/charts/line-chart.coponent';
 import { AuthGuard } from './auth-guard.service';
 import { FilterComponent } from './components/small-components/filter.component';
 import { ErrorComponent } from './components/small-components/form/error.component';
@@ -24,7 +25,6 @@ import { ModalButtonComponent } from './components/small-components/modal/modal-
 import { PageTemplateComponent } from './components/page-template/pagetemplate.component';
 import { HeaderPageTemplateComponent } from './components/page-template/headerpagetemplate.component';
 import { ManageAccountsComponent } from './components/page-content/manage-accounts.component';
-import { AddAccountsComponent } from './components/page-content/add-accounts.component';
 import { AccountComponent } from './components/page-content/account.component';
 import { SigninComponent } from './components/page-content/signin.component';
 import { SignupComponent } from './components/page-content/signup.component';
@@ -42,6 +42,7 @@ import { InputSelectGroupComponent } from './components/small-components/form/in
 import { YearFilterPipe } from './components/filters/year-filter.pipe';
 import { MonthFilterPipe } from './components/filters/month-filter.pipe';
 import { SearchFilterPipe } from './components/filters/search-filter.pipe';
+import { TransactionGroupFilterPipe } from './components/filters/transaction-group.pipe';
 import { AccountGraphViewComponent } from './components/page-content/account-graphview.component';
 
 @NgModule({
@@ -66,14 +67,15 @@ import { AccountGraphViewComponent } from './components/page-content/account-gra
     SigninComponent,
     SignupComponent,
     ManageAccountsComponent,
-    AddAccountsComponent,
     YearFilterPipe,
     MonthFilterPipe,
     SearchFilterPipe,
+    TransactionGroupFilterPipe,
     FilterComponent,
     AccountComponent,
     ClickableListViewComponent,
     VerticalBarComponent,
+    LineChartComponent,
     TabComponent,
     TabsComponent,
   ],

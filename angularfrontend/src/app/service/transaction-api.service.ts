@@ -27,6 +27,32 @@ export class TransactionAPIService {
       });
   }
 
+  deleteTransaction(body: string) {
+    this.webservicePath = this.getEnvironmentCommon();
+    const headers = {
+      'content-type': 'application/json',
+      authorization: this.auth,
+    };
+    this.http
+      .post(this.webservicePath + 'deleteTransaction', body, {
+        headers,
+        observe: 'response',
+      })
+      .subscribe(
+        (response) => {
+          console.log(
+            'POST completed sucessfully. The response received ' + response
+          );
+        },
+        (error) => {
+          console.log('Post failed with errors');
+        },
+        () => {
+          console.log('Post Completed');
+        }
+      );
+  }
+
   postTransactionData(body: string) {
     this.webservicePath = this.getEnvironmentCommon();
     const headers = {

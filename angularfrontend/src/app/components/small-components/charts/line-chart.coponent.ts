@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-vertical-bar-component',
+  selector: 'app-line-chart-component',
   template: `
-    <ngx-charts-bar-vertical
+    <ngx-charts-line-chart
       [view]="[400, 400]"
       [scheme]="
         this.colorScheme === 'redGreenScheme'
@@ -11,16 +11,18 @@ import { Component, Input } from '@angular/core';
           : this.orangePinkScheme
       "
       [results]="this.plot"
-      [yAxisLabel]="this.yLabel"
       [xAxis]="true"
       [yAxis]="true"
+      [showXAxisLabel]="true"
       [showYAxisLabel]="true"
-      [gradient]="true"
+      [xAxisLabel]="this.xLabel"
+      [yAxisLabel]="this.yLabel"
+      [timeline]="true"
     >
-    </ngx-charts-bar-vertical>
+    </ngx-charts-line-chart>
   `,
 })
-export class VerticalBarComponent {
+export class LineChartComponent {
   @Input() plot: any;
   @Input() yLabel: string;
   @Input() xLabel: string;

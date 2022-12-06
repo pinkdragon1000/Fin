@@ -8,6 +8,7 @@ import { ModalService } from './modal.service';
     <app-button-component
       label="{{ this.label }}"
       class="{{ this.class }}"
+      title="{{ this.title }}"
       (click)="openModal(this.type)"
     >
     </app-button-component>
@@ -33,6 +34,7 @@ export class ModalButtonComponent {
   @Input() type: string;
   @Input() label: string;
   @Input() class: string;
+  @Input() title: string;
   @Input() pagetitle: string;
   constructor(private modalService: ModalService) {}
 

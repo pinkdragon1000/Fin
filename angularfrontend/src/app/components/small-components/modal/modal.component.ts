@@ -22,6 +22,7 @@ import { ModalService } from './modal.service';
             [label]="'X'"
             [class]="'secondary'"
             (click)="this.close()"
+            [title]="'Close Modal'"
           >
           </app-button-component>
         </div>

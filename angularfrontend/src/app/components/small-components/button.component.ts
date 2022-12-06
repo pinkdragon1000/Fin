@@ -2,7 +2,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-button-component',
   template: `
-    <button type="submit" class="{{ this.class }}" (click)="(this.click)">
+    <button
+      type="submit"
+      class="{{ this.class }}"
+      (click)="(this.click)"
+      title="{{ this.title }}"
+    >
       {{ label }}
     </button>
   `,
@@ -10,7 +15,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     `
       button {
         margin: 0.375rem;
-        color: var(--fin-white);
         word-wrap: break-word;
         white-space: normal;
         cursor: pointer;
@@ -33,6 +37,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         background: var(--fin-gradient);
         padding: 1rem 2.5rem;
         text-transform: uppercase;
+        color: var(--fin-white);
       }
       .primary:hover {
         box-shadow: 0.125rem 0.188rem 0.313rem 0.063rem
@@ -40,14 +45,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       }
       .secondary {
         background-color: var(--fin-white);
-        border: 0.063rem var(--fin-neutral-4) solid;
-        color: var(--fin-neutral-2);
+        border: 0.063rem var(--fin-neutral-5) solid;
+        color: var(--fin-neutral-3);
         padding: 0.75rem 1rem;
         min-width: 5rem;
       }
       .secondary:hover {
         box-shadow: 0.063rem 0.125rem 0.5rem 0.063rem
-          var(--fin-neutral-3-transparent);
+          var(--fin-neutral-5-transparent);
       }
       .btn-help {
         position: fixed;
@@ -58,10 +63,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         min-width: 0rem;
         border-radius: 3.125rem;
         background: var(--fin-gradient);
-        box-shadow: 0.125rem 0.125rem 0.1875rem var(--fin-neutral-2);
+        box-shadow: 0.125rem 0.125rem 0.1875rem var(--fin-neutral-4);
         font-size: 2rem;
-        text-shadow: 0.05rem 0.05rem var(--fin-neutral-1);
+        text-shadow: 0.05rem 0.05rem var(--fin-neutral-4);
         z-index: 1;
+        color: var(--fin-white);
       }
       .trash {
         background: url('../../../assets/trash.svg');
@@ -69,7 +75,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         height: 3rem;
         min-width: 10%;
         float: right;
-        margin-top: -4.5rem;
+        margin-top: -3.5rem;
+      }
+
+      .edit {
+        background: url('../../../assets/edit.svg');
+        background-repeat: no-repeat;
+        height: 3rem;
+        float: right;
+        margin-right: 2.5rem;
+        min-width: 30%;
       }
     `,
   ],
@@ -77,6 +92,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ButtonComponent {
   @Input() label: string;
   @Input() class: string;
+  @Input() title: string;
   @Output() click: EventEmitter<string> = new EventEmitter<string>();
   onClick() {
     this.click.emit();

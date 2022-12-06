@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-component',
@@ -13,6 +12,8 @@ import { FormControl, FormGroup } from '@angular/forms';
       min="{{ min }}"
       id="{{ id }}"
       autocomplete="true"
+      value="{{ value }}"
+      title="{{ placeholder }}"
     />
   `,
 
@@ -20,6 +21,7 @@ import { FormControl, FormGroup } from '@angular/forms';
     `
       label {
         color: var(--fin-neutral-1);
+        font-weight: bold;
       }
 
       input {
@@ -31,7 +33,7 @@ import { FormControl, FormGroup } from '@angular/forms';
         padding: 0.75rem 1rem;
         border: 0.063rem solid var(--fin-white);
         margin: 0.5rem 0;
-        background: var(--fin-neutral-6);
+        background: var(--fin-white);
         color: var(--fin-neutral-1);
       }
 
@@ -54,4 +56,11 @@ export class InputComponent {
   @Input() required: boolean;
   @Input() min: number;
   @Input() id: string;
+  @Input() value?: string;
+
+  @Output() searchChange = new EventEmitter();
+  change(newValue: string) {
+    this.value = newValue;
+    this.searchChange.emit(newValue);
+  }
 }

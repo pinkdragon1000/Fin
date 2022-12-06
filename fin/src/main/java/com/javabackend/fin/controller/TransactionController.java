@@ -1,5 +1,6 @@
 package com.javabackend.fin.controller;
 
+import com.javabackend.fin.models.Account;
 import com.javabackend.fin.models.Transaction;
 import com.javabackend.fin.service.TransactionService;
 import org.springframework.http.MediaType;
@@ -26,6 +27,13 @@ public class TransactionController {
     @CrossOrigin
     Transaction newTransaction(@RequestBody Transaction newTransaction) {
         return transactionService.addNewTransaction(newTransaction);
+    }
+
+    //Deletes transaction within an account
+    @PostMapping("/deleteTransaction")
+    @CrossOrigin
+    public Collection<Transaction> deleteTransaction(@RequestBody Transaction transaction){
+        return transactionService.deleteTransaction(transaction.getAccount_id(), transaction.getTransaction_id());
     }
 
 }

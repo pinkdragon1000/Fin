@@ -1,10 +1,10 @@
 import { formatDate } from '@angular/common';
 
 export const dateFormatter = (date: Date) =>
-  formatDate(date, 'MM-dd-YYYY', 'en-US', '+0');
+  formatDate(date, 'YYYY-MM-dd', 'en-US', '+0');
 
 export const monthData = [
-  '',
+  null,
   '01',
   '02',
   '03',
@@ -21,7 +21,7 @@ export const monthData = [
 
 export const yearData = (startYear) => {
   var currentYear = new Date().getFullYear(),
-    yearData = [''];
+    yearData = [null];
   startYear = startYear || 1980;
   while (startYear <= currentYear) {
     yearData.push((startYear++).toString());
