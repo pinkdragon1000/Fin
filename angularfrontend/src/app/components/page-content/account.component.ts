@@ -11,7 +11,7 @@ import * as dateUtils from './../../utils/date-utils';
       [pagedirections]="
         'Click on the Add Transaction button to add a deposit/withdraw'
       "
-      [pagetitle]="overallAccountData[0]"
+      [pagetitle]="this.overallAccountData[0]"
       [buttonlabel]="'Add Transaction'"
     >
       <ng-container form>
@@ -105,7 +105,7 @@ import * as dateUtils from './../../utils/date-utils';
               [headerData]="accountUtils.accountHeaders"
             >
               <tr>
-                <td *ngFor="let data of overallAccountData.slice(1)">
+                <td *ngFor="let data of this.overallAccountData.slice(1)">
                   \${{ data }}
                 </td>
               </tr>
@@ -157,7 +157,7 @@ export class AccountComponent implements OnInit {
   accountIndex: number;
 
   transactionTableData: Array<any>;
-  overallAccountData: Array<number>;
+  overallAccountData: Array<number> = [];
   error: string;
   transactionType: string;
   userID: string = sessionStorage.getItem('userId');

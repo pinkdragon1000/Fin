@@ -50,13 +50,13 @@ import { AccountAPIService } from '../../service/account-api.service';
   ],
 })
 export class AccountGraphViewComponent implements OnInit {
-  accountStartingAmount: number;
-  accountDeposits: number;
-  accountWithdraws: number;
-  accountCurrentAmount: number;
-  accountDifference: number;
-  accountIDnum: number;
-  accountDescription: string;
+  accountStartingAmount: number = 100;
+  accountDeposits: number = 100;
+  accountWithdraws: number = 100;
+  accountCurrentAmount: number = 100;
+  accountDifference: number = 100;
+  accountIDnum: number = undefined;
+  accountDescription: string = '';
   accountIndex: number;
   userID: string = sessionStorage.getItem('userId');
   transactionData: Array<any> = [];
