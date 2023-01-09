@@ -38,12 +38,8 @@ public class UserController {
         String message="";
         for(User user: users){
             if(user.getEmail().equals(userToValidate.getEmail())){
-                System.out.println(user.getEmail());
-                System.out.println(userToValidate.getEmail());
                 message="Email exists ";
                 if(user.getPassword().equals(userToValidate.getPassword())){
-                    System.out.println(user.getPassword());
-                    System.out.println(userToValidate.getPassword());
                     Long id =user.getUser_id();
                     message += "and password exists.  Successfully validated as "+id;
                     break;

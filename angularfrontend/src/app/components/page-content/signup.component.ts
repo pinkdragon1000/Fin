@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as shajs from 'sha.js';
+import bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
 import { UserAPIService } from '../../service/user-api.service';
 import * as signupUtils from '../../utils/signup-signin-utils';
@@ -37,7 +37,8 @@ export class SignupComponent {
       this.error = 'Please fill out all fields';
     } else {
       this.error = undefined;
-      const hashedPassword = shajs('sha256').update(password).digest('hex');
+      const salt = '$2a$04$kyf36qq4HYoe4FliheKwe.';
+      var hashedPassword = bcrypt.hashSync(password, salt);
 
       const body = JSON.stringify({
         fullName,

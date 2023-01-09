@@ -1,3 +1,4 @@
+import { Transaction } from './../../models/transaction.models';
 import { Component, OnInit } from '@angular/core';
 import { TransactionAPIService } from '../../service/transaction-api.service';
 import { AccountAPIService } from '../../service/account-api.service';
@@ -66,9 +67,9 @@ import * as dateUtils from './../../utils/date-utils';
                     let i = index;
                     let transaction;
                     of: transactionData
-                      | monthFilter: month
-                      | yearFilter: year
-                      | transactionGroupFilter: transactionGroup
+                      | monthFilter : month
+                      | yearFilter : year
+                      | transactionGroupFilter : transactionGroup
                   "
                   [ngClass]="{
                     'text-deposit': transaction.transaction_type === 'Deposit',
@@ -161,7 +162,7 @@ export class AccountComponent implements OnInit {
   error: string;
   transactionType: string;
   userID: string = sessionStorage.getItem('userId');
-  transactionData: Array<any>;
+  transactionData: any;
 
   //Reference imported util variables
   accountUtils: any = accountUtils;
@@ -271,7 +272,7 @@ export class AccountComponent implements OnInit {
       ];
     }, this.userID);
 
-    this.transactionApiService.getTransactionDataAsync((d: Array<any>) => {
+    this.transactionApiService.getTransactionDataAsync((d: Transaction) => {
       this.transactionData = d;
     }, this.accountIDnum);
   }

@@ -1,3 +1,4 @@
+import { Transaction } from './../../models/transaction.models';
 import { Component, OnInit } from '@angular/core';
 import { TransactionAPIService } from 'src/app/service/transaction-api.service';
 import { AccountAPIService } from '../../service/account-api.service';
@@ -59,7 +60,7 @@ export class AccountGraphViewComponent implements OnInit {
   accountDescription: string = '';
   accountIndex: number;
   userID: string = sessionStorage.getItem('userId');
-  transactionData: Array<any> = [];
+  transactionData: any = [];
 
   constructor(
     private accountApiService: AccountAPIService,
@@ -81,7 +82,7 @@ export class AccountGraphViewComponent implements OnInit {
       this.accountDifference = d[this.accountIndex].account_Difference;
     }, this.userID);
 
-    this.transactionApiService.getTransactionDataAsync((d: Array<any>) => {
+    this.transactionApiService.getTransactionDataAsync((d: Transaction) => {
       this.transactionData = d;
     }, this.accountIDnum);
   }
