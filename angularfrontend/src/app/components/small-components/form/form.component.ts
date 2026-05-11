@@ -27,14 +27,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         <app-button-component
           [label]="this.label"
           [class]="'primary'"
-          (click)="onClick(); $event.stopPropagation()"
+          (click)="onClick()"
           [title]="'Submit Form'"
         ></app-button-component>
 
         <div *ngIf="containsDelete">
           <app-button-component
             [class]="'trash'"
-            (click)="onClickDeletion(); $event.stopPropagation()"
+            (click)="onClickDeletion()"
             [title]="'Delete Item'"
           ></app-button-component>
         </div>

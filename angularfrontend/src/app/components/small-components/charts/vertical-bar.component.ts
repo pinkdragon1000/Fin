@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-vertical-bar-component',
@@ -26,11 +27,17 @@ export class VerticalBarComponent {
   @Input() xLabel: string;
   @Input() colorScheme: string;
 
-  redGreenScheme = {
+  redGreenScheme: Color = {
+    name: 'redGreen',
+    selectable: true,
+    group: ScaleType.Ordinal,
     domain: ['var(--fin-green)', 'var(--fin-red)'],
   };
 
-  orangePinkScheme = {
+  orangePinkScheme: Color = {
+    name: 'orangePink',
+    selectable: true,
+    group: ScaleType.Ordinal,
     domain: ['var(--fin-pink)', 'var(--fin-orange)'],
   };
 }

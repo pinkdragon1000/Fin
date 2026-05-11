@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcryptjs';
 import { Router } from '@angular/router';
 import { UserAPIService } from '../../service/user-api.service';
 import * as signupUtils from '../../utils/signup-signin-utils';

@@ -77,9 +77,11 @@ export class FilterComponent {
   @Input() data: any;
 
   @Input() model: string;
-  @Output() searchChange = new EventEmitter();
+  @Output() modelChange = new EventEmitter<string>();
+  @Output() searchChange = new EventEmitter<string>();
   change(newValue: string) {
     this.model = newValue;
+    this.modelChange.emit(newValue);
     this.searchChange.emit(newValue);
   }
 }

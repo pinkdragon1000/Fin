@@ -158,7 +158,7 @@ export class AccountComponent implements OnInit {
   accountIndex: number;
 
   transactionTableData: Array<any>;
-  overallAccountData: Array<number> = [];
+  overallAccountData: Array<any> = [];
   error: string;
   transactionType: string;
   userID: string = sessionStorage.getItem('userId');
