@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   template: `
     <div class="row hero">
       <div class="column center">
-        <div class="row">
+        <div class="row center">
           <img src="../../assets/logo.svg" rel="icon" alt="" class="logo" />
           <h1 class="fin">{{ maintitle }}</h1>
         </div>
@@ -18,32 +18,35 @@ import { Component, Input } from '@angular/core';
       .hero {
         align-items: center;
         background: var(--fin-gradient);
-        border-radius: 0rem 0rem 2rem 2rem;
+        border-radius: 0 0 2rem 2rem;
         justify-content: center;
-        padding: 6rem;
+        padding: 1.75rem 2rem;
+        box-shadow: 0 4px 20px rgba(233, 64, 87, 0.2);
       }
 
       .fin {
         color: var(--fin-white);
         font-family: 'Courgette', cursive;
-        font-size: 4rem;
-        text-shadow: 0rem 0.125rem rgb(0 0 0 / 16%);
-        font-weight: 300;
+        font-size: 3.5rem;
+        text-shadow: 0 0.125rem rgb(0 0 0 / 14%);
+        font-weight: 400;
+        margin-left: 0.75rem;
       }
 
       .tag-line {
-        color: var(--fin-white);
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 1rem;
+        margin: 0;
       }
 
       img {
-        padding-right: 1rem;
-        width: 9.813rem;
-        height: 5.188rem;
+        width: 7rem;
+        height: 7rem;
       }
     `,
   ],
 })
 export class HeaderComponent {
-  @Input() maintitle: string;
-  @Input() tagline: string;
+  @Input() maintitle!: string;
+  @Input() tagline!: string;
 }

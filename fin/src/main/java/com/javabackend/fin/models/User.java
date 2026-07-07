@@ -1,8 +1,8 @@
 package com.javabackend.fin.models;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Users")
@@ -10,10 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class User {
 
     @Id
-    @Column(name = "user_id", nullable=false)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    private Long user_id;
+    @Column(name = "user_id", nullable=false, updatable=false, length=32)
+    private String user_id;
 
     @Column(name="full_name", nullable=false)
     private String full_name;
@@ -22,11 +20,18 @@ public class User {
     @Column(name="password", nullable=false)
     private String password;
 
-    public Long getUser_id() {
+    @PrePersist
+    private void ensureUserId() {
+        if (user_id == null || user_id.isBlank()) {
+            user_id = UUID.randomUUID().toString().replace("-", "");
+        }
+    }
+
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Long user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 

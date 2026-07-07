@@ -3,7 +3,6 @@ package com.javabackend.fin.controller;
 import com.javabackend.fin.models.Account;
 import com.javabackend.fin.service.AccountService;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -18,7 +17,7 @@ public class AccountController {
     //Displays all account information for a specific userID
     @GetMapping(path = "/accounts", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
-    public Collection<Account> findAccounts(@RequestParam Long userID) {
+    public Collection<Account> findAccounts(@RequestParam String userID) {
         Collection<Account> accounts= accountService.findAllAccountsByUserID(userID);
         accounts=accountService.setDepositWithdrawAmount(accounts);
         accounts=accountService.setAllAccountCurrentAmounts(accounts);
@@ -31,6 +30,13 @@ public class AccountController {
     @CrossOrigin
     Account newAccount(@RequestBody Account newAccount) {
         return accountService.addNewAccount(newAccount);
+    }
+
+    //Updates an existing account
+    @PostMapping("/updateAccount")
+    @CrossOrigin
+    Account updateAccount(@RequestBody Account account) {
+        return accountService.updateAccount(account);
     }
 
     //Deletes accounts and associated transactions for that account

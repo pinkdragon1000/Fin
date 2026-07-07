@@ -1,6 +1,6 @@
 export interface Transaction {
-  transactionId: number;
-  accountId: number;
+  transactionId: string;
+  accountId: string;
   transactionType: string;
   transactionAmount: number;
   transactionGroup: number;

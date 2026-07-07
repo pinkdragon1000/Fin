@@ -9,6 +9,9 @@
         "lint": "ng lint"
     },
     "private": true,
+    "browser": {
+        "crypto": false
+    },
     "dependencies": {
         "@angular/animations": "18.2.14",
         "@angular/cdk": "18.2.14",

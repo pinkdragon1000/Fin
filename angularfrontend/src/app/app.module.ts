@@ -1,4 +1,6 @@
+import { ToastComponent } from './components/small-components/toast.component';
 import { LineChartComponent } from './components/small-components/charts/line-chart.coponent';
+import { BarChartComponent } from './components/small-components/charts/bar-chart.component';
 import { AuthGuard } from './auth-guard.service';
 import { FilterComponent } from './components/small-components/filter.component';
 import { ErrorComponent } from './components/small-components/form/error.component';
@@ -15,7 +17,6 @@ import { UserAPIService } from './service/user-api.service';
 
 import { TabsComponent } from './components/small-components/tabs/tabs.component';
 import { TabComponent } from './components/small-components/tabs/tab.component';
-import { VerticalBarComponent } from './components/small-components/charts/vertical-bar.component';
 import { ButtonComponent } from './components/small-components/button.component';
 import { InputComponent } from './components/small-components/form/input.component';
 import { SelectComponent } from './components/small-components/form/select.component';
@@ -43,8 +44,7 @@ import { YearFilterPipe } from './components/filters/year-filter.pipe';
 import { MonthFilterPipe } from './components/filters/month-filter.pipe';
 import { SearchFilterPipe } from './components/filters/search-filter.pipe';
 import { TransactionGroupFilterPipe } from './components/filters/transaction-group.pipe';
-import { AccountGraphViewComponent } from './components/page-content/account-graphview.component';
-
+import { TransactionTypeFilterPipe } from './components/filters/transaction-type.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +57,6 @@ import { AccountGraphViewComponent } from './components/page-content/account-gra
     ErrorComponent,
     FormComponent,
     TableComponent,
-    AccountGraphViewComponent,
     HeaderPageTemplateComponent,
     PageTemplateComponent,
     EmptyContentComponent,
@@ -71,13 +70,15 @@ import { AccountGraphViewComponent } from './components/page-content/account-gra
     MonthFilterPipe,
     SearchFilterPipe,
     TransactionGroupFilterPipe,
+    TransactionTypeFilterPipe,
     FilterComponent,
     AccountComponent,
     ClickableListViewComponent,
-    VerticalBarComponent,
     LineChartComponent,
+    BarChartComponent,
     TabComponent,
     TabsComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,

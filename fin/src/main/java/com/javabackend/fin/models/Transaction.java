@@ -1,20 +1,18 @@
 package com.javabackend.fin.models;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Transactions")
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "transaction_id", nullable=false)
-    private Long transaction_id;
+    @Column(name = "transaction_id", nullable=false, updatable=false, length=32)
+    private String transaction_id;
 
     @ManyToOne(cascade = { CascadeType.REMOVE })
     @JoinColumn(name="account_id", nullable=false)
@@ -34,7 +32,14 @@ public class Transaction {
     @ColumnDefault("0")
     private BigDecimal transaction_subTotal=BigDecimal.ZERO;
 
-    public Long getAccount_id() {
+    @PrePersist
+    private void ensureTransactionId() {
+        if (transaction_id == null || transaction_id.isBlank()) {
+            transaction_id = UUID.randomUUID().toString().replace("-", "");
+        }
+    }
+
+    public String getAccount_id() {
         return account_id.getAccount_id();
     }
 
@@ -42,11 +47,11 @@ public class Transaction {
         this.account_id = account_id;
     }
 
-    public Long getTransaction_id() {
+    public String getTransaction_id() {
         return transaction_id;
     }
 
-    public void setTransaction_id(Long transaction_id) {
+    public void setTransaction_id(String transaction_id) {
         this.transaction_id = transaction_id;
     }
 

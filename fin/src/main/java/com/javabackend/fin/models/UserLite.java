@@ -1,5 +1,4 @@
 package com.javabackend.fin.models;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -10,17 +9,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UserLite {
 
     @Id
-    @Column(name = "user_id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    private Long user_id;
+    @Column(name = "user_id", nullable = false, updatable = false, length = 32)
+    private String user_id;
 
     @Column(name = "full_name", nullable = false)
     private String full_name;
     @Column(name = "email", nullable = false)
     private String email;
 
-    public Long getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 

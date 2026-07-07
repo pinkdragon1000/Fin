@@ -11,15 +11,15 @@ import * as signupUtils from '../../utils/signup-signin-utils';
         [inputData]="signupUtils.inputData"
         [error]="this.error"
         [label]="'Sign Up'"
-        (click)="signUp()"
+        (formSubmit)="signUp()"
       ></app-form-component>
       <a href="/">Already have an account? Sign In -> </a>
     </app-header-page-template>
   `,
 })
 export class SignupComponent {
-  error: string;
-  public userId: string;
+  error!: string;
+  public userId!: string;
 
   //Reference imported util variables
   signupUtils: any = signupUtils;
@@ -36,7 +36,7 @@ export class SignupComponent {
     if (fullName === '' || email === '' || password === '') {
       this.error = 'Please fill out all fields';
     } else {
-      this.error = undefined;
+      this.error = '';
       const salt = '$2a$04$kyf36qq4HYoe4FliheKwe.';
       var hashedPassword = bcrypt.hashSync(password, salt);
 
@@ -51,7 +51,7 @@ export class SignupComponent {
           this.error = 'User was not created.  Please try again';
         } else {
           this.userId = response.user_id;
-          sessionStorage.setItem('userId', this.userId);
+          localStorage.setItem('userId', this.userId);
           this.router.navigate(['manageAccounts']);
         }
       });

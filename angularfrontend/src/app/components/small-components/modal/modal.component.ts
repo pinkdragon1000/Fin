@@ -2,6 +2,7 @@ import {
   Component,
   ViewEncapsulation,
   ElementRef,
+  HostBinding,
   Input,
   OnInit,
   OnDestroy,
@@ -16,11 +17,11 @@ import { ModalService } from './modal.service';
   template: `
     <div class="modal">
       <div class="modal-body">
-        <div class="spacebetween">
+        <div class="modal-header">
           <h2 class="pagetitle">{{ pagetitle }}</h2>
           <app-button-component
-            [label]="'X'"
-            [class]="'secondary'"
+            [label]="'✕'"
+            [class]="'secondary close-btn'"
             (click)="this.close()"
             [title]="'Close Modal'"
           >
@@ -45,15 +46,28 @@ import { ModalService } from './modal.service';
         bottom: 0;
         left: 0;
         z-index: 1000;
-        overflow: hidden;
+        overflow-y: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 4rem 1rem;
       }
-      .modal .modal-body {
-        padding: 1.25rem;
-        background: #fff;
-        margin: 10rem;
-        border-radius: 0.625rem;
-        min-height: 20rem;
-        max-width: 80rem;
+      .modal-body {
+        background: var(--fin-white);
+        border-radius: var(--fin-radius-lg);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18), 0 4px 16px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 40rem;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        position: relative;
+        z-index: 1001;
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem 1rem;
+        border-bottom: 1px solid var(--fin-neutral-5);
       }
       .modal-background {
         position: fixed;
@@ -61,34 +75,33 @@ import { ModalService } from './modal.service';
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: var(--fin-black-transparent);
-        opacity: 0.75;
+        background-color: rgba(26, 26, 26, 0.55);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
         z-index: 900;
       }
       body.modal-open {
         overflow: hidden;
       }
       .modaltext {
-        padding: 1rem 4rem 4rem 4rem;
-      }
-      .spacebetween {
-        display: flex;
-        justify-content: space-between;
-        padding-left: 4rem;
+        padding: 1.5rem 2rem 2rem;
       }
       .pagetitle {
         background: var(--fin-gradient);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
+        background-clip: text;
+        margin: 0;
       }
     `,
   ],
   encapsulation: ViewEncapsulation.None,
 })
 export class ModalComponent implements OnInit, OnDestroy {
-  @Input() id: string;
+  @Input() id!: string;
+  @HostBinding('attr.id') get hostId() { return this.id; }
   @Output() click: EventEmitter<string> = new EventEmitter<string>();
-  @Input() pagetitle: string;
+  @Input() pagetitle!: string;
 
   private element: any;
 
@@ -101,39 +114,32 @@ export class ModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // ensure id attribute exists
     if (!this.id) {
       console.error('modal must have an id');
       return;
     }
 
-    // move element to bottom of page (just before </body>) so it can be displayed above everything else
     document.body.appendChild(this.element);
 
-    // close modal on background click
     this.element.addEventListener('click', (el) => {
       if (el.target.className === 'modal') {
         this.close();
       }
     });
 
-    // add self (this modal instance) to the modal service so it's accessible from controllers
     this.modalService.add(this);
   }
 
-  // remove self from modal service when component is destroyed
   ngOnDestroy(): void {
     this.modalService.remove(this.id);
     this.element.remove();
   }
 
-  // open modal
   open(): void {
     this.element.style.display = 'block';
     document.body.classList.add('modal-open');
   }
 
-  // close modal
   close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('modal-open');

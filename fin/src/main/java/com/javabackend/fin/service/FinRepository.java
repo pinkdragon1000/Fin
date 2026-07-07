@@ -15,47 +15,48 @@ import java.util.Collection;
 
 
 @Repository
-interface UserReadRepository extends CrudRepository<UserLite, Long> {
+interface UserReadRepository extends CrudRepository<UserLite, String> {
  @Query(value="SELECT * FROM Users u WHERE u.user_id = ?1", nativeQuery = true)
- Collection<UserLite> findAllUsersByUserID(Long userID);
+ Collection<UserLite> findAllUsersByUserID(String userID);
 }
 
 @Repository
-interface UserWriteRepository extends CrudRepository<User, Long> {
+interface UserWriteRepository extends CrudRepository<User, String> {
 }
 
 @Repository
-interface AccountRepository extends CrudRepository<Account, Long> {
+interface AccountRepository extends CrudRepository<Account, String> {
  @Query(value = "SELECT * FROM Accounts a WHERE a.user_id = ?1", nativeQuery = true)
- Collection<Account> findAllAccountsByUserID(Long userID);
+ Collection<Account> findAllAccountsByUserID(String userID);
 
  @Query(value = "SELECT * FROM Accounts a WHERE a.account_id = ?1", nativeQuery = true)
- Collection<Account> findAllAccountsByAccountID(Long accountID);
+ Collection<Account> findAllAccountsByAccountID(String accountID);
 
  @Modifying
  @Transactional
  @Query(value="Delete from Accounts a where a.account_id=?", nativeQuery=true)
- void deleteAccount(Long accountID);
+ void deleteAccount(String accountID);
 
 }
 
 @Repository
-interface TransactionRepository extends CrudRepository<Transaction, Long> {
+interface TransactionRepository extends CrudRepository<Transaction, String> {
 
  @Query(value="SELECT * FROM Transactions t WHERE t.account_id = ?1 order by transaction_date", nativeQuery = true)
-Collection<Transaction> findAllTransactionsByAccountID(Long accountID);
+Collection<Transaction> findAllTransactionsByAccountID(String accountID);
+
+ @Query(value="SELECT * FROM Transactions t WHERE t.account_id = ?1 and t.transaction_group = ?2", nativeQuery = true)
+ Collection<Transaction> findAllTransactionsByAccountIDAndGroup(String accountID, String transactionGroup);
 
  @Modifying
 @Transactional
  @Query(value="Delete from Transactions t where t.account_id=?1 and t.transaction_id=?2", nativeQuery=true)
- void deleteTransaction(Long accountID, Long transactionID);
+ void deleteTransaction(String accountID, String transactionID);
 
  @Modifying
  @Transactional
  @Query(value="Delete from Transactions t where t.account_id=?1", nativeQuery=true)
- void deleteTransactions(Long accountID);
+ void deleteTransactions(String accountID);
 
 
 }
-
-

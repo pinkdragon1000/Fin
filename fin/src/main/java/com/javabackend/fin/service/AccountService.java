@@ -14,6 +14,8 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 public class AccountService{
+   private static final String STARTING_AMOUNT_TRANSACTION_GROUP = "Starting Amount";
+
    @Autowired
     private AccountRepository accountRepository;
 
@@ -23,7 +25,7 @@ public class AccountService{
    @Autowired
    private TransactionService transactionService;
 
-   public BigDecimal calculateAllDeposits(long accountID) {
+   public BigDecimal calculateAllDeposits(String accountID) {
        Collection<Transaction> transactions = transactionRepository.findAllTransactionsByAccountID(accountID);
        BigDecimal aggTransactions=BigDecimal.ZERO;
        Account account=new Account();
@@ -36,7 +38,7 @@ public class AccountService{
        return account.getDeposit_amount();
    }
 
-    public BigDecimal calculateAllWithdrawals(long accountID) {
+    public BigDecimal calculateAllWithdrawals(String accountID) {
         Collection<Transaction> transactions = transactionRepository.findAllTransactionsByAccountID(accountID);
         BigDecimal aggTransactions=BigDecimal.ZERO;
         Account account=new Account();
@@ -51,7 +53,7 @@ public class AccountService{
 
     public Collection<Account> setDepositWithdrawAmount(Collection<Account> accounts) {
         for(Account account: accounts) {
-            Long accountID=account.getAccount_id();
+            String accountID=account.getAccount_id();
             account.setDeposit_amount(calculateAllDeposits(accountID));
             account.setWithdraw_amount(calculateAllWithdrawals(accountID));
         }
@@ -60,7 +62,7 @@ public class AccountService{
     
     public Collection<Account> setAllAccountCurrentAmounts(Collection<Account> accounts) {
         for(Account account: accounts) {
-            Long accountID=account.getAccount_id();
+            String accountID=account.getAccount_id();
             BigDecimal accountCurrentAmount=setAccountCurrentAmount(accountID);
             if(accountCurrentAmount==null) {
                 account.setAccount_Current_Amount(account.getAccount_Starting_Amount());
@@ -72,7 +74,7 @@ public class AccountService{
         return accounts;
     }
 
-    public BigDecimal setAccountCurrentAmount(long accountID) {
+    public BigDecimal setAccountCurrentAmount(String accountID) {
         Collection<Transaction> transactions = transactionService.calculateAndRetrieveTransactions(accountID);
         List<Transaction> transactionsList = transactions.stream().collect(toList());
         if (transactionsList.size() == 0) {
@@ -89,15 +91,50 @@ public class AccountService{
         return accounts;
     }
 
-    public Collection<Account> findAllAccountsByUserID(Long userID){
+    public Collection<Account> findAllAccountsByUserID(String userID){
         return accountRepository.findAllAccountsByUserID(userID);
     }
 
     public Account addNewAccount(Account newAccount) {
-        return accountRepository.save(newAccount);
+        Account account = accountRepository.save(newAccount);
+        saveStartingAmountTransaction(account);
+        return account;
     }
 
-    public Collection<Account> deleteAccountAndTransactions(Long account_id, Long user_id){
+    public Account updateAccount(Account account) {
+        validateStartingAmountIsFirst(account);
+        Account updatedAccount = accountRepository.save(account);
+        saveStartingAmountTransaction(updatedAccount);
+        return updatedAccount;
+    }
+
+    private void validateStartingAmountIsFirst(Account account) {
+        Collection<Transaction> transactions = transactionRepository.findAllTransactionsByAccountID(account.getAccount_id());
+        for (Transaction transaction : transactions) {
+            if (STARTING_AMOUNT_TRANSACTION_GROUP.equals(transaction.getTransaction_group())) {
+                continue;
+            }
+            if (transaction.getTransaction_date().before(account.getAccount_Starting_Date())) {
+                throw new IllegalArgumentException("Starting Amount date must be before all other transactions");
+            }
+        }
+    }
+
+    private void saveStartingAmountTransaction(Account account) {
+        Collection<Transaction> startingTransactions = transactionRepository.findAllTransactionsByAccountIDAndGroup(
+                account.getAccount_id(),
+                STARTING_AMOUNT_TRANSACTION_GROUP
+        );
+        Transaction startingTransaction = startingTransactions.stream().findFirst().orElse(new Transaction());
+        startingTransaction.setAccount_id(account);
+        startingTransaction.setTransaction_type(TransactionTypeEnum.DEPOSIT.getValue());
+        startingTransaction.setTransaction_group(STARTING_AMOUNT_TRANSACTION_GROUP);
+        startingTransaction.setTransaction_amount(account.getAccount_Starting_Amount());
+        startingTransaction.setTransaction_date(account.getAccount_Starting_Date());
+        transactionRepository.save(startingTransaction);
+    }
+
+    public Collection<Account> deleteAccountAndTransactions(String account_id, String user_id){
        transactionRepository.deleteTransactions(account_id);
        accountRepository.deleteAccount(account_id);
        return accountRepository.findAllAccountsByUserID(user_id);

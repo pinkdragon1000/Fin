@@ -5,7 +5,11 @@ import { Component, Input } from '@angular/core';
   styles: [
     `
       .pane {
-        padding: 1rem;
+        padding: 1.25rem;
+        background: var(--fin-white);
+        border: 1px solid var(--fin-neutral-5);
+        border-top: none;
+        border-radius: 0 0 var(--fin-radius) var(--fin-radius);
       }
     `,
   ],
@@ -16,6 +20,6 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class TabComponent {
-  @Input('tabTitle') title: string;
+  @Input('tabTitle') title!: string;
   @Input() active = false;
 }

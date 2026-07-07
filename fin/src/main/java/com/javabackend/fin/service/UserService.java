@@ -18,7 +18,7 @@ public class UserService  {
     private UserWriteRepository userWriteRepository;
 
 
-    public Collection<UserLite> findUserByID(Long userID) {
+    public Collection<UserLite> findUserByID(String userID) {
         return userReadRepository.findAllUsersByUserID(userID);
     }
 

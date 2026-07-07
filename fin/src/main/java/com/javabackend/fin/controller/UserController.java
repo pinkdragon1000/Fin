@@ -17,7 +17,7 @@ public class UserController {
     //Displays all user information for a specific userID
     @GetMapping(path = "/users", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
-    public Collection<UserLite> findUser(@RequestParam Long userID) {
+    public Collection<UserLite> findUser(@RequestParam String userID) {
             return userService.findUserByID(userID);
     }
 
@@ -40,7 +40,7 @@ public class UserController {
             if(user.getEmail().equals(userToValidate.getEmail())){
                 message="Email exists ";
                 if(user.getPassword().equals(userToValidate.getPassword())){
-                    Long id =user.getUser_id();
+                    String id =user.getUser_id();
                     message += "and password exists.  Successfully validated as "+id;
                     break;
                 }

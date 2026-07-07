@@ -9,6 +9,7 @@ import { ModalService } from './modal.service';
       label="{{ this.label }}"
       class="{{ this.class }}"
       title="{{ this.title }}"
+      [icon]="this.icon"
       (click)="openModal(this.type)"
     >
     </app-button-component>
@@ -18,9 +19,6 @@ import { ModalService } from './modal.service';
   `,
   styles: [
     `
-      #help {
-        display: none;
-      }
       #transaction {
         display: none;
       }
@@ -31,11 +29,12 @@ import { ModalService } from './modal.service';
   ],
 })
 export class ModalButtonComponent {
-  @Input() type: string;
-  @Input() label: string;
-  @Input() class: string;
-  @Input() title: string;
-  @Input() pagetitle: string;
+  @Input() type!: string;
+  @Input() label!: string;
+  @Input() class!: string;
+  @Input() title!: string;
+  @Input() pagetitle!: string;
+  @Input() icon!: string;
   constructor(private modalService: ModalService) {}
 
   openModal(id: string) {

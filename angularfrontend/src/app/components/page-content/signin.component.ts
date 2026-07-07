@@ -11,15 +11,15 @@ import * as signinUtils from '../../utils/signup-signin-utils';
         [inputData]="signinUtils.inputData.slice(1)"
         [error]="this.error"
         [label]="'Sign In'"
-        (click)="signIn()"
+        (formSubmit)="signIn()"
       ></app-form-component>
       <a href="/signup">Don't have an account? Sign Up -> </a>
     </app-header-page-template>
   `,
 })
 export class SigninComponent {
-  error: string;
-  public userId: string;
+  error!: string;
+  public userId!: string;
 
   signinUtils: any = signinUtils;
 
@@ -33,7 +33,7 @@ export class SigninComponent {
     if (email === '' || password === '') {
       this.error = 'Please fill out all fields';
     } else {
-      this.error = undefined;
+      this.error = '';
       const salt = '$2a$04$kyf36qq4HYoe4FliheKwe.';
       const hashedPassword = bcrypt.hashSync(password, salt);
 
@@ -52,7 +52,7 @@ export class SigninComponent {
         } else {
           location.href = '/manageAccounts';
           this.userId = response.split('as ').pop();
-          sessionStorage.setItem('userId', this.userId);
+          localStorage.setItem('userId', this.userId);
         }
       });
     }

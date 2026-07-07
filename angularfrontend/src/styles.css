@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 :root {
     --fin-black: rgba(26, 26, 26, 1);
     --fin-black-transparent: rgba(26, 26, 26, 0.5);
@@ -8,19 +8,33 @@
     --fin-white-transparent: rgba(255, 255, 255, 0.2);
     --fin-blue-1: rgba(3, 100, 255, 1);
     --fin-blue-2: rgba(48, 98, 178, 1);
+    --fin-blue-1-transparent: rgba(3, 100, 255, 0.15);
     --fin-pink: rgba(233, 64, 87, 1);
     --fin-orange: rgba(242, 113, 33, 1);
-    --fin-gradient: linear-gradient(25deg, var(--fin-pink), var(--fin-orange));
-    --fin-neutral-1: rgba(102, 100, 100, 1);
-    --fin-neutral-2: rgba(117, 117, 117, 1);
-    --fin-neutral-3: rgba(148, 148, 148, 1);
+    --fin-gradient: linear-gradient(135deg, var(--fin-pink), var(--fin-orange));
+    --fin-neutral-1: rgba(80, 80, 80, 1);
+    --fin-neutral-2: rgba(100, 100, 100, 1);
+    --fin-neutral-3: rgba(140, 140, 140, 1);
     --fin-neutral-4: rgba(172, 172, 172, 1);
     --fin-neutral-4-transparent: rgba(172, 172, 172, 0.2);
-    --fin-neutral-5: rgba(205, 205, 205, 1);
-    --fin-neutral-6: rgba(233, 233, 233, 1);
-    --fin-neutral-7: rgba(245, 245, 245, 1);
-    --fin-green: rgb(0, 128, 0, 1);
-    --fin-red: rgba(161, 10, 40, 1);
+    --fin-neutral-5: rgba(210, 210, 210, 1);
+    --fin-neutral-5-transparent: rgba(210, 210, 210, 0.3);
+    --fin-neutral-6: rgba(228, 228, 228, 1);
+    --fin-neutral-7: rgba(238, 238, 238, 1);
+    --fin-green: rgb(16, 140, 60);
+    --fin-red: rgba(180, 20, 45, 1);
+
+    /* Shadows */
+    --fin-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --fin-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --fin-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --fin-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    /* Border radius */
+    --fin-radius-sm: 0.375rem;
+    --fin-radius: 0.625rem;
+    --fin-radius-lg: 0.875rem;
+    --fin-radius-full: 9999px;
 }
 
 html {
@@ -32,38 +46,45 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: Inter, sans-serif;
     color: var(--fin-black);
+    background: var(--fin-white);
 }
 
-h1,
-h2,
-h3,
-p {
-    margin: 0.5rem 0;
+h1, h2, h3, p {
+    margin: 0.25rem 0;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 h3 {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.0625rem;
+    font-weight: 500;
 }
 
 p {
-    font-size: 1.125rem;
+    font-size: 0.9375rem;
     color: var(--fin-neutral-1);
     font-weight: 400;
+    line-height: 1.5;
 }
 
-a,
-a:hover {
+a, a:hover {
     text-decoration: none;
     color: var(--fin-blue-2);
+    font-weight: 500;
+}
+
+a:hover {
+    opacity: 0.8;
 }
 
 .float-right {
@@ -73,11 +94,11 @@ a:hover {
 .column {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 0.75rem;
 }
 
 .column:not(:last-child) {
-    padding-right: 2rem;
+    padding-right: 1.5rem;
 }
 
 .row {

@@ -1,17 +1,16 @@
 package com.javabackend.fin.models;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Accounts")
 public class Account {
    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "account_id", nullable=false)
-   private Long account_id;
+    @Column(name = "account_id", nullable=false, updatable=false, length=32)
+   private String account_id;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
@@ -21,6 +20,10 @@ public class Account {
     private String account_type;
     @Column(name="account_starting_amount", nullable=false)
     private BigDecimal account_starting_amount;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="account_starting_date", nullable=false)
+    private Date account_starting_date;
 
     @Column(name="account_description", nullable=false)
     private String account_description;
@@ -37,15 +40,22 @@ public class Account {
     @Column(name="account_difference")
     private BigDecimal account_difference;
 
-    public Long getAccount_id() {
+    @PrePersist
+    private void ensureAccountId() {
+        if (account_id == null || account_id.isBlank()) {
+            account_id = UUID.randomUUID().toString().replace("-", "");
+        }
+    }
+
+    public String getAccount_id() {
         return account_id;
     }
 
-    public void setAccount_id(Long account_id) {
+    public void setAccount_id(String account_id) {
         this.account_id = account_id;
     }
 
-    public Long getUser_id() {
+    public String getUser_id() {
         return user_id.getUser_id();
     }
 
@@ -75,6 +85,14 @@ public class Account {
 
     public void setAccount_Starting_Amount(BigDecimal account_starting_amount) {
         this.account_starting_amount = account_starting_amount;
+    }
+
+    public Date getAccount_Starting_Date() {
+        return account_starting_date;
+    }
+
+    public void setAccount_Starting_Date(Date account_starting_date) {
+        this.account_starting_date = account_starting_date;
     }
 
     public BigDecimal getAccount_Current_Amount() {

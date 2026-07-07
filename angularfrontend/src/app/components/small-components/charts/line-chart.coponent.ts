@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-line-chart-component',
   template: `
     <ngx-charts-line-chart
-      [view]="[400, 400]"
+      [view]="[containerWidth, chartHeight]"
       [scheme]="
         this.colorScheme === 'redGreenScheme'
           ? this.redGreenScheme
@@ -18,16 +18,51 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
       [showYAxisLabel]="true"
       [xAxisLabel]="this.xLabel"
       [yAxisLabel]="this.yLabel"
-      [timeline]="true"
+      [xAxisTickFormatting]="formatDate"
+      [timeline]="false"
+      [tooltipDisabled]="false"
     >
     </ngx-charts-line-chart>
   `,
+  styles: [
+    `
+      :host {
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+    `,
+  ],
 })
-export class LineChartComponent {
+export class LineChartComponent implements AfterViewInit {
   @Input() plot: any;
-  @Input() yLabel: string;
-  @Input() xLabel: string;
-  @Input() colorScheme: string;
+  @Input() yLabel!: string;
+  @Input() xLabel!: string;
+  @Input() colorScheme!: string;
+
+  containerWidth = 320;
+
+  constructor(private el: ElementRef) {}
+
+  ngAfterViewInit() {
+    this.updateContainerWidth();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.updateContainerWidth();
+  }
+
+  private updateContainerWidth() {
+    this.containerWidth = Math.max(260, this.el.nativeElement.offsetWidth || 260);
+  }
+
+  get chartHeight(): number {
+    return Math.max(260, Math.min(360, Math.round(this.containerWidth * 0.78)));
+  }
+
+  formatDate = (date: Date): string =>
+    new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
   redGreenScheme: Color = {
     name: 'redGreen',

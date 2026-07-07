@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class UserAPIService {
   userResult: any;
-  authResult: string;
+  authResult!: string;
   addUserResult: any;
   auth: string = 'Basic ' + btoa('srobinson:bl');
-  webservicePath: string;
+  webservicePath!: string;
 
   constructor(private http: HttpClient) {}
 

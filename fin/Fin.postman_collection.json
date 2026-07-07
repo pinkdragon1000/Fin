@@ -59,14 +59,14 @@
 			},
 			"response": []
 		},
-		{
-			"name": "Add Account",
+			{
+				"name": "Add Account",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"user_id\":{\"user_id\": 1}, \"account_Type\": \"Checking\", \"account_Starting_Amount\": 100, \"account_Description\": \"VISA Checking\", \"deposit_amount\": 0, \"withdraw_amount\": 0}",
+					"raw": "{\"user_id\":{\"user_id\": \"user001\"}, \"account_Type\": \"Checking\", \"account_Starting_Amount\": 100, \"account_Starting_Date\": \"2021-01-01\", \"account_Description\": \"VISA Checking\", \"deposit_amount\": 0, \"withdraw_amount\": 0}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,17 +83,44 @@
 						"addAccount"
 					]
 				}
+				},
+				"response": []
 			},
-			"response": []
-		},
-		{
-			"name": "Add Transaction",
+			{
+				"name": "Update Account",
+				"request": {
+					"method": "POST",
+					"header": [],
+					"body": {
+						"mode": "raw",
+						"raw": "{\"account_id\":\"account001\", \"user_id\":{\"user_id\": \"user001\"}, \"account_Type\": \"Checking\", \"account_Starting_Amount\": 100, \"account_Starting_Date\": \"2021-01-01\", \"account_Description\": \"Updated VISA Checking\", \"deposit_amount\": 0, \"withdraw_amount\": 0}",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "localhost:8080/updateAccount",
+						"host": [
+							"localhost"
+						],
+						"port": "8080",
+						"path": [
+							"updateAccount"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Add Transaction",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"account_id\":{\"account_id\": 1}, \"transaction_type\": \"Deposit\", \"transaction_date\": \"2021-09-18\", \"transaction_amount\": 20, \"transaction_subTotal\": 0}",
+					"raw": "{\"account_id\":{\"account_id\": \"account001\"}, \"transaction_type\": \"Deposit\", \"transaction_date\": \"2021-09-18\", \"transaction_amount\": 20, \"transaction_subTotal\": 0}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -110,11 +137,38 @@
 						"addTransaction"
 					]
 				}
+				},
+				"response": []
 			},
-			"response": []
-		},
-		{
-			"name": "Add User",
+			{
+				"name": "Update Transaction",
+				"request": {
+					"method": "POST",
+					"header": [],
+					"body": {
+						"mode": "raw",
+						"raw": "{\"transaction_id\":\"transaction001\", \"account_id\":{\"account_id\": \"account001\"}, \"transaction_type\": \"Deposit\", \"transaction_date\": \"2021-09-18\", \"transaction_amount\": 25, \"transaction_subTotal\": 0}",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "localhost:8080/updateTransaction",
+						"host": [
+							"localhost"
+						],
+						"port": "8080",
+						"path": [
+							"updateTransaction"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Add User",
 			"request": {
 				"method": "POST",
 				"header": [],

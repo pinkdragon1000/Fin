@@ -56,10 +56,9 @@ definitions:
       type: "object"
       properties:
         user_id:
-          type: "integer"
-          format: "int64"
+          type: "string"
           description: "Unique identifier of user"
-          example: 1
+          example: "user001"
         email:
           type: "string"
           description: "Email of User"

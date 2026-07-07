@@ -18,6 +18,8 @@ export const selectData = [
   ],
 ];
 
+const isStartingAmount = (transaction?: any) => transaction?.transaction_group === 'Starting Amount';
+
 export const selectDataFunc = (transaction?: any) => [
   [
     {
@@ -29,20 +31,23 @@ export const selectDataFunc = (transaction?: any) => [
       value: 1,
       description: 'Deposit',
       selected: transaction.transaction_type === 'Deposit' ? 'selected' : null,
+      lockSelect: isStartingAmount(transaction),
     },
     {
       value: 2,
       description: 'Withdraw',
       selected: transaction.transaction_type === 'Withdraw' ? 'selected' : null,
+      disabled: isStartingAmount(transaction),
     },
   ],
 ];
 
 export const transactionHeaders = [
-  'Transaction Date',
-  'Transaction Group',
-  'Transaction Amount',
+  'Date',
+  'Group',
+  'Amount',
   'Sub-Total',
+  '',
 ];
 
 export const accountHeaders = [
@@ -70,6 +75,10 @@ export const inputData = [
     placeholder: 'Type in your transaction group',
     required: true,
     type: 'text',
+    suggestions: {
+      Deposit: ['Starting Amount', 'Paycheck', 'Transfer', 'Interest', 'Refund', 'Reimbursement', 'Other Income'],
+      Withdraw: ['Rent', 'Utilities', 'Groceries', 'Dining', 'Transportation', 'Shopping', 'Subscription', 'Healthcare', 'ATM', 'Other Expense'],
+    },
   },
   {
     id: 'date',
@@ -100,6 +109,11 @@ export const inputDataFunc = (transaction?: any) => [
     required: true,
     type: 'text',
     value: transaction.transaction_group || 'None',
+    disabled: isStartingAmount(transaction),
+    suggestions: {
+      Deposit: ['Starting Amount', 'Paycheck', 'Transfer', 'Interest', 'Refund', 'Reimbursement', 'Other Income'],
+      Withdraw: ['Rent', 'Utilities', 'Groceries', 'Dining', 'Transportation', 'Shopping', 'Subscription', 'Healthcare', 'ATM', 'Other Expense'],
+    },
   },
   {
     id: 'date',

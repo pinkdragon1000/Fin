@@ -1,6 +1,5 @@
 package com.javabackend.fin.controller;
 
-import com.javabackend.fin.models.Account;
 import com.javabackend.fin.models.Transaction;
 import com.javabackend.fin.service.TransactionService;
 import org.springframework.http.MediaType;
@@ -18,7 +17,7 @@ public class TransactionController {
     //Displays all transactions for a specific accountID
     @GetMapping(path = "/transactions", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
-    public Collection<Transaction> findTransactions(@RequestParam Long accountID) {
+    public Collection<Transaction> findTransactions(@RequestParam String accountID) {
         return transactionService.calculateAndRetrieveTransactions(accountID);
     }
 
@@ -27,6 +26,13 @@ public class TransactionController {
     @CrossOrigin
     Transaction newTransaction(@RequestBody Transaction newTransaction) {
         return transactionService.addNewTransaction(newTransaction);
+    }
+
+    //Updates an existing transaction
+    @PostMapping(path ="/updateTransaction")
+    @CrossOrigin
+    Transaction updateTransaction(@RequestBody Transaction transaction) {
+        return transactionService.updateTransaction(transaction);
     }
 
     //Deletes transaction within an account

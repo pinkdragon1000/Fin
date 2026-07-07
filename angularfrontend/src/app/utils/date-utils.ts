@@ -19,12 +19,12 @@ export const monthData = [
   '12',
 ];
 
-export const yearData = (startYear) => {
+export const yearData = (startYear: number) => {
   var currentYear = new Date().getFullYear(),
     yearData = [null];
   startYear = startYear || 1980;
   while (startYear <= currentYear) {
-    yearData.push((startYear++).toString());
+    yearData.push((startYear+=1).toString());
   }
   return yearData;
 };

@@ -1,9 +1,10 @@
 export interface Account {
-   accountId: number;
-   userId: number;
+   accountId: string;
+   userId: string;
    depositAmount: number;
    withdrawAmount: number;
    accountDescription: string;
    accountType: string;
    accountStartingAmount: string;
+   accountStartingDate: string;
 }

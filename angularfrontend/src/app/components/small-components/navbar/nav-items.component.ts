@@ -6,14 +6,36 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <ul class="nav">
       <li
         class="nav-item"
+        [class.nav-item--logout]="item.action === 'logout'"
         routerLinkActive="{{ item.activeLink }}"
         *ngFor="let item of items"
       >
         <a
           routerLink="{{ item.link }}"
-          (click)="onClick($event)"
-          class="white-text"
+          (click)="onClick(item)"
+          class="nav-link"
         >
+          <svg
+            *ngIf="item.icon === 'grid'"
+            class="nav-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect x="4" y="4" width="6" height="6" rx="1.5"></rect>
+            <rect x="14" y="4" width="6" height="6" rx="1.5"></rect>
+            <rect x="4" y="14" width="6" height="6" rx="1.5"></rect>
+            <rect x="14" y="14" width="6" height="6" rx="1.5"></rect>
+          </svg>
+          <svg
+            *ngIf="item.icon === 'logout'"
+            class="nav-icon nav-icon--logout"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M10 5H6.5A1.5 1.5 0 0 0 5 6.5v11A1.5 1.5 0 0 0 6.5 19H10"></path>
+            <path d="M9 12h10"></path>
+            <path d="M14 7l5 5-5 5"></path>
+          </svg>
           {{ item.label }}
         </a>
       </li>
@@ -21,32 +43,65 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
   styles: [
     `
-      .nav > li > a {
-        position: relative;
-        display: block;
-        padding: 1.2rem;
-      }
-
       .nav {
         list-style: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
         display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
       }
 
       .nav-item {
-        width: 11.5rem;
+        display: flex;
       }
 
-      .active {
-        text-decoration: none;
-        background-color: var(--fin-white-transparent);
-        border-radius: 0.625rem;
-      }
-
-      .white-text {
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.75rem;
+        padding: 0 1.15rem;
+        border: 1px solid transparent;
+        border-radius: var(--fin-radius);
         color: var(--fin-white);
+        white-space: nowrap;
+        gap: 0.5rem;
+        transition: background-color 0.15s, border-color 0.15s, opacity 0.15s;
+      }
+
+      .nav-link:hover {
+        background-color: var(--fin-white-transparent);
+        opacity: 1;
+      }
+
+      .active .nav-link {
+        background-color: var(--fin-white-transparent);
+      }
+
+      .nav-item--logout .nav-link {
+        border-color: var(--fin-white-transparent);
+        background-color: transparent;
+      }
+
+      .nav-item--logout .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .nav-icon {
+        width: 1.0625rem;
+        height: 1.0625rem;
+        flex: 0 0 1.0625rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      .nav-icon--logout {
+        width: 1.125rem;
+        flex-basis: 1.125rem;
       }
     `,
   ],
@@ -59,12 +114,9 @@ export class NavItemsComponent {
   onClick(item: any): void {
     this.click.emit(item);
 
-    if (
-      item.target.href === 'http://localhost:4200/' ||
-      item.target.href === 'https://finaccounts.web.app/'
-    ) {
+    if (item.action === 'logout') {
       console.log('clearing session...');
-      sessionStorage.clear();
+      localStorage.clear();
     }
   }
 }

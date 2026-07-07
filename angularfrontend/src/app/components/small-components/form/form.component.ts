@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       }"
     >
       <app-error-component
-        *ngIf="ngForm.submitted && this.error"
+        *ngIf="this.error"
         [error]="this.error"
       ></app-error-component>
       <app-input-select-group-component
@@ -23,18 +23,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         [ngClass]="{
           'login-button': this.label === 'Sign In' || this.label === 'Sign Up'
         }"
+        class="button-row"
       >
         <app-button-component
           [label]="this.label"
           [class]="'primary'"
-          (click)="onClick()"
+          (buttonClick)="onClick()"
           [title]="'Submit Form'"
         ></app-button-component>
 
         <div *ngIf="containsDelete">
           <app-button-component
             [class]="'trash'"
-            (click)="onClickDeletion()"
+            (buttonClick)="onClickDeletion()"
             [title]="'Delete Item'"
           ></app-button-component>
         </div>
@@ -46,16 +47,22 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       .login-button {
         display: flex;
         justify-content: center;
+        margin-top: 0.5rem;
       }
-
+      .button-row {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
       form {
-        padding: 2rem;
-        background-color: var(--fin-neutral-6);
-        border-radius: 0.625rem;
+        padding: 0;
       }
-
       .form {
-        width: calc(30rem);
+        padding: 1.5rem;
+        width: 28rem;
+        box-sizing: border-box;
       }
     `,
   ],
@@ -64,17 +71,17 @@ export class FormComponent {
   @Input() inputData: any;
   @Input() selectData: any;
   @Input() selectLabelData: any;
-  @Input() error: string;
-  @Input() label: string;
-  @Input() containsDelete: boolean;
+  @Input() error!: string;
+  @Input() label!: string;
+  @Input() containsDelete!: boolean;
 
   @Output() deletionClick: EventEmitter<string> = new EventEmitter<string>();
   onClickDeletion() {
     this.deletionClick.emit();
   }
 
-  @Output() click: EventEmitter<string> = new EventEmitter<string>();
+  @Output() formSubmit: EventEmitter<string> = new EventEmitter<string>();
   onClick() {
-    this.click.emit();
+    this.formSubmit.emit();
   }
 }
