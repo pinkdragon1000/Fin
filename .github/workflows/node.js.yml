@@ -5,6 +5,12 @@ on:
     branches: [master]
     paths:
       - "angularfrontend/**"
+  pull_request:
+    paths:
+      - "angularfrontend/**"
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -30,10 +36,15 @@ jobs:
         with:
           name: dist
           path: angularfrontend/dist/fin
-  deploy:
-    name: Deploy
+
+  deploy_live:
+    name: Deploy to live channel
     needs: build
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -42,10 +53,36 @@ jobs:
         with:
           name: dist
           path: angularfrontend/dist/fin
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_PATH: ./angularfrontend
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FINACCOUNTS }}
+          projectId: finaccounts
+          channelId: live
+          entryPoint: ./angularfrontend
+
+  deploy_preview:
+    name: Deploy PR preview
+    needs: build
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: angularfrontend/dist/fin
+      - name: Deploy preview to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FINACCOUNTS }}
+          projectId: finaccounts
+          entryPoint: ./angularfrontend
