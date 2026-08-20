@@ -135,7 +135,7 @@ import * as addAccountsUtils from './../../utils/add-accounts-utils';
 })
 export class ManageAccountsComponent implements OnInit {
   accountData: any;
-  userId: string = localStorage.getItem('userId');
+  userId: string = localStorage.getItem('userId') ?? '';
   accountDescription!: string;
 
   error!: string;

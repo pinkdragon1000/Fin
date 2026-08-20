@@ -57,9 +57,43 @@ import * as dateUtils from './../../utils/date-utils';
               <span class="stat-label">Current Balance</span>
               <span class="stat-value">\${{ overallAccountData[4] }}</span>
             </div>
+
+            <!-- View toggle, filling the empty grid cell -->
+            <div class="view-cell">
+              <div class="view-toggle" role="group" aria-label="View">
+                <button
+                  class="view-btn"
+                  [class.active]="view === 'table'"
+                  [attr.aria-pressed]="view === 'table'"
+                  (click)="setView('table')"
+                >
+                  <svg class="view-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <path d="M3 9h18"></path>
+                    <path d="M3 14.5h18"></path>
+                    <path d="M9 9v11"></path>
+                  </svg>
+                  Table
+                </button>
+                <button
+                  class="view-btn"
+                  [class.active]="view === 'graphs'"
+                  [attr.aria-pressed]="view === 'graphs'"
+                  (click)="setView('graphs')"
+                >
+                  <svg class="view-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 20V10"></path>
+                    <path d="M10 20V4"></path>
+                    <path d="M16 20v-7"></path>
+                    <path d="M21 20H3"></path>
+                  </svg>
+                  Graphs
+                </button>
+              </div>
+            </div>
           </div>
 
-          <!-- Filters -->
+          <!-- Filters (shared by both views) -->
           <div class="filterBox">
             <app-filter-component
               [label]="'Month'"
@@ -75,6 +109,7 @@ import * as dateUtils from './../../utils/date-utils';
             ></app-filter-component>
             <app-filter-component
               label="Transaction Group"
+              [options]="transactionGroupOptions"
               [(model)]="transactionGroup"
               (searchChange)="transactionGroupSearchHandler($event)"
             ></app-filter-component>
@@ -98,7 +133,7 @@ import * as dateUtils from './../../utils/date-utils';
           </div>
 
           <!-- Transaction table -->
-          <div *ngIf="filteredData.length > 0">
+          <div *ngIf="filteredData.length > 0 && view === 'table'">
             <app-table-component
               [tableLabel]="'Transactions'"
               [headerData]="accountUtils.transactionHeaders"
@@ -167,7 +202,7 @@ import * as dateUtils from './../../utils/date-utils';
           </div>
 
           <!-- Charts row -->
-          <div *ngIf="filteredData.length > 0" class="charts-row">
+          <div *ngIf="filteredData.length > 0 && view === 'graphs'" class="charts-row">
             <div *ngIf="depositsByGroup.length > 0" class="chart-block">
               <p class="chart-label">Deposits by Group</p>
               <app-bar-chart-component [plot]="depositsByGroup" [xAxisLabel]="'Deposited ($)'" [colorScheme]="'green'"></app-bar-chart-component>
@@ -197,6 +232,61 @@ import * as dateUtils from './../../utils/date-utils';
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+      }
+
+      .view-cell {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 0.125rem;
+      }
+
+      .view-toggle {
+        display: inline-flex;
+        gap: 0.125rem;
+        padding: 0.1875rem;
+        background: var(--fin-neutral-7);
+        border: 1px solid var(--fin-neutral-6);
+        border-radius: var(--fin-radius-full);
+      }
+
+      .view-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4375rem;
+        height: 2rem;
+        padding: 0 0.9375rem;
+        border: none;
+        border-radius: var(--fin-radius-full);
+        background: transparent;
+        color: var(--fin-neutral-2);
+        font-size: 0.875rem;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+      }
+
+      .view-btn:hover:not(.active) {
+        color: var(--fin-black);
+      }
+
+      .view-btn.active {
+        background: var(--fin-white);
+        color: var(--fin-pink);
+        font-weight: 600;
+        box-shadow: var(--fin-shadow-xs);
+      }
+
+      .view-icon {
+        width: 1rem;
+        height: 1rem;
+        flex: 0 0 1rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
       }
 
       .charts-row {
@@ -401,19 +491,19 @@ import * as dateUtils from './../../utils/date-utils';
       .summary-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 0.75rem;
       }
 
       .stat-card {
         background: var(--fin-white);
-        border-radius: var(--fin-radius);
+        border-radius: var(--fin-radius-sm);
         border: 1px solid var(--fin-neutral-5);
         border-left: 3px solid var(--fin-neutral-4);
         box-shadow: var(--fin-shadow-xs);
-        padding: 1rem 1.25rem;
+        padding: 0.625rem 0.875rem;
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.125rem;
       }
 
       .stat-card--green { border-left-color: var(--fin-green); }
@@ -421,15 +511,15 @@ import * as dateUtils from './../../utils/date-utils';
       .stat-card--primary { border-left-color: var(--fin-pink); }
 
       .stat-label {
-        font-size: 0.6875rem;
+        font-size: 0.625rem;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         color: var(--fin-neutral-2);
       }
 
       .stat-value {
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: 700;
         color: var(--fin-black);
       }
@@ -446,7 +536,7 @@ export class AccountComponent implements OnInit {
   transactionTableData!: Array<any>;
   overallAccountData: Array<any> = [];
   error!: string;
-  userID: string = localStorage.getItem('userId');
+  userID: string = localStorage.getItem('userId') ?? '';
   transactionData: any[] = [];
 
   accountUtils: any = accountUtils;
@@ -459,6 +549,9 @@ export class AccountComponent implements OnInit {
   transactionType: string = null;
 
   transactionTypeData = [null, 'Deposit', 'Withdraw'];
+  transactionGroupOptions: string[] = [];
+
+  view: 'table' | 'graphs' = 'table';
 
   filteredData: any[] = [];
   pagedData: any[] = [];
@@ -485,7 +578,7 @@ export class AccountComponent implements OnInit {
     this.filteredData = this.transactionData
       .filter(t => this.isAll(this.month) || t.transaction_date?.split('-')[1] === this.month)
       .filter(t => this.isAll(this.year) || t.transaction_date?.split('-')[0] === this.year)
-      .filter(t => !this.transactionGroup || (t.transaction_group ?? '').search(new RegExp(this.transactionGroup, 'i')) > -1)
+      .filter(t => !this.transactionGroup || (t.transaction_group ?? '').toLowerCase().includes(this.transactionGroup.trim().toLowerCase()))
       .filter(t => this.isAll(this.transactionType) || t.transaction_type === this.transactionType);
 
     const spendGroups: { [key: string]: number } = {};
@@ -561,7 +654,7 @@ export class AccountComponent implements OnInit {
   }
 
   postTransactionData() {
-    this.accountID = new URLSearchParams(window.location.search).get('id');
+    this.accountID = new URLSearchParams(window.location.search).get('id') ?? '';
     const transactionTypeNum = (
       document.getElementById('select') as HTMLInputElement
     ).value;
@@ -655,6 +748,18 @@ export class AccountComponent implements OnInit {
         location.reload();
       });
     }
+  }
+
+  private getTransactionGroupOptions(): string[] {
+    const groups = this.transactionData
+      .map(t => (t.transaction_group ?? '').trim())
+      .filter(Boolean);
+
+    return [...new Set(groups)].sort((a, b) => a.localeCompare(b));
+  }
+
+  setView(view: 'table' | 'graphs') {
+    this.view = view;
   }
 
   monthHandler(search: string) { this.month = search; this.recalculate(); }
@@ -761,7 +866,7 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.accountID = new URLSearchParams(window.location.search).get('id');
+    this.accountID = new URLSearchParams(window.location.search).get('id') ?? '';
 
     this.accountApiService.getAccountDataAsync((d: any) => {
       this.accountIndex = d.findIndex(
@@ -780,6 +885,7 @@ export class AccountComponent implements OnInit {
 
     this.transactionApiService.getTransactionDataAsync((d: Transaction) => {
       this.transactionData = d as any;
+      this.transactionGroupOptions = this.getTransactionGroupOptions();
       this.editDataMap = {};
       (this.transactionData as any[]).forEach(t => {
         this.editDataMap[t.transaction_id] = {

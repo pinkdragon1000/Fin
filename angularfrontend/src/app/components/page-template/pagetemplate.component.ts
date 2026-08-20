@@ -58,7 +58,7 @@ export class PageTemplateComponent implements OnInit {
   @Input() buttonlabel!: string;
 
   userData!: string;
-  userId: string = localStorage.getItem('userId');
+  userId: string = localStorage.getItem('userId') ?? '';
 
   constructor(private userApiService: UserAPIService) {}
 
@@ -69,7 +69,7 @@ export class PageTemplateComponent implements OnInit {
         localStorage.setItem('firstName', this.userData);
       }, this.userId);
     } else {
-      this.userData = localStorage.getItem('firstName');
+      this.userData = localStorage.getItem('firstName') ?? '';
     }
   }
 }
